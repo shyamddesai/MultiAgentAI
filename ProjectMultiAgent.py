@@ -1,106 +1,118 @@
-import pymysql
-import pandas as pd
-import requests
-import yfinance as yf
+import warnings
+from crewai import Agent, Task, Crew, Process
+import os
+from langchain_openai import ChatOpenAI
+from utils import get_openai_api_key
+from crewai_tools import SerperDevTool, \
+                         ScrapeWebsiteTool, \
+                         WebsiteSearchTool
+#which markets ADNOC interested in and trade in, where are the news about these markets,
+from IPython.display import Markdown
 
-def fetch_internal_data():
-    # Define your database connection details
-    db_config = {
-        'host': 'localhost',
-        'user': 'oil_user',
-        'password': 'aqswde.62001',
-        'database': 'oil_production',
-        'port': 3306  # default MySQL port
-    }
+warnings.filterwarnings('ignore')
 
 
-    # Establish the database connection
-    try:
-        connection = pymysql.connect(
-            host=db_config['host'],
-            user=db_config['user'],
-            password=db_config['password'],
-            database=db_config['database'],
-            port=db_config.get('port', 3306)  # Use default port if not specified
-        )
-    except Exception as e:
-        print(f"Error connecting to database: {e}")
-        return pd.DataFrame()  # Return an empty DataFrame if connection fails
+openai_api_key = get_openai_api_key()
+os.environ["OPENAI_API_KEY"] = openai_api_key
+os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
 
-    try:
-        # Create a cursor object
-        with connection.cursor() as cursor:
-            # Define the SQL query to fetch production rates for the oil industry
-            sql = "SELECT id, date, production_rate, industry FROM production_rates WHERE industry = 'oil'"
-            # Execute the SQL query
-            cursor.execute(sql)
-            # Fetch all results from the executed query
-            result = cursor.fetchall()
-            # Convert the result to a pandas DataFrame
-            df = pd.DataFrame(result, columns=['id', 'date', 'production_rate', 'industry'])
-            return df
-    except Exception as e:
-        print(f"Error fetching data: {e}")
-        return pd.DataFrame()  # Return an empty DataFrame if query fails
-    finally:
-        # Close the database connection
-        connection.close()
+docs_scrape_tool = ScrapeWebsiteTool(
+    website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
+)
 
-def fetch_weather_data(api_key, location='Abu Dhabi'):
-        url = f'http://api.weatherapi.com/v1/current.json?key={api_key}&q={location}'
-        response = requests.get(url)
-        data = response.json()
-        return data
+news_researcher = Agent(
+    role="Senior News Researcher",
+    goal="Collect relevant and up-to-date news regarding on: {topic}",
+    backstory="You're working on collecting live news  "
+              "about this topic. You have to include all the news that affect this market"
+              "Information from politics, technology advancements, regulatory changes, and "
+              "operational/logistical changes "
+              "that are relevant to this market."
+              "The data you will collect will be given to the Analyst "
+              "and will be the basis for "
+              "the Analyst to make an analysis on this topic.",
+
+	verbose=True,
+    memory=True,
+)
+
+news_analyst = Agent(
+    role="Expert News Analyst",
+    goal="Write insightful and factually accurate "
+         "analytical piece from the data collected by the Researcher.",
+    backstory="You're working on a writing "
+              "an analytical piece about the topic: {topic}. "
+              "You base your writing on the work of "
+              "the Senior News Researcher, who provides the relevant news "
+              "and data about the topic. "
+              "You also provide accurate strategies and advice "
+              "and back them up with information "
+              "You acknowledge in your piece "
+              "when your statements are analysis made by you.",
+    verbose=True,
+    memory=True,
+)
+
+writer = Agent(
+    role="Editor",
+    goal="Edit the analytical piece done by the Expert News Analyst "
+         "into a professional and well structured news report",
+    backstory="You are an experienced and talented editor who receives news analysis "
+              "from the Expert News Analyst. "
+              "Your goal is to review the analysis ensuring that the "
+              "final report is clear and engaging.",
+    verbose=True,
+    memory=True
+)
+
+research_task = Task (
+    description=(
+        "Gather news articles and relevant information on the specified topic from various sources. "
+        "Ensure that the information is up-to-date and covers different perspectives."
+    ),
+    tools=[docs_scrape_tool],
+    expected_output='List of the relevant news articles with their sources.',
+    agent=news_researcher
+)
+
+analysis_task = Task(
+    description=(
+        "Analyze the gathered news articles from the News Researcher and identify key trends and insights in: {topic}. "
+        "Summarize the information in a concise manner."
+    ),
+    expected_output='A summary report highlighting the key trends and insights from the analyzed news articles.',
+    agent=news_analyst
+)
+
+editing_task = Task(
+    description=(
+        "Compile the analyzed information into a well-structured report. "
+        "Ensure that the report is clear, engaging, and free of errors."
+    ),
+    expected_output='A final report in markdown format that is well-structured and engaging.',
+    agent=writer
+)
+
+crew = Crew(
+    agents=[news_researcher, news_analyst, writer],
+    tasks=[research_task, analysis_task, editing_task],
+
+    manager_llm=ChatOpenAI(model="gpt-3.5-turbo",
+                           temperature=0.7),
+    process=Process.hierarchical,
+    verbose=True
+)
+
+result = crew.kickoff(inputs={"topic": "oil and gas market"})
+Markdown(result)
 
 
-def fetch_historical_prices():
-    data = yf.download('NG=F', start='1960-01-01', end='2024-06-01')
-    return data
-
-
-def write_historical_prices_to_file(data, filename='historical_pricesNG.txt'):
-    with open(filename, 'w') as file:
-        # Write the header
-        file.write("Date,Open,High,Low,Close,Volume,Adj Close\n")
-
-        # Iterate over each row in the DataFrame and write to the file
-        for date, row in data.iterrows():
-            file.write(
-                f"{date},{row['Open']},{row['High']},{row['Low']},{row['Close']},{row['Volume']},{row['Adj Close']}\n")
-
-
-if __name__ == "__main__":
-    def main():
-
-        ##yfinance crude oil and natural gas
-        historical_prices = fetch_historical_prices()
-        print("Historical Prices:", historical_prices)
-        # Write the historical prices to a file
-        write_historical_prices_to_file(historical_prices)
-
-        ##internal data with sample dataset
-        internal_data = fetch_internal_data()
-        if internal_data.empty:
-            print("No internal data fetched.")
-            return
-
-        print("Internal Production Data:", internal_data)
-
-        #Data cleaning and preprocessing
-        internal_data.drop_duplicates(inplace=True)  # Remove duplicate entries
-        internal_data.ffill(inplace=True)  # Fill missing values with forward fill method
-        internal_data['date'] = pd.to_datetime(internal_data['date'])  # Convert date column to datetime format
-        internal_data['production_rate'] = internal_data['production_rate'].astype(float)  # Ensure production_rate is of float type
-
-         #Print cleaned data
-        print("Cleaned Production Data:", internal_data)
-
-        api_key = '4b43bb6a07214bcd85844122241306'  # Replace with your WeatherAPI key
-        weather_data = fetch_weather_data(api_key)
-
-        print("Weather Data:", weather_data)
 
 
 
-if __name__ == "__main__":
-    main()
+
+
+
+
+
+
