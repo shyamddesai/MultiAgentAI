@@ -6,8 +6,18 @@ from utils import get_openai_api_key
 from crewai_tools import SerperDevTool, \
                          ScrapeWebsiteTool, \
                          WebsiteSearchTool
-#which markets ADNOC interested in and trade in, where are the news about these markets,
 from IPython.display import Markdown
+import json
+from pprint import pprint
+from pydantic import BaseModel
+# Define a Pydantic model for venue details
+# (demonstrating Output as Pydantic)
+class NewsDetails(BaseModel):
+    report: str
+
+
+#which markets ADNOC interested in and trade in, where are the news about these markets,
+
 
 warnings.filterwarnings('ignore')
 
@@ -67,7 +77,7 @@ writer = Agent(
 
 research_task = Task (
     description=(
-        "Gather news articles and relevant information on the specified topic from various sources. "
+        "Gather news articles and relevant information on the {topic} from various sources. "
         "Ensure that the information is up-to-date and covers different perspectives."
     ),
     tools=[docs_scrape_tool],
@@ -90,6 +100,8 @@ editing_task = Task(
         "Ensure that the report is clear, engaging, and free of errors."
     ),
     expected_output='A final report in markdown format that is well-structured and engaging.',
+    output_json=NewsDetails,
+    output_file="news_report.json",
     agent=writer
 )
 
@@ -104,7 +116,12 @@ crew = Crew(
 )
 
 result = crew.kickoff(inputs={"topic": "oil and gas market"})
-Markdown(result)
+with open('news_report.json') as f:
+   data = json.load(f)
+
+pprint(data)
+
+Markdown("news_report.md")
 
 
 
