@@ -2,7 +2,6 @@ import warnings
 from crewai import Agent, Task, Crew, Process
 import os
 from langchain_openai import ChatOpenAI
-from utils import get_openai_api_key
 from crewai_tools import SerperDevTool, \
                          ScrapeWebsiteTool, \
                          WebsiteSearchTool
@@ -10,6 +9,9 @@ from IPython.display import Markdown
 import json
 from pprint import pprint
 from pydantic import BaseModel
+from utils import get_openai_api_key
+
+
 # Define a Pydantic model for venue details
 # (demonstrating Output as Pydantic)
 class NewsDetails(BaseModel):
@@ -94,6 +96,7 @@ analysis_task = Task(
     agent=news_analyst
 )
 
+
 editing_task = Task(
     description=(
         "Compile the analyzed information into a well-structured report. "
@@ -116,8 +119,9 @@ crew = Crew(
 )
 
 result = crew.kickoff(inputs={"topic": "oil and gas market"})
+
 with open('news_report.json') as f:
-   data = json.load(f)
+    data = json.load(f)
 
 pprint(data)
 
