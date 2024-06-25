@@ -2,7 +2,7 @@ import warnings
 from crewai import Agent, Task, Crew, Process
 import os
 from langchain_openai import ChatOpenAI
-from utils import get_openai_api_key
+# from utils import get_openai_api_key
 from crewai_tools import SerperDevTool, \
                          ScrapeWebsiteTool, \
                          WebsiteSearchTool
@@ -12,12 +12,12 @@ from IPython.display import Markdown
 warnings.filterwarnings('ignore')
 
 
-openai_api_key = get_openai_api_key()
-os.environ["OPENAI_API_KEY"] = openai_api_key
-os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
+# openai_api_key = get_openai_api_key()
+# os.environ["OPENAI_API_KEY"] = openai_api_key
+os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 docs_scrape_tool = ScrapeWebsiteTool(
-    website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
+    # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
 )
 
 news_researcher = Agent(
@@ -34,17 +34,18 @@ news_researcher = Agent(
 
 	verbose=True,
     memory=True,
+    tools=[docs_scrape_tool],
 )
 
 news_analyst = Agent(
     role="Expert News Analyst",
     goal="Write insightful and factually accurate "
          "analytical piece from the data collected by the Researcher.",
-    backstory="You're working on a writing "
+    backstory="You're working on writing "
               "an analytical piece about the topic: {topic}. "
               "You base your writing on the work of "
               "the Senior News Researcher, who provides the relevant news "
-              "and data about the topic. "
+              "and data about the topic: {topic}. "
               "You also provide accurate strategies and advice "
               "and back them up with information "
               "You acknowledge in your piece "
@@ -56,8 +57,8 @@ news_analyst = Agent(
 writer = Agent(
     role="Editor",
     goal="Edit the analytical piece done by the Expert News Analyst "
-         "into a professional and well structured news report",
-    backstory="You are an experienced and talented editor who receives news analysis "
+         "into a professional and well structured news summary.",
+    backstory="You are an experienced and well-trained editor who receives news analysis "
               "from the Expert News Analyst. "
               "Your goal is to review the analysis ensuring that the "
               "final report is clear and engaging.",
@@ -67,17 +68,16 @@ writer = Agent(
 
 research_task = Task (
     description=(
-        "Gather news articles and relevant information on the specified topic from various sources. "
+        "Gather news articles and relevant information on the specified topic:{topic} from various sources. "
         "Ensure that the information is up-to-date and covers different perspectives."
     ),
-    tools=[docs_scrape_tool],
-    expected_output='List of the relevant news articles with their sources.',
+    expected_output='List of the summarized relevant news articles with their sources.',
     agent=news_researcher
 )
 
 analysis_task = Task(
     description=(
-        "Analyze the gathered news articles from the News Researcher and identify key trends and insights in: {topic}. "
+        "Analyze the gathered news articles from the News Researcher and identify key trends and insights in topic:{topic}. "
         "Summarize the information in a concise manner."
     ),
     expected_output='A summary report highlighting the key trends and insights from the analyzed news articles.',
