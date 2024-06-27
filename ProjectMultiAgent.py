@@ -59,9 +59,9 @@ tavily_api_key = os.getenv("TAVILY_API_KEY")
 # Initialize the TavilyAPI tool
 tavily_tool = TavilyAPI(api_key=tavily_api_key)
 
-openai_api_key = get_openai_api_key()
-os.environ["OPENAI_API_KEY"] = openai_api_key
-os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
+# openai_api_key = get_openai_api_key()
+# os.environ["OPENAI_API_KEY"] = openai_api_key
+os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 # docs_scrape_tool = ScrapeWebsiteTool(
 #     website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
