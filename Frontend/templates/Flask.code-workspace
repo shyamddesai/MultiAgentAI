@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "MultiAgentAI",
+			"path": "../../github/MultiAgentAI"
+		}
+	],
+	"settings": {}
+}
