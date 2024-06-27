@@ -2,7 +2,7 @@ import warnings
 from crewai import Agent, Task, Crew, Process
 import os
 from langchain_openai import ChatOpenAI
-from crewai_tools import SerperDevTool, ScrapeWebsiteTool
+from crewai_tools import SerperDevTool, ScrapeWebsiteTool, FileReadTool
 from IPython.display import Markdown
 import json
 from pydantic import BaseModel, PrivateAttr
