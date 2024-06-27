@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:News="https://www.bing.com/news/search?format=RSS&amp;q=ADNOC">
+    <channel>
+        <title>ADNOC - BingNews</title>
+        <link>https://www.bing.com/news/search?format=RSS&amp;q=ADNOC</link>
+        <description>Search results</description>
+        <image>
+            <url>http://www.bing.com/rsslogo.gif</url>
+            <title>ADNOC</title>
+            <link>https://www.bing.com/news/search?format=RSS&amp;q=ADNOC</link>
+        </image>
+        <copyright>Copyright \xc2\xa9 2024 Microsoft. All rights reserved. These XML results may not
+            be used, reproduced or transmitted in any manner or for any purpose other than rendering
+            Bing results within an RSS aggregator for your personal, non-commercial use. Any other
+            use of these results requires express written permission from Microsoft Corporation. By
+            accessing this web page or using these results in any manner whatsoever, you agree to be
+            bound by the foregoing restrictions.</copyright>
+        <item>
+            <title>Adnoc’s long Covestro chase set to achieve Europe’s largest takeover of year</title>
+            <link>
+                http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=667cfe8ef5a84c23bd8aa215d47d369b&amp;url=https%3a%2f%2fwww.ft.com%2fcontent%2fd784a372-1582-4734-a97b-577174e41447%3fsharetype%3dgift&amp;c=12568383409379675849&amp;mkt=en-ca</link>
+            <description>UAE oil company’s lengthy courtship and sweetened €14.4bn bid key to
+                overcoming German chemical group’s reluctance For Adnoc, with its headquarters
+                pictured above, the deal is part of a five-year, $150bn plan to transform itself
+                from a traditional ...</description>
+            <pubDate>Sun, 23 Jun 2024 17:00:00 GMT</pubDate>
+            <News:Source>The Financial Times</News:Source>
+            <News:Image>http://www.bing.com/th?id=OVFT.RLdGfSyt7T_EaiW3G8lYuC&amp;pid=News</News:Image>
+            <News:ImageSize>w={0}&amp;h={1}&amp;c=14</News:ImageSize>
+            <News:ImageMaxWidth>700</News:ImageMaxWidth>
+            <News:ImageMaxHeight>394</News:ImageMaxHeight>
+        </item>
+        <item>
+            <title>ADNOC’s expansion into Europe: 7 landmark deals diversifying its energy
+                operations</title>
+            <link>https://gulfbusiness.com/adnoc-deals-with-european-companies/</link>
+            <description>Covestro takeover talks: ADNOC is in advanced negotiations with German
+                chemicals giant Covestro over a potential EUR11.7bn($12.55bn) takeover. The energy
+                giant has been in talks with Covestro for over a year and has made a final offer of
+                EUR62 ($66.62 ...</description>
+            <pubDate>Mon, 24 Jun 2024 17:00:00 GMT</pubDate>
+            <News:Source>Gulf Business</News:Source>
+            <News:Image>/th?id=OVFT.mx98lrhD6s5mx5Pnc86vTy&amp;pid=News</News:Image>
+            <News:ImageSize>w={0}&amp;h={1}&amp;c=14</News:ImageSize>
+            <News:ImageMaxWidth>700</News:ImageMaxWidth>
+            <News:ImageMaxHeight>474</News:ImageMaxHeight>
+        </item>
+    </channel>
+</rss>

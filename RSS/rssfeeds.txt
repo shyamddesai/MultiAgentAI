@@ -1,0 +1,6 @@
+https://news.google.com/rss/search?q=ADNOC
+https://www.bing.com/search?format=RSS&q=ADNOC
+https://www.bing.com/news/search?format=RSS&q=ADNOC
+https://en.search.wordpress.com/?f=feed&q=ADNOC
+https://hnrss.org/newest?q=ADNOC
+https://www.aljazeera.com/xml/rss/all.xml
