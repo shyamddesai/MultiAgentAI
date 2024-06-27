@@ -2,7 +2,7 @@ import warnings
 from crewai import Agent, Task, Crew, Process
 import os
 from langchain_openai import ChatOpenAI
-from crewai_tools import SerperDevTool, ScrapeWebsiteTool, FileReadTool
+from crewai_tools import SerperDevTool, ScrapeWebsiteTool, FileReadTool, XMLSearchTool
 from IPython.display import Markdown
 import json
 from pydantic import BaseModel, PrivateAttr
@@ -16,6 +16,9 @@ from crewai_tools import BaseTool
 #     Link: str
 #     Title: str
 #     # Summary: str
+
+#define xml reading file tool
+xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
 #define scraping tool
 scrape_tool = ScrapeWebsiteTool()
@@ -33,7 +36,7 @@ class TavilyAPI(BaseTool):
         self._client = TavilyClient(api_key=api_key)
 
     def _run(self, query: str) -> list:
-        response = self._client.search(query=query, search_depth='basic', max_results=10)
+        response = self._client.search(query=query, search_depth='basic', max_results=100)
         results = [{"Link": result["url"], "Title": result["title"]} for result in response["results"]]
         return results
 
@@ -61,8 +64,8 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 
 openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
+# os.environ["OPENAI_MODEL_NAME"] = 'gpt-4'
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
-
 # docs_scrape_tool = ScrapeWebsiteTool(
 #     website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
 # )
@@ -70,8 +73,8 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
 # Define agents
 news_researcher = Agent(
     role="Elite News Aggregator",
-    goal="Provide a list of URLs that include relevant news articles on: {topic}.",
-    tools=[tavily_tool,scrape_tool],
+    goal="Provide a list of URLs that include relevant news articles on: {topics}.",
+    tools=[tavily_tool, xml_tool],
     backstory="You are an elite news aggregator with a deep understanding of global events and trends. "
               "Your expertise lies in sifting through vast amounts of information to find the most pertinent and timely news URLS."
               " You excel at identifying stories that cover a wide range of perspectives, ensuring that your list are comprehensive and balanced."
@@ -91,13 +94,14 @@ news_researcher = Agent(
 # Define tasks
 research_task = Task(
     description=(
-        "Your mission is to gather a diverse and comprehensive set of URLS on the specified topic: {topic}. "
-        "Focus on finding the most recent URL articles from reputable sources that provide different perspectives on the topic. "
+        "Your mission is to gather a diverse and comprehensive set of URLS on each of the specified list of topics: {topics}. "
+        "Focus on finding the most recent URL articles from reputable sources that provide different perspectives on the topics. "
         "Ensure that the information is up-to-date and relevant, covering various aspects such as political developments, technological advancements, regulatory changes, and market dynamics. "
-        "Avoid redundant information by ensuring that each article adds unique value to the overall understanding of the topic."
+        "Avoid redundant information by ensuring that each article adds unique value to the overall understanding of the topics."
+        "USE ALL TOOLS POSSIBLE."
     ),
-    expected_output='A list of All the urls that contain articles saved into a JSON type file with Link,Title, and summary.',
-    # output_json=NewsDetails,
+    expected_output='A list of All the urls that contain articles saved into a JSON type file with Link and Title.',
+    #output_json=NewsDetails,
     output_file='news_report.json',
     agent=news_researcher
 )
@@ -116,9 +120,15 @@ crew = Crew(
     process=Process.sequential,  # Ensure tasks are executed in sequence
     verbose=True
 )
+topics = [
+    "oil and gas market", "oilfield market", "petroleum market",
+    "energy market"
+]
 
 # Execute crew
-result = crew.kickoff(inputs={"topic": "oil and gas market"})
+result = crew.kickoff(inputs={"topics": topics})
+
+
 
 # Display the result from the saving task
 print(result)
