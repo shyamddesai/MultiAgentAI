@@ -1,0 +1,41 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Hacker News - Newest: &#34;ADNOC&#34;</title>
+        <link>https://news.ycombinator.com/newest</link>
+        <description>Hacker News RSS</description>
+        <docs>https://hnrss.org/</docs>
+        <generator>hnrss v2.1.1</generator>
+        <lastBuildDate>Thu, 27 Jun 2024 05:32:37 +0000</lastBuildDate>
+        <atom:link href="https://hnrss.org/newest?q=ADNOC" rel="self" type="application/rss+xml"></atom:link>
+        <item>
+            <title><![CDATA[Group 42 and oil giant ADNOC form AI R&D firm (Middle East AI News)]]></title>
+            <description><![CDATA[
+<p>Article URL: <a href="https://www.getrevue.co/profile/middleeastainews/issues/ourcrowd-partners-for-100m-uae-fund-oxford-kau-jv-for-ai-drugs-282328">https://www.getrevue.co/profile/middleeastainews/issues/ourcrowd-partners-for-100m-uae-fund-oxford-kau-jv-for-ai-drugs-282328</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=24715604">https://news.ycombinator.com/item?id=24715604</a></p>
+<p>Points: 1</p>
+<p># Comments: 0</p>
+]]></description>
+            <pubDate>Thu, 08 Oct 2020 03:57:38 +0000</pubDate>
+            <link>
+                https://www.getrevue.co/profile/middleeastainews/issues/ourcrowd-partners-for-100m-uae-fund-oxford-kau-jv-for-ai-drugs-282328</link>
+            <dc:creator>asiaainews</dc:creator>
+            <comments>https://news.ycombinator.com/item?id=24715604</comments>
+            <guid isPermaLink="false">https://news.ycombinator.com/item?id=24715604</guid>
+        </item>
+        <item>
+            <title><![CDATA[Abu Dhabi Business / Adnoc FAQ – Business Setup in Abu Dhabi]]></title>
+            <description><![CDATA[
+<p>Article URL: <a href="http://plusuae.com/abu-dhabi-business-adnoc-faq/">http://plusuae.com/abu-dhabi-business-adnoc-faq/</a></p>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=22726342">https://news.ycombinator.com/item?id=22726342</a></p>
+<p>Points: 1</p>
+<p># Comments: 0</p>
+]]></description>
+            <pubDate>Mon, 30 Mar 2020 09:10:12 +0000</pubDate>
+            <link>http://plusuae.com/abu-dhabi-business-adnoc-faq/</link>
+            <dc:creator>plusuae</dc:creator>
+            <comments>https://news.ycombinator.com/item?id=22726342</comments>
+            <guid isPermaLink="false">https://news.ycombinator.com/item?id=22726342</guid>
+        </item>
+    </channel>
+</rss>
