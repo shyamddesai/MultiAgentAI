@@ -1,15 +1,42 @@
-{
-    "oil and gas market": [
-        {
-            "Title": "Oil and gas industry by 2029 - WorldOil",
-            "Link": "https:/news.google.com/rss/articles/CBMifmh0dHBzOi8vd29ybGRvaWwuY29tL25ld3MvMjAyNC80LzEvYWRub2MtZ2FzLXRvLWludmVzdC1vdmVyLTEzLWJpbGxpb24taW4tZG9tZXN0aWMtaW50ZXJuYXRpb25hbC1vaWwtYW5kLWdhcy1pbmR1c3RyeS5hbXA_Y29jPTU"
-        },
-        {
-            "Title": "Oil and gas wells in UAE - WorldOil",
-            "Link": "https:/news.google.com/rss/articles/CBMilAFodHRwczovL3d3dy53b3JsZG9pbC5jb20vbmV3cy8yMDI0LzUvMTMvYWRub2MtZHJpbGxpbmctc2VjdXJlcy0xLTctYmlsbGlvbi1kcmlsbGluZy1jb250cmFjdC10by1kZWxpdmVyLTE0NC11bmNvbnZlbnRpb25hbC1vaWwtYW5kLWdhcy13ZWxscy1pbi11YWUv0gEA"
-        }
-    ],
-    "oilfield market": [],
-    "petroleum market": [],
-    "energy market": []
-}
+[
+    {
+        "Link": "https://www2.deloitte.com/us/en/insights/industry/oil-and-gas/oil-and-gas-industry-outlook.html",
+        "Title": "2024 oil and gas industry outlook | Deloitte Insights"
+    },
+    {
+        "Link": "https://www.cnbc.com/oil-gas/",
+        "Title": "Oil and Gas - CNBC"
+    },
+    {
+        "Link": "https://www.investopedia.com/investing/oil-gas-industry-overview/",
+        "Title": "How the Oil and Gas Industry Works - Investopedia"
+    },
+    {
+        "Link": "https://guides.loc.gov/oil-and-gas-industry",
+        "Title": "Introduction - Oil and Gas Industry: A Research Guide"
+    },
+    {
+        "Link": "https://www.cfr.org/backgrounder/how-us-oil-and-gas-industry-works",
+        "Title": "How the U.S. Oil and Gas Industry Works"
+    },
+    {
+        "Link": "https://news.google.com/rss/articles/CBMifmh0dHBzOi8vd29ybGRvaWwuY29tL25ld3MvMjAyNC80LzEvYWRub2MtZ2FzLXRvLWludmVzdC1vdmVyLTEzLWJpbGxpb24taW4tZG9tZXN0aWMtaW50ZXJuYXRpb25hbC1vaWwtYW5kLWdhcy1pbmR1c3RyeS1ieS0yMDI5L9IBAA?oc=5",
+        "Title": "oil and gas industry by 2029 - WorldOil"
+    },
+    {
+        "Link": "https://news.google.com/rss/articles/CBMilAFodHRwczovL3d3dy53b3JsZG9pbC5jb20vbmV3cy8yMDI0LzUvMTMvYWRub2MtZHJpbGxpbmctc2VjdXJlcy0xLTctYmlsbGlvbi1kcmlsbGluZy1jb250cmFjdC10by1kZWxpdmVyLTE0NC11bmNvbnZlbnRpb25hbC1vaWwtYW5kLWdhcy13ZWxscy1pbi11YWUv0gEA?oc=5",
+        "Title": "oil and gas wells in UAE - WorldOil"
+    },
+    {
+        "Link": "https://news.google.com/rss/articles/CBMiQmh0dHBzOi8vd3d3Lm9mZnNob3JlLXRlY2hub2xvZ3kuY29tL25ld3MvYWRub2MtdHJhZGluZy1kZXNrLWluLXVzL9IBAA?oc=5",
+        "Title": "ADNOC looking to establish trading desk in US - Offshore Technology"
+    },
+    {
+        "Link": "https://news.google.com/rss/articles/CBMie2h0dHBzOi8vd3d3LnJldXRlcnMuY29tL21hcmtldHMvY29tbW9kaXRpZXMvdWFlcy1hZG5vYy1zZWxscy1tb3JlLWZ1ZWwtb2lsLXJ1d2Fpcy1yZWZpbmVyeS1qYW51YXJ5LXRyYWRlcnMtZGF0YS0yMDI0LTAxLTIzL9IBAA?oc=5",
+        "Title": "refinery in January -traders, data - Reuters"
+    },
+    {
+        "Link": "https://news.google.com/rss/articles/CBMijwFodHRwczovL3d3dy5zcGdsb2JhbC5jb20vY29tbW9kaXR5aW5zaWdodHMvZW4vbWFya2V0LWluc2lnaHRzL2xhdGVzdC1uZXdzL29pbC8wNTAyMjQtdWFlcy1hZG5vYy11cHMtY3J1ZGUtcHJvZHVjdGlvbi1jYXBhY2l0eS10by00ODUtbWlsbGlvbi1iZNIBAA?oc=5",
+        "Title": "capacity to 4.85 million b/d - S&P Global"
+    }
+]

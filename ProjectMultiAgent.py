@@ -11,6 +11,8 @@ from dotenv import load_dotenv
 from tavily import TavilyClient
 from crewai_tools import BaseTool
 
+warnings.filterwarnings('ignore')
+
 # Define a Pydantic model for news details
 # class NewsDetails(BaseModel):
 #     Link: str
@@ -53,7 +55,6 @@ class TavilyAPI(BaseTool):
 #         except Exception as e:
 #             return f"Failed to save news data: {e}"
 
-warnings.filterwarnings('ignore')
 
 # Load environment variables from .env file
 load_dotenv()
@@ -121,6 +122,7 @@ crew = Crew(
     process=Process.sequential,  # Ensure tasks are executed in sequence
     verbose=True
 )
+
 topics = [
     "oil and gas market", "oilfield market", "petroleum market",
     "energy market"
