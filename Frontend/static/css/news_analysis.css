@@ -57,7 +57,7 @@ body {
     transition: transform 0.3s ease;
 }
 .list-group-item-action:hover {
-    background-color: #444444;
+    background-color: #ffffff;
     transform: scale(1.05);
 }
 .list-group-item h5 {
