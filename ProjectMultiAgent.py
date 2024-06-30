@@ -6,7 +6,8 @@ from crewai_tools import SerperDevTool, ScrapeWebsiteTool, FileReadTool, XMLSear
 from IPython.display import Markdown
 import json
 from pydantic import BaseModel, PrivateAttr
-from utils import get_openai_api_key
+from textblob import TextBlob
+from utils import get_openai_api_key, get_serper_api_key
 from dotenv import load_dotenv
 from tavily import TavilyClient
 from crewai_tools import BaseTool
@@ -19,11 +20,59 @@ warnings.filterwarnings('ignore')
 #     Title: str
 #     # Summary: str
 
-#define xml reading file tool
+#define tools
+
+# docs_scrape_tool = ScrapeWebsiteTool(
+#     website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
+# )
+
+# Define NewsSaver tool
+# class NewsSaver(BaseTool):
+#     name: str = "NewsSaver"
+#     description: str = "Saves the provided news data into a JSON file."
+#
+#     def _run(self, news_data: list) -> str:
+#         try:
+#             with open('news_report.json', 'w') as f:
+#                 json.dump(news_data, f, indent=2)
+#             return "News data successfully saved to news_report.json."
+#         except Exception as e:
+#             return f"Failed to save news data: {e}"
+
+
+# Load environment variables from .env file
+
+load_dotenv()
+tavily_api_key = os.getenv("TAVILY_API_KEY")
+
+openai_api_key = get_openai_api_key()
+os.environ["OPENAI_API_KEY"] = openai_api_key
+# os.environ["OPENAI_MODEL_NAME"] = 'gpt-4'
+os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
+
+serper_api_key=get_serper_api_key()
+os.environ["SERPER_API_KEY"] = serper_api_key
+
+
 xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
-#define scraping tool
+serper_tool = SerperDevTool()
+
 scrape_tool = ScrapeWebsiteTool()
+
+class SentimentAnalysisTool(BaseTool):
+    name: str = "SentimentAnalysisTool"
+    description: str = "This tool analyzes the sentiment of a given text and returns the sentiment polarity and subjectivity. Useful for evaluating the tone and mood of news articles."
+
+    def _run(self, text: str) -> str:
+        analysis = TextBlob(text)
+        polarity = analysis.sentiment.polarity
+        subjectivity = analysis.sentiment.subjectivity
+        return f"Polarity: {polarity}, Subjectivity: {subjectivity}"
+
+# Define the sentiment analysis tool
+sentiment_tool = SentimentAnalysisTool()
+
 # Define TavilyAPI tool
 class TavilyAPI(BaseTool):
     name: str = "TavilyAPI"
@@ -42,48 +91,49 @@ class TavilyAPI(BaseTool):
         results = [{"Link": result["url"], "Title": result["title"]} for result in response["results"]]
         return results
 
-# Define NewsSaver tool
-# class NewsSaver(BaseTool):
-#     name: str = "NewsSaver"
-#     description: str = "Saves the provided news data into a JSON file."
-#
-#     def _run(self, news_data: list) -> str:
-#         try:
-#             with open('news_report.json', 'w') as f:
-#                 json.dump(news_data, f, indent=2)
-#             return "News data successfully saved to news_report.json."
-#         except Exception as e:
-#             return f"Failed to save news data: {e}"
-
-
-# Load environment variables from .env file
-load_dotenv()
-tavily_api_key = os.getenv("TAVILY_API_KEY")
-
 # Initialize the TavilyAPI tool
 tavily_tool = TavilyAPI(api_key=tavily_api_key)
 
-openai_api_key = get_openai_api_key()
-os.environ["OPENAI_API_KEY"] = openai_api_key
-# os.environ["OPENAI_MODEL_NAME"] = 'gpt-4'
-os.environ["OPENAI_MODEL_NAME"] = 'gpt-3.5-turbo'
-
-# docs_scrape_tool = ScrapeWebsiteTool(
-#     website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
-# )
-
-# Define agents
-news_researcher = Agent(
-    role="Elite News Aggregator",
-    goal="Provide a list of URLs that include relevant news articles on: {topics}.",
-    tools=[tavily_tool, xml_tool],
-    backstory="You are an elite news aggregator with a deep understanding of global events and trends. "
-              "Your expertise lies in sifting through vast amounts of information to find the most pertinent and timely news URLS."
-              " You excel at identifying stories that cover a wide range of perspectives, ensuring that your list are comprehensive and balanced."
-              " Your role is crucial in providing URLS for analysts and decision-makers.",
+# Define the News Gatherer Agent
+news_gatherer = Agent(
+    role="News Gatherer",
+    goal="To collect and compile a comprehensive list of URLs and titles "
+         "from various news sources and RSS feeds related to specified topics in the energy market.",
+    tools=[serper_tool, scrape_tool, xml_tool,tavily_tool],
+    backstory="You are a dedicated and meticulous web crawler and aggregator, "
+              "driven by a passion for information and data organization. "
+              "Your skills in digital journalism and data scraping enable you "
+              "to efficiently gather relevant news URLs from diverse sources.",
+    allow_delegation=False,
     verbose=True,
-
 )
+
+content_analyzer = Agent(
+    role="Content Analyzer",
+    goal="To filter and analyze the collected articles to determine their relevance "
+         "and importance based on specified topics and criteria.",
+    tools=[sentiment_tool],
+    backstory="You are a skilled analyst with a keen eye for identifying significant "
+              "and relevant information within large sets of data. Your expertise in "
+              "content analysis and relevance filtering ensures that only the most valuable "
+              "articles are highlighted.",
+    allow_delegation=False,
+    verbose=True,
+)
+
+# Define the task for analyzing content
+content_analysis_task = Task(
+    description=(
+        "Analyze the collected articles to determine their relevance and importance based on the specified topics. "
+        "Use natural language processing (NLP) and sentiment analysis to evaluate each article. "
+        "Filter out articles that are not relevant or do not provide significant insights. "
+        "Your goal is to create a curated list of the most important and relevant articles on: {topics}."
+    ),
+    expected_output="A filtered list of articles with their relevance scores. Each entry should include the URL, title, and relevance score.",
+    output_file='filtered_news_report.json',
+    agent=content_analyzer
+)
+
 
 # news_saver = Agent(
 #     role="News Saver",
@@ -94,18 +144,22 @@ news_researcher = Agent(
 # )
 
 # Define tasks
-research_task = Task(
+# Define the task for gathering news
+news_gathering_task = Task(
     description=(
-        "Your mission is to gather a diverse and comprehensive set of URLS on each of the specified list of topics: {topics}. "
-        "Focus on finding the most recent URL articles from reputable sources that provide different perspectives on the topics. "
-        "Ensure that the information is up-to-date and relevant, covering various aspects such as political developments, technological advancements, regulatory changes, and market dynamics. "
-        "Avoid redundant information by ensuring that each article adds unique value to the overall understanding of the topics."
-        "USE ALL TOOLS POSSIBLE."
+        "Collect a comprehensive list of URLs and their titles from various news sources,"
+        " websites, and RSS feeds. Ensure that the URLs are current, relevant, and cover "
+        "a wide range of perspectives. Your goal is to gather a diverse set of links that "
+        "provide the latest updates and insights on: {topics}. Each collected "
+        "entry should include the URL and the title of the corresponding article or news piece."
     ),
-    expected_output='A list of All the urls that contain articles saved into a JSON type file with Link and Title.',
-    #output_json=NewsDetails,
+    expected_output="A JSON file containing a list of the collected URLs and their titles. "
+                    "Each entry in the list should be a dictionary with two keys: 'Link' "
+                    "for the URL and 'Title' for the article's title. The final output should "
+                    "reflect a wide range of sources and perspectives, ensuring the information "
+                    "is current and relevant.",
     output_file='news_report.json',
-    agent=news_researcher
+    agent=news_gatherer
 )
 
 # save_task = Task(
@@ -114,19 +168,24 @@ research_task = Task(
 #     agent=news_saver
 # )
 
-# Define crew
+# Define the crew
 crew = Crew(
-    agents=[news_researcher],
-    tasks=[research_task],
-    # manager_llm=ChatOpenAI(model="gpt-4", temperature=0.7),
+    agents=[news_gatherer],
+    tasks=[news_gathering_task],
     process=Process.sequential,  # Ensure tasks are executed in sequence
-    verbose=True
+    verbose=True,
+    memory=True
 )
 
+
 topics = [
-    "oil and gas market", "oilfield market", "petroleum market",
-    "energy market"
+    "Renewable Energy ", "Green Energy Initiatives", "Energy Transition",
+    "Crude Oil Prices",'LNG Market', 'Carbon Emissions', 'Energy Policy',
+    'Climate Change Impact','Energy Infrastructure','Power Generation',
+    'Energy Security','Global Energy Markets','Energy Supply Chain',
+    'Oil Refining',"Fuel Efficiency"
 ]
+
 
 # Execute crew
 result = crew.kickoff(inputs={"topics": topics})
