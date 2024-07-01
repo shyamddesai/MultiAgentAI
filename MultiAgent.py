@@ -9,6 +9,9 @@ from crewai_tools import SerperDevTool, \
                          ScrapeWebsiteTool, \
                          WebsiteSearchTool
 import feedparser
+from urllib.parse import quote_plus
+import spacy
+from rake_nltk import Rake
 from IPython.display import Markdown
 import json
 from pydantic import BaseModel, PrivateAttr
@@ -55,21 +58,53 @@ xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
 # Define TavilyAPI tool
 
+
+# Load the spaCy model
+nlp = spacy.load("en_core_web_sm")
+
+
+class SophisticatedKeywordGeneratorTool(BaseTool):
+    name: str = "SophisticatedKeywordGeneratorTool"
+    description: str = "This tool generates specific keywords from a given high-level topic using advanced NLP techniques."
+
+    def _run(self, topic: str) -> list:
+        # Use spaCy to process the text
+        doc = nlp(topic)
+        # Extract noun chunks and named entities as keywords
+        keywords = [chunk.text for chunk in doc.noun_chunks]
+        keywords += [ent.text for ent in doc.ents]
+
+        # Use RAKE to extract keywords
+        rake = Rake()
+        rake.extract_keywords_from_text(topic)
+        keywords += rake.get_ranked_phrases()
+
+        # Deduplicate keywords
+        keywords = list(set(keywords))
+
+        return keywords
+
+# Define the RSSFeedScraperTool
 class RSSFeedScraperTool(BaseTool):
     name: str = "RSSFeedScraperTool"
-    description: str = "This tool scrapes and parses RSS feeds to extract news articles. It returns a list of articles with titles and links."
+    description: str = "This tool dynamically generates RSS feed URLs from keywords and scrapes them to extract news articles. It returns a list of articles with titles and links."
 
-    def _run(self, rss_url: str) -> list:
-        feed = feedparser.parse(rss_url)
+    def _run(self, keywords: list) -> list:
         articles = []
-        for entry in feed.entries:
-            articles.append({
-                "Title": entry.title,
-                "Link": entry.link
-            })
+        for keyword in keywords:
+            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}"
+            feed = feedparser.parse(rss_url)
+            for entry in feed.entries:
+                articles.append({
+                    "Title": entry.title,
+                    "Link": entry.link
+                })
         return articles
 
-rss_scraper=RSSFeedScraperTool()
+# Define the keyword generator and RSS feed scraper tools
+keyword_generator = SophisticatedKeywordGeneratorTool()
+rss_feed_scraper = RSSFeedScraperTool()
+
 
 class TavilyAPI(BaseTool):
     name: str = "TavilyAPI"
@@ -120,8 +155,8 @@ docs_scrape_tool = ScrapeWebsiteTool(
 news_gatherer = Agent(
     role="News Gatherer",
     goal="To collect and compile a comprehensive list of URLs and titles "
-         "from RSS feeds related to specified topics in the energy market.",
-    tools=[rss_scraper],
+         "from various news sources and RSS feeds related to specified topics in the energy market.",
+    tools=[keyword_generator, rss_feed_scraper],
     backstory="You are a dedicated and meticulous web crawler and aggregator, "
               "driven by a passion for information and data organization. "
               "Your skills in digital journalism and data scraping enable you "
@@ -160,29 +195,21 @@ writer = Agent(
     memory=True
 )
 
+
 # Define the task for gathering news
 news_gathering_task = Task(
     description=(
-        "Collect a comprehensive list of URLs and their titles from various news sources,"
-
-        " websites, and RSS feeds. Ensure that the URLs are current, relevant, and are free to open"
-        "with no restrictions. Your goal is to gather a diverse set of links that "
-
-        " websites, and RSS feeds. Ensure that the URLs are current, relevant, and cover "
-        "a wide range of perspectives. Your goal is to gather a diverse set of links that "
-
-        "provide the latest updates and insights on: {topics}. Each collected "
-        "entry should include the URL and the title of the corresponding article or news piece."
+        "Generate specific keywords from the given topic and use these keywords to dynamically generate RSS feed URLs. "
+        "Scrape these feeds to collect a comprehensive list of URLs and their titles from various news sources. "
+        "Ensure that the URLs are current, relevant, and cover a wide range of perspectives. "
+        "Your goal is to gather a diverse set of links that provide the latest updates and insights on the given topic. "
+        "Each collected entry should include the URL and the title of the corresponding article or news piece."
     ),
     expected_output="A JSON file containing a list of the collected URLs and their titles. "
-                    "Each entry in the list should be a dictionary with four keys: 'Link' "
-                    "for the URL and 'Title' for the article's title and 'Summary' for the "
-                    "article's summary and 'Date' for the article's date. The final output "
-                    "should reflect a wide range of sources and perspectives, ensuring the "
-
-                    "information is current and relevant and no restrictions in access.",
-
-
+                    "Each entry in the list should be a dictionary with two keys: 'Link' "
+                    "for the URL and 'Title' for the article's title. The final output should "
+                    "reflect a wide range of sources and perspectives, ensuring the information "
+                    "is current and relevant and websites are free to access with no restrictions.",
     output_file='news_report.json',
     agent=news_gatherer
 )
@@ -209,31 +236,14 @@ editing_task = Task(
 crew = Crew(
     agents=[news_gatherer],
     tasks=[news_gathering_task],
-
     #manager_llm=ChatOpenAI(model="gpt-3.5-turbo",temperature=0.7),
     process=Process.sequential,
-    verbose=True
+    verbose=False
 )
 
-topics = [
-    "https://news.google.com/rss/search?q=Renewable+Energy",
-    "https://news.google.com/rss/search?q=Green+Energy+Initiatives",
-    "https://news.google.com/rss/search?q=Energy+Transition",
-    "https://news.google.com/rss/search?q=Crude+Oil+Prices",
-    "https://news.google.com/rss/search?q=LNG+Market",
-    "https://news.google.com/rss/search?q=Carbon+Emissions",
-    "https://news.google.com/rss/search?q=Energy+Policy",
-    "https://news.google.com/rss/search?q=Climate+Change+Impact",
-    "https://news.google.com/rss/search?q=Energy+Infrastructure",
-    "https://news.google.com/rss/search?q=Power+Generation",
-    "https://news.google.com/rss/search?q=Energy+Security",
-    "https://news.google.com/rss/search?q=Global+Energy+Markets",
-    "https://news.google.com/rss/search?q=Energy+Supply+Chain",
-    "https://news.google.com/rss/search?q=Oil+Refining",
-    "https://news.google.com/rss/search?q=Fuel+Efficiency"
-]
+# Input topic
+topic = "latest news on oil and gas market"
 
-
-result = crew.kickoff(inputs={"topics": topics})
+result = crew.kickoff(inputs={"topic": topic})
 
 print(result)
