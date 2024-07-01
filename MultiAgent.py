@@ -34,7 +34,25 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
 #define scraping tool
-scrape_tool = ScrapeWebsiteTool()
+scrape_tool = ScrapeWebsiteTool("https://news.google.com/rss/search?q=Renewable+Energy",
+"https://news.google.com/rss/search?q=Green+Energy+Initiatives",
+    "https://news.google.com/rss/search?q=Energy+Transition",
+    "https://news.google.com/rss/search?q=Crude+Oil+Prices",
+    "https://news.google.com/rss/search?q=LNG+Market",
+    "https://news.google.com/rss/search?q=Carbon+Emissions",
+    "https://news.google.com/rss/search?q=Energy+Policy",
+    "https://news.google.com/rss/search?q=Climate+Change+Impact",
+    "https://news.google.com/rss/search?q=Energy+Infrastructure",
+    "https://news.google.com/rss/search?q=Power+Generation",
+    "https://news.google.com/rss/search?q=Energy+Security",
+    "https://news.google.com/rss/search?q=Global+Energy+Markets",
+    "https://news.google.com/rss/search?q=Energy+Supply+Chain",
+    "https://news.google.com/rss/search?q=Oil+Refining",
+    "https://news.google.com/rss/search?q=Fuel+Efficiency"
+)
+
+
+
 # Define TavilyAPI tool
 class TavilyAPI(BaseTool):
     name: str = "TavilyAPI"
@@ -80,14 +98,14 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 news_gatherer = Agent(
     role="News Gatherer",
     goal="To collect and compile a comprehensive list of URLs and titles "
-         "from various news sources and RSS feeds related to specified topics in the energy market.",
-    tools=[serper_tool, scrape_tool],
+         "from RSS feeds related to specified topics in the energy market.",
+    tools=[scrape_tool],
     backstory="You are a dedicated and meticulous web crawler and aggregator, "
               "driven by a passion for information and data organization. "
               "Your skills in digital journalism and data scraping enable you "
               "to efficiently gather relevant news URLs from diverse sources.",
     allow_delegation=False,
-    verbose=True,
+    verbose=False,
 )
 
 
@@ -124,8 +142,8 @@ writer = Agent(
 news_gathering_task = Task(
     description=(
         "Collect a comprehensive list of URLs and their titles from various news sources,"
-        " websites, and RSS feeds. Ensure that the URLs are current, relevant, and cover "
-        "a wide range of perspectives. Your goal is to gather a diverse set of links that "
+        " websites, and RSS feeds. Ensure that the URLs are current, relevant, and are free to open"
+        "with no restrictions. Your goal is to gather a diverse set of links that "
         "provide the latest updates and insights on: {topics}. Each collected "
         "entry should include the URL and the title of the corresponding article or news piece."
     ),
@@ -134,7 +152,7 @@ news_gathering_task = Task(
                     "for the URL and 'Title' for the article's title and 'Summary' for the "
                     "article's summary and 'Date' for the article's date. The final output "
                     "should reflect a wide range of sources and perspectives, ensuring the "
-                    "information is current and relevant.",
+                    "information is current and relevant and no restrictions in access.",
     output_file='news_report.json',
     agent=news_gatherer
 )
