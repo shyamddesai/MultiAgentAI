@@ -84,6 +84,23 @@ news_researcher = Agent(
 
 )
 
+news_analyst = Agent(
+    role="Oil and Gas Industry Expert News Analyst",
+    goal="Extract insightful information based on what is relevant to the oil and gas market that is extracted by the Elite News Aggregator",
+    tools=[scrape_tool],
+    backstory="You're working at ADNOC Global Trading as an expert analyst in the oil and gas energy market."
+              "You want to write an analytical piece for each of the articles provdied about the following topics: {topics} that is relevant to ADNOC. "
+              "You base your writing on the work of "
+              "the Elite News Aggregator, who provides the relevant news in the form of a JSON file with article titles and URLs "
+              "and data about the topic. "
+              "You also provide accurate strategies and advice with a focus on stock updates like WTI Crude and Brent Crude "
+              "and back them up with information like relevant technological breakthroughs and events in the geopolitical environment. "
+              "You acknowledge in your piece "
+              "when your statements are analysis made by you.",
+    verbose=True,
+    memory=True,
+)
+
 # news_saver = Agent(
 #     role="News Saver",
 #     goal="Save the provided news URLS into a JSON file.",
@@ -103,8 +120,21 @@ research_task = Task(
     ),
     expected_output='A list of All the urls that contain articles saved into a JSON type file with Link and Title.',
     #output_json=NewsDetails,
-    output_file='news_report.json',
+    output_file='news_report_analysis.json',
     agent=news_researcher
+)
+
+news_analyst_task = Task(
+    description=(
+        "Your task is to analyze and filter out the articles given to you by the Elite News Aggregator."
+        "Your aim is tailor this for ADNOC Global Trading, who specializes in the trade of refined products."
+        "Embrace your role and backstory as a expert analyst and make sure the analysis you provide is relevant and insightful."
+    ),
+    expected_output = "A summary analysis of all the relevant articles/news you deem to be appropraite from the Elite News Aggregator."
+                      "Each article to have its own analysis seperated.",
+    output_file='news_report.json',
+    agent=news_analyst
+
 )
 
 # save_task = Task(
