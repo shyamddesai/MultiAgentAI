@@ -34,22 +34,22 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
 #define scraping tool
-scrape_tool = ScrapeWebsiteTool("https://news.google.com/rss/search?q=Renewable+Energy",
-"https://news.google.com/rss/search?q=Green+Energy+Initiatives",
-    "https://news.google.com/rss/search?q=Energy+Transition",
-    "https://news.google.com/rss/search?q=Crude+Oil+Prices",
-    "https://news.google.com/rss/search?q=LNG+Market",
-    "https://news.google.com/rss/search?q=Carbon+Emissions",
-    "https://news.google.com/rss/search?q=Energy+Policy",
-    "https://news.google.com/rss/search?q=Climate+Change+Impact",
-    "https://news.google.com/rss/search?q=Energy+Infrastructure",
-    "https://news.google.com/rss/search?q=Power+Generation",
-    "https://news.google.com/rss/search?q=Energy+Security",
-    "https://news.google.com/rss/search?q=Global+Energy+Markets",
-    "https://news.google.com/rss/search?q=Energy+Supply+Chain",
-    "https://news.google.com/rss/search?q=Oil+Refining",
-    "https://news.google.com/rss/search?q=Fuel+Efficiency"
-)
+# scrape_tool = ScrapeWebsiteTool("https://news.google.com/rss/search?q=Renewable+Energy",
+# "https://news.google.com/rss/search?q=Green+Energy+Initiatives",
+#     "https://news.google.com/rss/search?q=Energy+Transition",
+#     "https://news.google.com/rss/search?q=Crude+Oil+Prices",
+#     "https://news.google.com/rss/search?q=LNG+Market",
+#     "https://news.google.com/rss/search?q=Carbon+Emissions",
+#     "https://news.google.com/rss/search?q=Energy+Policy",
+#     "https://news.google.com/rss/search?q=Climate+Change+Impact",
+#     "https://news.google.com/rss/search?q=Energy+Infrastructure",
+#     "https://news.google.com/rss/search?q=Power+Generation",
+#     "https://news.google.com/rss/search?q=Energy+Security",
+#     "https://news.google.com/rss/search?q=Global+Energy+Markets",
+#     "https://news.google.com/rss/search?q=Energy+Supply+Chain",
+#     "https://news.google.com/rss/search?q=Oil+Refining",
+#     "https://news.google.com/rss/search?q=Fuel+Efficiency"
+# )
 
 
 
@@ -94,7 +94,7 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 #             return f"Failed to save news data: {e}"
 
 
-<<<<<<< HEAD
+
 # Define the News Gatherer Agent
 news_gatherer = Agent(
     role="News Gatherer",
@@ -109,7 +109,7 @@ news_gatherer = Agent(
     verbose=False,
 )
 
-=======
+
 docs_scrape_tool = ScrapeWebsiteTool(
     # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
 )
@@ -180,7 +180,6 @@ news_gathering_task = Task(
 
                     "information is current and relevant and no restrictions in access.",
 
-                    "information is current and relevant.",
 
     output_file='news_report.json',
     agent=news_gatherer
@@ -215,7 +214,7 @@ crew = Crew(
 )
 
 topics = [
-<<<<<<< HEAD
+
     "Light Distillate Trading", "Naphtha Market Trends", "Gasoline Price Fluctuations",
     "LPG Supply and Demand", "Biofuels Trade", "Jet Fuel Market Analysis",
     "Gas Oil and Diesel Trading", "Fuel Oil and Bunker Supply", "Crude Oil Price Changes",
@@ -232,15 +231,10 @@ topics = [
     "ADNOC Joint Ventures", "Strategic Partnerships in Oil and Gas",
     "Collaborations with International Companies"
 ]
-=======
-    "Renewable Energy ", "Green Energy Initiatives", "Energy Transition",
-    "Crude Oil Prices",'LNG Market', 'Carbon Emissions', 'Energy Policy',
-    'Climate Change Impact','Energy Infrastructure','Power Generation',
-    'Energy Security','Global Energy Markets','Energy Supply Chain',
-    'Oil Refining',"Fuel Efficiency"
-]
 
->>>>>>> 821f8ebb6fc66377dfd898c69557f8d820ec985d
+
+
+
 
 result = crew.kickoff(inputs={"topics": topics})
 
