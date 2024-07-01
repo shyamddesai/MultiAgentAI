@@ -136,7 +136,7 @@ news_gathering_task = Task(
                     "Each entry in the list should be a dictionary with three keys: 'Link' "
                     "for the URL and 'Title' for the article's title and 'Summary' for the "
                     "article's summary. The final output should reflect a wide range of sources"
-                    " and perspectives, ensuring the information is current and relevant.",
+                    "and perspectives, ensuring the information is current and relevant.",
     output_file='news_report.json',
     agent=news_gatherer
 )
