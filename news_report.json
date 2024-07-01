@@ -1,54 +1,36 @@
-The JSON file containing a list of the collected URLs and their titles, summaries, and dates, reflecting a wide range of sources and perspectives, ensuring the information is current and relevant. 
-
 ```json
 [
-  {
-    "Title": "Anglo Coking-Coal Mine Blaze to Have Months-Long Impact",
-    "Link": "https://www.bloomberg.com/energy",
-    "Summary": "An article discussing the long-term impacts of a blaze at an Anglo coking-coal mine.",
-    "Date": "29 minutes ago"
-  },
-  {
-    "Title": "Saudi Aramco Awards $25 Billion in Contracts For Gas Expansion",
-    "Link": "https://www.bloomberg.com/energy",
-    "Summary": "Coverage on Saudi Aramco's awarding of contracts worth $25 billion for gas expansion projects.",
-    "Date": "June 30, 2024"
-  },
-  {
-    "Title": "China Factory Activity Shrinks Again in Warning to Economy",
-    "Link": "https://www.bloomberg.com/energy",
-    "Summary": "Analysis of the shrinking factory activity in China and its warnings to the global economy.",
-    "Date": "June 28, 2024"
-  },
-  {
-    "Title": "U.S. oil heads to third straight weekly gain as fears of Israel-Hezbollah war grow",
-    "Link": "https://www.cnbc.com/energy/",
-    "Summary": "U.S. oil is on track for its third consecutive weekly gain amid growing fears of a conflict between Israel and Hezbollah.",
-    "Date": "June 28, 2024"
-  },
-  {
-    "Title": "U.S. needs major nuclear expansion to meet energy demand: Southern Company CEO",
-    "Link": "https://www.cnbc.com/energy/",
-    "Summary": "Insights from the CEO of Southern Company on the necessity of a significant expansion of nuclear energy to meet rising energy demands.",
-    "Date": "June 27, 2024"
-  },
-  {
-    "Title": "Oil prices gain 1% as Israel-Lebanon tensions overshadow soft U.S. demand",
-    "Link": "https://www.cnbc.com/energy/",
-    "Summary": "Oil prices increase by 1% as tensions between Israel and Lebanon overshadow weak U.S. demand.",
-    "Date": "June 27, 2024"
-  },
-  {
-    "Title": "Oil prices move higher despite unexpected build in U.S. crude, gasoline stockpiles",
-    "Link": "https://www.cnbc.com/energy/",
-    "Summary": "Oil prices rise despite an unexpected increase in U.S. crude and gasoline stockpiles.",
-    "Date": "June 26, 2024"
-  },
-  {
-    "Title": "Oil prices fall as traders watch Middle East tensions, summer demand",
-    "Link": "https://www.cnbc.com/energy/",
-    "Summary": "Oil prices decrease as traders monitor Middle East tensions and summer demand.",
-    "Date": "June 25, 2024"
-  }
+    {
+        "Link": "https://www.eia.gov/petroleum/weekly/distillate.php",
+        "Title": "This Week In Petroleum Distillate Section - U.S. Energy Information Administration (EIA)",
+        "Summary": "The U.S. Energy Information Administration (EIA) provides weekly updates on petroleum distillates, including prices, stocks, production, and imports/exports. Detailed data is available for different regions and sulfur levels.",
+        "Date": "2024-06-26"
+    },
+    {
+        "Link": "https://www.reuters.com/markets/commodities/distillate-futures-see-big-outflow-speculative-money-2024-04-02/",
+        "Title": "Distillate futures see big outflow of speculative money - Reuters",
+        "Summary": "Portfolio investors have continued to realize profits on formerly bullish diesel positions and begun to turn bearish as supplies adjust to the disruption of trade through the Red Sea and a mixed industrial outlook.",
+        "Date": "2024-04-03"
+    },
+    {
+        "Link": "https://www.hellenicshippingnews.com/asia-distillates-thin-open-window-activity-persists-despite-prompt-market-strength/",
+        "Title": "Asia Distillates-Thin open window activity persists despite prompt market strength - Hellenic Shipping News",
+        "Summary": "Asia’s middle distillates markets remained in thin trade with a lack of deals in the open trading window persisting for a second trading session, though prices and margins were both firmer amid the strength in prompt ICE gasoil futures.",
+        "Date": "2024-06-20"
+    },
+    {
+        "Link": "https://www.investing.com/economic-calendar/eia-weekly-distillates-stocks-917",
+        "Title": "United States EIA Weekly Distillates Stocks - Investing.com",
+        "Summary": "The Energy Information Administration reports inventory levels of U.S. crude oil, gasoline, and distillates stocks. The figure shows how much oil and product is available in storage, giving an overview of U.S. petroleum demand.",
+        "Date": "2024-06-26"
+    },
+    {
+        "Link": "https://www.reuters.com/business/energy/singapores-middle-distillates-stocks-hit-highest-2-12-yrs-exports-dip-2024-03-14/",
+        "Title": "Singapore's middle distillates stocks hit highest in 2-1/2 yrs as exports dip - Reuters",
+        "Summary": "Singapore's middle distillates stockpiles surged by 8% week on week to hit a fresh high since September 2021 as net exports of both diesel/gasoil and jet fuel/kerosene slipped by 98% and 26%, respectively.",
+        "Date": "2024-03-14"
+    }
 ]
 ```
+
+This JSON file contains a list of the collected URLs and their titles, summaries, and dates. Each entry in the list is a dictionary with four keys: 'Link' for the URL, 'Title' for the article's title, 'Summary' for the article's summary, and 'Date' for the article's date. The final output reflects a wide range of sources and perspectives, ensuring the information is current and relevant.
