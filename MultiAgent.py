@@ -8,7 +8,7 @@ from langchain_openai import ChatOpenAI
 from crewai_tools import SerperDevTool, \
                          ScrapeWebsiteTool, \
                          WebsiteSearchTool
-#which markets ADNOC interested in and trade in, where are the news about these markets,
+
 from IPython.display import Markdown
 import json
 from pydantic import BaseModel, PrivateAttr
