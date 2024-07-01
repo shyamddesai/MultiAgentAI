@@ -76,16 +76,12 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 #             return f"Failed to save news data: {e}"
 
 
-docs_scrape_tool = ScrapeWebsiteTool(
-    # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
-)
-
 # Define the News Gatherer Agent
 news_gatherer = Agent(
     role="News Gatherer",
     goal="To collect and compile a comprehensive list of URLs and titles "
          "from various news sources and RSS feeds related to specified topics in the energy market.",
-    tools=[serper_tool],
+    tools=[serper_tool, scrape_tool],
     backstory="You are a dedicated and meticulous web crawler and aggregator, "
               "driven by a passion for information and data organization. "
               "Your skills in digital journalism and data scraping enable you "
@@ -172,13 +168,22 @@ crew = Crew(
 )
 
 topics = [
-    "Renewable Energy ", "Green Energy Initiatives", "Energy Transition",
-    "Crude Oil Prices",'LNG Market', 'Carbon Emissions', 'Energy Policy',
-    'Climate Change Impact','Energy Infrastructure','Power Generation',
-    'Energy Security','Global Energy Markets','Energy Supply Chain',
-    'Oil Refining',"Fuel Efficiency"
+    "Light Distillate Trading", "Naphtha Market Trends", "Gasoline Price Fluctuations",
+    "LPG Supply and Demand", "Biofuels Trade", "Jet Fuel Market Analysis",
+    "Gas Oil and Diesel Trading", "Fuel Oil and Bunker Supply", "Crude Oil Price Changes",
+    "OPEC+ Production Decisions", "Brent and WTI Crude Trends", "ADNOC Crude Sales",
+    "LNG Market Updates", "Natural Gas Prices", "ADNOC LNG Exports",
+    "Global LNG Demand", "ADNOC Decarbonization Initiatives", "Renewable Energy Projects",
+    "ADNOC's Net Zero Emissions Goals", "Green Energy Investments",
+    "ADNOC Marketing Strategies", "Adaptive Trading Models", "Global Demand for Refined Products",
+    "ADNOC Refining Projects", "Petrochemical Production Updates", "Downstream Market Trends",
+    "Offshore Electrification Projects", "Waste Heat Recovery Initiatives", "Unconventional Gas Exploration",
+    "ADNOC Infrastructure Investments", "UAE Oil and Gas Regulations", "International Energy Policies",
+    "Environmental Regulations Impacting Oil and Gas", "Transition to Low Carbon Solutions",
+    "Technological Advancements in Energy", "Global Energy Market Shifts",
+    "ADNOC Joint Ventures", "Strategic Partnerships in Oil and Gas",
+    "Collaborations with International Companies"
 ]
-
 
 result = crew.kickoff(inputs={"topics": topics})
 
