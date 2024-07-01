@@ -54,6 +54,23 @@ xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
 
 # Define TavilyAPI tool
+
+class RSSFeedScraperTool(BaseTool):
+    name: str = "RSSFeedScraperTool"
+    description: str = "This tool scrapes and parses RSS feeds to extract news articles. It returns a list of articles with titles and links."
+
+    def _run(self, rss_url: str) -> list:
+        feed = feedparser.parse(rss_url)
+        articles = []
+        for entry in feed.entries:
+            articles.append({
+                "Title": entry.title,
+                "Link": entry.link
+            })
+        return articles
+
+rss_scraper=RSSFeedScraperTool()
+
 class TavilyAPI(BaseTool):
     name: str = "TavilyAPI"
     description: str = ("The best search engine to use. If you want to search for anything, USE IT! "
@@ -93,6 +110,10 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 #         except Exception as e:
 #             return f"Failed to save news data: {e}"
 
+#scrape website
+docs_scrape_tool = ScrapeWebsiteTool(
+    # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
+)
 
 
 # Define the News Gatherer Agent
@@ -100,32 +121,13 @@ news_gatherer = Agent(
     role="News Gatherer",
     goal="To collect and compile a comprehensive list of URLs and titles "
          "from RSS feeds related to specified topics in the energy market.",
-    tools=[scrape_tool],
+    tools=[rss_scraper],
     backstory="You are a dedicated and meticulous web crawler and aggregator, "
               "driven by a passion for information and data organization. "
               "Your skills in digital journalism and data scraping enable you "
               "to efficiently gather relevant news URLs from diverse sources.",
     allow_delegation=False,
     verbose=False,
-)
-
-
-docs_scrape_tool = ScrapeWebsiteTool(
-    # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
-)
-
-# Define the News Gatherer Agent
-news_gatherer = Agent(
-    role="News Gatherer",
-    goal="To collect and compile a comprehensive list of URLs and titles "
-         "from various news sources and RSS feeds related to specified topics in the energy market.",
-    tools=[serper_tool],
-    backstory="You are a dedicated and meticulous web crawler and aggregator, "
-              "driven by a passion for information and data organization. "
-              "Your skills in digital journalism and data scraping enable you "
-              "to efficiently gather relevant news URLs from diverse sources.",
-    allow_delegation=False,
-    verbose=True,
 )
 
 
@@ -214,26 +216,22 @@ crew = Crew(
 )
 
 topics = [
-
-    "Light Distillate Trading", "Naphtha Market Trends", "Gasoline Price Fluctuations",
-    "LPG Supply and Demand", "Biofuels Trade", "Jet Fuel Market Analysis",
-    "Gas Oil and Diesel Trading", "Fuel Oil and Bunker Supply", "Crude Oil Price Changes",
-    "OPEC+ Production Decisions", "Brent and WTI Crude Trends", "ADNOC Crude Sales",
-    "LNG Market Updates", "Natural Gas Prices", "ADNOC LNG Exports",
-    "Global LNG Demand", "ADNOC Decarbonization Initiatives", "Renewable Energy Projects",
-    "ADNOC's Net Zero Emissions Goals", "Green Energy Investments",
-    "ADNOC Marketing Strategies", "Adaptive Trading Models", "Global Demand for Refined Products",
-    "ADNOC Refining Projects", "Petrochemical Production Updates", "Downstream Market Trends",
-    "Offshore Electrification Projects", "Waste Heat Recovery Initiatives", "Unconventional Gas Exploration",
-    "ADNOC Infrastructure Investments", "UAE Oil and Gas Regulations", "International Energy Policies",
-    "Environmental Regulations Impacting Oil and Gas", "Transition to Low Carbon Solutions",
-    "Technological Advancements in Energy", "Global Energy Market Shifts",
-    "ADNOC Joint Ventures", "Strategic Partnerships in Oil and Gas",
-    "Collaborations with International Companies"
+    "https://news.google.com/rss/search?q=Renewable+Energy",
+    "https://news.google.com/rss/search?q=Green+Energy+Initiatives",
+    "https://news.google.com/rss/search?q=Energy+Transition",
+    "https://news.google.com/rss/search?q=Crude+Oil+Prices",
+    "https://news.google.com/rss/search?q=LNG+Market",
+    "https://news.google.com/rss/search?q=Carbon+Emissions",
+    "https://news.google.com/rss/search?q=Energy+Policy",
+    "https://news.google.com/rss/search?q=Climate+Change+Impact",
+    "https://news.google.com/rss/search?q=Energy+Infrastructure",
+    "https://news.google.com/rss/search?q=Power+Generation",
+    "https://news.google.com/rss/search?q=Energy+Security",
+    "https://news.google.com/rss/search?q=Global+Energy+Markets",
+    "https://news.google.com/rss/search?q=Energy+Supply+Chain",
+    "https://news.google.com/rss/search?q=Oil+Refining",
+    "https://news.google.com/rss/search?q=Fuel+Efficiency"
 ]
-
-
-
 
 
 result = crew.kickoff(inputs={"topics": topics})
