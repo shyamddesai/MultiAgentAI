@@ -8,7 +8,7 @@ from langchain_openai import ChatOpenAI
 from crewai_tools import SerperDevTool, \
                          ScrapeWebsiteTool, \
                          WebsiteSearchTool
-
+import feedparser
 from IPython.display import Markdown
 import json
 from pydantic import BaseModel, PrivateAttr
@@ -94,6 +94,7 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 #             return f"Failed to save news data: {e}"
 
 
+<<<<<<< HEAD
 # Define the News Gatherer Agent
 news_gatherer = Agent(
     role="News Gatherer",
@@ -106,6 +107,25 @@ news_gatherer = Agent(
               "to efficiently gather relevant news URLs from diverse sources.",
     allow_delegation=False,
     verbose=False,
+)
+
+=======
+docs_scrape_tool = ScrapeWebsiteTool(
+    # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
+)
+
+# Define the News Gatherer Agent
+news_gatherer = Agent(
+    role="News Gatherer",
+    goal="To collect and compile a comprehensive list of URLs and titles "
+         "from various news sources and RSS feeds related to specified topics in the energy market.",
+    tools=[serper_tool],
+    backstory="You are a dedicated and meticulous web crawler and aggregator, "
+              "driven by a passion for information and data organization. "
+              "Your skills in digital journalism and data scraping enable you "
+              "to efficiently gather relevant news URLs from diverse sources.",
+    allow_delegation=False,
+    verbose=True,
 )
 
 
@@ -142,8 +162,13 @@ writer = Agent(
 news_gathering_task = Task(
     description=(
         "Collect a comprehensive list of URLs and their titles from various news sources,"
+
         " websites, and RSS feeds. Ensure that the URLs are current, relevant, and are free to open"
         "with no restrictions. Your goal is to gather a diverse set of links that "
+
+        " websites, and RSS feeds. Ensure that the URLs are current, relevant, and cover "
+        "a wide range of perspectives. Your goal is to gather a diverse set of links that "
+
         "provide the latest updates and insights on: {topics}. Each collected "
         "entry should include the URL and the title of the corresponding article or news piece."
     ),
@@ -152,7 +177,11 @@ news_gathering_task = Task(
                     "for the URL and 'Title' for the article's title and 'Summary' for the "
                     "article's summary and 'Date' for the article's date. The final output "
                     "should reflect a wide range of sources and perspectives, ensuring the "
+
                     "information is current and relevant and no restrictions in access.",
+
+                    "information is current and relevant.",
+
     output_file='news_report.json',
     agent=news_gatherer
 )
@@ -186,6 +215,7 @@ crew = Crew(
 )
 
 topics = [
+<<<<<<< HEAD
     "Light Distillate Trading", "Naphtha Market Trends", "Gasoline Price Fluctuations",
     "LPG Supply and Demand", "Biofuels Trade", "Jet Fuel Market Analysis",
     "Gas Oil and Diesel Trading", "Fuel Oil and Bunker Supply", "Crude Oil Price Changes",
@@ -202,6 +232,15 @@ topics = [
     "ADNOC Joint Ventures", "Strategic Partnerships in Oil and Gas",
     "Collaborations with International Companies"
 ]
+=======
+    "Renewable Energy ", "Green Energy Initiatives", "Energy Transition",
+    "Crude Oil Prices",'LNG Market', 'Carbon Emissions', 'Energy Policy',
+    'Climate Change Impact','Energy Infrastructure','Power Generation',
+    'Energy Security','Global Energy Markets','Energy Supply Chain',
+    'Oil Refining',"Fuel Efficiency"
+]
+
+>>>>>>> 821f8ebb6fc66377dfd898c69557f8d820ec985d
 
 result = crew.kickoff(inputs={"topics": topics})
 

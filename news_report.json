@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ```json
 [
     {
@@ -34,3 +35,320 @@
 ```
 
 This JSON file contains a list of the collected URLs and their titles, summaries, and dates. Each entry in the list is a dictionary with four keys: 'Link' for the URL, 'Title' for the article's title, 'Summary' for the article's summary, and 'Date' for the article's date. The final output reflects a wide range of sources and perspectives, ensuring the information is current and relevant.
+=======
+[
+  {
+    "Link": "https://www.renewableenergyworld.com/",
+    "Title": "The Latest in Clean Energy News | Renewable Energy News",
+    "Summary": "Renewable Energy World is your premier source for green energy and storage news. Learn the latest in solar, wind, bio, and geothermal energy.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.rechargenews.com/",
+    "Title": "Recharge | Latest renewable energy news",
+    "Summary": "Read Recharge for the best news, analysis and opinion covering the renewable energy transition, led by wind and solar.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://renews.biz/",
+    "Title": "Home - reNews - Renewable Energy News",
+    "Summary": "Renews provides news-focused business intelligence on the renewable energy sector with market-leading coverage of offshore and onshore wind.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.usnews.com/topics/subjects/renewable_energy",
+    "Title": "Renewable Energy | US News",
+    "Summary": "A Big Boost for a Climate Solution: Electricity Made From the Heat of the Earth. One method of making electricity cleanly to address climate change has been...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://apnews.com/hub/renewable-energy",
+    "Title": "Renewable energy - AP News",
+    "Summary": "Led by new solar power, the world added renewable energy at breakneck speed in 2023, a trend that if amplified will help Earth turn away from fossil fuels and...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.cnbc.com/renewable-energy/",
+    "Title": "Renewable Energy - CNBC",
+    "Summary": "Catch up on the latest 'green' technology, and alternative energy news headlines.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://renewablesnow.com/",
+    "Title": "Renewables Now: Renewable energy news & research",
+    "Summary": "Read daily news, expert views and in-depth analysis on hot topics that are shaping the renewable energy industry today.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.theguardian.com/environment/renewableenergy",
+    "Title": "Renewable energy | The Guardian",
+    "Summary": "Latest news, sport, business, comment, analysis and reviews from the Guardian, the world's leading liberal voice.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.sciencedaily.com/news/earth_climate/renewable_energy/",
+    "Title": "Renewable Energy News - ScienceDaily",
+    "Summary": "Read the latest research on renewable sources of energy such as solar energy, wind power, nuclear energy, hydrogen fuel, ethanol,...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.reuters.com/tags/clean-energy/",
+    "Title": "Clean Energy | Reuters",
+    "Summary": "The latest international Clean Energy news and views from Reuters - one of the world's largest news agencies.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.doi.gov/pressreleases/biden-harris-administration-delivers-historic-milestones-new-actions-clean-energy",
+    "Title": "Biden-Harris Administration Delivers Historic Milestones, New Actions to Clean Energy",
+    "Summary": "The Biden-Harris administration today announced a series of historic milestones and actions to promote responsible clean energy development...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.spglobal.com/commodityinsights/en/market-insights/topics/energy-transition",
+    "Title": "Energy Transition - News & Insights - S&P Global",
+    "Summary": "S&P Global Commodity Insights energy transition news, insights and thought leadership charts the transition to greener energy and its impact on commodities.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.iea.org/news",
+    "Title": "News - IEA",
+    "Summary": "First COP29-IEA High-Level Energy Transition Dialogue brings energy and climate leaders together to discuss ambitions for Baku.",
+    "Date": "15 May 2024"
+  },
+  {
+    "Link": "https://www.rechargenews.com/transition",
+    "Title": "Transition - Latest renewable energy news | Recharge",
+    "Summary": "Read Recharge for the best news, analysis and opinion covering the renewable energy transition, led by wind and solar.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.energy-transitions.org/news/",
+    "Title": "News & events - Energy Transitions Commission",
+    "Summary": "The latest insights briefing from the Energy Transitions Commission, Credible Contributions: Bolder Plans for Higher Climate Ambition in the Next Round of...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.euronews.com/tag/energy-transition",
+    "Title": "All news about energy transition | Euronews",
+    "Summary": "Information about energy transition. Select the subjects you want to know more about on euronews.com.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.ft.com/content/9dc3bf0c-009e-4d3a-9c8f-094aa4e3e7de",
+    "Title": "Energy Transition - Financial Times",
+    "Summary": "Clean tech investment is booming, but not yet keeping pace with rising energy demand. Plus: China, Africa and the Gulf's efforts to shift away from fossil...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://about.bnef.com/energy-transition-investment/",
+    "Title": "Energy Transition Investment Trends 2024 | BloombergNEF",
+    "Summary": "Energy Transition Investment Trends is BloombergNEF's annual review of global investment in the low-carbon energy transition. It covers a wide scope of sectors...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.sierraclub.org/sierra/how-communities-can-power-their-own-just-clean-energy-transition",
+    "Title": "How Communities Can Power Their Own Just Clean Energy Transition",
+    "Summary": "The climate crisis presents an opportunity to rewrite everything from ownership to energy independence, all driven by communities...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://oilprice.com/",
+    "Title": "Crude Oil Prices Today | OilPrice.com",
+    "Summary": "Crude oil prices & gas price charts. Oil price charts for Brent Crude, WTI & oil futures. Energy news covering oil, petroleum, natural gas and investment...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.cnbc.com/oil/",
+    "Title": "Crude Oil Prices Today and Oil Market News - CNBC",
+    "Summary": "Follow today's crude oil price moves and key news stories driving oil price actions, as well as developments in the broader energy sector.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.bloomberg.com/energy",
+    "Title": "Energy - Bloomberg.com",
+    "Summary": "Get updated data about energy and oil prices. Find natural gas, emissions, and crude oil price changes.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.reuters.com/markets/commodities/oil-prices-slide-fears-slow-us-demand-after-surprise-inventory-build-2024-06-27/",
+    "Title": "Oil settles $1 up, war risk premium outweighs ample US stocks",
+    "Summary": "Brent crude oil futures settled up $1.14, or 1.34%, to $86.39 a barrel. U.S. West Texas Intermediate crude futures settled up by 84 cents, or...",
+    "Date": "27 June 2024"
+  },
+  {
+    "Link": "https://www.bbc.com/news/topics/cmjpj223708t",
+    "Title": "Oil - BBC News",
+    "Summary": "Prices had already risen in expectation of action, with Brent crude near a six-month high last week.",
+    "Date": "15 Apr 2024"
+  },
+  {
+    "Link": "https://www.cnbc.com/2024/06/27/crude-oil-prices-today.html",
+    "Title": "Oil prices gain 1% as Israel-Lebanon tensions overshadow soft U.S.",
+    "Summary": "Crude oil futures gained Thursday as fears of war between Israel and the Iran-backed militia Hezbollah overshadowed soft U.S. gasoline demand.",
+    "Date": "27 June 2024"
+  },
+  {
+    "Link": "https://www.lngindustry.com/",
+    "Title": "The latest LNG news from the natural gas industry. LNG news today ...",
+    "Summary": "We use cookies to ensure you get the best experience on our website. By using this site, you agree to the use of cookies.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.reuters.com/tags/lng/",
+    "Title": "LNG | Reuters",
+    "Summary": "The latest international LNG news and views from Reuters - one of the world's largest news agencies.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.upstreamonline.com/lng",
+    "Title": "Liquefied Natural Gas (LNG) - Latest oil and gas news",
+    "Summary": "The leading global oil, gas and energy news resource. Covering the latest oil and gas news including shale, lng, drilling, exploration and production.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://lngjournal.com/",
+    "Title": "LNG Journal",
+    "Summary": "A German onshore LNG import terminal project has formally started construction using Spanish regasification terminal expertise at Stade, on the Elbe Estuary...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.energyintel.com/gas-and-lng-news",
+    "Title": "GAS AND LNG NEWS | Energy Intelligence",
+    "Summary": "August gas futures fell another 8.4¢ Friday to end the week at $2.601 per million Btu.",
+    "Date": "28 June 2024"
+  },
+  {
+    "Link": "https://www.spglobal.com/commodityinsights/en/commodities/lng",
+    "Title": "LNG Prices, News & Market Analysis | S&P Global Commodity Insights",
+    "Summary": "Global news, analysis, and prices for LNG markets. Learn how you can access our LNG benchmarks, like the JKM, and in-depth market reports.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.eia.gov/naturalgas/weekly/",
+    "Title": "Natural Gas Weekly Update - EIA",
+    "Summary": "JUMP TO: Prices | Supply and Demand | Liquefied Natural Gas (LNG) | Rig Count | Other Market Drivers | Storage.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.lngglobal.com/",
+    "Title": "LNG News Liquefied Natural Gas",
+    "Summary": "LNG Global news, events, conferences, analysis and marketing.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.shell.com/content/shell/corporate/global/en_gb/what-we-do/oil-and-natural-gas/liquefied-natural-gas-lng/lng-outlook-2024.html",
+    "Title": "LNG Outlook 2024 | Shell Global",
+    "Summary": "Global demand for liquefied natural gas (LNG) is estimated to rise by more than 50% by 2040, as industrial coal-to-gas switching...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://energy.economictimes.indiatimes.com/tag/lng",
+    "Title": "Lng - Latest lng , Information & Updates - Energy -ET EnergyWorld",
+    "Summary": "ETEnergyworld.com brings latest lng news, views and updates from all top sources for the Indian Energy industry.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://sustainability.stanford.edu/news/global-carbon-emissions-fossil-fuels-reached-record-high-2023",
+    "Title": "Global carbon emissions from fossil fuels reached record high in 2023",
+    "Summary": "Global carbon emissions from fossil fuels have risen again in 2023 – reaching record levels, according to research published Dec.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.theguardian.com/environment/carbon-emissions",
+    "Title": "Greenhouse gas emissions | The Guardian",
+    "Summary": "Latest news, sport, business, comment, analysis and reviews from the Guardian.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "http://www.climate.gov/news-features/understanding-climate/climate-change-atmospheric-carbon-dioxide",
+    "Title": "Climate Change: Atmospheric Carbon Dioxide",
+    "Summary": "The global average carbon dioxide set a new record high in 2023: 419.3 parts per million.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.iea.org/news/major-growth-of-clean-energy-limited-the-rise-in-global-emissions-in-2023",
+    "Title": "Major growth of clean energy limited the rise in global emissions in 2023",
+    "Summary": "Global energy-related carbon dioxide (CO2) emissions rose less strongly in 2023 than the year before even as total energy demand growth...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.euronews.com/tag/carbon-emissions",
+    "Title": "All news about carbon emissions - Euronews.com",
+    "Summary": "Information about carbon emissions. Select the subjects you want to know more about on euronews.com.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.independent.co.uk/topic/carbon-emissions",
+    "Title": "carbon emissions - latest news, breaking stories and comment",
+    "Summary": "The latest breaking news, comment and features from The Independent.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://apnews.com/article/greenhouse-gas-emissions-climate-biden-coal-oil-2184db68945d5b10864c2525b9204ef7",
+    "Title": "Carbon pollution is down in the US, but not fast enough to meet...",
+    "Summary": "The report said U.S. carbon emissions declined by 1.9% last year. Emissions are down 17.2% from 2005.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.amnesty.org/en/latest/news/2024/04/global-large-companies-must-do-far-more-to-cut-carbon-emissions-and-limit-climate-damage/",
+    "Title": "Large companies must do far more to limit global warming",
+    "Summary": "Reacting to research issued today into 51 major...",
+    "Date": "April 2024"
+  },
+  {
+    "Link": "https://apnews.com/article/carbon-dioxide-methane-global-warming-climate-change-94424de6b22f1f734b1afd6bce8489b2",
+    "Title": "Carbon dioxide, methane levels in the air spiked to record highs in...",
+    "Summary": "Carbon dioxide, the most important and abundant of the greenhouse gases caused by humans, rose in 2023 by the third highest amount in 65 years...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://climate.nasa.gov/vital-signs/carbon-dioxide/?intent=121",
+    "Title": "Carbon Dioxide | Vital Signs – Climate Change - NASA",
+    "Summary": "Carbon dioxide (CO2) is an important heat-trapping gas, also known as a greenhouse gas, that comes from the extraction and burning of fossil fuels (such as coal...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://apnews.com/hub/energy-policy",
+    "Title": "Energy policy | AP News",
+    "Summary": "RICHMOND, Va. (AP) — The Virginia House and Senate passed sweeping energy legislation Tuesday that would overhaul how Virginia's utilities generate electricity...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.energy.gov/listings/energy-news",
+    "Title": "Energy News",
+    "Summary": "Biden-Harris Administration Announces More than $18 Million to Support Clean Energy Projects in 24 States and Local Governments...",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.utilitydive.com/topic/policy/",
+    "Title": "Energy regulation & Policy News | Utility Dive",
+    "Summary": "The latest news on energy policy & regulation affecting the utility industry.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.eenews.net/",
+    "Title": "E&E News by POLITICO | Essential Energy and Environment News",
+    "Summary": "E&E News provides essential, timely, and trusted energy news and environment news through our five daily publications. Learn more about us.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.sciencedaily.com/news/matter_energy/energy_policy/",
+    "Title": "Energy Policy News - ScienceDaily",
+    "Summary": "Read the latest research and energy policy recommendations from scientific organizations around the world.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://energynews.us/",
+    "Title": "Energy News Network | Analysis & reporting for the U.S. energy sector",
+    "Summary": "A nonprofit news organization covering the nation's transition to clean energy, offering regional energy news digests and original reporting.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.usnews.com/topics/subjects/energy-policy-and-climate-change",
+    "Title": "Energy Policy and Climate Change - USNews.com",
+    "Summary": "Read the latest articles and commentary on energy policy and climate change at US News.",
+    "Date": "Not available"
+  },
+  {
+    "Link": "https://www.cnb
+>>>>>>> 821f8ebb6fc66377dfd898c69557f8d820ec985d

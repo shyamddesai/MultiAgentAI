@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Home Page</title>
+    <title>Dashboard News Analysis</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/news_analysis.css') }}" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Dashboard</a>
+        <a class="navbar-brand" href="/">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,35 +35,30 @@
         </div>
     </nav>
 
-    <div id="particles-js"></div>
-    <div class="hero-section">
-        <h1>Welcome to Dashboard</h1>
-        <p>.</p>
-        <a href="#features" class="btn btn-primary btn-lg">⬇️⬇️</a>
-    </div>
+    <div id="particles-js-news"></div>
 
-    <div class="container features" id="features">
+    <div class="container mt-5">
         <div class="row">
-            <div class="col-md-4 feature">
-                <a href="/market-prediction">
-                    <img id="market-prediction-animation" src="{{ url_for('static', filename='images/market_prediction.png') }}" alt="Market Prediction Image">
-                    <h2>Market Prediction</h2>
-                    <p>Utilize cutting-edge AI to predict market trends and make informed decisions.</p>
-                </a>
+            <!-- Dashboard Section -->
+            <div class="col-md-4">
+                <h3>Archive</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Total Articles: {{ news_data|length }}</li>
+                    <!-- Additional dashboard metrics can be added here -->
+                </ul>
             </div>
-            <div class="col-md-4 feature">
-                <a href="/news-analysis">
-                    <img id="news-analysis-animation" src="{{ url_for('static', filename='images/news_analysis.png') }}" alt="News Analysis Image">
-                    <h2>News Analysis</h2>
-                    <p>Stay ahead with real-time news analysis and sentiment tracking to gauge market impacts.</p>
-                </a>
-            </div>
-            <div class="col-md-4 feature">
-                <a href="/feature-3">
-                    <img id="feature-3-animation" src="{{ url_for('static', filename='images/feature_3.png') }}" alt="Feature 3 Image">
-                    <h2>Feature 3</h2>
-                    <p>Detail about feature 3.</p>
-                </a>
+
+            <!-- Main Content Section -->
+            <div class="col-md-8">
+                <h3>News Analysis</h3>
+                <div class="list-group">
+                    {% for article in news_data %}
+                        <a href="{{ article.Link }}" class="list-group-item list-group-item-action" target="_blank">
+                            <h5 class="mb-1">{{ article.Title }}</h5>
+                            <p class="mb-1">{{ article.Summary }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
