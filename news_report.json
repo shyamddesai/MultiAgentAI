@@ -1,30 +1,144 @@
 ```json
 [
-    {"Title": "How Google is helping accelerate clean energy progress in Asia Pacific - The Keyword | Google Product and Technology News", "Link": "https://news.google.com/rss/articles/CBMiWWh0dHBzOi8vYmxvZy5nb29nbGUvb3V0cmVhY2gtaW5pdGlhdGl2ZXMvc3VzdGFpbmFiaWxpdHkvZ29vZ2xlLWNsZWFuLWVuZXJneS1hc2lhLXBhY2lmaWMv0gEA?oc=5"},
-    {"Title": "Energy price cap change mean lower bills but relief may be temporary - BBC.com", "Link": "https://news.google.com/rss/articles/CBMiLmh0dHBzOi8vd3d3LmJiYy5jb20vbmV3cy9hcnRpY2xlcy9jNnBwMmpkejJwZG_SATJodHRwczovL3d3dy5iYmMuY29tL25ld3MvYXJ0aWNsZXMvYzZwcDJqZHoycGRvLmFtcA?oc=5"},
-    {"Title": "U.S. Energy Production Chalks Up Another Record - OilPrice.com", "Link": "https://news.google.com/rss/articles/CBMiXWh0dHBzOi8vb2lscHJpY2UuY29tL0VuZXJneS9FbmVyZ3ktR2VuZXJhbC9VUy1FbmVyZ3ktUHJvZHVjdGlvbi1DaGFsa3MtVXAtQW5vdGhlci1SZWNvcmQuaHRtbNIBYWh0dHBzOi8vb2lscHJpY2UuY29tL0VuZXJneS9FbmVyZ3ktR2VuZXJhbC9VUy1FbmVyZ3ktUHJvZHVjdGlvbi1DaGFsa3MtVXAtQW5vdGhlci1SZWNvcmQuYW1wLmh0bWw?oc=5"},
-    {"Title": "Failure to meet surging data center energy demand will jeopardize economic growth, utility execs warn - CNBC", "Link": "https://news.google.com/rss/articles/CBMifWh0dHBzOi8vd3d3LmNuYmMuY29tLzIwMjQvMDYvMzAvZmFpbHVyZS10by1tZWV0LXN1cmdpbmctZW5lcmd5LWRlbWFuZC13aWxsLWplb3BhcmRpemUtZWNvbm9taWMtZ3Jvd3RoLXV0aWxpdHktZXhlY3Mtd2Fybi5odG1s0gGBAWh0dHBzOi8vd3d3LmNuYmMuY29tL2FtcC8yMDI0LzA2LzMwL2ZhaWx1cmUtdG8tbWVldC1zdXJnaW5nLWVuZXJneS1kZW1hbmQtd2lsbC1qZW9wYXJkaXplLWVjb25vbWljLWdyb3d0aC11dGlsaXR5LWV4ZWNzLXdhcm4uaHRtbA?oc=5"},
-    {"Title": "4 best supplements for an energy boost - Fortune", "Link": "https://news.google.com/rss/articles/CBMiP2h0dHBzOi8vZm9ydHVuZS5jb20vd2VsbC9hcnRpY2xlL2Jlc3Qtc3VwcGxlbWVudHMtYm9vc3QtZW5lcmd5L9IBAA?oc=5"},
-    {"Title": "California Energy Deal Marks Big Step for Geothermal Power - VOA Learning English", "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vbGVhcm5pbmdlbmdsaXNoLnZvYW5ld3MuY29tL2EvY2FsaWZvcm5pYS1lbmVyZ3ktZGVhbC1tYXJrcy1iaWctc3RlcC1mb3ItZ2VvdGhlcm1hbC1wb3dlci83Njc1NjQyLmh0bWzSAW9odHRwczovL2xlYXJuaW5nZW5nbGlzaC52b2FuZXdzLmNvbS9hbXAvY2FsaWZvcm5pYS1lbmVyZ3ktZGVhbC1tYXJrcy1iaWctc3RlcC1mb3ItZ2VvdGhlcm1hbC1wb3dlci83Njc1NjQyLmh0bWw?oc=5"},
-    {"Title": "Giant clams may hold the answers to making solar energy more efficient - Phys.org", "Link": "https://news.google.com/rss/articles/CBMiRWh0dHBzOi8vcGh5cy5vcmcvbmV3cy8yMDI0LTA3LWdpYW50LWNsYW1zLXNvbGFyLWVuZXJneS1lZmZpY2llbnQuaHRtbNIBAA?oc=5"},
-    {"Title": "Buy These 2 Energy Stocks, Analyst Says, Forecasting up to ~46% Upside - Yahoo Finance", "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vZmluYW5jZS55YWhvby5jb20vbmV3cy9idXktMi1lbmVyZ3ktc3RvY2tzLWFuYWx5c3QtMTI0ODAwMjM5Lmh0bWzSAQA?oc=5"},
-    {"Title": "Texas has one of the lowest energy costs in the US, study says - KPRC Click2Houston", "Link": "https://news.google.com/rss/articles/CBMicmh0dHBzOi8vd3d3LmNsaWNrMmhvdXN0b24uY29tL25ld3MvbG9jYWwvMjAyNC8wNy8wMS90ZXhhcy1oYXMtb25lLW9mLXRoZS1sb3dlc3QtZW5lcmd5LWNvc3RzLWluLXRoZS11cy1zdHVkeS1zYXlzL9IBAA?oc=5"},
-    {"Title": "New report details recent shift in America's energy sector: 'More records were broken in March' - The Cool Down", "Link": "https://news.google.com/rss/articles/CBMiYGh0dHBzOi8vd3d3LnRoZWNvb2xkb3duLmNvbS9ncmVlbi1idXNpbmVzcy9yZW5ld2FibGUtZW5lcmd5LXVzLWdhcy1lbGVjdHJpY2l0eS1nZW5lcmF0aW9uLXRyZW5kL9IBAA?oc=5"},
-    {"Title": "Building a Thriving Clean Energy Economy in 2023 and Beyond: A Six-Month Update - The White House", "Link": "https://news.google.com/rss/articles/CBMiiAFodHRwczovL3d3dy53aGl0ZWhvdXNlLmdvdi9icmllZmluZy1yb29tL2Jsb2cvMjAyNC8wNy8wMS9idWlsZGluZy1hLXRocml2aW5nLWNsZWFuLWVuZXJneS1lY29ub215LWluLTIwMjMtYW5kLWJleW9uZC1hLXNpeC1tb250aC11cGRhdGUv0gEA?oc=5"},
-    {"Title": "U.S. Senators Tina Smith, Peter Welch Introduce Bill to Increase Energy Efficiency Capabilities Across America - Senator Tina Smith", "Link": "https://news.google.com/rss/articles/CBMiigFodHRwczovL3d3dy5zbWl0aC5zZW5hdGUuZ292L3Utcy1zZW5hdG9yLXRpbmEtc21pdGgtcGV0ZXItd2VsY2gtaW50cm9kdWNlZC1iaWxsLXRvLWluY3JlYXNlLWVuZXJneS1lZmZpY2llbmN5LWNhcGFiaWxpdGllcy1hY3Jvc3MtYW1lcmljYS_SAQA?oc=5"},
-    {"Title": "Why Is Getting A Heat Pump So Hard? - Energy Institute at Haas", "Link": "https://news.google.com/rss/articles/CBMiUWh0dHBzOi8vZW5lcmd5YXRoYWFzLndvcmRwcmVzcy5jb20vMjAyNC8wNy8wMS93aHktaXMtZ2V0dGluZy1hLWhlYXQtcHVtcC1zby1oYXJkL9IBAA?oc=5"},
-    {"Title": "Bipartisan Infrastructure Law aiding Virginia Energy's abandoned mine cleanup • Virginia Mercury - Virginia Mercury", "Link": "https://news.google.com/rss/articles/CBMidGh0dHBzOi8vdmlyZ2luaWFtZXJjdXJ5LmNvbS8yMDI0LzA3LzAxL2JpcGFydGlzYW4taW5mcmFzdHJ1Y3R1cmUtbGF3LWFpZGluZy12aXJnaW5pYS1lbmVyZ3lzLWFiYW5kb25lZC1taW5lLWNsZWFudXAv0gEA?oc=5"},
-    {"Title": "Rollback of Stricter Energy Code Advances to Seattle City Council - The Urbanist", "Link": "https://news.google.com/rss/articles/CBMiWGh0dHBzOi8vd3d3LnRoZXVyYmFuaXN0Lm9yZy8yMDI0LzA3LzAxL2VuZXJneS1jb2RlLXJvbGxiYWNrLWFkdmFuY2VzLXRvLXNlYXR0bGUtY291bmNpbC_SAQA?oc=5"},
-    {"Title": "FERC targets Affirmed Energy for alleged misconduct in PJM capacity market - Utility Dive", "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vd3d3LnV0aWxpdHlkaXZlLmNvbS9uZXdzL2ZlcmMtYWZmaXJtZWQtZW5lcmd5LWludmVzdGlnYXRpb24tc2hvdy1jYXVzZS1wam0tY2FwYWNpdHktZW5lcmd5LWVmZmljaWVuY3kvNzIwMjU4L9IBAA?oc=5"},
-    {"Title": "Opinion: Pennsylvania's energy past could be its energy future - City & State Pennsylvania", "Link": "https://news.google.com/rss/articles/CBMic2h0dHBzOi8vd3d3LmNpdHlhbmRzdGF0ZXBhLmNvbS9vcGluaW9uLzIwMjQvMDcvb3Bpbmlvbi1wZW5uc3lsdmFuaWFzLWVuZXJneS1wYXN0LWNvdWxkLWJlLWl0cy1lbmVyZ3ktZnV0dXJlLzM5Nzc3NC_SAQA?oc=5"},
-    {"Title": "Samsung SmartThings Expands Its Energy Management Solutions With Leap, Launching Demand Response in NY & CA - Samsung", "Link": "https://news.google.com/rss/articles/CBMifmh0dHBzOi8vbmV3cy5zYW1zdW5nLmNvbS91cy9zYW1zdW5nLXNtYXJ0dGhpbmdzLWV4cGFuZHMtZW5lcmd5LW1hbmFnZW1lbnQtc29sdXRpb25zLXdpdGgtbGVhcC1sYXVuY2hpbmctZGVtYW5kLXJlc3BvbnNlLW55LWNhL9IBAA?oc=5"},
-    {"Title": "Cleaning up Geothermal Energy - Renewable Energy Magazine", "Link": "https://news.google.com/rss/articles/CBMiWWh0dHBzOi8vd3d3LnJlbmV3YWJsZWVuZXJneW1hZ2F6aW5lLmNvbS9qYW5lLW1hcnNoL2NsZWFuaW5nLXVwLWdlb3RoZXJtYWwtZW5lcmd5LTIwMjQwNzAx0gEA?oc=5"},
-    {"Title": "Purdue gets $6M to lead consortium on nuclear energy research – Inside INdiana Business - Inside INdiana Business", "Link": "https://news.google.com/rss/articles/CBMia2h0dHBzOi8vd3d3Lmluc2lkZWluZGlhbmFidXNpbmVzcy5jb20vYXJ0aWNsZXMvcHVyZHVlLWdldHMtNm0tdG8tbGVhZC1jb25zb3J0aXVtLW9uLW51Y2xlYXItZW5lcmd5LXJlc2VhcmNo0gEA?oc=5"},
-    {"Title": "WalletHub: California Ranked 41 in Energy Cost - Contra Costa News", "Link": "https://news.google.com/rss/articles/CBMiU2h0dHBzOi8vY29udHJhY29zdGEubmV3cy8yMDI0LzA3LzAxL3dhbGxldGh1Yi1jYWxpZm9ybmlhLXJhbmtlZC00MS1pbi1lbmVyZ3ktY29zdHMv0gEA?oc=5"},
-    {"Title": "States with the highest energy costs: Where CT ranks - Eyewitness News 3", "Link": "https://news.google.com/rss/articles/CBMiUGh0dHBzOi8vd3d3Lndmc2IuY29tLzIwMjQvMDcvMDEvc3RhdGVzLXdpdGgtaGlnaGVzdC1lbmVyZ3ktY29zdHMtd2hlcmUtY3QtcmFua3Mv0gEA?oc=5"},
-    {"Title": "4 energy drink trends for the rest of 2024 - C-Store Dive", "Link": "https://news.google.com/rss/articles/CBMiTmh0dHBzOi8vd3d3LmNzdG9yZWRpdmUuY29tL25ld3MvZW5lcmd5LWRyaW5rLXRyZW5kcy1jb252ZW5pZW5jZS1zdG9yZXMvNzE5NzkzL9IBAA?oc=5"},
-    {"Title": "Tesla Q2 Delivery Expectations Coming Down. The Key Number Might Be Energy Storage. - Investor's Business Daily", "Link": "https://news.google.com/rss/articles/CBMiRWh0dHBzOi8vd3d3LmludmVzdG9ycy5jb20vbmV3cy90ZXNsYS1zdG9jay1kZWxpdmVyaWVzLWVuZXJneS1zdG9yYWdlL9IBAA?oc=5"},
-    {"Title": "Honda, INDYCAR Collaborate On New Hybrid Energy Recovery System Debuting at Honda Indy 200 at Mid-Ohio - Honda Newsroom", "Link": "https://news.google.com/rss/articles/CBMi8QFodHRwczovL2hvbmRhbmV3cy5jb20vZW4tVVMvcmVsZWFzZXMvcmVsZWFzZS01ZDdjNGQ1OWNkZTE4ZDhkNDMwYWUzMjU0YTA1MWE3My1ob25kYS1pbmR5Y2FyLWNvbGxhYm9yYXRlLW9uLW5ldy1oeWJyaWQtZW5lcmd5LXJlY292ZXJ5LXN5c3RlbS1kZWJ1dGluZy1hdC1ob25kYS1pbmR5LTIwMC1hdC1taWQtb2hpbz9zZWxlY3RlZFRhYklkPXJlbGVhc2UtNWQ3YzRkNTljZGUxOGQ4ZDQzMGFlMzI1NGEwNTFhNzMtcGhvdG9z0gEA?oc=5"},
-    {"Title": "Can a computer chip have zero energy loss in 1.58 dimensions? - Phys.org", "Link": "https://news.google.com/rss/articles/CBMiPmh0dHBzOi8vcGh5cy5vcmcvbmV3cy8yMDI0LTA3LWNoaXAtZW5lcmd5LWxvc3MtZGltZW5zaW9ucy5odG1s0gEA?oc=5"},
-    {"Title": "ATP's role in biomanufacturing: Fluctuating cellular energy drives microbial bioproduction - Phys.org", "Link": "https://news.google.com/rss/articles/CBMiUWh0dHBzOi8vcGh5cy5vcmcvbmV3cy8yMDI0LTA3LWF0cC1yb2xlLWJpb21hbnVmYWN0dXJpbmctZmx1Y3R1YXRpbmctY2VsbHVsYXIuaHRtbNIBAA?oc=5"},
-    {"Title": "Celsius energy drink doesn't cause positive drug test - KFSM
+    {
+        "Title": "U.S. energy market size 2022 - Statista",
+        "Link": "https://news.google.com/rss/articles/CBMiYGh0dHBzOi8vd3d3LnN0YXRpc3RhLmNvbS9zdGF0aXN0aWNzLzE5MDU0OC9yZXZlbnVlLW9mLXRoZS11cy1lbGVjdHJpYy1wb3dlci1pbmR1c3RyeS1zaW5jZS0xOTcwL9IBAA?oc=5",
+        "Published": "Fri, 28 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "Natural Gas Weekly Update - EIA",
+        "Link": "https://news.google.com/rss/articles/CBMiJmh0dHBzOi8vd3d3LmVpYS5nb3YvbmF0dXJhbGdhcy93ZWVrbHkv0gEA?oc=5",
+        "Published": "Thu, 27 Jun 2024 23:15:00 GMT"
+    },
+    {
+        "Title": "High Costs And Low Electricity Prices Force Europe's Largest Renewables Producer To Cut Targets - Forbes",
+        "Link": "https://news.google.com/rss/articles/CBMikAFodHRwczovL3d3dy5mb3JiZXMuY29tL3NpdGVzL2dhdXJhdnNoYXJtYS8yMDI0LzA2LzI3L2hpZ2gtY29zdHMtbG93LWVsZWN0cmljaXR5LXByaWNlcy1mb3JjZS1ldXJvcGVzLWxhcmdlc3QtcmVuZXdhYmxlcy1wcm9kdWNlci10by1jdXQtdGFyZ2V0cy_SAQA?oc=5",
+        "Published": "Thu, 27 Jun 2024 11:12:00 GMT"
+    },
+    {
+        "Title": "Crude Oil Futures Overview - CME Group",
+        "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+        "Published": "Fri, 28 Jun 2024 14:10:45 GMT"
+    },
+    {
+        "Title": "Consumer advocates ask FERC to halt PJM energy efficiency 'addback' in capacity market - Utility Dive",
+        "Link": "https://news.google.com/rss/articles/CBMiaGh0dHBzOi8vd3d3LnV0aWxpdHlkaXZlLmNvbS9uZXdzL2NvbnN1bWVyLWFkdm9jYXRlcy1mZXJjLXBqbS1lbmVyZ3ktZWZmaWNpZW5jeS1hZGRiYWNrLWNvbXBsYWludC83MTk3MjQv0gEA?oc=5",
+        "Published": "Tue, 25 Jun 2024 14:47:26 GMT"
+    },
+    {
+        "Title": "EDP selected by large US-based tech company to provide clean energy from projects across Europe | EDP Renováveis - EDP Renewables",
+        "Link": "https://news.google.com/rss/articles/CBMiemh0dHBzOi8vd3d3LmVkcHIuY29tL2VuL25ld3MvMjAyNC8wNi8yNi9lZHAtc2VsZWN0ZWQtbGFyZ2UtdXMtYmFzZWQtdGVjaC1jb21wYW55LXByb3ZpZGUtY2xlYW4tZW5lcmd5LWZyb20tcHJvamVjdHMtYWNyb3Nz0gEA?oc=5",
+        "Published": "Wed, 26 Jun 2024 15:01:43 GMT"
+    },
+    {
+        "Title": "A midyear review of the U.S. energy transition: Six key themes dominating the country's green energy market in 2024 - Institutional Real Estate, Inc.",
+        "Link": "https://news.google.com/rss/articles/CBMilwFodHRwczovL2lyZWkuY29tL3B1YmxpY2F0aW9ucy9hcnRpY2xlL2EtbWlkeWVhci1yZXZpZXctb2YtdGhlLXUtcy1lbmVyZ3ktdHJhbnNpdGlvbi1zaXgta2V5LXRoZW1lcy1kb21pbmF0aW5nLXRoZS1jb3VudHJ5cy1ncmVlbi1lbmVyZ3ktbWFya2V0LWluLTIwMjQv0gEA?oc=5",
+        "Published": "Wed, 26 Jun 2024 01:10:37 GMT"
+    },
+    {
+        "Title": "How Putin handed America the keys to the world's energy market - The Telegraph",
+        "Link": "https://news.google.com/rss/articles/CBMiamh0dHBzOi8vd3d3LnRlbGVncmFwaC5jby51ay9idXNpbmVzcy8yMDI0LzA2LzI3L2hvdy1wdXRpbi1oYW5kZWQtYW1lcmljYS10aGUta2V5cy10by13b3JsZHMtZW5lcmd5LW1hcmtldC_SAQA?oc=5",
+        "Published": "Thu, 27 Jun 2024 12:21:00 GMT"
+    },
+    {
+        "Title": "USAID Supports Uzbekistan's Regulatory Agency with New IT Equipment to Promote Efficient Regulation of the Energy ... - US Embassy in Uzbekistan",
+        "Link": "https://news.google.com/rss/articles/CBMiPGh0dHBzOi8vdXoudXNlbWJhc3N5Lmdvdi91c2FpZC1oYW5kZWQtb3Zlci1uZXctaXQtZXF1aXBtZW50L9IBAA?oc=5",
+        "Published": "Wed, 26 Jun 2024 11:04:02 GMT"
+    },
+    {
+        "Title": "The Best Solar Companies in Maine (2024) - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiP2h0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvc29sYXItY29tcGFuaWVzLW1haW5lL9IBAA?oc=5",
+        "Published": "Tue, 25 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "BMO stock retains SM Energy market perform By Investing.com - Investing.com",
+        "Link": "https://news.google.com/rss/articles/CBMiY2h0dHBzOi8vd3d3LmludmVzdGluZy5jb20vbmV3cy9jb21wYW55LW5ld3MvYm1vLXN0b2NrLXJldGFpbnMtc20tZW5lcmd5LW1hcmtldC1wZXJmb3JtLTkzQ0gtMzUwMTAxMtIBAA?oc=5",
+        "Published": "Fri, 28 Jun 2024 11:20:37 GMT"
+    },
+    {
+        "Title": "Citadel to buy power firm Energy Grid in first Japanese acquisition - Reuters",
+        "Link": "https://news.google.com/rss/articles/CBMib2h0dHBzOi8vd3d3LnJldXRlcnMuY29tL21hcmtldHMvZGVhbHMvY2l0YWRlbC1idXktcG93ZXItZmlybS1lbmVyZ3ktZ3JpZC1maXJzdC1qYXBhbmVzZS1hY3F1aXNpdGlvbi0yMDI0LTA2LTI3L9IBAA?oc=5",
+        "Published": "Fri, 28 Jun 2024 21:59:00 GMT"
+    },
+    {
+        "Title": "Electricity Monthly Update - U.S. Energy Information Administration - EIA",
+        "Link": "https://news.google.com/rss/articles/CBMiQGh0dHBzOi8vd3d3LmVpYS5nb3YvZWxlY3RyaWNpdHkvbW9udGhseS91cGRhdGUvcHJpbnQtdmVyc2lvbi5waHDSAQA?oc=5",
+        "Published": "Thu, 27 Jun 2024 00:56:15 GMT"
+    },
+    {
+        "Title": "Germany electricity price 2024 - Statista",
+        "Link": "https://news.google.com/rss/articles/CBMiWGh0dHBzOi8vd3d3LnN0YXRpc3RhLmNvbS9zdGF0aXN0aWNzLzEyNjc1NDEvZ2VybWFueS1tb250aGx5LXdob2xlc2FsZS1lbGVjdHJpY2l0eS1wcmljZS_SAQA?oc=5",
+        "Published": "Fri, 28 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "NY Harbor ULSD Futures Overview - CME Group",
+        "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9yZWZpbmVkLXByb2R1Y3RzL2hlYXRpbmctb2lsLmh0bWzSAQA?oc=5",
+        "Published": "Fri, 28 Jun 2024 16:19:45 GMT"
+    },
+    {
+        "Title": "How Much Does a Solar Farm Cost in June 2024? - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiOWh0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvc29sYXItZmFybS1jb3N0L9IBAA?oc=5",
+        "Published": "Tue, 25 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "Electricity Monthly Update - U.S. Energy Information Administration - EIA",
+        "Link": "https://news.google.com/rss/articles/CBMiOmh0dHBzOi8vd3d3LmVpYS5nb3YvZWxlY3RyaWNpdHkvbW9udGhseS91cGRhdGUvZW5kLXVzZS5waHDSAQA?oc=5",
+        "Published": "Thu, 27 Jun 2024 00:56:15 GMT"
+    },
+    {
+        "Title": "The 6 Best Solar Companies in California of July 2024 - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvYmVzdC1zb2xhci1jb21wYW5pZXMtY2FsaWZvcm5pYS_SAQA?oc=5",
+        "Published": "Fri, 28 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "Colorado Solar Tax Credits, Incentives and Rebates (2024) - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiQ2h0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvY29sb3JhZG8tc29sYXItaW5jZW50aXZlcy_SAQA?oc=5",
+        "Published": "Tue, 25 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "Electricity price Europe 2024 monthly - Statista",
+        "Link": "https://news.google.com/rss/articles/CBMiW2h0dHBzOi8vd3d3LnN0YXRpc3RhLmNvbS9zdGF0aXN0aWNzLzEyNjc1MDAvZXUtbW9udGhseS13aG9sZXNhbGUtZWxlY3RyaWNpdHktcHJpY2UtY291bnRyeS_SAQA?oc=5",
+        "Published": "Fri, 28 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "How To Incorporate Solar Energy Into Your Home in 2024 - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiQ2h0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvd2F5cy10by1pbmNvcnBvcmF0ZS1zb2xhci_SAQA?oc=5",
+        "Published": "Tue, 25 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "How Much Do Solar Panels Cost in Louisiana? (2024) - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiRGh0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvc29sYXItcGFuZWwtY29zdC1sb3Vpc2lhbmEv0gEA?oc=5",
+        "Published": "Tue, 25 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "Electricity consumption by country 2022 - Statista",
+        "Link": "https://news.google.com/rss/articles/CBMiY2h0dHBzOi8vd3d3LnN0YXRpc3RhLmNvbS9zdGF0aXN0aWNzLzI2NzA4MS9lbGVjdHJpY2l0eS1jb25zdW1wdGlvbi1pbi1zZWxlY3RlZC1jb3VudHJpZXMtd29ybGR3aWRlL9IBAA?oc=5",
+        "Published": "Fri, 28 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "The Best Solar Companies in Wisconsin (2024) - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiQ2h0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvc29sYXItY29tcGFuaWVzLXdpc2NvbnNpbi_SAQA?oc=5",
+        "Published": "Tue, 25 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "Texas Solar Tax Credits, Incentives and Rebates (2024) - MarketWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiQGh0dHBzOi8vd3d3Lm1hcmtldHdhdGNoLmNvbS9ndWlkZXMvc29sYXIvdGV4YXMtc29sYXItaW5jZW50aXZlcy_SAQA?oc=5",
+        "Published": "Tue, 25 Jun 2024 07:00:00 GMT"
+    },
+    {
+        "Title": "Ken Griffin's Citadel to acquire energy trader in first Japan deal - Nikkei Asia",
+        "Link": "https://news.google.com/rss/articles/CBMicmh0dHBzOi8vYXNpYS5uaWtrZWkuY29tL0J1c2luZXNzL0J1c2luZXNzLWRlYWxzL0tlbi1HcmlmZmluLXMtQ2l0YWRlbC10by1hY3F1aXJlLWVuZXJneS10cmFkZXItaW4tZmlyc3QtSmFwYW4tZGVhbNIBAA?oc=5",
+        "Published": "Thu, 27 Jun 2024 22:30:00 GMT"
+    },
+    {
+        "Title": "Energy industry associations pleased by von der Leyen's rumored reappointment - EnergyWatch",
+        "Link": "https://news.google.com/rss/articles/CBMiQWh0dHBzOi8vZW5lcmd5d2F0Y2guY29tL0VuZXJneU5ld3MvUmVuZXdhYmxlcy9hcnRpY2xlMTcyMzI0MzkuZWNl0gEA?oc=5",
+        "Published": "Wed, 26 Jun 2024 13:30:00 GMT"
+    },
+    {
+        "Title": "Presentation - cre.fr",
+        "Link": "https://news.google.com/rss/articles/CBMiTWh0dHBzOi8vd3d3LmNyZS5mci9lbi9lbGVjdHJpY2l0eS9yZXRhaWwtZWxlY3RyaWNpdHktbWFya2V0L3ByZXNlbnRhdGlvbi5odG1s0gEA?oc=5",
+        "Published": "Wed, 26 Jun 2024 08:59:42 GMT"
+    },
+    {
+        "Title
