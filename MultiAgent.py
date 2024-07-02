@@ -74,12 +74,11 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         # Use spaCy to process the text
         doc = nlp(topic)
 
-        # Extract named entities
-        entities = [ent.text for ent in doc.ents if ent.label_ in ["ORG", "GPE", "PRODUCT", "EVENT"]]
+        # Extract relevant named entities
+        entities = [ent.text for ent in doc.ents if ent.label_ in ["ORG", "GPE", "PRODUCT", "EVENT"] and 'oil' in ent.text.lower() or 'gas' in ent.text.lower()]
 
-        # Extract noun chunks and important words
-        noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS]
-        words = [token.text for token in doc if token.is_alpha and token.text.lower() not in STOP_WORDS]
+        # Extract relevant noun chunks
+        noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS and ('oil' in chunk.text.lower() or 'gas' in chunk.text.lower())]
 
         # Use RAKE to extract keywords
         rake = Rake()
@@ -87,13 +86,29 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         rake_keywords = rake.get_ranked_phrases()
 
         # Combine all keywords
-        all_keywords = entities + noun_chunks + words + rake_keywords
+        all_keywords = entities + noun_chunks + rake_keywords
+
+        # Add domain-specific keywords
+        specific_keywords = [
+            "oil prices", "gas prices", "oil and gas stock market", "oil company news",
+            "oil and gas supply and demand", "oil production rates", "gas production rates",
+            "energy market news", "oil trading news", "gas trading news", "crude oil prices",
+            "natural gas prices", "commodity prices", "oil futures", "gas futures",
+            "exploration", "refining", "pipelines", "oilfield services", "petroleum",
+            "downstream", "upstream", "midstream", "LNG", "oil reserves", "drilling",
+            "shale oil", "offshore drilling", "oil exports", "oil imports", "OPEC",
+            "oil refining capacity", "oil production cuts", "oil consumption", "oil inventory"
+        ]
+        all_keywords += specific_keywords
 
         # Deduplicate and filter keywords
         keywords = list(set(all_keywords))
         keywords = [kw for kw in keywords if len(kw.split()) <= 3 and len(kw) > 2]
 
-        return keywords
+        # Refine keywords to avoid unrelated topics
+        refined_keywords = [kw for kw in keywords if 'stock' not in kw or 'oil' in kw or 'gas' in kw]
+
+        return refined_keywords
 
 
 # Define the RSSFeedScraperTool
@@ -105,9 +120,9 @@ class RSSFeedScraperTool(BaseTool):
 
     def _run(self, keywords: list) -> list:
         articles = []
-        one_week_ago = datetime.now() - timedelta(days=3)
+        one_week_ago = datetime.now() - timedelta(days=5)
         for keyword in keywords:
-            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:3d"
+            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:5d"
             feed = feedparser.parse(rss_url)
             for entry in feed.entries:
                 published = datetime(*entry.published_parsed[:6])
@@ -180,7 +195,6 @@ news_gatherer = Agent(
     allow_delegation=False,
     verbose=False,
 )
-
 
 news_analyst = Agent(
     role="Expert News Analyst",
@@ -256,7 +270,7 @@ crew = Crew(
 )
 
 # Input topic
-topic = "latest news on oil and gas market and its impact on stock prices, supply and demand, and production rates"
+topic = " oil and gas market latest news, oil and gas stock prices, oil and gas supply and demand, and oil and gas production rates"
 
 
 result = crew.kickoff(inputs={"topic": topic})
