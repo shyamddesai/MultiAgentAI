@@ -1,13 +1,19 @@
 import warnings
 from crewai import Agent, Task, Crew, Process
 import os
-
+import json
+from collections import defaultdict
+from difflib import SequenceMatcher
 from crewai_tools.tools.xml_search_tool.xml_search_tool import XMLSearchTool
 from langchain_openai import ChatOpenAI
 # from utils import get_openai_api_key
 from crewai_tools import SerperDevTool, \
                          ScrapeWebsiteTool, \
                          WebsiteSearchTool
+import requests
+import time
+import aiohttp
+import asyncio
 import feedparser
 from urllib.parse import quote_plus
 import spacy
@@ -130,7 +136,7 @@ class RSSFeedScraperTool(BaseTool):
                     articles.append({
                         "Title": entry.title,
                         "Link": entry.link,
-                        #"Published": entry.published
+                        "Published": entry.published
                     })
         return articles
 
@@ -281,7 +287,7 @@ topic = " oil and gas market latest news, oil and gas stock prices, oil and gas 
 keywords = keyword_generator._run(topic)
 result = rss_feed_scraper._run(keywords)
 
-print(result)
+# print(result)
 
 # Specify the output file path
 output_file = 'news_report.json'
@@ -291,4 +297,144 @@ with open(output_file, 'w') as f:
     json.dump(result, f, indent=2)
 
 
-result = crew.kickoff(inputs={"topic": topic})
+# result = crew.kickoff(inputs={"topic": topic})
+
+async def is_accessible(session, url, retries=3, backoff_factor=0.5):
+    for attempt in range(retries):
+        try:
+            async with session.head(url, allow_redirects=True) as response:
+                if response.status == 200:
+                    return True
+                if response.status in [401, 403, 404]:  # Unauthorized, Forbidden, Not Found
+                    return False
+                if "login" in str(response.url) or "subscribe" in str(response.url):
+                    return False
+        except aiohttp.ClientConnectionError:
+            if attempt < retries - 1:
+                await asyncio.sleep(backoff_factor * (2 ** attempt))
+                continue
+        except Exception as e:
+            print(f"Error checking URL {url}: {e}")
+            return False
+    return False
+
+
+def is_similar(title1, title2, threshold=0.8):
+    return SequenceMatcher(None, title1, title2).ratio() > threshold
+
+
+def score_relevancy(article, relevant_keywords):
+    title = article["Title"].lower()
+    content = article.get("Content", "").lower()  # Assuming article content is also available
+    score = 0
+
+    for keyword in relevant_keywords:
+        if keyword in title:
+            score += 2  # Higher weight for keywords in title
+        if keyword in content:
+            score += 1
+
+    return score
+
+
+def categorize_article(article, categories):
+    title = article["Title"].lower()
+    content = article.get("Content", "").lower()  # Assuming article content is also available
+    article_categories = []
+
+    for category, keywords in categories.items():
+        if any(keyword in title for keyword in keywords) or any(keyword in content for keyword in keywords):
+            article_categories.append(category)
+
+    return article_categories
+
+
+async def filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3):
+    unique_titles = set()
+    filtered_articles = []
+
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        for article in articles:
+            title = article["Title"]
+            url = article["Link"]
+            published = article.get("Published")
+
+            if title in unique_titles:
+                continue
+
+            is_duplicate = False
+            for seen_title in unique_titles:
+                if is_similar(title, seen_title):
+                    is_duplicate = True
+                    break
+
+            if is_duplicate:
+                continue
+
+            relevancy_score = score_relevancy(article, relevant_keywords)
+            if relevancy_score < relevancy_threshold:
+                continue
+
+            tasks.append((article, asyncio.create_task(is_accessible(session, url))))
+
+        results = await asyncio.gather(*[task for _, task in tasks])
+
+        for (article, task) in zip(tasks, results):
+            if task:
+                title = article[0]["Title"]
+                url = article[0]["Link"]
+                published = article[0].get("Published")
+                unique_titles.add(title)
+                article_categories = categorize_article(article[0], categories)
+                filtered_articles.append({
+                    "Title": title,
+                    "Link": url,
+                    "Published": published,
+                    "Categories": article_categories
+                })
+
+    return filtered_articles
+
+
+# Load articles from JSON file
+with open('news_report.json', 'r') as f:
+    articles = json.load(f)
+
+# Define relevant keywords
+relevant_keywords = [
+    "oil prices", "gas prices", "oil stock market", "oil company",
+    "oil supply", "oil demand", "oil production", "gas production",
+    "energy market", "oil trading", "gas trading", "crude oil",
+    "natural gas", "commodity prices", "oil futures", "gas futures",
+    "exploration", "refining", "pipelines", "oilfield services",
+    "petroleum", "downstream", "upstream", "midstream", "LNG",
+    "oil reserves", "drilling", "shale oil", "offshore drilling",
+    "oil exports", "oil imports", "OPEC", "oil refining capacity",
+    "oil production cuts", "oil consumption", "oil inventory"
+]
+
+# Define categories and their corresponding keywords
+categories = {
+    "Market Trends": ["market", "trend", "forecast"],
+    "Production Updates": ["production", "output", "supply", "production rates"],
+    "Company News": ["company", "merger", "acquisition", "oil company"],
+    "Stock Prices": ["stock prices", "oil stock market", "commodity prices", "oil futures", "gas futures"],
+    "Supply and Demand": ["supply", "demand", "oil supply", "oil demand", "gas supply", "gas demand"],
+    "Exploration": ["exploration", "drilling", "shale oil", "offshore drilling"],
+    "Refining": ["refining", "oil refining capacity", "oil production cuts", "oil inventory"],
+    "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports"]
+}
+
+# Filter articles for redundancy, relevancy, and categorize them
+filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
+
+# Save the filtered and categorized articles
+with open('filtered_news_report.json', 'w') as f:
+    json.dump(filtered_articles, f, indent=2)
+
+print(f"Filtered and categorized articles saved to 'filtered_news_report.json'")
+
+
+
+
