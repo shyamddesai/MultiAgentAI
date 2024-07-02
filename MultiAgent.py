@@ -120,9 +120,9 @@ class RSSFeedScraperTool(BaseTool):
 
     def _run(self, keywords: list) -> list:
         articles = []
-        one_week_ago = datetime.now() - timedelta(days=5)
+        one_week_ago = datetime.now() - timedelta(days=3)
         for keyword in keywords:
-            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:5d"
+            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:3d"
             feed = feedparser.parse(rss_url)
             for entry in feed.entries:
                 published = datetime(*entry.published_parsed[:6])
@@ -130,9 +130,11 @@ class RSSFeedScraperTool(BaseTool):
                     articles.append({
                         "Title": entry.title,
                         "Link": entry.link,
-                        # "Published": entry.published
+                        #"Published": entry.published
                     })
         return articles
+
+
 
 
 class TavilyAPI(BaseTool):
@@ -273,5 +275,20 @@ crew = Crew(
 topic = " oil and gas market latest news, oil and gas stock prices, oil and gas supply and demand, and oil and gas production rates"
 
 
-result = crew.kickoff(inputs={"topic": topic})
 
+
+# Execute the crew with the input topic
+keywords = keyword_generator._run(topic)
+result = rss_feed_scraper._run(keywords)
+
+print(result)
+
+# Specify the output file path
+output_file = 'news_report.json'
+
+# Save the result to the specified output file
+with open(output_file, 'w') as f:
+    json.dump(result, f, indent=2)
+
+
+result = crew.kickoff(inputs={"topic": topic})
