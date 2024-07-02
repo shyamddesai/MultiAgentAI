@@ -89,11 +89,6 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         # Combine all keywords
         all_keywords = entities + noun_chunks + words + rake_keywords
 
-        # Add specific keywords related to the oil and gas market, stock prices, supply and demand
-        specific_keywords = ["oil prices", "gas prices", "stock market", "oil company news", "supply and demand",
-                             "production rates", "customer demand", "trading news"]
-        all_keywords += specific_keywords
-
         # Deduplicate and filter keywords
         keywords = list(set(all_keywords))
         keywords = [kw for kw in keywords if len(kw.split()) <= 3 and len(kw) > 2]
@@ -110,9 +105,9 @@ class RSSFeedScraperTool(BaseTool):
 
     def _run(self, keywords: list) -> list:
         articles = []
-        one_week_ago = datetime.now() - timedelta(days=7)
+        one_week_ago = datetime.now() - timedelta(days=3)
         for keyword in keywords:
-            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:7d"
+            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:3d"
             feed = feedparser.parse(rss_url)
             for entry in feed.entries:
                 published = datetime(*entry.published_parsed[:6])
@@ -120,7 +115,7 @@ class RSSFeedScraperTool(BaseTool):
                     articles.append({
                         "Title": entry.title,
                         "Link": entry.link,
-                        "Published": entry.published
+                        # "Published": entry.published
                     })
         return articles
 
@@ -226,7 +221,7 @@ news_gathering_task = Task(
         "Each collected entry should include the URL, the title of the corresponding article or news piece, and the publication date."
     ),
     expected_output="A JSON file containing a list of the collected URLs, their titles, and publication dates. "
-                    "Each entry in the list should be a dictionary with three keys: 'Link' for the URL, 'Title' for the article's title, and 'Published' for the publication date. "
+                    "Each entry in the list should be a dictionary with 2 keys: 'Link' for the URL, 'Title' for the article's title. "
                     "The final output should reflect a wide range of sources and perspectives, ensuring the information is current and relevant.",
     output_file='news_report.json',
     agent=news_gatherer
