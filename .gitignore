@@ -2,3 +2,6 @@ crew
 .venv
 Frontend/venv
 Frontend/__pycache__
+merged_rss_feeds.xml
+testing.py
+

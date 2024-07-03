@@ -1,7 +1,6 @@
 import warnings
 from crewai import Agent, Task, Crew, Process
 import os
-import json
 from collections import defaultdict
 from difflib import SequenceMatcher
 from crewai_tools.tools.xml_search_tool.xml_search_tool import XMLSearchTool
@@ -47,6 +46,8 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
+
+
 # define scraping tool
 # scrape_tool = ScrapeWebsiteTool("https://news.google.com/rss/search?q=Renewable+Energy",
 # "https://news.google.com/rss/search?q=Green+Energy+Initiatives",
@@ -72,6 +73,7 @@ nltk.download('stopwords')
 nlp = spacy.load("en_core_web_sm")
 
 
+
 class SophisticatedKeywordGeneratorTool(BaseTool):
     name: str = "SophisticatedKeywordGeneratorTool"
     description: str = "This tool generates specific keywords from a given high-level topic using advanced NLP techniques."
@@ -81,7 +83,9 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         doc = nlp(topic)
 
         # Extract relevant named entities
-        entities = [ent.text for ent in doc.ents if ent.label_ in ["ORG", "GPE", "PRODUCT", "EVENT"] and 'oil' in ent.text.lower() or 'gas' in ent.text.lower()]
+        entities = [ent.text for ent in doc.ents if ent.label_ in ["ORG", "GPE", "PRODUCT", "EVENT"] and ('oil' in ent.text.lower() or 'gas' in ent.text.lower())]
+        # Debug: Print extracted entities
+        print(f"Extracted Entities: {entities}")
 
         # Extract relevant noun chunks
         noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS and ('oil' in chunk.text.lower() or 'gas' in chunk.text.lower())]
@@ -117,18 +121,20 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         return refined_keywords
 
 
+
 # Define the RSSFeedScraperTool
 class RSSFeedScraperTool(BaseTool):
+
     name: str = "RSSFeedScraperTool"
     description: str = ("This tool dynamically generates RSS feed URLs from keywords and "
                         "scrapes them to extract news articles. It returns a list of "
                         "articles with titles and links from the past week.")
 
-    def _run(self, keywords: list) -> list:
+    def _run(self, refined_keywords: list) -> list:
         articles = []
         one_week_ago = datetime.now() - timedelta(days=3)
-        for keyword in keywords:
-            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:3d"
+        for refined_keyword in refined_keywords:
+            rss_url = f"https://news.google.com/rss/search?q={quote_plus(refined_keyword)}+when:3d"
             feed = feedparser.parse(rss_url)
             for entry in feed.entries:
                 published = datetime(*entry.published_parsed[:6])
@@ -136,7 +142,8 @@ class RSSFeedScraperTool(BaseTool):
                     articles.append({
                         "Title": entry.title,
                         "Link": entry.link,
-                        "Published": entry.published
+                        "Published": entry.published,
+
                     })
         return articles
 
@@ -183,6 +190,7 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 #             return f"Failed to save news data: {e}"
 
 # scrape website
+
 docs_scrape_tool = ScrapeWebsiteTool(
     # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
 )
@@ -349,7 +357,7 @@ def categorize_article(article, categories):
     return article_categories
 
 
-async def filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3):
+async def filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=1):
     unique_titles = set()
     filtered_articles = []
 
@@ -397,9 +405,9 @@ async def filter_articles_async(articles, relevant_keywords, categories, relevan
     return filtered_articles
 
 
-# Load articles from JSON file
-with open('news_report.json', 'r') as f:
-    articles = json.load(f)
+# # Load articles from JSON file
+# with open('news_report.json', 'r') as f:
+#     articles = json.load(f)
 
 # Define relevant keywords
 relevant_keywords = [
@@ -426,14 +434,14 @@ categories = {
     "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports"]
 }
 
-# Filter articles for redundancy, relevancy, and categorize them
-filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
-
-# Save the filtered and categorized articles
-with open('filtered_news_report.json', 'w') as f:
-    json.dump(filtered_articles, f, indent=2)
-
-print(f"Filtered and categorized articles saved to 'filtered_news_report.json'")
+# # Filter articles for redundancy, relevancy, and categorize them
+# filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
+#
+# # Save the filtered and categorized articles
+# with open('filtered_news_report.json', 'w') as f:
+#     json.dump(filtered_articles, f, indent=2)
+#
+# print(f"Filtered and categorized articles saved to 'filtered_news_report.json'")
 
 
 
