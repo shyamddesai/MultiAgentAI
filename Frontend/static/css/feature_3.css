@@ -1,0 +1,187 @@
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-top: 1rem; /* Move content a bit to the top */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.news-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+.news-card:hover {
+    transform: scale(1.02);
+}
+.header {
+    background-color: #1c1c1e;
+    color: #fff;
+    padding: 1rem;
+}
+.header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.header .date {
+    color: #b0b0b0; /* Gray color for the date */
+    font-size: 2rem; /* Match the size of the header */
+    font-weight: bold; /* Match the weight of the header */
+    margin-top: 0.5rem;
+}
+.article-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+.article-content {
+    color: #b0b0b0;
+}
+.highlight {
+    color: #ff3b30; /* Apple's red color */
+}
+.sidebar {
+    background-color: #1c1c1e;
+    color: #fff;
+    width: 150px; /* Adjusted width to fit the text */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    z-index: 1000; /* Ensure sidebar is above other content */
+    overflow-y: auto; /* Allow scrolling within the sidebar */
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    background-color: #333;
+}
+.sidebar a i {
+    margin-right: 0.5rem;
+}
+.sidebar h3 {
+    color: #fff;
+}
+.container {
+    margin-left: 150px; /* Adjust margin to account for the new sidebar width */
+    padding-top: 2rem; /* Adjust padding to avoid overlap */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+.container.blur {
+    filter: blur(5px); /* Adjust the blur amount as needed */
+    transition: filter 0.3s ease-in-out; /* Smooth transition for the blur effect */
+}
+.top-stories {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+.top-stories h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ff3b30; /* Apple's red color */
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1100; /* Above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+
+.modal.show {
+    display: flex; /* Show the modal */
+    opacity: 1; /* Fade in to opacity 1 */
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    transform: translateY(-50px); /* Start slightly above */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for transform */
+}
+
+.modal-content.show {
+    transform: translateY(0); /* Move to original position */
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 8px;
+}
+.modal-content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e0e0e0;
+    margin-top: 1rem;
+}
+.modal-content p {
+    color: #b0b0b0;
+    margin-top: 1rem;
+    max-height: 300px; /* Allow more text to be displayed */
+    overflow-y: auto; /* Add scroll if text overflows */
+}
+.read-more-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #ff3b30;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Add these styles to the existing CSS file */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.left-3 {
+    left: 0.75rem;
+}
+
+.top-3 {
+    top: 0.75rem;
+}
+
+.bg-opacity-50 {
+    background-color: rgba(31, 41, 55, 0.5); /* Adjust the opacity */
+}

@@ -27,12 +27,13 @@ def news_analysis():
 
 @app.route('/feature-3')
 def feature_3():
-    return "Feature 3 Page"
+    return render_template('feature_3.html')
 
 @app.errorhandler(404)
 def not_found(e):
     return render_template("404.html"), 404
 
 
+    
 if __name__ == '__main__':
     app.run(debug=True)
