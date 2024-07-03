@@ -43,7 +43,6 @@ warnings.filterwarnings('ignore')
 openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
-
 xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
 
@@ -68,6 +67,7 @@ xml_tool = XMLSearchTool(xml='./RSS/GoogleNews.xml')
 
 # Define TavilyAPI tool
 
+
 nltk.download('stopwords')
 # Load the spaCy model
 nlp = spacy.load("en_core_web_sm")
@@ -84,8 +84,6 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
 
         # Extract relevant named entities
         entities = [ent.text for ent in doc.ents if ent.label_ in ["ORG", "GPE", "PRODUCT", "EVENT"] and ('oil' in ent.text.lower() or 'gas' in ent.text.lower())]
-        # Debug: Print extracted entities
-        print(f"Extracted Entities: {entities}")
 
         # Extract relevant noun chunks
         noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS and ('oil' in chunk.text.lower() or 'gas' in chunk.text.lower())]
@@ -120,8 +118,6 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
 
         return refined_keywords
 
-
-
 # Define the RSSFeedScraperTool
 class RSSFeedScraperTool(BaseTool):
 
@@ -146,8 +142,6 @@ class RSSFeedScraperTool(BaseTool):
 
                     })
         return articles
-
-
 
 
 class TavilyAPI(BaseTool):
@@ -194,6 +188,7 @@ tavily_tool = TavilyAPI(api_key=tavily_api_key)
 docs_scrape_tool = ScrapeWebsiteTool(
     # website_url="https://www.worldoil.com/news/2024/6/23/adnoc-extends-vallourec-s-900-million-oil-and-gas-tubing-contract-to-2027/"
 )
+
 # Define the keyword generator and RSS feed scraper tools
 keyword_generator = SophisticatedKeywordGeneratorTool()
 rss_feed_scraper = RSSFeedScraperTool()
@@ -288,9 +283,6 @@ crew = Crew(
 # Input topic
 topic = " oil and gas market latest news, oil and gas stock prices, oil and gas supply and demand, and oil and gas production rates"
 
-
-
-
 # Execute the crew with the input topic
 keywords = keyword_generator._run(topic)
 result = rss_feed_scraper._run(keywords)
@@ -306,6 +298,15 @@ with open(output_file, 'w') as f:
 
 
 # result = crew.kickoff(inputs={"topic": topic})
+
+def group_articles_by_category(articles):
+    categorized_articles = defaultdict(list)
+
+    for article in articles:
+        for category in article["Categories"]:
+            categorized_articles[category].append(article)
+
+    return categorized_articles
 
 async def is_accessible(session, url, retries=3, backoff_factor=0.5):
     for attempt in range(retries):
@@ -326,10 +327,8 @@ async def is_accessible(session, url, retries=3, backoff_factor=0.5):
             return False
     return False
 
-
-def is_similar(title1, title2, threshold=0.8):
+def is_similar(title1, title2, threshold=0.7):
     return SequenceMatcher(None, title1, title2).ratio() > threshold
-
 
 def score_relevancy(article, relevant_keywords):
     title = article["Title"].lower()
@@ -344,7 +343,6 @@ def score_relevancy(article, relevant_keywords):
 
     return score
 
-
 def categorize_article(article, categories):
     title = article["Title"].lower()
     content = article.get("Content", "").lower()  # Assuming article content is also available
@@ -356,8 +354,7 @@ def categorize_article(article, categories):
 
     return article_categories
 
-
-async def filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=1):
+async def filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3):
     unique_titles = set()
     filtered_articles = []
 
@@ -405,9 +402,9 @@ async def filter_articles_async(articles, relevant_keywords, categories, relevan
     return filtered_articles
 
 
-# # Load articles from JSON file
-# with open('news_report.json', 'r') as f:
-#     articles = json.load(f)
+# Load articles from JSON file
+with open('news_report.json', 'r') as f:
+    articles = json.load(f)
 
 # Define relevant keywords
 relevant_keywords = [
@@ -434,14 +431,22 @@ categories = {
     "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports"]
 }
 
-# # Filter articles for redundancy, relevancy, and categorize them
-# filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
-#
-# # Save the filtered and categorized articles
-# with open('filtered_news_report.json', 'w') as f:
-#     json.dump(filtered_articles, f, indent=2)
-#
-# print(f"Filtered and categorized articles saved to 'filtered_news_report.json'")
+# Filter articles for redundancy, relevancy, and categorize them
+filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
+
+# Group articles by category
+grouped_articles = group_articles_by_category(filtered_articles)
+
+# Save each category's articles to separate JSON files
+output_dir = 'categorized_news_reports'
+os.makedirs(output_dir, exist_ok=True)
+
+for category, articles in grouped_articles.items():
+    category_file = os.path.join(output_dir, f'{category.replace(" ", "_").lower()}_news_report.json')
+    with open(category_file, 'w') as f:
+        json.dump(articles, f, indent=2)
+
+print(f"Filtered and categorized articles saved to separate files in '{output_dir}'")
 
 
 
