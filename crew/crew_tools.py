@@ -6,7 +6,7 @@ import nltk
 import feedparser
 from datetime import datetime, timedelta
 from tavily import TavilyClient
-from pydantic import BaseModel, PrivateAttr
+from pydantic import PrivateAttr
 from crewai_tools import BaseTool
 
 nltk.download('stopwords')

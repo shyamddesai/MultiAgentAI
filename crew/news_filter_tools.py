@@ -1,7 +1,34 @@
+import json
+import os
 import aiohttp
 import asyncio
 from collections import defaultdict
 from difflib import SequenceMatcher
+from config import relevant_keywords, categories
+
+def filter_and_categorize_articles(all_articles_output):
+    # Load articles from JSON file
+    with open(all_articles_output, 'r') as f:
+        articles = json.load(f)
+
+    # Filter articles for redundancy, relevancy, and categorize them
+    filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
+
+    # Group articles by category
+    grouped_articles = group_articles_by_category(filtered_articles)
+
+    # Save each category's articles to separate JSON files
+    category_output_dir = './reports/categorized_news_reports'
+    os.makedirs(category_output_dir, exist_ok=True)
+
+    for category, articles in grouped_articles.items():
+        category_file = os.path.join(category_output_dir, f'{category.replace(" ", "_").lower()}_news_report.json')
+        with open(category_file, 'w') as f:
+            json.dump(articles, f, indent=2)
+
+    print(f"All articles are filtered and categorized in '{category_output_dir}'")
+
+# ------------------------------------------------------------------------------
 
 def group_articles_by_category(articles):
     categorized_articles = defaultdict(list)

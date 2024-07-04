@@ -1,11 +1,4 @@
 from crewai import Agent, Task
-from dotenv import load_dotenv
-from utils import get_openai_api_key
-import os
-
-load_dotenv()
-openai_api_key = get_openai_api_key()
-os.environ["OPENAI_API_KEY"] = openai_api_key
 
 news_analyst = Agent(
     role="Expert News Analyst",

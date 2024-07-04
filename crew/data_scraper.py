@@ -1,12 +1,5 @@
 from crewai import Agent, Task
 from crew import SophisticatedKeywordGeneratorTool, RSSFeedScraperTool
-from dotenv import load_dotenv
-from utils import get_openai_api_key
-import os
-
-load_dotenv()
-openai_api_key = get_openai_api_key()
-os.environ["OPENAI_API_KEY"] = openai_api_key
 
 # Define the News Gatherer Agent
 news_gatherer = Agent(

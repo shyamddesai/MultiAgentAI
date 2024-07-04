@@ -7,6 +7,7 @@ from .news_filter_tools import (
     is_similar,
     score_relevancy,
     categorize_article,
-    filter_articles_async
+    filter_articles_async,
+    filter_and_categorize_articles
 )
 from .writer import writer, editing_task
