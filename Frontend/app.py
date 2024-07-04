@@ -14,7 +14,7 @@ def market_prediction():
 @app.route('/news-analysis')
 def news_analysis():
     try:
-        with open('../reports/news_report.json') as f:
+        with open('./sample_reports/news_report_summary.json') as f:
             news_data = json.load(f)
     except FileNotFoundError:
         news_data = []

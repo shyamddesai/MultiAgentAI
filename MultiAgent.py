@@ -3,7 +3,7 @@ import warnings
 from crewai import Crew, Process
 from crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool,
                   news_gatherer, news_gathering_task, filter_and_categorize_articles)
-from config import topic, tavily_api_key, serper_api_key
+from MultiAgentAI.crew.config import topic
 
 warnings.filterwarnings('ignore')
 

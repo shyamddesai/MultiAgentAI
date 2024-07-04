@@ -4,7 +4,7 @@ import aiohttp
 import asyncio
 from collections import defaultdict
 from difflib import SequenceMatcher
-from config import relevant_keywords, categories
+from MultiAgentAI.crew.config import relevant_keywords, categories
 
 def filter_and_categorize_articles(all_articles_output):
     # Load articles from JSON file
