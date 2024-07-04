@@ -1,4 +1,14 @@
 from crewai import Agent, Task
+import os
+from utils import get_openai_api_key
+from dotenv import load_dotenv
+
+load_dotenv()
+openai_api_key = get_openai_api_key()
+os.environ["OPENAI_API_KEY"] = openai_api_key
+os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
+
+# ------------------------------------------------------------------------------
 
 news_analyst = Agent(
     role="Expert News Analyst",
@@ -17,7 +27,7 @@ news_analyst = Agent(
     memory=True,
 )
 
-analysis_task = Task(
+news_analyst_task = Task(
     description=(
         "Analyze the gathered news articles from the News Researcher and identify key "
         "trends and insights in topic:{topic}. Summarize the information in a concise manner."

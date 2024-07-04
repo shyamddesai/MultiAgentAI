@@ -1,9 +1,8 @@
 import json
 import warnings
 from crewai import Crew, Process
-from crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool,
-                  news_gatherer, news_gathering_task, filter_and_categorize_articles)
-from MultiAgentAI.crew.config import topic
+from crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool, filter_and_categorize_articles, topic,
+                  news_gatherer, news_gathering_task, news_analyst, news_analyst_task)
 
 warnings.filterwarnings('ignore')
 

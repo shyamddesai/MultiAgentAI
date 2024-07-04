@@ -1,9 +1,3 @@
-import os
-from utils import get_openai_api_key
-from dotenv import load_dotenv
-
-# ------------------------------------------------------------------------------
-
 topic = "oil and gas market latest news, oil and gas stock prices, oil and gas supply and demand, and oil and gas production rates"
 
 relevant_keywords = [
@@ -32,14 +26,8 @@ categories = {
 # ------------------------------------------------------------------------------
 # Load API keys and initialize tools
 
-load_dotenv()
-
-openai_api_key = get_openai_api_key()
-os.environ["OPENAI_API_KEY"] = openai_api_key
-os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
-
-tavily_api_key = os.getenv("TAVILY_API_KEY")
-serper_api_key = os.getenv("SERPER_API_KEY")
+# tavily_api_key = os.getenv("TAVILY_API_KEY")
+# serper_api_key = os.getenv("SERPER_API_KEY")
 
 # tavily_tool = TavilyAPI(api_key=tavily_api_key)
 # serper_tool = SerperDevTool()
