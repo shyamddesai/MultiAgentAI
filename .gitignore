@@ -1,4 +1,7 @@
-crew
 .venv
+.env
+.vscode
+db
+crew/__pycache__
 Frontend/venv
 Frontend/__pycache__
