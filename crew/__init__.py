@@ -11,3 +11,4 @@ from .news_filter_tools import (
     filter_and_categorize_articles
 )
 from .writer import writer, editing_task
+from .config import topic, relevant_keywords, categories
