@@ -3,61 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dashboard Home Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Dashboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/data">Data Visualization</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/market-prediction">Market Prediction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news-analysis">News Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/feature-3">Feature 3</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="container-fluid hero bg-light text-center py-5">
+    <div id="particles-js"></div>
+    <div class="hero-section">
+        <h1>Welcome to the Dashboard</h1>
+        <p style="font-size:1vw">Tech stack used-> Backend: Flask, Frontend: HTML, CSS, JS, Bootstrap</p>
+        <a href="#features" class="btn btn-primary btn-lg">Learn more</a>
+    </div>
+
+    <div class="container features" id="features">
         <div class="row">
-            <div class="col-12">
-                <h1 class="display-4">Welcome to the Dashboard</h1>
-                <p class="lead">Explore insights from our system.</p>
-                <a href="/data" class="btn btn-primary btn-lg mt-3">View Data</a>
+            <div class="col-md-4 feature">
+                <a href="/market-prediction">
+                    <img id="market-prediction-animation" src="{{ url_for('static', filename='images/market_prediction.png') }}" alt="Market Prediction Image">
+                    <h2>Market Prediction</h2>
+                    <p>Utilize cutting-edge AI to predict market trends and make informed decisions.</p>
+                </a>
+            </div>
+            <div class="col-md-4 feature">
+                <a href="/news-analysis">
+                    <img id="news-analysis-animation" src="{{ url_for('static', filename='images/news_analysis.png') }}" alt="News Analysis Image">
+                    <h2>News Analysis</h2>
+                    <p>Stay ahead with real-time news analysis and sentiment tracking to gauge market impacts.</p>
+                </a>
+            </div>
+            <div class="col-md-4 feature">
+                <a href="/feature-3">
+                    <img id="feature-3-animation" src="{{ url_for('static', filename='images/feature_3.png') }}" alt="Feature 3 Image">
+                    <h2>Feature 3</h2>
+                    <p>Detail about feature 3.</p>
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Overview Section -->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>About Our System</h2>
-                <p>Description.</p>
-            </div>
-            <div class="col-md-6">
-                <img src="{{ url_for('static', filename='images/ai-overview.png') }}" class="img-fluid" alt="AI Overview">
-            </div>
-        </div>
-    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Add the particles.js initialization script -->
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>

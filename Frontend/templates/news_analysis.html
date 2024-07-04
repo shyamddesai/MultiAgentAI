@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard News Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/news_analysis.css') }}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #generate-refresh {
+            margin-left: 10px;
+            font-size: 0.8rem;
+            color: white;
+            background-color: #5cb85c; /* Green color */
+        }
+        #particles-js-news {
+            width: 100%;
+            height: 100%;
+            position: fixed; /* Cover the entire viewport */
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .thumbs-buttons {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .thumbs-buttons i {
+            cursor: pointer;
+            margin-left: 5px;
+            color: #007bff; /* Blue color for visibility */
+        }
+        /* Loading bar styles */
+        #loading-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f3f3f3; /* Adjust as needed */
+        }
+        .progress-bar {
+            width: 0;
+            height: 4px;
+            background-color: #007bff; /* Adjust to match your page's color scheme */
+        }
+        /* Toast notification styles */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            min-width: 200px;
+            background-color: #343a40; /* Adjust to match your page's color scheme */
+            color: #fff;
+            border: none;
+            border-radius: 0.25rem;
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+        }
+        .toast-body {
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/market-prediction">Market Prediction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news-analysis">News Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/feature-3">Feature 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="particles-js-news"></div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Dashboard Section -->
+            <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                    <h3>Archive</h3>
+                    <button id="generate-refresh" class="btn btn-sm btn-primary">
+                        <i class="fas fa-sync-alt"></i> Generate/Refresh
+                    </button>
+                </div>
+                <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="total-articles-tab" data-toggle="tab" href="#total-articles" role="tab" aria-controls="total-articles" aria-selected="true">Total Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="summary-report-tab" data-toggle="tab" href="#summary-report" role="tab" aria-controls="summary-report" aria-selected="false">Summary/Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="false">Timeline</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content Section -->
+            <div class="col-md-8">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="total-articles" role="tabpanel" aria-labelledby="total-articles-tab">
+                        <h3>Total Articles</h3>
+                        <ul class="list-group" id="articles-list">
+                            <li class="list-group-item d-flex justify-content-between align-items-center" id="total-articles-counter" style="cursor: pointer;">
+                                Total Articles: {{ news_data|length }}
+                                <div class="thumbs-buttons">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <i class="fas fa-thumbs-down"></i>
+                                </div>
+                            </li>
+                            <!-- Articles will be appended here by JavaScript -->
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="summary-report" role="tabpanel" aria-labelledby="summary-report-tab">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>Summary/Report</h3>
+                            <button id="export-pdf" class="btn btn-sm btn-primary">Export as PDF</button>
+                        </div>
+                        <div id="report-content">
+                            <!-- Report content will be appended here by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
+                        <h3>Timeline</h3>
+                        <canvas id="timeline-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading bar moved to the bottom -->
+    <div id="loading-bar">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Notification toast -->
+    <div id="regenerate-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+            Regenerating Response
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const articlesList = document.getElementById('articles-list');
+            const newsData = {{ news_data|tojson }};
+            const reportContent = document.getElementById('report-content');
+            const reportData = {{ report_data|tojson }};
+            const loadingBar = document.getElementById('loading-bar');
+            const progressBar = loadingBar.querySelector('.progress-bar');
+            const toast = new bootstrap.Toast(document.getElementById('regenerate-toast'));
+            const timelineChart = document.getElementById('timeline-chart');
+            
+            document.getElementById('total-articles-counter').addEventListener('click', function() {
+                // Clear existing articles except the counter
+                articlesList.innerHTML = '<li class="list-group-item d-flex justify-content-between align-items-center" id="total-articles-counter" style="cursor: pointer;">Total Articles: ' + newsData.length + '<div class="thumbs-buttons"><i class="fas fa-thumbs-up"></i><i class="fas fa-thumbs-down"></i></div></li>';
+                
+                // Append articles
+                newsData.forEach(article => {
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item';
+                    
+                    const link = document.createElement('a');
+                    link.href = article.Link;
+                    link.target = '_blank';
+                    link.textContent = article.Title;
+                    
+                    const summary = document.createElement('p');
+                    summary.textContent = article.Summary;
+
+                    listItem.appendChild(link);
+                    listItem.appendChild(summary);
+                    articlesList.appendChild(listItem);
+                });
+            });
+
+            document.getElementById('summary-report-tab').addEventListener('click', function() {
+                // Clear existing report content
+                reportContent.innerHTML = '';
+                
+                // Append report content
+                reportData.forEach(report => {
+                    const reportItem = document.createElement('div');
+                    reportItem.className = 'report-item';
+                    
+                    const title = document.createElement('h4');
+                    title.textContent = report.Title;
+                    
+                    const summary = document.createElement('p');
+                    summary.textContent = report.Summary;
+                    
+                    reportItem.appendChild(title);
+                    reportItem.appendChild(summary);
+                    reportContent.appendChild(reportItem);
+                });
+            });
+
+            document.getElementById('export-pdf').addEventListener('click', function() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                let y = 10;
+                reportData.forEach(report => {
+                    doc.setFontSize(16);
+                    doc.text(report.Title, 10, y);
+                    y += 10;
+                    doc.setFontSize(12);
+                    doc.text(report.Summary, 10, y);
+                    y += 20;
+                });
+
+                doc.save('report.pdf');
+            });
+
+            document.getElementById('generate-refresh').addEventListener('click', function() {
+                loadingBar.style.display = 'block';
+                progressBar.style.width = '0%';
+                progressBar.setAttribute('aria-valuenow', 0);
+
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 10;
+                    progressBar.style.width = progress + '%';
+                    progressBar.setAttribute('aria-valuenow', progress);
+
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        loadingBar.style.display = 'none';
+                    }
+                }, 100);
+
+                // Show toast notification
+                toast.show();
+            });
+
+            document.getElementById('timeline-tab').addEventListener('click', function() {
+                const ctx = timelineChart.getContext('2d');
+                const chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: reportData.map(report => report.Date),
+                        datasets: [{
+                            label: 'Report Data',
+                            data: reportData.map(report => report.Value),
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+
+            particlesJS('particles-js-news', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                        "image": {
+                            "src": "img/github.svg",
+                            "width": 100,
+                            "height": 100
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>
+</body>
+</html>

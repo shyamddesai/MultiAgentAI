@@ -1,40 +1,38 @@
-from flask import Flask,render_template, request, url_for, jsonify, make_response, abort
 import json
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-   return render_template('index.html')
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-@app.route("/data")
-def data():
-   with open('data.json') as f:
-      data = json.load(f)
-   return render_template('data.html', summary=data['summary'], chart_data=json.dumps(data['data']))
+@app.route('/market-prediction')
+def market_prediction():
+    return "Market Prediction Page"
 
-@app.route("/news")
-def news():
-   with open('news.json') as f:
-      data = json.load(f)
-   return render_template('news.html', news_data = data)
+@app.route('/news-analysis')
+def news_analysis():
+    try:
+        with open('./sample_reports/news_report_summary.json') as f:
+            news_data = json.load(f)
+    except FileNotFoundError:
+        news_data = []
+    try:
+        with open('report.json') as f:
+            report_data = json.load(f)
+    except FileNotFoundError:
+        report_data = []
+    return render_template('news_analysis.html', news_data=news_data, report_data=report_data)
 
-@app.route("/news2")
-def news2():
-   with open('reports/news_report.json') as f:
-      data = json.load(f)
-   return render_template('news2.html', news_data = data)
-
+@app.route('/feature-3')
+def feature_3():
+    return "Feature 3 Page"
 
 @app.errorhandler(404)
-def not_found(error):
-    resp = make_response(render_template('error.html'), 404)
-    resp.headers['X-Something'] = 'A value'
-    return resp
-
-
-
+def not_found(e):
+    return render_template("404.html"), 404
 
 
 if __name__ == '__main__':
-   app.run(debug=True)
+    app.run(debug=True)
