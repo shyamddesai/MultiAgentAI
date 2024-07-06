@@ -12,11 +12,26 @@
         <h1 class="title mb-4">Customize your feed</h1>
         <p class="body mb-6">Select from the pre-existing categories to build your feed</p>
         <div class="grid grid-cols-3 gap-4">
-            <div class="avatar mx-auto" data-value="1" onclick="toggleTick(this)"></div>
-            <div class="avatar mx-auto" data-value="2" onclick="toggleTick(this)"></div>
-            <div class="avatar mx-auto" data-value="3" onclick="toggleTick(this)"></div>
-            <div class="avatar mx-auto" data-value="4" onclick="toggleTick(this)"></div>
-            <div class="avatar mx-auto" data-value="5" onclick="toggleTick(this)"></div>
+            <div class="avatar-container">
+                <div class="avatar mx-auto" data-value="1" onclick="toggleTick(this)"></div>
+                <div class="avatar-label">1</div>
+            </div>
+            <div class="avatar-container">
+                <div class="avatar mx-auto" data-value="2" onclick="toggleTick(this)"></div>
+                <div class="avatar-label">2</div>
+            </div>
+            <div class="avatar-container">
+                <div class="avatar mx-auto" data-value="3" onclick="toggleTick(this)"></div>
+                <div class="avatar-label">3</div>
+            </div>
+            <div class="avatar-container">
+                <div class="avatar mx-auto" data-value="4" onclick="toggleTick(this)"></div>
+                <div class="avatar-label">4</div>
+            </div>
+            <div class="avatar-container">
+                <div class="avatar mx-auto" data-value="5" onclick="toggleTick(this)"></div>
+                <div class="avatar-label">5</div>
+            </div>
             <div class="add-avatar mx-auto" onclick="showPopup()">+</div>
         </div>
         <button class="button back-button">Back</button>
@@ -26,7 +41,10 @@
         </form>
     </div>
     <div class="popup hidden" id="popup">
-        <input type="text" class="search-box" placeholder="Search for a filter...">
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search for a filter..." id="searchBox">
+            <button class="add-button" id="addButton" disabled>Add</button>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='js/uimock_flash.js') }}"></script>
 </body>

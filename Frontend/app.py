@@ -25,22 +25,29 @@ async def news_analysis():
         report_data = []
     return render_template('news_analysis.html', news_data=news_data, report_data=report_data)
 
+@app.route('/uimock_flash')
+async def uimock_flash():
+    return render_template('uimock_flash.html')
+
+@app.route('/uimock_loading')
+async def uimock_loading():
+    return render_template('uimock_loading.html')
+
 @app.route('/uimock_feed')
 async def uimock_feed():
     return render_template('uimock_feed.html')
 
-@app.route('/uimock_flash')
-async def uimock_flash():
-    return render_template('uimock_flash.html')
+@app.route('/uimock_navbar')
+async def uimock_navbar():
+    return render_template('uimock_navbar.html')
 
 @app.route('/process-selection', methods=['POST'])
 async def process_selection():
     selected_avatars = request.form['selected_avatars']
     print("Selected Avatars: " + selected_avatars)
-    return redirect(url_for('uimock_feed'))
+    return redirect(url_for('uimock_loading'))
 
 
 
-    
 if __name__ == '__main__':
     app.run(debug=True)
