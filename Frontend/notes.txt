@@ -1,0 +1,16 @@
+Categories to filter:
+- Company
+- Exploration
+- Market Trends
+- Production Updates
+- Refining
+- Stock Prices
+- Supply & Demand
+- Trade & Export
+
+Format: 
+    Title
+    Link
+    Published Date
+    Category
+

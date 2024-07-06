@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_feed.css') }}">
+</head>
+<body class="font-sans antialiased">
+    <div class="sidebar" id="sidebar">
+        <h2 class="text-xl font-bold mb-4">News App</h2>
+        <!-- Search Box -->
+        <div class="relative mb-4">
+            <input type="text" placeholder="Search..." class="w-full p-2 pl-10 rounded bg-gray-800 bg-opacity-50 text-white">
+            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+        </div>
+        <nav>
+            <a href="#today"><i class="fas fa-calendar-day"></i>Today</a>
+            <a href="#top-stories"><i class="fas fa-newspaper"></i>Top Stories</a>
+            <a href="#"><i class="fas fa-heart"></i>For You</a> <!-- New "For You" section added -->
+            <h3 class="text-lg font-semibold mt-6 mb-2">Filters</h3>
+            <a href="#"><i class="fas fa-oil-can"></i>Oil/Gas</a>
+            <a href="#"><i class="fas fa-globe"></i>OPEC</a>
+            <a href="#"><i class="fas fa-microchip"></i>Technology</a>
+            <a href="#"><i class="fas fa-plus"></i>Add filter</a> <!-- New item added -->
+        </nav>
+        <div class="dashboard-link">
+            <a href="/uimock_flash" class="flex items-center text-gray-400 hover:text-white">
+                <i class="fas fa-arrow-left mr-2"></i>Dashboard
+            </a>
+        </div>
+    </div>
+    <div class="container mx-auto p-4" id="main-content">
+        <header class="header mb-4">
+            <h1>News</h1>
+            <div class="date" id="current-date"></div>
+        </header>
+        <section id="today" class="today">
+            <h2 class="highlight">Today</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="news-card p-4" onclick="openModal('Today Story 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.', 'https://via.placeholder.com/600')">
+                    <img src="https://via.placeholder.com/300" alt="Today Story 1" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
+                    <div class="p-4">
+                        <h2 class="article-title">Today Story 1</h2>
+                        <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                    </div>
+                </article>
+                <article class="news-card p-4" onclick="openModal('Today Story 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.', 'https://via.placeholder.com/600')">
+                    <img src="https://via.placeholder.com/300" alt="Today Story 2" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
+                    <div class="p-4">
+                        <h2 class="article-title">Today Story 2</h2>
+                        <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                    </div>
+                </article>
+                <article class="news-card p-4" onclick="openModal('Top Story 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.', 'https://via.placeholder.com/600')">
+                    <img src="https://via.placeholder.com/300" alt="Top Story 3" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
+                    <div class="p-4">
+                        <h2 class="article-title">Top Story 3</h2>
+                        <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="top-stories" class="top-stories">
+            <h2 class="highlight">Top Stories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <article class="news-card p-4" onclick="openModal('Top Story 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.', 'https://via.placeholder.com/600')">
+                    <img src="https://via.placeholder.com/300" alt="Top Story 1" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
+                    <div class="p-4">
+                        <h2 class="article-title">Top Story 1</h2>
+                        <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                    </div>
+                </article>
+                <article class="news-card p-4" onclick="openModal('Top Story 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.', 'https://via.placeholder.com/600')">
+                    <img src="https://via.placeholder.com/300" alt="Top Story 2" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
+                    <div class="p-4">
+                        <h2 class="article-title">Top Story 2</h2>
+                        <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                    </div>
+                </article>
+                <article class="news-card p-4" onclick="openModal('Top Story 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.', 'https://via.placeholder.com/600')">
+                    <img src="https://via.placeholder.com/300" alt="Top Story 3" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
+                    <div class="p-4">
+                        <h2 class="article-title">Top Story 3</h2>
+                        <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <img id="modal-image" src="" alt="Modal Image">
+            <h2 id="modal-title"></h2>
+            <p id="modal-summary"></p>
+            <a href="#" class="read-more-btn">to read more</a>
+        </div>
+    </div>
+    <script src="/static/js/uimock_feed.js"></script>
+</body>
+</html>

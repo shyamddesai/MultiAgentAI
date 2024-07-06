@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_flash.css') }}">
+</head>
+<body>
+    <div class="card p-6 rounded-lg shadow-lg text-center">
+        <h1 class="title mb-4">Customize your feed</h1>
+        <p class="body mb-6">Select from the pre-existing categories to build your feed</p>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="avatar mx-auto" data-value="1" onclick="toggleTick(this)"></div>
+            <div class="avatar mx-auto" data-value="2" onclick="toggleTick(this)"></div>
+            <div class="avatar mx-auto" data-value="3" onclick="toggleTick(this)"></div>
+            <div class="avatar mx-auto" data-value="4" onclick="toggleTick(this)"></div>
+            <div class="avatar mx-auto" data-value="5" onclick="toggleTick(this)"></div>
+            <div class="add-avatar mx-auto" onclick="showPopup()">+</div>
+        </div>
+        <button class="button back-button">Back</button>
+        <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
+            <input type="hidden" name="selected_avatars" id="selectedAvatars">
+            <button type="submit" class="button continue-button" id="continueButton" disabled>Continue</button>
+        </form>
+    </div>
+    <div class="popup hidden" id="popup">
+        <input type="text" class="search-box" placeholder="Search for a filter...">
+    </div>
+    <script src="{{ url_for('static', filename='js/uimock_flash.js') }}"></script>
+</body>
+</html>
