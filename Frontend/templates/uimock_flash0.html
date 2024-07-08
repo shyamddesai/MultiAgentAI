@@ -8,6 +8,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_flash.css') }}">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
+
+        body {
+            font-family: 'SF Pro Text', sans-serif;
+        }
+
+        .custom-nav {
+            background: rgba(255, 255, 255, 0.2); /* Increased transparency */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Translucent border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            backdrop-filter: blur(10px); /* Glass-like blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border-radius: 30px; /* More rounded corners */
+            position: fixed; /* Fixed position */
+            top: 1rem; /* Distance from the top */
+            right: 1rem; /* Distance from the right */
+            z-index: 1000; /* Ensure it stays on top */
+        }
+        .custom-nav a {
+            color: #000000;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem; /* Increased padding */
+            font-size: 1.25rem; /* Increased font size */
+            border-radius: 50%; /* Make hover effect round */
+        }
+        .custom-nav a:hover {
+            color: #FE2C55;
+            background-color: rgba(254, 44, 85, 0.2); /* Darker background */
+            box-shadow: 0 0 15px rgba(254, 44, 85, 0.5); /* Darker and more pronounced shadow */
+            transform: scale(1.1); /* Slightly enlarge the element */
+        }
+        .custom-nav .separator {
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.3); /* Subtle line color */
+            height: 100%;
+            margin: 0 0.5rem; /* Increased margin */
+        }
+
         .primary-color {
             background-color: #FE2C55; /* Primary color */
         }
@@ -29,6 +67,26 @@
     </style>
 </head>
 <body>
+    <nav class="custom-nav text-white rounded-full w-auto">
+        <div class="flex justify-around p-2">
+            <a href="/" class="flex flex-col items-center">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="separator"></div> <!-- Separator line -->
+            <a href="/market-prediction" class="flex flex-col items-center">
+                <i class="fas fa-chart-line"></i>
+            </a>
+            <div class="separator"></div> <!-- Separator line -->
+            <a href="/news-analysis" class="flex flex-col items-center">
+                <i class="fas fa-newspaper"></i>
+            </a>
+            <div class="separator"></div> <!-- Separator line -->
+            <a href="/uimock_flash0" class="flex flex-col items-center">
+                <i class="fas fa-cogs"></i>
+            </a>
+        </div>
+    </nav>
+
     <div class="card p-6 rounded-lg shadow-lg text-center relative">
         <h1 class="title mb-4">Customize your feed</h1>
         <p class="body mb-6">Type keywords one per line</p>
@@ -44,6 +102,7 @@
             <button type="submit" class="button continue-button text-white" id="continueButton" disabled>Continue</button>
         </form>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script src="{{ url_for('static', filename='js/uimock_flash.js') }}"></script>
     <script>
         function addKeyword() {

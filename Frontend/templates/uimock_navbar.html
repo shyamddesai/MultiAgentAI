@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bottom Navigation</title>
+    <title>Top Right Navigation</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bottom_nav.css') }}">
     <style>
@@ -19,55 +19,50 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
             backdrop-filter: blur(10px); /* Glass-like blur effect */
             -webkit-backdrop-filter: blur(10px); /* Safari support */
-            border-radius: 15px; /* Rounded corners */
+            border-radius: 30px; /* More rounded corners */
+            position: fixed; /* Fixed position */
+            top: 1rem; /* Distance from the top */
+            right: 1rem; /* Distance from the right */
+            z-index: 1000; /* Ensure it stays on top */
         }
         .custom-nav a {
             color: #000000;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1rem; /* Increased padding */
+            font-size: 1.25rem; /* Increased font size */
+            border-radius: 50%; /* Make hover effect round */
         }
         .custom-nav a:hover {
             color: #FE2C55;
             background-color: rgba(254, 44, 85, 0.2); /* Darker background */
             box-shadow: 0 0 15px rgba(254, 44, 85, 0.5); /* Darker and more pronounced shadow */
-            transform: scale(1.05); /* Slightly enlarge the element */
+            transform: scale(1.1); /* Slightly enlarge the element */
         }
         .custom-nav .separator {
             width: 1px;
             background-color: rgba(255, 255, 255, 0.3); /* Subtle line color */
             height: 100%;
+            margin: 0 0.5rem; /* Increased margin */
         }
     </style>
 </head>
 <body class="font-sans antialiased">
-    <div class="container mx-auto p-4">
-        <header class="header mb-4">
-            <h1>Page Title</h1>
-        </header>
-        <main>
-            <p>Main content goes here...</p>
-        </main>
-    </div>
-    <nav class="fixed bottom-4 left-1/2 transform -translate-x-1/2 custom-nav text-white rounded-full w-1/3"> <!-- Changed width to 1/3 -->
+    <nav class="custom-nav text-white rounded-full w-auto">
         <div class="flex justify-around p-2">
             <a href="/" class="flex flex-col items-center">
                 <i class="fas fa-home"></i>
-                <span>Home</span>
             </a>
             <div class="separator"></div> <!-- Separator line -->
             <a href="/market-prediction" class="flex flex-col items-center">
                 <i class="fas fa-chart-line"></i>
-                <span>Market Prediction</span>
             </a>
             <div class="separator"></div> <!-- Separator line -->
             <a href="/news-analysis" class="flex flex-col items-center">
                 <i class="fas fa-newspaper"></i>
-                <span>News Analysis</span>
             </a>
             <div class="separator"></div> <!-- Separator line -->
-            <a href="/uimock_flash" class="flex flex-col items-center">
+            <a href="/uimock_flash0" class="flex flex-col items-center">
                 <i class="fas fa-cogs"></i>
-                <span>UI Test</span>
             </a>
         </div>
     </nav>

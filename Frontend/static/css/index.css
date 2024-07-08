@@ -4,14 +4,11 @@ body {
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
-.navbar,
+
 .hero-section {
     background: transparent;
 }
-.navbar .navbar-brand,
-.navbar .nav-link {
-    color: #ffffff;
-}
+
 .hero-section {
     position: relative;
     text-align: center;
