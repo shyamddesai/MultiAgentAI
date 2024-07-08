@@ -26,25 +26,38 @@ body {
 }
 
 .avatar {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
     border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--light-gray-color);
-    position: relative;
     cursor: pointer;
+    transition: background-color 0.3s;
+    border: 2px solid #ccc; /* Added border */
+    position: relative; /* Added for positioning the tick mark */
+}
+
+.avatar i {
+    font-size: 2.5rem; /* Adjust the size as needed */
+    color: #333;
+}
+
+.avatar:hover {
+    background-color: #e0e0e0;
 }
 
 .avatar::after {
     content: '✔';
-    color: var(--dark-gray-color);
+    color: var(--primary-color);
     font-size: 2rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
-    font-weight: 300; /* Thinner tick mark */
+    font-weight: bold; /* Thicker tick mark */
 }
 
 .avatar.selected::after {
@@ -52,15 +65,22 @@ body {
 }
 
 .add-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: 2px solid var(--light-gray-color);
-    color: var(--primary-color);
-    font-size: 3rem;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2.5rem; /* Adjust the size as needed */
+    color: #333;
+    transition: background-color 0.3s;
+    border: 2px solid #ccc; /* Added border */
+}
+
+.add-avatar:hover {
+    background-color: #e0e0e0;
 }
 
 .button {
@@ -117,16 +137,48 @@ body {
 }
 
 .popup {
-    position: absolute;
-    top: 50%;
-    left: calc(50% + 100px); /* Adjust position to the side of the + sign */
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-box {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.add-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.add-button.active {
+    background-color: #FE2C55
+}
+
+.add-button:hover:not(:disabled) {
+    background-color: #0056b3;
 }
 
 .hidden {

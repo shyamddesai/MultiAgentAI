@@ -3,6 +3,10 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
+def load_json_data(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
+
 @app.route('/')
 async def home():
     return render_template('index.html')
@@ -35,7 +39,9 @@ async def uimock_loading():
 
 @app.route('/uimock_feed')
 async def uimock_feed():
-    return render_template('uimock_feed.html')
+    content = load_json_data('content.json')
+    sources = load_json_data('sources.json')
+    return render_template('uimock_feed.html', content=content, sources=sources)
 
 @app.route('/uimock_navbar')
 async def uimock_navbar():

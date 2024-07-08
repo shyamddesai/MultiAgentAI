@@ -16,6 +16,7 @@ function checkSelectedAvatars() {
 function showPopup() {
     const popup = document.getElementById('popup');
     popup.classList.toggle('hidden');
+    popup.classList.toggle('flex');
 }
 
 document.addEventListener('keydown', function(event) {
