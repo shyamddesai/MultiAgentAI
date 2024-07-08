@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mock Title</title>
+    <title>Categories</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_flash.css') }}">
@@ -12,7 +12,7 @@
     <div class="card p-6 rounded-lg shadow-lg text-center">
         <h1 class="title mb-4">Customize your feed</h1>
         <p class="body mb-6">Select from the pre-existing categories to build your feed</p>
-        <div class="grid grid-cols-5 gap-4">
+        <div class="grid grid-cols-5 gap-4" id="avatarGrid">
             <div class="avatar-container">
                 <div class="avatar mx-auto" data-value="1" onclick="toggleTick(this)">
                     <i class="fas fa-building"></i>
@@ -80,21 +80,71 @@
                 <div class="avatar-label">Sports</div>
             </div>
             <div class="col-span-5 flex justify-center relative">
-                <div class="add-avatar mx-auto" onclick="showPopup()">+</div>
+                <div class="avatar-container">
+                    <div class="avatar mx-auto" onclick="showPopup()">+</div>
+                    <div class="avatar-label">Add Custom</div>
+                </div>
                 <div class="popup hidden absolute" id="popup">
                     <div class="search-container">
                         <input type="text" class="search-box" placeholder="Add Custom Filter.." id="searchBox">
-                        <button class="add-button" id="addButton" disabled>Add</button>
+                        <button class="add-button" id="addButton" disabled onclick="addAvatar()">Add</button>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="button back-button">Back</button>
         <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
             <input type="hidden" name="selected_avatars" id="selectedAvatars">
             <button type="submit" class="button continue-button" id="continueButton" disabled>Continue</button>
         </form>
     </div>
     <script src="{{ url_for('static', filename='js/uimock_flash.js') }}"></script>
+    <script>
+        function showPopup() {
+            document.getElementById('popup').classList.toggle('hidden');
+        }
+
+        function toggleTick(element) {
+            element.classList.toggle('selected');
+            updateSelectedAvatars();
+        }
+
+        function updateSelectedAvatars() {
+            const selectedAvatars = Array.from(document.querySelectorAll('.avatar.selected')).map(avatar => avatar.getAttribute('data-value'));
+            document.getElementById('selectedAvatars').value = selectedAvatars.join(',');
+            document.getElementById('continueButton').disabled = selectedAvatars.length === 0;
+        }
+
+        function addAvatar() {
+            const searchBox = document.getElementById('searchBox');
+            const avatarGrid = document.getElementById('avatarGrid');
+            const newAvatarValue = Date.now(); // Unique value for the new avatar
+
+            const avatarContainer = document.createElement('div');
+            avatarContainer.className = 'avatar-container';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar mx-auto selected'; // Default selected
+            avatar.setAttribute('data-value', newAvatarValue);
+            avatar.setAttribute('onclick', 'toggleTick(this)');
+            avatar.innerHTML = '<i class="fas fa-user"></i>'; // Default icon for new avatars
+
+            const avatarLabel = document.createElement('div');
+            avatarLabel.className = 'avatar-label';
+            avatarLabel.textContent = searchBox.value;
+
+            avatarContainer.appendChild(avatar);
+            avatarContainer.appendChild(avatarLabel);
+            avatarGrid.insertBefore(avatarContainer, avatarGrid.lastElementChild);
+
+            searchBox.value = '';
+            document.getElementById('addButton').disabled = true;
+            showPopup();
+            updateSelectedAvatars(); // Update the selected avatars
+        }
+
+        document.getElementById('searchBox').addEventListener('input', function() {
+            document.getElementById('addButton').disabled = this.value.trim() === '';
+        });
+    </script>
 </body>
 </html>

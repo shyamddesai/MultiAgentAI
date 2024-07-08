@@ -14,3 +14,9 @@ Format:
     Published Date
     Category
 
+
+Widen the Modal Window to fit the pdf
+Add a flash screen with keywords
+Follow it with a flask screen for filters
+Shorten the loading animation by 2 seconds
+Display feed after

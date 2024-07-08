@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keywords</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_flash.css') }}">
+    <style>
+        .primary-color {
+            background-color: #FE2C55; /* Primary color */
+        }
+        .dark-gray-color {
+            background-color: #8E8E93; /* Dark gray color */
+        }
+        .strikeout {
+            text-decoration: line-through;
+            transition: text-decoration 0.3s ease;
+        }
+        .button:disabled {
+            background-color: #d1d5db; /* Gray color for disabled state */
+            cursor: not-allowed;
+        }
+        .button:enabled {
+            background-color: #FE2C55; /* Primary color for enabled state */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card p-6 rounded-lg shadow-lg text-center relative">
+        <h1 class="title mb-4">Customize your feed</h1>
+        <p class="body mb-6">Type keywords one per line</p>
+        <div id="keywordsContainer" class="w-full p-2 border border-gray-300 rounded mb-4 h-32 overflow-y-auto"></div>
+        <div class="flex items-center mb-4">
+            <input type="text" id="searchInput" class="flex-grow p-2 border border-gray-300 rounded-l" placeholder="Search...">
+            <button class="ml-2 p-2 primary-color text-white rounded-full w-10 h-10 flex items-center justify-center" onclick="addKeyword()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
+            <input type="hidden" name="typed_lines" id="typedLines">
+            <button type="submit" class="button continue-button text-white" id="continueButton" disabled>Continue</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/uimock_flash.js') }}"></script>
+    <script>
+        function addKeyword() {
+            const searchInput = document.getElementById('searchInput');
+            const keywordsContainer = document.getElementById('keywordsContainer');
+            const keyword = searchInput.value.trim();
+
+            if (keyword) {
+                const keywordDiv = document.createElement('div');
+                keywordDiv.className = 'keyword-item p-2 mb-2 bg-gray-100 rounded cursor-pointer';
+                keywordDiv.textContent = keyword;
+                keywordDiv.addEventListener('mouseover', () => {
+                    keywordDiv.classList.add('strikeout');
+                });
+                keywordDiv.addEventListener('mouseout', () => {
+                    keywordDiv.classList.remove('strikeout');
+                });
+                keywordDiv.addEventListener('click', () => {
+                    keywordsContainer.removeChild(keywordDiv);
+                    toggleContinueButton();
+                });
+                keywordsContainer.appendChild(keywordDiv);
+                searchInput.value = '';
+                toggleContinueButton();
+            }
+        }
+
+        function toggleContinueButton() {
+            const keywordsContainer = document.getElementById('keywordsContainer');
+            const continueButton = document.getElementById('continueButton');
+            const typedLines = document.getElementById('typedLines');
+            const keywords = Array.from(keywordsContainer.children).map(child => child.textContent).join('\n');
+            typedLines.value = keywords;
+            continueButton.disabled = keywordsContainer.children.length === 0;
+        }
+    </script>
+</body>
+</html>
