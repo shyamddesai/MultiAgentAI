@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard News Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/news_analysis.css') }}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/market-prediction">Market Prediction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news-analysis">News Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/feature-3">Feature 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="particles-js-news"></div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Dashboard Section -->
+            <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                    <h3>Archive</h3>
+                    <button id="generate-refresh" class="btn btn-sm btn-primary">
+                        <i class="fas fa-sync-alt"></i> Generate/Refresh
+                    </button>
+                </div>
+                <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="total-articles-tab" data-toggle="tab" href="#total-articles" role="tab" aria-controls="total-articles" aria-selected="true">Total Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="summary-report-tab" data-toggle="tab" href="#summary-report" role="tab" aria-controls="summary-report" aria-selected="false">Summary/Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="false">Timeline</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content Section -->
+            <div class="col-md-8">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="total-articles" role="tabpanel" aria-labelledby="total-articles-tab">
+                        <h3>Total Articles</h3>
+                        <ul class="list-group" id="articles-list">
+                            <li class="list-group-item d-flex justify-content-between align-items-center" id="total-articles-counter" style="cursor: pointer;">
+                                Total Articles: {{ news_data|length }}
+                                <div class="thumbs-buttons">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <i class="fas fa-thumbs-down"></i>
+                                </div>
+                            </li>
+                            <!-- Articles will be appended here by JavaScript -->
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="summary-report" role="tabpanel" aria-labelledby="summary-report-tab">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>Summary/Report</h3>
+                            <button id="export-pdf" class="btn btn-sm btn-primary">Export as PDF</button>
+                        </div>
+                        <div id="report-content">
+                            <!-- Report content will be appended here by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
+                        <h3>Timeline</h3>
+                        <canvas id="timeline-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading bar moved to the bottom -->
+    <div id="loading-bar">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast-notification" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+            <!-- Toast message will be appended here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- JSON data for JavaScript -->
+    <script id="news-data" type="application/json">{{ news_data|tojson }}</script>
+    <script id="report-data" type="application/json">{{ report_data|tojson }}</script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/news_analysis.js') }}"></script>
+</body>
+</html>
