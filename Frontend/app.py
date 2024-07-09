@@ -18,12 +18,12 @@ async def market_prediction():
 @app.route('/news-analysis')
 async def news_analysis():
     try:
-        with open('news_report.json') as f:
+        with open('./reports/news_report.json') as f:
             news_data = json.load(f)
     except FileNotFoundError:
         news_data = []
     try:
-        with open('report.json') as f:
+        with open('./sample_reports/news_report_summary.json') as f:
             report_data = json.load(f)
     except FileNotFoundError:
         report_data = []
@@ -43,7 +43,7 @@ async def uimock_loading():
 
 @app.route('/uimock_feed')
 async def uimock_feed():
-    content = load_json_data('content.json')
+    content = load_json_data('./content.json')
     sources = load_json_data('sources.json')
     return render_template('uimock_feed.html', content=content, sources=sources)
 
@@ -61,6 +61,11 @@ async def process_selection():
         selected_avatars = request.form['selected_avatars']
         print("Selected Avatars: " + selected_avatars)
         return redirect(url_for('uimock_loading'))
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html"), 404
+
 
 if __name__ == '__main__':
     app.run(debug=True)
