@@ -20,3 +20,7 @@ Add a flash screen with keywords
 Follow it with a flask screen for filters
 Shorten the loading animation by 2 seconds
 Display feed after
+
+
+Highlight the sources in the pdf
+Slide Over Window
