@@ -23,7 +23,7 @@ async def news_analysis():
     except FileNotFoundError:
         news_data = []
     try:
-        with open('./sample_reports/news_report_summary.json') as f:
+        with open('./reports/filtered_news_report.json') as f:
             report_data = json.load(f)
     except FileNotFoundError:
         report_data = []
@@ -43,8 +43,8 @@ async def uimock_loading():
 
 @app.route('/uimock_feed')
 async def uimock_feed():
-    content = load_json_data('./content.json')
-    sources = load_json_data('sources.json')
+    content = load_json_data('./Frontend/content.json') 
+    sources = load_json_data('./Frontend/sources.json')
     return render_template('uimock_feed.html', content=content, sources=sources)
 
 @app.route('/uimock_navbar')
