@@ -4,7 +4,7 @@ import aiohttp
 import asyncio
 from collections import defaultdict
 from difflib import SequenceMatcher
-from crew.config import relevant_keywords, categories
+from MultiAgentAI.crew.config import relevant_keywords, categories
 
 def filter_and_categorize_articles(all_articles_output):
     # Load articles from JSON file
@@ -13,6 +13,10 @@ def filter_and_categorize_articles(all_articles_output):
 
     # Filter articles for redundancy, relevancy, and categorize them
     filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
+
+    filtered_output = "./reports/filtered_news_report.json"
+    with open(filtered_output, 'w') as f:
+        json.dump(filtered_articles, f, indent=2)
 
     # Group articles by category
     grouped_articles = group_articles_by_category(filtered_articles)

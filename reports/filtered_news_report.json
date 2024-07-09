@@ -1,931 +1,723 @@
 [
   {
-    "Title": "Aethon Completes Acquisition of Tellurian Upstream and Midstream Assets - Business Wire",
-    "Link": "https://news.google.com/rss/articles/CBMigAFodHRwczovL3d3dy5idXNpbmVzc3dpcmUuY29tL25ld3MvaG9tZS8yMDI0MDcwMTEyODEwMC9lbi9BZXRob24tQ29tcGxldGVzLUFjcXVpc2l0aW9uLW9mLVRlbGx1cmlhbi1VcHN0cmVhbS1hbmQtTWlkc3RyZWFtLUFzc2V0c9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 12:00:00 GMT",
-    "Categories": [
-      "Company News"
-    ]
-  },
-  {
-    "Title": "Aethon Completes Acquisition of Tellurian Upstream and Midstream Assets - Chronicle-Tribune",
-    "Link": "https://news.google.com/rss/articles/CBMipQFodHRwczovL3d3dy5jaHJvbmljbGUtdHJpYnVuZS5jb20vbmV3cy93aXJlL2FldGhvbi1jb21wbGV0ZXMtYWNxdWlzaXRpb24tb2YtdGVsbHVyaWFuLXVwc3RyZWFtLWFuZC1taWRzdHJlYW0tYXNzZXRzL2FydGljbGVfYjk4NzRhZjktMjhkZC01ZTk1LTg4OGYtMjhlYWYxYjg5NTYzLmh0bWzSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 12:00:49 GMT",
-    "Categories": [
-      "Company News"
-    ]
-  },
-  {
-    "Title": "Forge Resources Advances Exploration with Successful Drilling and Funding - TipRanks.com - TipRanks",
-    "Link": "https://news.google.com/rss/articles/CBMifWh0dHBzOi8vd3d3LnRpcHJhbmtzLmNvbS9uZXdzL2NvbXBhbnktYW5ub3VuY2VtZW50cy9mb3JnZS1yZXNvdXJjZXMtYWR2YW5jZXMtZXhwbG9yYXRpb24td2l0aC1zdWNjZXNzZnVsLWRyaWxsaW5nLWFuZC1mdW5kaW5n0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 16:00:33 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Ambitious junior finalises licences for two promising Caribbean exploration blocks - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMiiQFodHRwczovL3d3dy51cHN0cmVhbW9ubGluZS5jb20vZXhwbG9yYXRpb24vYW1iaXRpb3VzLWp1bmlvci1maW5hbGlzZXMtbGljZW5jZXMtZm9yLXR3by1wcm9taXNpbmctY2FyaWJiZWFuLWV4cGxvcmF0aW9uLWJsb2Nrcy8yLTEtMTY3MDcxM9IBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 08:54:09 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Asia's first half crude oil imports slip, undermining bullish forecasts - Reuters",
-    "Link": "https://news.google.com/rss/articles/CBMihQFodHRwczovL3d3dy5yZXV0ZXJzLmNvbS9tYXJrZXRzL2NvbW1vZGl0aWVzL2FzaWFzLWZpcnN0LWhhbGYtY3J1ZGUtb2lsLWltcG9ydHMtc2xpcC11bmRlcm1pbmluZy1idWxsaXNoLWZvcmVjYXN0cy1ydXNzZWxsLTIwMjQtMDctMDEv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 11:59:00 GMT",
-    "Categories": [
-      "Market Trends",
-      "Trade and Export"
-    ]
-  },
-  {
-    "Title": "India\u2019s crude oil imports from Russia at 12-month high in June - BusinessLine",
-    "Link": "https://news.google.com/rss/articles/CBMie2h0dHBzOi8vd3d3LnRoZWhpbmR1YnVzaW5lc3NsaW5lLmNvbS9uZXdzL2luZGlhcy1jcnVkZS1vaWwtaW1wb3J0cy1mcm9tLXJ1c3NpYS1hdC0xMi1tb250aC1oaWdoLWluLWp1bmUvYXJ0aWNsZTY4MzU4NTY1LmVjZdIBgAFodHRwczovL3d3dy50aGVoaW5kdWJ1c2luZXNzbGluZS5jb20vbmV3cy9pbmRpYXMtY3J1ZGUtb2lsLWltcG9ydHMtZnJvbS1ydXNzaWEtYXQtMTItbW9udGgtaGlnaC1pbi1qdW5lL2FydGljbGU2ODM1ODU2NS5lY2UvYW1wLw?oc=5",
-    "Published": "Tue, 02 Jul 2024 08:15:37 GMT",
-    "Categories": [
-      "Trade and Export"
-    ]
-  },
-  {
-    "Title": "First half crude oil imports from Asia reduce - Construction World",
-    "Link": "https://news.google.com/rss/articles/CBMidmh0dHBzOi8vd3d3LmNvbnN0cnVjdGlvbndvcmxkLmluL2VuZXJneS1pbmZyYXN0cnVjdHVyZS9vaWwtYW5kLWdhcy9maXJzdC1oYWxmLWNydWRlLW9pbC1pbXBvcnRzLWZyb20tYXNpYS1yZWR1Y2UvNTgwNDTSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 07:49:42 GMT",
-    "Categories": [
-      "Trade and Export"
-    ]
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are up 15.14% YTD - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDItMjAyNC_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 16:22:59 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil futures gain on spot demand - Press Trust of India",
-    "Link": "https://news.google.com/rss/articles/CBMiVGh0dHBzOi8vd3d3LnB0aW5ld3MuY29tL3N0b3J5L2J1c2luZXNzL2NydWRlLW9pbC1mdXR1cmVzLWdhaW4tb24tc3BvdC1kZW1hbmQvMTYyMzAzMtIBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 11:20:18 GMT",
-    "Categories": [
-      "Stock Prices",
-      "Supply and Demand"
-    ]
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are down 0.17% today - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDEtMjAyNC_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 14:58:42 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil futures and settle at $83.38 - ForexLive",
-    "Link": "https://news.google.com/rss/articles/CBMiW2h0dHBzOi8vd3d3LmZvcmV4bGl2ZS5jb20vdGVjaG5pY2FsLWFuYWx5c2lzL2NydWRlLW9pbC1mdXR1cmVzLWFuZC1zZXR0bGUtYXQtODMzOC0yMDI0MDcwMS_SAV9odHRwczovL3d3dy5mb3JleGxpdmUuY29tL3RlY2huaWNhbC1hbmFseXNpcy9jcnVkZS1vaWwtZnV0dXJlcy1hbmQtc2V0dGxlLWF0LTgzMzgtMjAyNDA3MDEvYW1wLw?oc=5",
-    "Published": "Mon, 01 Jul 2024 18:45:00 GMT",
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
     "Categories": [
       "Stock Prices"
     ]
   },
   {
-    "Title": "Crude oil prices jumped 2% on Monday - OK Energy Today",
-    "Link": "https://news.google.com/rss/articles/CBMiSmh0dHBzOi8vd3d3Lm9rZW5lcmd5dG9kYXkuY29tLzIwMjQvMDcvY3J1ZGUtb2lsLXByaWNlcy1qdW1wZWQtMi1vbi1tb25kYXkv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 20:39:35 GMT",
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
     "Categories": []
   },
   {
-    "Title": "Crude oil futures gain on spot demand - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMi2wFodHRwOi8vd3d3Lm1zbi5jb20vZW4taW4vbW9uZXkvbWFya2V0cy9jcnVkZS1vaWwtZnV0dXJlcy1nYWluLW9uLXNwb3QtZGVtYW5kL2FyLUJCMXBiUFNKP29jaWQ9QmluZ05ld3NWZXJwJmFwaXZlcnNpb249djImbm9zZXJ2ZXJjYWNoZT0xJmRvbXNoaW09MSZyZW5kZXJ3ZWJjb21wb25lbnRzPTEmd2NzZW89MSZiYXRjaHNlcnZlcnRlbGVtZXRyeT0xJm5vc2VydmVydGVsZW1ldHJ5PTHSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:30:12 GMT",
-    "Categories": [
-      "Stock Prices",
-      "Supply and Demand"
-    ]
-  },
-  {
-    "Title": "Crude Oil Futures Rise on Spot Demand | PTI - Rediffmail",
-    "Link": "https://news.google.com/rss/articles/CBMiXWh0dHBzOi8vbW9uZXkucmVkaWZmLmNvbS9uZXdzL21hcmtldC9jcnVkZS1vaWwtZnV0dXJlcy1yaXNlLW9uLXNwb3QtZGVtYW5kLXB0aS8xMjExMzgyMDI0MDcwMtIBYWh0dHBzOi8vbW9uZXkucmVkaWZmLmNvbS9hbXAvbmV3cy9tYXJrZXQvY3J1ZGUtb2lsLWZ1dHVyZXMtcmlzZS1vbi1zcG90LWRlbWFuZC1wdGkvMTIxMTM4MjAyNDA3MDI?oc=5",
-    "Published": "Tue, 02 Jul 2024 08:13:41 GMT",
-    "Categories": [
-      "Stock Prices",
-      "Supply and Demand"
-    ]
-  },
-  {
-    "Title": "Crude Oil Prices Settle at Six-Week Lows as U.S.-China Trade War Intensifies - Yahoo Lifestyle UK",
-    "Link": "https://news.google.com/rss/articles/CBMiS2h0dHBzOi8vdWsuc3R5bGUueWFob28uY29tL3N0eWxlL2NydWRlLW9pbC1wcmljZXMtc2V0dGxlLXNpeC0yMTM5MDAzMzguaHRtbNIBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 23:38:47 GMT",
+    "Title": "Crude oil prices today: WTI prices are up 13.53% YTD - USA TODAY",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDUtMjAyNC_SAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 16:40:35 GMT",
     "Categories": []
   },
   {
-    "Title": "US speeds up purchasing for Strategic Petroleum Reserve as oil prices dip - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMirAFodHRwczovL3d3dy5tc24uY29tL2VuLXVzL21vbmV5L21hcmtldHMvdXMtc3BlZWRzLXVwLXB1cmNoYXNpbmctZm9yLXN0cmF0ZWdpYy1wZXRyb2xldW0tcmVzZXJ2ZS1hcy1vaWwtcHJpY2VzLWRpcC9hci1CQjFuUENFbD9pdGVtPWVuYWJsZV9yYW5kb20lM0FmYWxzZSZvY2lkPW9iLWZiLWZyZnItODM50gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:16:35 GMT",
+    "Title": "Can Geopolitical Changes and Tropical Storms Influence Crude Oil Prices in 2024? - FX Leaders",
+    "Link": "https://news.google.com/rss/articles/CBMiemh0dHBzOi8vd3d3LmZ4bGVhZGVycy5jb20vbmV3cy8yMDI0LzA3LzA4L2Nhbi1nZW9wb2xpdGljYWwtY2hhbmdlcy1hbmQtdHJvcGljYWwtc3Rvcm1zLWluZmx1ZW5jZS1jcnVkZS1vaWwtcHJpY2VzLWluLTIwMjQv0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 06:10:48 GMT",
     "Categories": []
   },
   {
-    "Title": "Crude Oil Prices - Weekly Outlook: October 16 - 20 - Yahoo Lifestyle UK",
-    "Link": "https://news.google.com/rss/articles/CBMiT2h0dHBzOi8vdWsuc3R5bGUueWFob28uY29tL3N0eWxlL2NydWRlLW9pbC1wcmljZXMtd2Vla2x5LW91dGxvb2stMTI1ODAwNTEzLmh0bWzSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 07:49:05 GMT",
+    "Title": "Crude Oil Prices Near April Highs - tastylive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnRhc3R5bGl2ZS5jb20vbmV3cy1pbnNpZ2h0cy9jcnVkZS1vaWwtcHJpY2VzLW5lYXItYXByaWwtaGlnaHPSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:25:34 GMT",
     "Categories": []
   },
   {
-    "Title": "Government Raises Windfall Tax on Petroleum Crude Amid Rising Oil Prices - Times Now",
-    "Link": "https://news.google.com/rss/articles/CBMikAFodHRwczovL3d3dy50aW1lc25vd25ld3MuY29tL2J1c2luZXNzLWVjb25vbXkvZWNvbm9teS9nb3Zlcm5tZW50LXJhaXNlcy13aW5kZmFsbC10YXgtb24tcGV0cm9sZXVtLWNydWRlLWFtaWQtcmlzaW5nLW9pbC1wcmljZXMtYXJ0aWNsZS0xMTE0MjA1ODLSAZQBaHR0cHM6Ly93d3cudGltZXNub3duZXdzLmNvbS9idXNpbmVzcy1lY29ub215L2Vjb25vbXkvZ292ZXJubWVudC1yYWlzZXMtd2luZGZhbGwtdGF4LW9uLXBldHJvbGV1bS1jcnVkZS1hbWlkLXJpc2luZy1vaWwtcHJpY2VzLWFydGljbGUtMTExNDIwNTgyL2FtcA?oc=5",
-    "Published": "Tue, 02 Jul 2024 04:49:17 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "OPEC crude oil production remains steady for third month due to Iraq, UAE non-compliance - Shafaq News - Shafaq News",
-    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vc2hhZmFxLmNvbS9lbi9FY29ub215L09QRUMtY3J1ZGUtb2lsLXByb2R1Y3Rpb24tcmVtYWlucy1zdGVhZHktZm9yLXRoaXJkLW1vbnRoLWR1ZS10by1JcmFxLVVBRS1ub24tY29tcGxpYW5jZdIBeWh0dHBzOi8vc2hhZmFxLmNvbS9hbXAvZW4vRWNvbm9teS9PUEVDLWNydWRlLW9pbC1wcm9kdWN0aW9uLXJlbWFpbnMtc3RlYWR5LWZvci10aGlyZC1tb250aC1kdWUtdG8tSXJhcS1VQUUtbm9uLWNvbXBsaWFuY2U?oc=5",
-    "Published": "Tue, 02 Jul 2024 10:04:38 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Rystad Energy: Bullish market fundamentals are the main contributing factor to higher global oil prices - World Pipelines",
-    "Link": "https://news.google.com/rss/articles/CBMinQFodHRwczovL3d3dy53b3JsZHBpcGVsaW5lcy5jb20vYnVzaW5lc3MtbmV3cy8wMjA3MjAyNC9yeXN0YWQtZW5lcmd5LWJ1bGxpc2gtbWFya2V0LWZ1bmRhbWVudGFscy1hcmUtdGhlLW1haW4tY29udHJpYnV0aW5nLWZhY3Rvci10by1oaWdoZXItZ2xvYmFsLW9pbC1wcmljZXMv0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:37:52 GMT",
-    "Categories": [
-      "Market Trends"
-    ]
-  },
-  {
-    "Title": "Asia's first half crude oil imports slip, undermining bullish forecasts - Reuters",
-    "Link": "https://news.google.com/rss/articles/CBMihQFodHRwczovL3d3dy5yZXV0ZXJzLmNvbS9tYXJrZXRzL2NvbW1vZGl0aWVzL2FzaWFzLWZpcnN0LWhhbGYtY3J1ZGUtb2lsLWltcG9ydHMtc2xpcC11bmRlcm1pbmluZy1idWxsaXNoLWZvcmVjYXN0cy1ydXNzZWxsLTIwMjQtMDctMDEv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 11:59:00 GMT",
-    "Categories": [
-      "Market Trends",
-      "Trade and Export"
-    ]
-  },
-  {
-    "Title": "Opec strikes deal with Russia to cut crude oil production - Yahoo Lifestyle UK",
-    "Link": "https://news.google.com/rss/articles/CBMiTGh0dHBzOi8vdWsuc3R5bGUueWFob28uY29tL3N0eWxlL29wZWMtc3RyaWtlcy1kZWFsLXJ1c3NpYS1jdXQtMTQ0MzAxNzE5Lmh0bWzSAQA?oc=5",
-    "Published": "Sun, 30 Jun 2024 00:58:23 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "First half crude oil imports from Asia reduce - Construction World",
-    "Link": "https://news.google.com/rss/articles/CBMidmh0dHBzOi8vd3d3LmNvbnN0cnVjdGlvbndvcmxkLmluL2VuZXJneS1pbmZyYXN0cnVjdHVyZS9vaWwtYW5kLWdhcy9maXJzdC1oYWxmLWNydWRlLW9pbC1pbXBvcnRzLWZyb20tYXNpYS1yZWR1Y2UvNTgwNDTSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 07:49:42 GMT",
+    "Title": "Saudi Crude Oil Exports Slump to 10-Month Low - OilPrice.com",
+    "Link": "https://news.google.com/rss/articles/CBMiWGh0dHBzOi8vb2lscHJpY2UuY29tL0VuZXJneS9DcnVkZS1PaWwvU2F1ZGktQ3J1ZGUtT2lsLUV4cG9ydHMtU2x1bXAtdG8tMTAtTW9udGgtTG93Lmh0bWzSAVxodHRwczovL29pbHByaWNlLmNvbS9FbmVyZ3kvQ3J1ZGUtT2lsL1NhdWRpLUNydWRlLU9pbC1FeHBvcnRzLVNsdW1wLXRvLTEwLU1vbnRoLUxvdy5hbXAuaHRtbA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:00:00 GMT",
     "Categories": [
       "Trade and Export"
     ]
   },
   {
-    "Title": "Work on to double India's oil refining capacity in next five years: PM Modi | Today News - Mint",
-    "Link": "https://news.google.com/rss/articles/CBMihgFodHRwczovL3d3dy5saXZlbWludC5jb20vbmV3cy9pbmRpYS9vdXItYWltLWlzLXRvLWluY3JlYXNlLXRoZS1zaGFyZS1vZi1uYXR1cmFsLWdhcy1ieS00LXRpbWVzLXRoaXMtZGVjYWRlLXBtLW1vZGktMTE2MDU5NDc2MDQzNDIuaHRtbNIBigFodHRwczovL3d3dy5saXZlbWludC5jb20vbmV3cy9pbmRpYS9vdXItYWltLWlzLXRvLWluY3JlYXNlLXRoZS1zaGFyZS1vZi1uYXR1cmFsLWdhcy1ieS00LXRpbWVzLXRoaXMtZGVjYWRlLXBtLW1vZGkvYW1wLTExNjA1OTQ3NjA0MzQyLmh0bWw?oc=5",
-    "Published": "Mon, 01 Jul 2024 11:35:53 GMT",
-    "Categories": [
-      "Refining"
-    ]
-  },
-  {
-    "Title": "Exclusive-Russia restoring oil refining capacity knocked out by drones - Yahoo News Australia",
-    "Link": "https://news.google.com/rss/articles/CBMinwFodHRwczovL2F1Lm5ld3MueWFob28uY29tL2V4Y2x1c2l2ZS1ydXNzaWEtcmVzdG9yaW5nLW9pbC1yZWZpbmluZy0xMjAwMTM2NzcuaHRtbD9zZXpuYW1fcT0wJm5vX2NvbW1lcmNlPTEmdXRtX3NvdXJjZT13d3cuc2V6bmFtLmN6JnV0bV9tZWRpdW09c2VrY2Utei1pbnRlcm5ldHXSAQA?oc=5",
-    "Published": "Sun, 30 Jun 2024 07:07:30 GMT",
-    "Categories": [
-      "Refining"
-    ]
-  },
-  {
-    "Title": "Quick Resolution Of IOCs Divestment Will Boost Crude Oil Production, Independent Producers Tells FG - The Whistler Newspaper",
-    "Link": "https://news.google.com/rss/articles/CBMiemh0dHBzOi8vdGhld2hpc3RsZXIubmcvcXVpY2stcmVzb2x1dGlvbi1vZi1pb2NzLWRpdmVzdG1lbnQtd2lsbC1ib29zdC1jcnVkZS1vaWwtcHJvZHVjdGlvbi1pbmRlcGVuZGVudC1wcm9kdWNlcnMtdGVsbHMtZmcv0gF-aHR0cHM6Ly90aGV3aGlzdGxlci5uZy9xdWljay1yZXNvbHV0aW9uLW9mLWlvY3MtZGl2ZXN0bWVudC13aWxsLWJvb3N0LWNydWRlLW9pbC1wcm9kdWN0aW9uLWluZGVwZW5kZW50LXByb2R1Y2Vycy10ZWxscy1mZy9hbXAv?oc=5",
-    "Published": "Tue, 02 Jul 2024 12:13:48 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Gas prices continue to drift higher as oil prices rise - NottinghamMD.com",
-    "Link": "https://news.google.com/rss/articles/CBMiX2h0dHBzOi8vd3d3Lm5vdHRpbmdoYW1tZC5jb20vMjAyNC8wNy8wMS9nYXMtcHJpY2VzLWNvbnRpbnVlLXRvLWRyaWZ0LWhpZ2hlci1hcy1vaWwtcHJpY2VzLXJpc2Uv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 14:10:13 GMT",
+    "Title": "Brent crude oil prices surge above USD87 per barrel, highest since April - MENAFN.COM",
+    "Link": "https://news.google.com/rss/articles/CBMiZWh0dHBzOi8vbWVuYWZuLmNvbS8xMTA4NDE2MTEzL0JyZW50LWNydWRlLW9pbC1wcmljZXMtc3VyZ2UtYWJvdmUtVVNEODctcGVyLWJhcnJlbC1oaWdoZXN0LXNpbmNlLUFwcmls0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:56:07 GMT",
     "Categories": []
   },
   {
-    "Title": "US natgas prices ease to 6-week low on rising output, lower LNG feedgas - Natural Gas World",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vdXMtbmF0Z2FzLXByaWNlcy1kcm9wLXRvLTYtd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1sb3dlci1sbmctZmVlZGdhcy0xMTE5NDDSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 14:51:41 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Aethon Completes Acquisition of Tellurian Upstream and Midstream Assets - Business Wire",
-    "Link": "https://news.google.com/rss/articles/CBMigAFodHRwczovL3d3dy5idXNpbmVzc3dpcmUuY29tL25ld3MvaG9tZS8yMDI0MDcwMTEyODEwMC9lbi9BZXRob24tQ29tcGxldGVzLUFjcXVpc2l0aW9uLW9mLVRlbGx1cmlhbi1VcHN0cmVhbS1hbmQtTWlkc3RyZWFtLUFzc2V0c9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 12:00:00 GMT",
-    "Categories": [
-      "Company News"
-    ]
-  },
-  {
-    "Title": "Ambitious junior finalises licences for two promising Caribbean exploration blocks - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMiiQFodHRwczovL3d3dy51cHN0cmVhbW9ubGluZS5jb20vZXhwbG9yYXRpb24vYW1iaXRpb3VzLWp1bmlvci1maW5hbGlzZXMtbGljZW5jZXMtZm9yLXR3by1wcm9taXNpbmctY2FyaWJiZWFuLWV4cGxvcmF0aW9uLWJsb2Nrcy8yLTEtMTY3MDcxM9IBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 08:54:09 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "A Grand Challenge: Digital Transformation for the Upstream Oil and Gas Industry - Society of Petroleum Engineers (SPE)",
-    "Link": "https://news.google.com/rss/articles/CBMiYmh0dHBzOi8vanB0LnNwZS5vcmcvYS1ncmFuZC1jaGFsbGVuZ2UtZGlnaXRhbC10cmFuc2Zvcm1hdGlvbi1mb3ItdGhlLXVwc3RyZWFtLW9pbC1hbmQtZ2FzLWluZHVzdHJ50gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 05:04:46 GMT",
+    "Title": "Real crude oil prices at a 4-year low | Mint - Mint",
+    "Link": "https://news.google.com/rss/articles/CBMiX2h0dHBzOi8vd3d3LmxpdmVtaW50LmNvbS9Nb25leS9qU2pUU1ljbkMwZ0NwOWJ5ZHFHdFhNL1JlYWwtY3J1ZGUtb2lsLXByaWNlcy1hdC1hLTR5ZWFyLWxvdy5odG1s0gFpaHR0cHM6Ly93d3cubGl2ZW1pbnQuY29tL01vbmV5L2pTalRTWWNuQzBnQ3A5YnlkcUd0WE0vUmVhbC1jcnVkZS1vaWwtcHJpY2VzLWF0LWEtNHllYXItbG93Lmh0bWw_ZmFjZXQ9YW1w?oc=5",
+    "Published": "Mon, 08 Jul 2024 01:44:54 GMT",
     "Categories": []
   },
   {
-    "Title": "Chevron to assist Kazakh plea to grow natural gas production - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMic2h0dHBzOi8vd3d3LnVwc3RyZWFtb25saW5lLmNvbS9leHBsb3JhdGlvbi9jaGV2cm9uLXRvLWFzc2lzdC1rYXpha2gtcGxlYS10by1ncm93LW5hdHVyYWwtZ2FzLXByb2R1Y3Rpb24vMi0xLTE2Njk3ODTSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 09:42:35 GMT",
+    "Title": "Wildfires boost Canadian crude oil prices as Suncor cuts production - Financial Post",
+    "Link": "https://news.google.com/rss/articles/CBMibmh0dHBzOi8vZmluYW5jaWFscG9zdC5jb20vY29tbW9kaXRpZXMvZW5lcmd5L29pbC1nYXMvY2FuYWRpYW4tb2lsLXByaWNlcy1yaXNlLXN1bmNvci1jdXRzLXByb2R1Y3Rpb24td2lsZGZpcmVz0gEA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:58:03 GMT",
     "Categories": [
       "Production Updates"
     ]
   },
   {
-    "Title": "Drilling barge ready for Eni's Caspian Sea wildcat - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMiaGh0dHBzOi8vd3d3LnVwc3RyZWFtb25saW5lLmNvbS9leHBsb3JhdGlvbi9kcmlsbGluZy1iYXJnZS1yZWFkeS1mb3ItZW5pcy1jYXNwaWFuLXNlYS13aWxkY2F0LzItMS0xNjcwMjM40gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:31:15 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Aethon Completes Acquisition of Tellurian Upstream and Midstream Assets - Chronicle-Tribune",
-    "Link": "https://news.google.com/rss/articles/CBMipQFodHRwczovL3d3dy5jaHJvbmljbGUtdHJpYnVuZS5jb20vbmV3cy93aXJlL2FldGhvbi1jb21wbGV0ZXMtYWNxdWlzaXRpb24tb2YtdGVsbHVyaWFuLXVwc3RyZWFtLWFuZC1taWRzdHJlYW0tYXNzZXRzL2FydGljbGVfYjk4NzRhZjktMjhkZC01ZTk1LTg4OGYtMjhlYWYxYjg5NTYzLmh0bWzSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 12:00:49 GMT",
-    "Categories": [
-      "Company News"
-    ]
-  },
-  {
-    "Title": "QGEP knocked by drilling setbacks in Q2 - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMiWWh0dHBzOi8vd3d3LnVwc3RyZWFtb25saW5lLmNvbS9lcGFwZXIvcWdlcC1rbm9ja2VkLWJ5LWRyaWxsaW5nLXNldGJhY2tzLWluLXEyLzEtMS0xMTM4OTk10gEA?oc=5",
-    "Published": "Sun, 30 Jun 2024 17:49:13 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Argentina in Falklands drilling jail threat - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMiXWh0dHBzOi8vd3d3LnVwc3RyZWFtb25saW5lLmNvbS9vbmxpbmUvYXJnZW50aW5hLWluLWZhbGtsYW5kcy1kcmlsbGluZy1qYWlsLXRocmVhdC8xLTEtMTE0MDMzM9IBAA?oc=5",
-    "Published": "Sun, 30 Jun 2024 07:33:13 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Exclusive-Russia restoring oil refining capacity knocked out by drones - Yahoo News Australia",
-    "Link": "https://news.google.com/rss/articles/CBMinwFodHRwczovL2F1Lm5ld3MueWFob28uY29tL2V4Y2x1c2l2ZS1ydXNzaWEtcmVzdG9yaW5nLW9pbC1yZWZpbmluZy0xMjAwMTM2NzcuaHRtbD9zZXpuYW1fcT0wJm5vX2NvbW1lcmNlPTEmdXRtX3NvdXJjZT13d3cuc2V6bmFtLmN6JnV0bV9tZWRpdW09c2VrY2Utei1pbnRlcm5ldHXSAQA?oc=5",
-    "Published": "Sun, 30 Jun 2024 07:07:30 GMT",
-    "Categories": [
-      "Refining"
-    ]
-  },
-  {
-    "Title": "Work on to double India's oil refining capacity in next five years: PM Modi | Today News - Mint",
-    "Link": "https://news.google.com/rss/articles/CBMihgFodHRwczovL3d3dy5saXZlbWludC5jb20vbmV3cy9pbmRpYS9vdXItYWltLWlzLXRvLWluY3JlYXNlLXRoZS1zaGFyZS1vZi1uYXR1cmFsLWdhcy1ieS00LXRpbWVzLXRoaXMtZGVjYWRlLXBtLW1vZGktMTE2MDU5NDc2MDQzNDIuaHRtbNIBigFodHRwczovL3d3dy5saXZlbWludC5jb20vbmV3cy9pbmRpYS9vdXItYWltLWlzLXRvLWluY3JlYXNlLXRoZS1zaGFyZS1vZi1uYXR1cmFsLWdhcy1ieS00LXRpbWVzLXRoaXMtZGVjYWRlLXBtLW1vZGkvYW1wLTExNjA1OTQ3NjA0MzQyLmh0bWw?oc=5",
-    "Published": "Mon, 01 Jul 2024 11:35:53 GMT",
-    "Categories": [
-      "Refining"
-    ]
-  },
-  {
-    "Title": "Dangote Refinery: Crude oil supply options - Blueprint Newspapers Limited",
-    "Link": "https://news.google.com/rss/articles/CBMiP2h0dHBzOi8vYmx1ZXByaW50Lm5nL2RhbmdvdGUtcmVmaW5lcnktY3J1ZGUtb2lsLXN1cHBseS1vcHRpb25zL9IBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:23:30 GMT",
+    "Title": "Crude oil prices edge up; but oversupply, strong dollar drag - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMicmh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL2NydWRlLW9pbC1wcmljZXMtZWRnZS1vdmVyc3VwcGx5LXN0cm9uZy1kb2xsYXItZHJhZy0wNDUyMTEwMTgtLWZpbmFuY2UuaHRtbNIBAA?oc=5",
+    "Published": "Sun, 07 Jul 2024 08:59:47 GMT",
     "Categories": [
       "Production Updates",
       "Supply and Demand"
     ]
   },
   {
-    "Title": "Natural Gas Futures Crash Below Technical Support into Oversold Territory - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMia2h0dHBzOi8vbmF0dXJhbGdhc2ludGVsLmNvbS9uZXdzL25hdHVyYWwtZ2FzLWZ1dHVyZXMtY3Jhc2gtYmVsb3ctdGVjaG5pY2FsLXN1cHBvcnQtaW50by1vdmVyc29sZC10ZXJyaXRvcnkv0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 13:50:39 GMT",
+    "Title": "Money Minute: Do Stocks Need a Reboot? Natural Gas Prices Heat Up - AOL",
+    "Link": "https://news.google.com/rss/articles/CBMiTmh0dHBzOi8vd3d3LmFvbC5jb20vb24tc3RvY2stbWFya2V0LWNvcnJlY3Rpb24tbmF0dXJhbC1nYXMtcHJpY2VzLWhlYXQtdXAuaHRtbNIBAA?oc=5",
+    "Published": "Sun, 07 Jul 2024 13:01:07 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Defendants respond to Oklahoma's natural gas prices lawsuit - Tulsa World",
+    "Link": "https://news.google.com/rss/articles/CBMirAFodHRwczovL3R1bHNhd29ybGQuY29tL25ld3Mvc3RhdGUtcmVnaW9uYWwvb2tsYWhvbWEtd2F0Y2gtY29tcGFuaWVzLWJlaW5nLXN1ZWQtb3Zlci1uYXR1cmFsLWdhcy1wcmljZXMtd2FudC1jYXNlLWRpc21pc3NlZC9hcnRpY2xlX2FiNGYxZjE4LTM4NzctMTFlZi1iYjVhLTUzZTk5MjEwZWZlYy5odG1s0gEA?oc=5",
+    "Published": "Sat, 06 Jul 2024 04:32:00 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Money Minute: Do Stocks Need a Reboot? Natural Gas Prices Heat Up - AOL",
+    "Link": "https://news.google.com/rss/articles/CBMiTmh0dHBzOi8vd3d3LmFvbC5jb20vb24tc3RvY2stbWFya2V0LWNvcnJlY3Rpb24tbmF0dXJhbC1nYXMtcHJpY2VzLWhlYXQtdXAuaHRtbNIBAA?oc=5",
+    "Published": "Sun, 07 Jul 2024 13:01:07 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
     "Categories": [
       "Stock Prices"
     ]
   },
   {
-    "Title": "US natgas prices ease to 6-week low on rising output, lower LNG feedgas - Natural Gas World",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vdXMtbmF0Z2FzLXByaWNlcy1kcm9wLXRvLTYtd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1sb3dlci1sbmctZmVlZGdhcy0xMTE5NDDSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 14:51:41 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
+    "Title": "Gas prices down slightly as crude oil continues slow climb - delawarebusinessnow.com",
+    "Link": "https://news.google.com/rss/articles/CBMilQFodHRwczovL3d3dy5kZWxhd2FyZWJ1c2luZXNzbm93LmNvbS9uZXdzL2dhcy1wcmljZXMtZG93bi1zbGlnaHRseS1hcy1jcnVkZS1vaWwtY29udGludWVzLXNsb3ctY2xpbWIvYXJ0aWNsZV8wNDJlZDliNi0zYWRmLTExZWYtYTlkNS05YjVjZTU1YTNmZjIuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 14:58:00 GMT",
+    "Categories": []
   },
   {
-    "Title": "US Natural Gas Futures Drop Amid Cooler Weather Forecasts and Increasing LNG Exports - ChemAnalyst",
-    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL3d3dy5jaGVtYW5hbHlzdC5jb20vTmV3c0FuZERlYWxzL05ld3NEZXRhaWxzL3VzLW5hdHVyYWwtZ2FzLWZ1dHVyZXMtZHJvcC1hbWlkLWNvb2xlci13ZWF0aGVyLWZvcmVjYXN0cy1hbmQtaW5jcmVhc2luZy1sbmctMjg3MzHSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 07:00:00 GMT",
-    "Categories": [
-      "Market Trends",
-      "Stock Prices",
-      "Trade and Export"
-    ]
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
+    "Categories": []
   },
   {
-    "Title": "US natural gas prices fall - Markets - Business Recorder",
-    "Link": "https://news.google.com/rss/articles/CBMiK2h0dHBzOi8vd3d3LmJyZWNvcmRlci5jb20vbmV3cy9hbXAvNDAzMTA3NDLSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 00:07:29 GMT",
-    "Categories": [
-      "Market Trends"
-    ]
+    "Title": "Crude oil prices: Brent, WTI edge lower as investors brace for storm Beryl's impact - Upstox",
+    "Link": "https://news.google.com/rss/articles/CBMikQFodHRwczovL3Vwc3RveC5jb20vbmV3cy9tYXJrZXQtbmV3cy9jb21tb2RpdGllcy9jcnVkZS1vaWwtcHJpY2VzLWJyZW50LXd0aS1lZGdlLWxvd2VyLWFzLWludmVzdG9ycy1icmFjZS1mb3Itc3Rvcm0tYmVyeWwtcy1pbXBhY3QvYXJ0aWNsZS0xMDAxMjQv0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 02:23:23 GMT",
+    "Categories": []
   },
   {
-    "Title": "August Natural Gas Futures Dragged Below $2.500 Amid Higher Production, Milder Weather Forecasts \u2014 MidDay ... - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMilQFodHRwOi8vbmF0dXJhbGdhc2ludGVsLmNvbS9uZXdzL2F1Z3VzdC1uYXR1cmFsLWdhcy1mdXR1cmVzLWRyYWdnZWQtYmVsb3ctMjUwMC1hbWlkLWhpZ2hlci1wcm9kdWN0aW9uLW1pbGRlci13ZWF0aGVyLWZvcmVjYXN0cy1taWRkYXktbWFya2V0LXNuYXBzaG90L9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 19:04:45 GMT",
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
     "Categories": [
-      "Market Trends",
-      "Production Updates",
       "Stock Prices"
     ]
   },
   {
-    "Title": "July Bidweek Natural Gas Prices Rally as Summer Demand Expectations Escalate - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHA6Ly9uYXR1cmFsZ2FzaW50ZWwuY29tL25ld3MvanVseS1iaWR3ZWVrLW5hdHVyYWwtZ2FzLXByaWNlcy1yYWxseS1hcy1zdW1tZXItZGVtYW5kLWV4cGVjdGF0aW9ucy1lc2NhbGF0ZS_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 19:44:53 GMT",
-    "Categories": [
-      "Supply and Demand"
-    ]
-  },
-  {
-    "Title": "Rystad Energy: Bullish market fundamentals are the main contributing factor to higher global oil prices - World Pipelines",
-    "Link": "https://news.google.com/rss/articles/CBMinQFodHRwczovL3d3dy53b3JsZHBpcGVsaW5lcy5jb20vYnVzaW5lc3MtbmV3cy8wMjA3MjAyNC9yeXN0YWQtZW5lcmd5LWJ1bGxpc2gtbWFya2V0LWZ1bmRhbWVudGFscy1hcmUtdGhlLW1haW4tY29udHJpYnV0aW5nLWZhY3Rvci10by1oaWdoZXItZ2xvYmFsLW9pbC1wcmljZXMv0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:37:52 GMT",
-    "Categories": [
-      "Market Trends"
-    ]
-  },
-  {
-    "Title": "Asia's first half crude oil imports decline, undermines bullish forecasts - Business Standard",
-    "Link": "https://news.google.com/rss/articles/CBMilQFodHRwczovL3d3dy5idXNpbmVzcy1zdGFuZGFyZC5jb20vYW1wL3dvcmxkLW5ld3MvYXNpYS1zLWZpcnN0LWhhbGYtY3J1ZGUtb2lsLWltcG9ydHMtZGVjbGluZS11bmRlcm1pbmVzLWJ1bGxpc2gtZm9yZWNhc3RzLTEyNDA3MDEwMDA1OV8xLmh0bWw_aXNhPXllc9IBlQFodHRwczovL3d3dy5idXNpbmVzcy1zdGFuZGFyZC5jb20vYW1wL3dvcmxkLW5ld3MvYXNpYS1zLWZpcnN0LWhhbGYtY3J1ZGUtb2lsLWltcG9ydHMtZGVjbGluZS11bmRlcm1pbmVzLWJ1bGxpc2gtZm9yZWNhc3RzLTEyNDA3MDEwMDA1OV8xLmh0bWw_aXNhPXllcw?oc=5",
-    "Published": "Mon, 01 Jul 2024 02:24:42 GMT",
-    "Categories": [
-      "Market Trends",
-      "Trade and Export"
-    ]
-  },
-  {
-    "Title": "India to invite private firms to build strategic crude oil reserves | Mint - Mint",
-    "Link": "https://news.google.com/rss/articles/CBMieWh0dHBzOi8vd3d3LmxpdmVtaW50LmNvbS9JbmR1c3RyeS9YYTg2QkN4bFpDT1BoaXQxNzNCc21ML0luZGlhLXRvLWludml0ZS1maXJtcy10by1idWlsZC1zdHJhdGVnaWMtY3J1ZGUtb2lsLXJlc2VydmVzLmh0bWzSAYMBaHR0cHM6Ly93d3cubGl2ZW1pbnQuY29tL0luZHVzdHJ5L1hhODZCQ3hsWkNPUGhpdDE3M0JzbUwvSW5kaWEtdG8taW52aXRlLWZpcm1zLXRvLWJ1aWxkLXN0cmF0ZWdpYy1jcnVkZS1vaWwtcmVzZXJ2ZXMuaHRtbD9mYWNldD1hbXA?oc=5",
-    "Published": "Mon, 01 Jul 2024 21:27:07 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Quick Resolution Of IOCs Divestment Will Boost Crude Oil Production, Independent Producers Tells FG - The Whistler Newspaper",
-    "Link": "https://news.google.com/rss/articles/CBMiemh0dHBzOi8vdGhld2hpc3RsZXIubmcvcXVpY2stcmVzb2x1dGlvbi1vZi1pb2NzLWRpdmVzdG1lbnQtd2lsbC1ib29zdC1jcnVkZS1vaWwtcHJvZHVjdGlvbi1pbmRlcGVuZGVudC1wcm9kdWNlcnMtdGVsbHMtZmcv0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 12:13:48 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are up 15.14% YTD - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDItMjAyNC_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 16:22:59 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Asia's first half crude oil imports slip, undermining bullish forecasts - Reuters",
-    "Link": "https://news.google.com/rss/articles/CBMihQFodHRwczovL3d3dy5yZXV0ZXJzLmNvbS9tYXJrZXRzL2NvbW1vZGl0aWVzL2FzaWFzLWZpcnN0LWhhbGYtY3J1ZGUtb2lsLWltcG9ydHMtc2xpcC11bmRlcm1pbmluZy1idWxsaXNoLWZvcmVjYXN0cy1ydXNzZWxsLTIwMjQtMDctMDEv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 11:59:00 GMT",
-    "Categories": [
-      "Market Trends",
-      "Trade and Export"
-    ]
-  },
-  {
-    "Title": "OPEC crude oil production remains steady as Iraq, UAE pump above quota - WorldOil",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vd3d3Lndvcmxkb2lsLmNvbS9uZXdzLzIwMjQvNy8xL29wZWMtY3J1ZGUtb2lsLXByb2R1Y3Rpb24tcmVtYWlucy1zdGVhZHktYXMtaXJhcS11YWUtcHVtcC1hYm92ZS1xdW90YS_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 22:52:48 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are down 0.17% today - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDEtMjAyNC_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 14:58:42 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil prices today: Brent rises to $85.3/barrel, WTI up 0.4%; what's pushing the rates? - Upstox",
-    "Link": "https://news.google.com/rss/articles/CBMilAFodHRwczovL3Vwc3RveC5jb20vbmV3cy9tYXJrZXQtbmV3cy9jb21tb2RpdGllcy9jcnVkZS1vaWwtcHJpY2UtdG9kYXktYnJlbnQtcmlzZXMtdG8tODUtMjgtYmFycmVsLXd0aS11cC0wLTQtd2hhdC1zLXB1c2hpbmctdGhlLXJhdGVzL2FydGljbGUtOTgzOTMv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 02:17:40 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "MVP Lowers Gas Prices in Southeast, Raises Prices in Northeast - Marcellus Drilling News",
-    "Link": "https://news.google.com/rss/articles/CBMiZGh0dHBzOi8vbWFyY2VsbHVzZHJpbGxpbmcuY29tLzIwMjQvMDcvbXZwLWxvd2Vycy1nYXMtcHJpY2VzLWluLXNvdXRoZWFzdC1yYWlzZXMtcHJpY2VzLWluLW5vcnRoZWFzdC_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 13:25:50 GMT",
+    "Title": "Alaska, Oil Firms Challenge Petroleum Reserve Drilling Ban (1) - Bloomberg Law",
+    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vbmV3cy5ibG9vbWJlcmdsYXcuY29tL2Vudmlyb25tZW50LWFuZC1lbmVyZ3kvYWxhc2thLXN1ZXMtaW50ZXJpb3ItdG8tcmVvcGVuLW5hdGlvbmFsLXBldHJvbGV1bS1yZXNlcnZlLXRvLW9pbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 15:14:00 GMT",
     "Categories": [
       "Exploration"
     ]
   },
   {
-    "Title": "US natgas prices ease to 6-week low on rising output, lower LNG feedgas - Natural Gas World",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vdXMtbmF0Z2FzLXByaWNlcy1kcm9wLXRvLTYtd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1sb3dlci1sbmctZmVlZGdhcy0xMTE5NDDSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 14:51:41 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "July Bidweek Natural Gas Prices Rally as Summer Demand Expectations Escalate - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHA6Ly9uYXR1cmFsZ2FzaW50ZWwuY29tL25ld3MvanVseS1iaWR3ZWVrLW5hdHVyYWwtZ2FzLXByaWNlcy1yYWxseS1hcy1zdW1tZXItZGVtYW5kLWV4cGVjdGF0aW9ucy1lc2NhbGF0ZS_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 19:44:53 GMT",
-    "Categories": [
-      "Supply and Demand"
-    ]
-  },
-  {
-    "Title": "Native Alaska tribes sue feds over limits on drilling in National Petroleum Reserve - Courthouse News Service",
-    "Link": "https://news.google.com/rss/articles/CBMic2h0dHBzOi8vd3d3LmNvdXJ0aG91c2VuZXdzLmNvbS9uYXRpdmUtYWxhc2thLXRyaWJlcy1zdWUtZmVkcy1vdmVyLWxpbWl0cy1vbi1kcmlsbGluZy1pbi1uYXRpb25hbC1wZXRyb2xldW0tcmVzZXJ2ZS_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 23:21:02 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "US speeds up purchasing for Strategic Petroleum Reserve as oil prices dip - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMirAFodHRwczovL3d3dy5tc24uY29tL2VuLXVzL21vbmV5L21hcmtldHMvdXMtc3BlZWRzLXVwLXB1cmNoYXNpbmctZm9yLXN0cmF0ZWdpYy1wZXRyb2xldW0tcmVzZXJ2ZS1hcy1vaWwtcHJpY2VzLWRpcC9hci1CQjFuUENFbD9pdGVtPWVuYWJsZV9yYW5kb20lM0FmYWxzZSZvY2lkPW9iLWZiLWZyZnItODM50gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:16:35 GMT",
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - MSN",
+    "Link": "https://news.google.com/rss/articles/CBMiiwFodHRwczovL3d3dy5tc24uY29tL2VuLWluL21vbmV5L21hcmtldHMvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hci1CQjFwQWdzbz9vY2lkPWZpbmFuY2UtdmVydGhwLWZlZWRz0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:40:44 GMT",
     "Categories": []
   },
   {
-    "Title": "Egypt's gas production at 5.7 billion cubic feet per day, says petroleum ministry official - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMiigFodHRwczovL3d3dy5tc24uY29tL2VuLWFlL21vbmV5L25ld3MvZWd5cHQtcy1nYXMtcHJvZHVjdGlvbi1hdC01LTctYmlsbGlvbi1jdWJpYy1mZWV0LXBlci1kYXktc2F5cy1wZXRyb2xldW0tbWluaXN0cnktb2ZmaWNpYWwvYXItQkIxcGZDTHrSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:56:16 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Crude oil prices jumped 2% on Monday - OK Energy Today",
-    "Link": "https://news.google.com/rss/articles/CBMiSmh0dHBzOi8vd3d3Lm9rZW5lcmd5dG9kYXkuY29tLzIwMjQvMDcvY3J1ZGUtb2lsLXByaWNlcy1qdW1wZWQtMi1vbi1tb25kYXkv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 20:39:35 GMT",
+    "Title": "Saudi Arabia may cut August crude oil prices to Asia - sources - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMiUWh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL3NhdWRpLWFyYWJpYS1tYXktY3V0LWF1Z3VzdC0wNDU5NDI3NTkuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 19:00:31 GMT",
     "Categories": []
   },
   {
-    "Title": "NNPC Ltd Declares State of Emergency on Crude Oil Production ...Calls for Collaboration to Reduce Production Cost - NNPC Ltd",
-    "Link": "https://news.google.com/rss/articles/CBMijQFodHRwczovL25ucGNncm91cC5jb20vaW5zaWdodHMvbm5wYy1sdGQtZGVjbGFyZXMtc3RhdGUtb2YtZW1lcmdlbmN5LW9uLWNydWRlLW9pbC1wcm9kdWN0aW9uLWNhbGxzLWZvci1jb2xsYWJvcmF0aW9uLXRvLXJlZHVjZS1wcm9kdWN0aW9uLWNvc3TSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 15:54:36 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Egypt's gas production at 5.7bln cubic feet per day, petroleum ministry spokesperson says - ZAWYA",
-    "Link": "https://news.google.com/rss/articles/CBMiiAFodHRwczovL3d3dy56YXd5YS5jb20vZW4vYnVzaW5lc3MvZW5lcmd5L2VneXB0cy1nYXMtcHJvZHVjdGlvbi1hdC01N2Jsbi1jdWJpYy1mZWV0LXBlci1kYXktcGV0cm9sZXVtLW1pbmlzdHJ5LXNwb2tlc3BlcnNvbi1zYXlzLWN5dWtiNWM20gGOAWh0dHBzOi8vd3d3Lnphd3lhLmNvbS9lbi9idXNpbmVzcy9lbmVyZ3kvZWd5cHRzLWdhcy1wcm9kdWN0aW9uLWF0LTU3YmxuLWN1YmljLWZlZXQtcGVyLWRheS1wZXRyb2xldW0tbWluaXN0cnktc3Bva2VzcGVyc29uLXNheXMtY3l1a2I1YzY_YW1wPTE?oc=5",
-    "Published": "Tue, 02 Jul 2024 03:51:26 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Government Raises Windfall Tax on Petroleum Crude Amid Rising Oil Prices - Times Now",
-    "Link": "https://news.google.com/rss/articles/CBMikAFodHRwczovL3d3dy50aW1lc25vd25ld3MuY29tL2J1c2luZXNzLWVjb25vbXkvZWNvbm9teS9nb3Zlcm5tZW50LXJhaXNlcy13aW5kZmFsbC10YXgtb24tcGV0cm9sZXVtLWNydWRlLWFtaWQtcmlzaW5nLW9pbC1wcmljZXMtYXJ0aWNsZS0xMTE0MjA1ODLSAZQBaHR0cHM6Ly93d3cudGltZXNub3duZXdzLmNvbS9idXNpbmVzcy1lY29ub215L2Vjb25vbXkvZ292ZXJubWVudC1yYWlzZXMtd2luZGZhbGwtdGF4LW9uLXBldHJvbGV1bS1jcnVkZS1hbWlkLXJpc2luZy1vaWwtcHJpY2VzLWFydGljbGUtMTExNDIwNTgyL2FtcA?oc=5",
-    "Published": "Tue, 02 Jul 2024 04:49:17 GMT",
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
     "Categories": []
   },
   {
-    "Title": "Does Japan Petroleum Exploration (TSE:1662) Have A Healthy Balance Sheet? - Simply Wall St",
-    "Link": "https://news.google.com/rss/articles/CBMilAFodHRwczovL3NpbXBseXdhbGwuc3Qvc3RvY2tzL2pwL2VuZXJneS90c2UtMTY2Mi9qYXBhbi1wZXRyb2xldW0tZXhwbG9yYXRpb24tc2hhcmVzL25ld3MvZG9lcy1qYXBhbi1wZXRyb2xldW0tZXhwbG9yYXRpb24tdHNlMTY2Mi1oYXZlLWEtaGVhbHRoeS1iYWxh0gGYAWh0dHBzOi8vc2ltcGx5d2FsbC5zdC9zdG9ja3MvanAvZW5lcmd5L3RzZS0xNjYyL2phcGFuLXBldHJvbGV1bS1leHBsb3JhdGlvbi1zaGFyZXMvbmV3cy9kb2VzLWphcGFuLXBldHJvbGV1bS1leHBsb3JhdGlvbi10c2UxNjYyLWhhdmUtYS1oZWFsdGh5LWJhbGEvYW1w?oc=5",
-    "Published": "Sat, 29 Jun 2024 23:30:21 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Petronas signs PSC with Vestigo Petroleum for gas cluster - Natural Gas World",
-    "Link": "https://news.google.com/rss/articles/CBMiYGh0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vcGV0cm9uYXMtc2lnbnMtcHNjLXdpdGgtdmVzdGlnby1wZXRyb2xldW0tZm9yLWdhcy1jbHVzdGVyLTExMTkwMtIBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 06:14:45 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are up 15.14% YTD - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDItMjAyNC_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 16:22:59 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are down 0.17% today - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDEtMjAyNC_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 14:58:42 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil prices jumped 2% on Monday - OK Energy Today",
-    "Link": "https://news.google.com/rss/articles/CBMiSmh0dHBzOi8vd3d3Lm9rZW5lcmd5dG9kYXkuY29tLzIwMjQvMDcvY3J1ZGUtb2lsLXByaWNlcy1qdW1wZWQtMi1vbi1tb25kYXkv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 20:39:35 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Asia's first half crude oil imports slip, undermining bullish forecasts - Reuters",
-    "Link": "https://news.google.com/rss/articles/CBMihQFodHRwczovL3d3dy5yZXV0ZXJzLmNvbS9tYXJrZXRzL2NvbW1vZGl0aWVzL2FzaWFzLWZpcnN0LWhhbGYtY3J1ZGUtb2lsLWltcG9ydHMtc2xpcC11bmRlcm1pbmluZy1idWxsaXNoLWZvcmVjYXN0cy1ydXNzZWxsLTIwMjQtMDctMDEv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 11:59:00 GMT",
-    "Categories": [
-      "Market Trends",
-      "Trade and Export"
-    ]
-  },
-  {
-    "Title": "Rystad Energy: Bullish market fundamentals are the main contributing factor to higher global oil prices - World Pipelines",
-    "Link": "https://news.google.com/rss/articles/CBMinwFodHRwczovL3d3dy53b3JsZHBpcGVsaW5lcy5jb20vc3BlY2lhbC1yZXBvcnRzLzAyMDcyMDI0L3J5c3RhZC1lbmVyZ3ktYnVsbGlzaC1tYXJrZXQtZnVuZGFtZW50YWxzLWFyZS10aGUtbWFpbi1jb250cmlidXRpbmctZmFjdG9yLXRvLWhpZ2hlci1nbG9iYWwtb2lsLXByaWNlcy_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:38:00 GMT",
-    "Categories": [
-      "Market Trends"
-    ]
-  },
-  {
-    "Title": "Elevated Crude Oil Prices, Muted Local Equities Add Pressure On INR - Business Standard",
-    "Link": "https://news.google.com/rss/articles/CBMilAFodHRwczovL3d3dy5idXNpbmVzcy1zdGFuZGFyZC5jb20vbWFya2V0cy9jYXBpdGFsLW1hcmtldC1uZXdzL2VsZXZhdGVkLWNydWRlLW9pbC1wcmljZXMtbXV0ZWQtbG9jYWwtZXF1aXRpZXMtYWRkLXByZXNzdXJlLW9uLWluci0xMjQwNzAyMDA3ODZfMS5odG1s0gGYAWh0dHBzOi8vd3d3LmJ1c2luZXNzLXN0YW5kYXJkLmNvbS9hbXAvbWFya2V0cy9jYXBpdGFsLW1hcmtldC1uZXdzL2VsZXZhdGVkLWNydWRlLW9pbC1wcmljZXMtbXV0ZWQtbG9jYWwtZXF1aXRpZXMtYWRkLXByZXNzdXJlLW9uLWluci0xMjQwNzAyMDA3ODZfMS5odG1s?oc=5",
-    "Published": "Tue, 02 Jul 2024 11:57:00 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil futures gain on spot demand - Press Trust of India",
-    "Link": "https://news.google.com/rss/articles/CBMiVGh0dHBzOi8vd3d3LnB0aW5ld3MuY29tL3N0b3J5L2J1c2luZXNzL2NydWRlLW9pbC1mdXR1cmVzLWdhaW4tb24tc3BvdC1kZW1hbmQvMTYyMzAzMtIBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 11:20:18 GMT",
+    "Title": "Crude Oil Futures Decline on Low Demand - Rediffmail",
+    "Link": "https://news.google.com/rss/articles/CBMiW2h0dHBzOi8vbW9uZXkucmVkaWZmLmNvbS9uZXdzL21hcmtldC9jcnVkZS1vaWwtZnV0dXJlcy1kZWNsaW5lLW9uLWxvdy1kZW1hbmQvMTIzNzY4MjAyNDA3MDjSAV9odHRwczovL21vbmV5LnJlZGlmZi5jb20vYW1wL25ld3MvbWFya2V0L2NydWRlLW9pbC1mdXR1cmVzLWRlY2xpbmUtb24tbG93LWRlbWFuZC8xMjM3NjgyMDI0MDcwOA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:48:20 GMT",
     "Categories": [
       "Stock Prices",
       "Supply and Demand"
     ]
   },
   {
-    "Title": "Crude Oil Prices Settle at Six-Week Lows as U.S.-China Trade War Intensifies - Yahoo Lifestyle UK",
-    "Link": "https://news.google.com/rss/articles/CBMiS2h0dHBzOi8vdWsuc3R5bGUueWFob28uY29tL3N0eWxlL2NydWRlLW9pbC1wcmljZXMtc2V0dGxlLXNpeC0yMTM5MDAzMzguaHRtbNIBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 23:38:47 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "US speeds up purchasing for Strategic Petroleum Reserve as oil prices dip - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMirAFodHRwczovL3d3dy5tc24uY29tL2VuLXVzL21vbmV5L21hcmtldHMvdXMtc3BlZWRzLXVwLXB1cmNoYXNpbmctZm9yLXN0cmF0ZWdpYy1wZXRyb2xldW0tcmVzZXJ2ZS1hcy1vaWwtcHJpY2VzLWRpcC9hci1CQjFuUENFbD9pdGVtPWVuYWJsZV9yYW5kb20lM0FmYWxzZSZvY2lkPW9iLWZiLWZyZnItODM50gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:16:35 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "OPEC crude oil production remains steady for third month due to Iraq, UAE non-compliance - Shafaq News - Shafaq News",
-    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vc2hhZmFxLmNvbS9lbi9FY29ub215L09QRUMtY3J1ZGUtb2lsLXByb2R1Y3Rpb24tcmVtYWlucy1zdGVhZHktZm9yLXRoaXJkLW1vbnRoLWR1ZS10by1JcmFxLVVBRS1ub24tY29tcGxpYW5jZdIBeWh0dHBzOi8vc2hhZmFxLmNvbS9hbXAvZW4vRWNvbm9teS9PUEVDLWNydWRlLW9pbC1wcm9kdWN0aW9uLXJlbWFpbnMtc3RlYWR5LWZvci10aGlyZC1tb250aC1kdWUtdG8tSXJhcS1VQUUtbm9uLWNvbXBsaWFuY2U?oc=5",
-    "Published": "Tue, 02 Jul 2024 10:04:38 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Crude oil futures and settle at $83.38 - ForexLive",
-    "Link": "https://news.google.com/rss/articles/CBMiW2h0dHBzOi8vd3d3LmZvcmV4bGl2ZS5jb20vdGVjaG5pY2FsLWFuYWx5c2lzL2NydWRlLW9pbC1mdXR1cmVzLWFuZC1zZXR0bGUtYXQtODMzOC0yMDI0MDcwMS_SAV9odHRwczovL3d3dy5mb3JleGxpdmUuY29tL3RlY2huaWNhbC1hbmFseXNpcy9jcnVkZS1vaWwtZnV0dXJlcy1hbmQtc2V0dGxlLWF0LTgzMzgtMjAyNDA3MDEvYW1wLw?oc=5",
-    "Published": "Mon, 01 Jul 2024 18:45:00 GMT",
-    "Categories": [
-      "Stock Prices"
-    ]
-  },
-  {
-    "Title": "Crude oil futures gain on spot demand - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMi2wFodHRwOi8vd3d3Lm1zbi5jb20vZW4taW4vbW9uZXkvbWFya2V0cy9jcnVkZS1vaWwtZnV0dXJlcy1nYWluLW9uLXNwb3QtZGVtYW5kL2FyLUJCMXBiUFNKP29jaWQ9QmluZ05ld3NWZXJwJmFwaXZlcnNpb249djImbm9zZXJ2ZXJjYWNoZT0xJmRvbXNoaW09MSZyZW5kZXJ3ZWJjb21wb25lbnRzPTEmd2NzZW89MSZiYXRjaHNlcnZlcnRlbGVtZXRyeT0xJm5vc2VydmVydGVsZW1ldHJ5PTHSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:30:12 GMT",
-    "Categories": [
-      "Stock Prices",
-      "Supply and Demand"
-    ]
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are up 15.14% YTD - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDItMjAyNC_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 16:22:59 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Rystad Energy: Bullish market fundamentals are the main contributing factor to higher global oil prices - World Pipelines",
-    "Link": "https://news.google.com/rss/articles/CBMinwFodHRwczovL3d3dy53b3JsZHBpcGVsaW5lcy5jb20vc3BlY2lhbC1yZXBvcnRzLzAyMDcyMDI0L3J5c3RhZC1lbmVyZ3ktYnVsbGlzaC1tYXJrZXQtZnVuZGFtZW50YWxzLWFyZS10aGUtbWFpbi1jb250cmlidXRpbmctZmFjdG9yLXRvLWhpZ2hlci1nbG9iYWwtb2lsLXByaWNlcy_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:38:00 GMT",
-    "Categories": [
-      "Market Trends"
-    ]
-  },
-  {
-    "Title": "Crude oil prices jumped 2% on Monday - OK Energy Today",
-    "Link": "https://news.google.com/rss/articles/CBMiSmh0dHBzOi8vd3d3Lm9rZW5lcmd5dG9kYXkuY29tLzIwMjQvMDcvY3J1ZGUtb2lsLXByaWNlcy1qdW1wZWQtMi1vbi1tb25kYXkv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 20:39:35 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Crude oil prices today: WTI prices are down 0.17% today - USA TODAY",
-    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDEtMjAyNC_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 14:58:42 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Egypt's gas production at 5.7 bln cubic feet per day, petroleum ministry spokesperson says - Natural Gas World",
-    "Link": "https://news.google.com/rss/articles/CBMie2h0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vZWd5cHRzLWdhcy1vdXRwdXQtYXQtNS43LWJsbi1jdWJpYy1mZWV0LXBlci1kYXktcGV0cm9sZXVtLW1pbmlzdHJ5LXNwb2tlc3BlcnNvbi1zYXlzLTExMTkzNtIBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 11:48:14 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "India's LNG terminals run at less than half capacity, petroleum and natural gas regulator proposes new rules - Hindustan Times",
-    "Link": "https://news.google.com/rss/articles/CBMipwFodHRwczovL3d3dy5oaW5kdXN0YW50aW1lcy5jb20vYnVzaW5lc3MvaW5kaWFzLWxuZy10ZXJtaW5hbHMtcnVuLWF0LWxlc3MtdGhhbi1oYWxmLWNhcGFjaXR5LXBldHJvbGV1bS1hbmQtbmF0dXJhbC1nYXMtcmVndWxhdG9yLXByb3Bvc2VzLW5ldy1ydWxlcy0xMDE3MTk3NjI1NjA0NDIuaHRtbNIBqwFodHRwczovL3d3dy5oaW5kdXN0YW50aW1lcy5jb20vYnVzaW5lc3MvaW5kaWFzLWxuZy10ZXJtaW5hbHMtcnVuLWF0LWxlc3MtdGhhbi1oYWxmLWNhcGFjaXR5LXBldHJvbGV1bS1hbmQtbmF0dXJhbC1nYXMtcmVndWxhdG9yLXByb3Bvc2VzLW5ldy1ydWxlcy0xMDE3MTk3NjI1NjA0NDItYW1wLmh0bWw?oc=5",
-    "Published": "Sun, 30 Jun 2024 17:13:05 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Energy Editors Predict Increased Crude Oil Production, Labour Unrest in Q3 \u2013 THISDAYLIVE - THISDAY Newspapers",
-    "Link": "https://news.google.com/rss/articles/CBMie2h0dHBzOi8vd3d3LnRoaXNkYXlsaXZlLmNvbS9pbmRleC5waHAvMjAyNC8wNi8zMC9lbmVyZ3ktZWRpdG9ycy1wcmVkaWN0LWluY3JlYXNlZC1jcnVkZS1vaWwtcHJvZHVjdGlvbi1sYWJvdXItdW5yZXN0LWluLXEzL9IBAA?oc=5",
-    "Published": "Sun, 30 Jun 2024 23:15:33 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "Forge Resources Advances Exploration with Successful Drilling and Funding - TipRanks.com - TipRanks",
-    "Link": "https://news.google.com/rss/articles/CBMifWh0dHBzOi8vd3d3LnRpcHJhbmtzLmNvbS9uZXdzL2NvbXBhbnktYW5ub3VuY2VtZW50cy9mb3JnZS1yZXNvdXJjZXMtYWR2YW5jZXMtZXhwbG9yYXRpb24td2l0aC1zdWNjZXNzZnVsLWRyaWxsaW5nLWFuZC1mdW5kaW5n0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 16:00:33 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Native Alaska tribes sue feds over limits on drilling in National Petroleum Reserve - Courthouse News Service",
-    "Link": "https://news.google.com/rss/articles/CBMic2h0dHBzOi8vd3d3LmNvdXJ0aG91c2VuZXdzLmNvbS9uYXRpdmUtYWxhc2thLXRyaWJlcy1zdWUtZmVkcy1vdmVyLWxpbWl0cy1vbi1kcmlsbGluZy1pbi1uYXRpb25hbC1wZXRyb2xldW0tcmVzZXJ2ZS_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 23:21:02 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "MVP Lowers Gas Prices in Southeast, Raises Prices in Northeast - Marcellus Drilling News",
-    "Link": "https://news.google.com/rss/articles/CBMiZGh0dHBzOi8vbWFyY2VsbHVzZHJpbGxpbmcuY29tLzIwMjQvMDcvbXZwLWxvd2Vycy1nYXMtcHJpY2VzLWluLXNvdXRoZWFzdC1yYWlzZXMtcHJpY2VzLWluLW5vcnRoZWFzdC_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 13:25:50 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Offshore Drilling Market Size Set to Surge, Forecasted to Reach USD 89.61 Billion by 2032 - openPR",
-    "Link": "https://news.google.com/rss/articles/CBMiYmh0dHBzOi8vd3d3Lm9wZW5wci5jb20vbmV3cy8zNTYxNzQ2L29mZnNob3JlLWRyaWxsaW5nLW1hcmtldC1zaXplLXNldC10by1zdXJnZS1mb3JlY2FzdGVkLXRvLXJlYWNo0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 11:16:00 GMT",
-    "Categories": [
-      "Market Trends",
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Drilling barge ready for Eni's Caspian Sea wildcat - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMiaGh0dHBzOi8vd3d3LnVwc3RyZWFtb25saW5lLmNvbS9leHBsb3JhdGlvbi9kcmlsbGluZy1iYXJnZS1yZWFkeS1mb3ItZW5pcy1jYXNwaWFuLXNlYS13aWxkY2F0LzItMS0xNjcwMjM40gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:31:15 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Environmental coalition opposes Challenger Energy's bid to renew offshore drilling licenses - EyeWitness News",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vZXduZXdzLmNvbS9lbnZpcm9ubWVudGFsLWNvYWxpdGlvbi1vcHBvc2VzLWNoYWxsZW5nZXItZW5lcmd5cy1iaWQtdG8tcmVuZXctb2Zmc2hvcmUtZHJpbGxpbmctbGljZW5zZXPSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 08:15:41 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Equinor's (EQNR) Argentina Offshore Drilling Hits Dry Well - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMikAFodHRwczovL3d3dy5tc24uY29tL2VuLXVzL21vbmV5L21hcmtldHMvZXF1aW5vci1zLWVxbnItYXJnZW50aW5hLW9mZnNob3JlLWRyaWxsaW5nLWhpdHMtZHJ5LXdlbGwvYXItQkIxcDQycjM_aXRlbT1mbGlnaHRzcHJnLXRpcHN1YnNjLXYxYT9zZWFzb27SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 03:46:42 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Natgas Prices Sank After Companies Such As Eqt And Chesapeake Resumed Drilling. By Kedia Advisory - Investing.com India",
-    "Link": "https://news.google.com/rss/articles/CBMihQFodHRwczovL2luLmludmVzdGluZy5jb20vbmV3cy9jb21tb2RpdGllcy1uZXdzL25hdGdhcy1wcmljZXMtc2Fuay1hZnRlci1jb21wYW5pZXMtc3VjaC1hcy1lcXQtYW5kLWNoZXNhcGVha2UtcmVzdW1lZC1kcmlsbGluZy00Mjg2MTM00gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 11:31:40 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Using a Catenary Trajectory To Reduce Wellbore Friction in Horizontal Extended-Reach Drilling - Society of Petroleum Engineers (SPE)",
-    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vanB0LnNwZS5vcmcvdHdhL3VzaW5nLWEtY2F0ZW5hcnktdHJhamVjdG9yeS10by1yZWR1Y2Utd2VsbGJvcmUtZnJpY3Rpb24taW4taG9yaXpvbnRhbC1leHRlbmRlZC1yZWFjaC1kcmlsbGluZ9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 05:04:09 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Offshore drilling failure for Equinor in Argentina - Energynews",
-    "Link": "https://news.google.com/rss/articles/CBMiTWh0dHBzOi8vZW5lcmd5bmV3cy5wcm8vZW4vb2Zmc2hvcmUtZHJpbGxpbmctZmFpbHVyZS1mb3ItZXF1aW5vci1pbi1hcmdlbnRpbmEv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 05:03:15 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Biden administration issues final five-year offshore drilling plan - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMidmh0dHBzOi8vd3d3Lm1zbi5jb20vZW4tdXMvbW9uZXkvbWFya2V0cy9iaWRlbi1hZG1pbmlzdHJhdGlvbi1pc3N1ZXMtZmluYWwtZml2ZS15ZWFyLW9mZnNob3JlLWRyaWxsaW5nLXBsYW4vYXItQUExbHp6VlDSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 07:17:49 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Offshore Drilling Market Size Set to Surge, Forecasted to Reach USD 89.61 Billion by 2032 - openPR",
-    "Link": "https://news.google.com/rss/articles/CBMiYmh0dHBzOi8vd3d3Lm9wZW5wci5jb20vbmV3cy8zNTYxNzQ2L29mZnNob3JlLWRyaWxsaW5nLW1hcmtldC1zaXplLXNldC10by1zdXJnZS1mb3JlY2FzdGVkLXRvLXJlYWNo0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 11:16:00 GMT",
-    "Categories": [
-      "Market Trends",
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Environmental coalition opposes Challenger Energy's bid to renew offshore drilling licenses - EyeWitness News",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vZXduZXdzLmNvbS9lbnZpcm9ubWVudGFsLWNvYWxpdGlvbi1vcHBvc2VzLWNoYWxsZW5nZXItZW5lcmd5cy1iaWQtdG8tcmVuZXctb2Zmc2hvcmUtZHJpbGxpbmctbGljZW5zZXPSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 08:15:41 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Equinor's (EQNR) Argentina Offshore Drilling Hits Dry Well - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMikAFodHRwczovL3d3dy5tc24uY29tL2VuLXVzL21vbmV5L21hcmtldHMvZXF1aW5vci1zLWVxbnItYXJnZW50aW5hLW9mZnNob3JlLWRyaWxsaW5nLWhpdHMtZHJ5LXdlbGwvYXItQkIxcDQycjM_aXRlbT1mbGlnaHRzcHJnLXRpcHN1YnNjLXYxYT9zZWFzb27SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 03:46:42 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Drilling barge ready for Eni's Caspian Sea wildcat - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMiaGh0dHBzOi8vd3d3LnVwc3RyZWFtb25saW5lLmNvbS9leHBsb3JhdGlvbi9kcmlsbGluZy1iYXJnZS1yZWFkeS1mb3ItZW5pcy1jYXNwaWFuLXNlYS13aWxkY2F0LzItMS0xNjcwMjM40gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 07:31:15 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Offshore drilling failure for Equinor in Argentina - Energynews",
-    "Link": "https://news.google.com/rss/articles/CBMiTWh0dHBzOi8vZW5lcmd5bmV3cy5wcm8vZW4vb2Zmc2hvcmUtZHJpbGxpbmctZmFpbHVyZS1mb3ItZXF1aW5vci1pbi1hcmdlbnRpbmEv0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 05:03:15 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Biden administration issues final five-year offshore drilling plan - MSN",
-    "Link": "https://news.google.com/rss/articles/CBMidmh0dHBzOi8vd3d3Lm1zbi5jb20vZW4tdXMvbW9uZXkvbWFya2V0cy9iaWRlbi1hZG1pbmlzdHJhdGlvbi1pc3N1ZXMtZmluYWwtZml2ZS15ZWFyLW9mZnNob3JlLWRyaWxsaW5nLXBsYW4vYXItQUExbHp6VlDSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 07:17:49 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Diamond Offshore Drilling's (NYSE:DO) investors will be pleased with their favorable 55% return over the last year - Yahoo Lifestyle UK",
-    "Link": "https://news.google.com/rss/articles/CBMiWWh0dHBzOi8vdWsuc3R5bGUueWFob28uY29tL3N0eWxlL2RpYW1vbmQtb2Zmc2hvcmUtZHJpbGxpbmdzLW55c2UtaW52ZXN0b3JzLTEyMTUyNzM4OS5odG1s0gEA?oc=5",
-    "Published": "Sun, 30 Jun 2024 03:57:30 GMT",
-    "Categories": [
-      "Exploration"
-    ]
-  },
-  {
-    "Title": "Natural Gas Futures Crash Below Technical Support into Oversold Territory - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMia2h0dHBzOi8vbmF0dXJhbGdhc2ludGVsLmNvbS9uZXdzL25hdHVyYWwtZ2FzLWZ1dHVyZXMtY3Jhc2gtYmVsb3ctdGVjaG5pY2FsLXN1cHBvcnQtaW50by1vdmVyc29sZC10ZXJyaXRvcnkv0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 13:50:39 GMT",
-    "Categories": [
-      "Stock Prices"
-    ]
-  },
-  {
-    "Title": "US natgas prices ease to 6-week low on rising output, lower LNG feedgas - Natural Gas World",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vdXMtbmF0Z2FzLXByaWNlcy1kcm9wLXRvLTYtd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1sb3dlci1sbmctZmVlZGdhcy0xMTE5NDDSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 14:51:41 GMT",
-    "Categories": [
-      "Production Updates"
-    ]
-  },
-  {
-    "Title": "July Bidweek Natural Gas Prices Rally as Summer Demand Expectations Escalate - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMibWh0dHA6Ly9uYXR1cmFsZ2FzaW50ZWwuY29tL25ld3MvanVseS1iaWR3ZWVrLW5hdHVyYWwtZ2FzLXByaWNlcy1yYWxseS1hcy1zdW1tZXItZGVtYW5kLWV4cGVjdGF0aW9ucy1lc2NhbGF0ZS_SAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 19:44:53 GMT",
+    "Title": "Crude oil prices: Brent, WTI log fourth straight weekly gain as summer demand picks up - Upstox",
+    "Link": "https://news.google.com/rss/articles/CBMikwFodHRwczovL3Vwc3RveC5jb20vbmV3cy9tYXJrZXQtbmV3cy9jb21tb2RpdGllcy9jcnVkZS1vaWwtcHJpY2VzLWJyZW50LXd0aS1sb2ctZm91cnRoLXN0cmFpZ2h0LXdlZWtseS1nYWluLWFzLXN1bW1lci1kZW1hbmQtcGlja3MtdXAvYXJ0aWNsZS05OTkzNi_SAQA?oc=5",
+    "Published": "Sat, 06 Jul 2024 02:24:36 GMT",
     "Categories": [
       "Supply and Demand"
     ]
   },
   {
-    "Title": "U.S. Energy Executives Anticipating Higher Henry Hub Natural Gas Prices - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMiZmh0dHA6Ly9uYXR1cmFsZ2FzaW50ZWwuY29tL25ld3MvdXMtZW5lcmd5LWV4ZWN1dGl2ZXMtYW50aWNpcGF0aW5nLWhpZ2hlci1oZW5yeS1odWItbmF0dXJhbC1nYXMtcHJpY2VzL9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 13:28:14 GMT",
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
     "Categories": []
   },
   {
-    "Title": "August Natural Gas Futures Dragged Below $2.500 Amid Higher Production, Milder Weather Forecasts \u2014 MidDay ... - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMilQFodHRwOi8vbmF0dXJhbGdhc2ludGVsLmNvbS9uZXdzL2F1Z3VzdC1uYXR1cmFsLWdhcy1mdXR1cmVzLWRyYWdnZWQtYmVsb3ctMjUwMC1hbWlkLWhpZ2hlci1wcm9kdWN0aW9uLW1pbGRlci13ZWF0aGVyLWZvcmVjYXN0cy1taWRkYXktbWFya2V0LXNuYXBzaG90L9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 19:04:45 GMT",
-    "Categories": [
-      "Market Trends",
-      "Production Updates",
-      "Stock Prices"
-    ]
-  },
-  {
-    "Title": "Mexico Natural Gas Production Sees Uptick in May, But Still Off Year-Ago Levels - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMib2h0dHA6Ly9uYXR1cmFsZ2FzaW50ZWwuY29tL25ld3MvbWV4aWNvLW5hdHVyYWwtZ2FzLXByb2R1Y3Rpb24tc2Vlcy11cHRpY2staW4tbWF5LWJ1dC1zdGlsbC1vZmYteWVhci1hZ28tbGV2ZWxzL9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 20:09:56 GMT",
+    "Title": "Wildfires boost Canadian crude oil prices as Suncor cuts production - Financial Post",
+    "Link": "https://news.google.com/rss/articles/CBMibmh0dHBzOi8vZmluYW5jaWFscG9zdC5jb20vY29tbW9kaXRpZXMvZW5lcmd5L29pbC1nYXMvY2FuYWRpYW4tb2lsLXByaWNlcy1yaXNlLXN1bmNvci1jdXRzLXByb2R1Y3Rpb24td2lsZGZpcmVz0gEA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:58:03 GMT",
     "Categories": [
       "Production Updates"
     ]
   },
   {
-    "Title": "MVP Lowers Gas Prices in Southeast, Raises Prices in Northeast - Marcellus Drilling News",
-    "Link": "https://news.google.com/rss/articles/CBMiZGh0dHBzOi8vbWFyY2VsbHVzZHJpbGxpbmcuY29tLzIwMjQvMDcvbXZwLWxvd2Vycy1nYXMtcHJpY2VzLWluLXNvdXRoZWFzdC1yYWlzZXMtcHJpY2VzLWluLW5vcnRoZWFzdC_SAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 13:25:50 GMT",
+    "Title": "Crude Oil Prices Continue to Hover Near 2-Year highs - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMiVWh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL2NydWRlLW9pbC1wcmljZXMtY29udGludWUtaG92ZXItMTY1OTAwMTg5Lmh0bWzSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 17:10:51 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil prices settle above $90 first time since April | The ICIR- Latest News, Politics, Governance, Elections ... - ICIR",
+    "Link": "https://news.google.com/rss/articles/CBMiVGh0dHBzOi8vd3d3LmljaXJuaWdlcmlhLm9yZy9jcnVkZS1vaWwtcHJpY2VzLXNldHRsZS1hYm92ZS05MC1maXJzdC10aW1lLXNpbmNlLWFwcmlsL9IBAA?oc=5",
+    "Published": "Sat, 06 Jul 2024 18:26:30 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Pakistan to get $5 bn over 3 years for petroleum, gas exploration: Sharif - Business Standard",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL3d3dy5idXNpbmVzcy1zdGFuZGFyZC5jb20vd29ybGQtbmV3cy9wYWtpc3Rhbi10by1nZXQtNS1ibi1vdmVyLTMteWVhcnMtZm9yLXBldHJvbGV1bS1nYXMtZXhwbG9yYXRpb24tc2hhcmlmLTEyNDA3MDcwMDE0N18xLmh0bWzSAYsBaHR0cHM6Ly93d3cuYnVzaW5lc3Mtc3RhbmRhcmQuY29tL2FtcC93b3JsZC1uZXdzL3Bha2lzdGFuLXRvLWdldC01LWJuLW92ZXItMy15ZWFycy1mb3ItcGV0cm9sZXVtLWdhcy1leHBsb3JhdGlvbi1zaGFyaWYtMTI0MDcwNzAwMTQ3XzEuaHRtbA?oc=5",
+    "Published": "Sun, 07 Jul 2024 07:02:38 GMT",
     "Categories": [
       "Exploration"
     ]
   },
   {
-    "Title": "Crude oil prices today: WTI rises ahead of Fourth of July - CNBC",
-    "Link": "https://news.google.com/rss/articles/CBMiO2h0dHBzOi8vd3d3LmNuYmMuY29tLzIwMjQvMDcvMDEvY3J1ZGUtb2lsLXByaWNlcy10b2RheS5odG1s0gEA?oc=5",
-    "Published": "Mon, 01 Jul 2024 12:40:13 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "US natural gas prices fall - Markets - Business Recorder",
-    "Link": "https://news.google.com/rss/articles/CBMiQmh0dHBzOi8vd3d3LmJyZWNvcmRlci5jb20vbmV3cy80MDMxMDc0Mi91cy1uYXR1cmFsLWdhcy1wcmljZXMtZmFsbNIBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 00:07:29 GMT",
+    "Title": "Spot market natural gas prices for Saturday, July 6 - Anadolu Agency | English",
+    "Link": "https://news.google.com/rss/articles/CBMiZGh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1zYXR1cmRheS1qdWx5LTYvNDIyNTnSAWpodHRwczovL3d3dy5hYS5jb20udHIvZW4vZW5lcmd5L25hdHVyYWwtZ2FzL3Nwb3QtbWFya2V0LW5hdHVyYWwtZ2FzLXByaWNlcy1mb3Itc2F0dXJkYXktanVseS02LzQyMjU5P2FtcD0x?oc=5",
+    "Published": "Sun, 07 Jul 2024 12:13:42 GMT",
     "Categories": [
       "Market Trends"
     ]
   },
   {
-    "Title": "August Natural Gas Futures Dragged Below $2.500 Amid Higher Production, Milder Weather Forecasts \u2014 MidDay ... - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMilQFodHRwOi8vbmF0dXJhbGdhc2ludGVsLmNvbS9uZXdzL2F1Z3VzdC1uYXR1cmFsLWdhcy1mdXR1cmVzLWRyYWdnZWQtYmVsb3ctMjUwMC1hbWlkLWhpZ2hlci1wcm9kdWN0aW9uLW1pbGRlci13ZWF0aGVyLWZvcmVjYXN0cy1taWRkYXktbWFya2V0LXNuYXBzaG90L9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 19:04:45 GMT",
-    "Categories": [
-      "Market Trends",
-      "Production Updates",
-      "Stock Prices"
-    ]
-  },
-  {
-    "Title": "OPEC+ Extends Deep Oil Production Cuts into 2025 - Asharq Al-awsat - English",
-    "Link": "https://news.google.com/rss/articles/CBMiVmh0dHBzOi8vZW5nbGlzaC5hYXdzYXQuY29tL2J1c2luZXNzLzUwMjY5MTktb3BlYy1leHRlbmRzLWRlZXAtb2lsLXByb2R1Y3Rpb24tY3V0cy0yMDI10gEA?oc=5",
-    "Published": "Sun, 30 Jun 2024 22:02:37 GMT",
-    "Categories": [
-      "Production Updates",
-      "Refining"
-    ]
-  },
-  {
-    "Title": "OPEC crude oil production remains steady for third month due to Iraq, UAE non-compliance - Shafaq News - Shafaq News",
-    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vc2hhZmFxLmNvbS9lbi9FY29ub215L09QRUMtY3J1ZGUtb2lsLXByb2R1Y3Rpb24tcmVtYWlucy1zdGVhZHktZm9yLXRoaXJkLW1vbnRoLWR1ZS10by1JcmFxLVVBRS1ub24tY29tcGxpYW5jZdIBeWh0dHBzOi8vc2hhZmFxLmNvbS9hbXAvZW4vRWNvbm9teS9PUEVDLWNydWRlLW9pbC1wcm9kdWN0aW9uLXJlbWFpbnMtc3RlYWR5LWZvci10aGlyZC1tb250aC1kdWUtdG8tSXJhcS1VQUUtbm9uLWNvbXBsaWFuY2U?oc=5",
-    "Published": "Tue, 02 Jul 2024 10:04:38 GMT",
+    "Title": "US natural gas prices drop to 7-week low on rising output, high storage levels - BOE Report",
+    "Link": "https://news.google.com/rss/articles/CBMib2h0dHBzOi8vYm9lcmVwb3J0LmNvbS8yMDI0LzA3LzA1L3VzLW5hdHVyYWwtZ2FzLXByaWNlcy1kcm9wLXRvLTctd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1oaWdoLXN0b3JhZ2UtbGV2ZWxzL9IBc2h0dHBzOi8vYm9lcmVwb3J0LmNvbS8yMDI0LzA3LzA1L3VzLW5hdHVyYWwtZ2FzLXByaWNlcy1kcm9wLXRvLTctd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1oaWdoLXN0b3JhZ2UtbGV2ZWxzL2FtcC8?oc=5",
+    "Published": "Fri, 05 Jul 2024 15:22:35 GMT",
     "Categories": [
       "Production Updates"
     ]
   },
   {
-    "Title": "Natural gas is 'enabler' of energy security and affordability for Global South, says Baker Hughes chief - Upstream Online",
-    "Link": "https://news.google.com/rss/articles/CBMioQFodHRwczovL3d3dy51cHN0cmVhbW9ubGluZS5jb20vZW5lcmd5LXRyYW5zaXRpb24vbmF0dXJhbC1nYXMtaXMtZW5hYmxlci1vZi1lbmVyZ3ktc2VjdXJpdHktYW5kLWFmZm9yZGFiaWxpdHktZm9yLWdsb2JhbC1zb3V0aC1zYXlzLWJha2VyLWh1Z2hlcy1jaGllZi8yLTEtMTY3MDA2M9IBAA?oc=5",
-    "Published": "Tue, 02 Jul 2024 08:50:57 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "U.S. Energy Executives Anticipating Higher Henry Hub Natural Gas Prices - Natural Gas Intelligence",
-    "Link": "https://news.google.com/rss/articles/CBMiZmh0dHA6Ly9uYXR1cmFsZ2FzaW50ZWwuY29tL25ld3MvdXMtZW5lcmd5LWV4ZWN1dGl2ZXMtYW50aWNpcGF0aW5nLWhpZ2hlci1oZW5yeS1odWItbmF0dXJhbC1nYXMtcHJpY2VzL9IBAA?oc=5",
-    "Published": "Mon, 01 Jul 2024 13:28:14 GMT",
-    "Categories": []
-  },
-  {
-    "Title": "Offshore Drilling Market Size Set to Surge, Forecasted to Reach USD 89.61 Billion by 2032 - openPR",
-    "Link": "https://news.google.com/rss/articles/CBMiYmh0dHBzOi8vd3d3Lm9wZW5wci5jb20vbmV3cy8zNTYxNzQ2L29mZnNob3JlLWRyaWxsaW5nLW1hcmtldC1zaXplLXNldC10by1zdXJnZS1mb3JlY2FzdGVkLXRvLXJlYWNo0gEA?oc=5",
-    "Published": "Tue, 02 Jul 2024 10:39:52 GMT",
+    "Title": "Spot market natural gas prices for Friday, July 5 - Anadolu Agency | English",
+    "Link": "https://news.google.com/rss/articles/CBMiYmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1mcmlkYXktanVseS01LzQyMjU10gFoaHR0cHM6Ly93d3cuYWEuY29tLnRyL2VuL2VuZXJneS9uYXR1cmFsLWdhcy9zcG90LW1hcmtldC1uYXR1cmFsLWdhcy1wcmljZXMtZm9yLWZyaWRheS1qdWx5LTUvNDIyNTU_YW1wPTE?oc=5",
+    "Published": "Sat, 06 Jul 2024 18:33:57 GMT",
     "Categories": [
-      "Market Trends",
+      "Market Trends"
+    ]
+  },
+  {
+    "Title": "A delegation of Petroleum and Gas Exploration & Production companies calls on Prime Minister Muhammad Shehbaz ... - Associated Press of Pakistan",
+    "Link": "https://news.google.com/rss/articles/CBMimwFodHRwczovL3d3dy5hcHAuY29tLnBrL3Bob3Rvcy1zZWN0aW9uL2EtZGVsZWdhdGlvbi1vZi1wZXRyb2xldW0tYW5kLWdhcy1leHBsb3JhdGlvbi1wcm9kdWN0aW9uLWNvbXBhbmllcy1jYWxscy1vbi1wcmltZS1taW5pc3Rlci1tdWhhbW1hZC1zaGVoYmF6LXNoYXJpZi0yL9IBAA?oc=5",
+    "Published": "Sat, 06 Jul 2024 12:33:59 GMT",
+    "Categories": [
+      "Production Updates",
       "Exploration"
     ]
   },
   {
-    "Title": "US Natural Gas Futures Drop Amid Cooler Weather Forecasts and Increasing LNG Exports - ChemAnalyst",
-    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL3d3dy5jaGVtYW5hbHlzdC5jb20vTmV3c0FuZERlYWxzL05ld3NEZXRhaWxzL3VzLW5hdHVyYWwtZ2FzLWZ1dHVyZXMtZHJvcC1hbWlkLWNvb2xlci13ZWF0aGVyLWZvcmVjYXN0cy1hbmQtaW5jcmVhc2luZy1sbmctMjg3MzHSAQA?oc=5",
-    "Published": "Mon, 01 Jul 2024 07:00:00 GMT",
+    "Title": "Petroleum, gas exploration companies to invest $5b in Pakistan - Pakistan Observer",
+    "Link": "https://news.google.com/rss/articles/CBMiVWh0dHBzOi8vcGFrb2JzZXJ2ZXIubmV0L3BldHJvbGV1bS1nYXMtZXhwbG9yYXRpb24tY29tcGFuaWVzLXRvLWludmVzdC01Yi1pbi1wYWtpc3Rhbi_SAQA?oc=5",
+    "Published": "Sat, 06 Jul 2024 07:50:00 GMT",
     "Categories": [
-      "Market Trends",
-      "Stock Prices",
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude Oil Prices Near April Highs - tastylive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnRhc3R5bGl2ZS5jb20vbmV3cy1pbnNpZ2h0cy9jcnVkZS1vaWwtcHJpY2VzLW5lYXItYXByaWwtaGlnaHPSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:25:34 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil prices today: WTI prices are up 13.53% YTD - USA TODAY",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDUtMjAyNC_SAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 16:40:35 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "US natural gas prices drop to 7-week low on rising output, high storage levels - XM",
+    "Link": "https://news.google.com/rss/articles/CBMiiAFodHRwczovL3d3dy54bS5jb20vcmVzZWFyY2gvbWFya2V0cy9zdG9ja3MvcmV1dGVycy91cy1uYXR1cmFsLWdhcy1wcmljZXMtZHJvcC10by03d2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1oaWdoLXN0b3JhZ2UtbGV2ZWxzLTUzODc1MDQ50gEA?oc=5",
+    "Published": "Fri, 05 Jul 2024 15:22:35 GMT",
+    "Categories": [
+      "Production Updates"
+    ]
+  },
+  {
+    "Title": "Spot market natural gas prices for Friday, July 5 - Anadolu Agency | English",
+    "Link": "https://news.google.com/rss/articles/CBMiYmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1mcmlkYXktanVseS01LzQyMjU10gFoaHR0cHM6Ly93d3cuYWEuY29tLnRyL2VuL2VuZXJneS9uYXR1cmFsLWdhcy9zcG90LW1hcmtldC1uYXR1cmFsLWdhcy1wcmljZXMtZm9yLWZyaWRheS1qdWx5LTUvNDIyNTU_YW1wPTE?oc=5",
+    "Published": "Sat, 06 Jul 2024 18:33:57 GMT",
+    "Categories": [
+      "Market Trends"
+    ]
+  },
+  {
+    "Title": "Spot market natural gas prices for Saturday, July 6 - Anadolu Agency | English",
+    "Link": "https://news.google.com/rss/articles/CBMiZGh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1zYXR1cmRheS1qdWx5LTYvNDIyNTnSAWpodHRwczovL3d3dy5hYS5jb20udHIvZW4vZW5lcmd5L25hdHVyYWwtZ2FzL3Nwb3QtbWFya2V0LW5hdHVyYWwtZ2FzLXByaWNlcy1mb3Itc2F0dXJkYXktanVseS02LzQyMjU5P2FtcD0x?oc=5",
+    "Published": "Sun, 07 Jul 2024 12:13:42 GMT",
+    "Categories": [
+      "Market Trends"
+    ]
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil prices today: WTI prices are up 13.53% YTD - USA TODAY",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDUtMjAyNC_SAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 16:40:35 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Can Geopolitical Changes and Tropical Storms Influence Crude Oil Prices in 2024? - FX Leaders",
+    "Link": "https://news.google.com/rss/articles/CBMiemh0dHBzOi8vd3d3LmZ4bGVhZGVycy5jb20vbmV3cy8yMDI0LzA3LzA4L2Nhbi1nZW9wb2xpdGljYWwtY2hhbmdlcy1hbmQtdHJvcGljYWwtc3Rvcm1zLWluZmx1ZW5jZS1jcnVkZS1vaWwtcHJpY2VzLWluLTIwMjQv0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 06:10:48 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Prices Near April Highs - tastylive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnRhc3R5bGl2ZS5jb20vbmV3cy1pbnNpZ2h0cy9jcnVkZS1vaWwtcHJpY2VzLW5lYXItYXByaWwtaGlnaHPSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:25:34 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Saudi Crude Oil Exports Slump to 10-Month Low - OilPrice.com",
+    "Link": "https://news.google.com/rss/articles/CBMiWGh0dHBzOi8vb2lscHJpY2UuY29tL0VuZXJneS9DcnVkZS1PaWwvU2F1ZGktQ3J1ZGUtT2lsLUV4cG9ydHMtU2x1bXAtdG8tMTAtTW9udGgtTG93Lmh0bWzSAVxodHRwczovL29pbHByaWNlLmNvbS9FbmVyZ3kvQ3J1ZGUtT2lsL1NhdWRpLUNydWRlLU9pbC1FeHBvcnRzLVNsdW1wLXRvLTEwLU1vbnRoLUxvdy5hbXAuaHRtbA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:00:00 GMT",
+    "Categories": [
       "Trade and Export"
     ]
   },
   {
-    "Title": "NNPC Ltd Declares State of Emergency on Crude Oil Production ...Calls for Collaboration to Reduce Production Cost - NNPC Ltd",
-    "Link": "https://news.google.com/rss/articles/CBMijQFodHRwczovL25ucGNncm91cC5jb20vaW5zaWdodHMvbm5wYy1sdGQtZGVjbGFyZXMtc3RhdGUtb2YtZW1lcmdlbmN5LW9uLWNydWRlLW9pbC1wcm9kdWN0aW9uLWNhbGxzLWZvci1jb2xsYWJvcmF0aW9uLXRvLXJlZHVjZS1wcm9kdWN0aW9uLWNvc3TSAQA?oc=5",
-    "Published": "Tue, 02 Jul 2024 15:54:36 GMT",
+    "Title": "Brent crude oil prices surge above USD87 per barrel, highest since April - MENAFN.COM",
+    "Link": "https://news.google.com/rss/articles/CBMiZWh0dHBzOi8vbWVuYWZuLmNvbS8xMTA4NDE2MTEzL0JyZW50LWNydWRlLW9pbC1wcmljZXMtc3VyZ2UtYWJvdmUtVVNEODctcGVyLWJhcnJlbC1oaWdoZXN0LXNpbmNlLUFwcmls0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:56:07 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Real crude oil prices at a 4-year low | Mint - Mint",
+    "Link": "https://news.google.com/rss/articles/CBMiX2h0dHBzOi8vd3d3LmxpdmVtaW50LmNvbS9Nb25leS9qU2pUU1ljbkMwZ0NwOWJ5ZHFHdFhNL1JlYWwtY3J1ZGUtb2lsLXByaWNlcy1hdC1hLTR5ZWFyLWxvdy5odG1s0gFpaHR0cHM6Ly93d3cubGl2ZW1pbnQuY29tL01vbmV5L2pTalRTWWNuQzBnQ3A5YnlkcUd0WE0vUmVhbC1jcnVkZS1vaWwtcHJpY2VzLWF0LWEtNHllYXItbG93Lmh0bWw_ZmFjZXQ9YW1w?oc=5",
+    "Published": "Mon, 08 Jul 2024 01:44:54 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil futures settle at $83.16 - ForexLive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LmZvcmV4bGl2ZS5jb20vbmV3cy9jcnVkZS1vaWwtZnV0dXJlcy1zZXR0bGUtYXQtODMxNi0yMDI0MDcwNS_SAU1odHRwczovL3d3dy5mb3JleGxpdmUuY29tL25ld3MvY3J1ZGUtb2lsLWZ1dHVyZXMtc2V0dGxlLWF0LTgzMTYtMjAyNDA3MDUvYW1wLw?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:35:00 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude Oil Futures Decline on Low Demand - Rediffmail",
+    "Link": "https://news.google.com/rss/articles/CBMiW2h0dHBzOi8vbW9uZXkucmVkaWZmLmNvbS9uZXdzL21hcmtldC9jcnVkZS1vaWwtZnV0dXJlcy1kZWNsaW5lLW9uLWxvdy1kZW1hbmQvMTIzNzY4MjAyNDA3MDjSAV9odHRwczovL21vbmV5LnJlZGlmZi5jb20vYW1wL25ld3MvbWFya2V0L2NydWRlLW9pbC1mdXR1cmVzLWRlY2xpbmUtb24tbG93LWRlbWFuZC8xMjM3NjgyMDI0MDcwOA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:48:20 GMT",
+    "Categories": [
+      "Stock Prices",
+      "Supply and Demand"
+    ]
+  },
+  {
+    "Title": "Wildfires boost Canadian crude oil prices as Suncor cuts production - Financial Post",
+    "Link": "https://news.google.com/rss/articles/CBMibmh0dHBzOi8vZmluYW5jaWFscG9zdC5jb20vY29tbW9kaXRpZXMvZW5lcmd5L29pbC1nYXMvY2FuYWRpYW4tb2lsLXByaWNlcy1yaXNlLXN1bmNvci1jdXRzLXByb2R1Y3Rpb24td2lsZGZpcmVz0gEA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:58:03 GMT",
     "Categories": [
       "Production Updates"
     ]
   },
   {
-    "Title": "Spot market natural gas prices for Sunday, June 30 - Anadolu Agency | English",
-    "Link": "https://news.google.com/rss/articles/CBMiY2h0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1zdW5kYXktanVuZS0zMC80MjE5MNIBaWh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1zdW5kYXktanVuZS0zMC80MjE5MD9hbXA9MQ?oc=5",
-    "Published": "Mon, 01 Jul 2024 11:48:23 GMT",
+    "Title": "Crude oil prices edge up; but oversupply, strong dollar drag - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMicmh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL2NydWRlLW9pbC1wcmljZXMtZWRnZS1vdmVyc3VwcGx5LXN0cm9uZy1kb2xsYXItZHJhZy0wNDUyMTEwMTgtLWZpbmFuY2UuaHRtbNIBAA?oc=5",
+    "Published": "Sun, 07 Jul 2024 08:59:47 GMT",
+    "Categories": [
+      "Production Updates",
+      "Supply and Demand"
+    ]
+  },
+  {
+    "Title": "Walk this way: Rhino targets six exploration wells in emerging natural gas-helium play - Upstream Online",
+    "Link": "https://news.google.com/rss/articles/CBMijAFodHRwczovL3d3dy51cHN0cmVhbW9ubGluZS5jb20vZXhwbG9yYXRpb24vd2Fsay10aGlzLXdheS1yaGluby10YXJnZXRzLXNpeC1leHBsb3JhdGlvbi13ZWxscy1pbi1lbWVyZ2luZy1uYXR1cmFsLWdhcy1oZWxpdW0tcGxheS8yLTEtMTY3MzU4M9IBAA?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:23:57 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Taliban signs deal with Turkish firm for gas drilling in Afghanistan - Natural Gas World",
+    "Link": "https://news.google.com/rss/articles/CBMicGh0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vdGFsaWJhbi1zaWducy1kZWFsLXdpdGgtdHVya2lzaC1maXJtLWZvci1nYXMtd2VsbC1kcmlsbGluZy1pbi1hZmdoYW5pc3Rhbi0xMTIwMjfSAQA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:10:15 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Defendants respond to Oklahoma's natural gas prices lawsuit - Tulsa World",
+    "Link": "https://news.google.com/rss/articles/CBMirAFodHRwczovL3R1bHNhd29ybGQuY29tL25ld3Mvc3RhdGUtcmVnaW9uYWwvb2tsYWhvbWEtd2F0Y2gtY29tcGFuaWVzLWJlaW5nLXN1ZWQtb3Zlci1uYXR1cmFsLWdhcy1wcmljZXMtd2FudC1jYXNlLWRpc21pc3NlZC9hcnRpY2xlX2FiNGYxZjE4LTM4NzctMTFlZi1iYjVhLTUzZTk5MjEwZWZlYy5odG1s0gEA?oc=5",
+    "Published": "Sat, 06 Jul 2024 04:32:00 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Money Minute: Do Stocks Need a Reboot? Natural Gas Prices Heat Up - AOL",
+    "Link": "https://news.google.com/rss/articles/CBMiTmh0dHBzOi8vd3d3LmFvbC5jb20vb24tc3RvY2stbWFya2V0LWNvcnJlY3Rpb24tbmF0dXJhbC1nYXMtcHJpY2VzLWhlYXQtdXAuaHRtbNIBAA?oc=5",
+    "Published": "Sun, 07 Jul 2024 13:01:07 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude oil prices today: WTI prices are up 13.53% YTD - USA TODAY",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDUtMjAyNC_SAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 16:40:35 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil prices: Brent, WTI log fourth straight weekly gain as summer demand picks up - Upstox",
+    "Link": "https://news.google.com/rss/articles/CBMikwFodHRwczovL3Vwc3RveC5jb20vbmV3cy9tYXJrZXQtbmV3cy9jb21tb2RpdGllcy9jcnVkZS1vaWwtcHJpY2VzLWJyZW50LXd0aS1sb2ctZm91cnRoLXN0cmFpZ2h0LXdlZWtseS1nYWluLWFzLXN1bW1lci1kZW1hbmQtcGlja3MtdXAvYXJ0aWNsZS05OTkzNi_SAQA?oc=5",
+    "Published": "Sat, 06 Jul 2024 02:24:36 GMT",
+    "Categories": [
+      "Supply and Demand"
+    ]
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude oil prices today: WTI prices are up 13.53% YTD - USA TODAY",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnVzYXRvZGF5LmNvbS9tb25leS9ibHVlcHJpbnQvaW52ZXN0aW5nL29pbC1wcmljZXMtMDctMDUtMjAyNC_SAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 16:40:35 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Prices Near April Highs - tastylive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnRhc3R5bGl2ZS5jb20vbmV3cy1pbnNpZ2h0cy9jcnVkZS1vaWwtcHJpY2VzLW5lYXItYXByaWwtaGlnaHPSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:25:34 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Futures Decline on Low Demand - Rediffmail",
+    "Link": "https://news.google.com/rss/articles/CBMiW2h0dHBzOi8vbW9uZXkucmVkaWZmLmNvbS9uZXdzL21hcmtldC9jcnVkZS1vaWwtZnV0dXJlcy1kZWNsaW5lLW9uLWxvdy1kZW1hbmQvMTIzNzY4MjAyNDA3MDjSAV9odHRwczovL21vbmV5LnJlZGlmZi5jb20vYW1wL25ld3MvbWFya2V0L2NydWRlLW9pbC1mdXR1cmVzLWRlY2xpbmUtb24tbG93LWRlbWFuZC8xMjM3NjgyMDI0MDcwOA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:48:20 GMT",
+    "Categories": [
+      "Stock Prices",
+      "Supply and Demand"
+    ]
+  },
+  {
+    "Title": "Crude oil futures settle at $83.16 - ForexLive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LmZvcmV4bGl2ZS5jb20vbmV3cy9jcnVkZS1vaWwtZnV0dXJlcy1zZXR0bGUtYXQtODMxNi0yMDI0MDcwNS_SAU1odHRwczovL3d3dy5mb3JleGxpdmUuY29tL25ld3MvY3J1ZGUtb2lsLWZ1dHVyZXMtc2V0dGxlLWF0LTgzMTYtMjAyNDA3MDUvYW1wLw?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:35:00 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude oil prices: Brent, WTI edge lower as investors brace for storm Beryl's impact - Upstox",
+    "Link": "https://news.google.com/rss/articles/CBMikQFodHRwczovL3Vwc3RveC5jb20vbmV3cy9tYXJrZXQtbmV3cy9jb21tb2RpdGllcy9jcnVkZS1vaWwtcHJpY2VzLWJyZW50LXd0aS1lZGdlLWxvd2VyLWFzLWludmVzdG9ycy1icmFjZS1mb3Itc3Rvcm0tYmVyeWwtcy1pbXBhY3QvYXJ0aWNsZS0xMDAxMjQv0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 02:23:23 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Prices Continue to Hover Near 2-Year highs - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMiVWh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL2NydWRlLW9pbC1wcmljZXMtY29udGludWUtaG92ZXItMTY1OTAwMTg5Lmh0bWzSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 17:10:51 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "US natural gas prices drop to 7-week low on rising output, high storage levels - BOE Report",
+    "Link": "https://news.google.com/rss/articles/CBMib2h0dHBzOi8vYm9lcmVwb3J0LmNvbS8yMDI0LzA3LzA1L3VzLW5hdHVyYWwtZ2FzLXByaWNlcy1kcm9wLXRvLTctd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1oaWdoLXN0b3JhZ2UtbGV2ZWxzL9IBc2h0dHBzOi8vYm9lcmVwb3J0LmNvbS8yMDI0LzA3LzA1L3VzLW5hdHVyYWwtZ2FzLXByaWNlcy1kcm9wLXRvLTctd2Vlay1sb3ctb24tcmlzaW5nLW91dHB1dC1oaWdoLXN0b3JhZ2UtbGV2ZWxzL2FtcC8?oc=5",
+    "Published": "Fri, 05 Jul 2024 15:22:35 GMT",
+    "Categories": [
+      "Production Updates"
+    ]
+  },
+  {
+    "Title": "Crude Oil Prices Continue to Hover Near 2-Year highs - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMiVWh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL2NydWRlLW9pbC1wcmljZXMtY29udGludWUtaG92ZXItMTY1OTAwMTg5Lmh0bWzSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 17:10:51 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Natural Gas Futures Bearish Momentum With A 23% Drop In The Last 21 Sessions - Via News Agency",
+    "Link": "https://news.google.com/rss/articles/CBMiWWh0dHBzOi8vdmlhLm5ld3MvbWFya2V0L25hdHVyYWwtZ2FzLWZ1dHVyZXMtYmVhcmlzaC1tb21lbnR1bS0yMy1kcm9wLWluLWxhc3QtMjEtc2Vzc2lvbnMv0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 00:58:28 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Walk this way: Rhino targets six exploration wells in emerging natural gas-helium play - Upstream Online",
+    "Link": "https://news.google.com/rss/articles/CBMijAFodHRwczovL3d3dy51cHN0cmVhbW9ubGluZS5jb20vZXhwbG9yYXRpb24vd2Fsay10aGlzLXdheS1yaGluby10YXJnZXRzLXNpeC1leHBsb3JhdGlvbi13ZWxscy1pbi1lbWVyZ2luZy1uYXR1cmFsLWdhcy1oZWxpdW0tcGxheS8yLTEtMTY3MzU4M9IBAA?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:23:57 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Pakistan to get $5 Bln over 3 years for petroleum, gas exploration - IranOilGas Network",
+    "Link": "https://news.google.com/rss/articles/CBMiggFodHRwczovL3d3dy5pcmFub2lsZ2FzLmNvbS9uZXdzL2RldGFpbHMuYXNweD9pZD0yNjU4NiZ0aXRsZT1QYWtpc3Rhbit0bytnZXQrJTI0NStCbG4rb3ZlciszK3llYXJzK2ZvcitwZXRyb2xldW0lMkMrZ2FzK2V4cGxvcmF0aW9u0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 06:15:09 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Pakistan to get $5 bn over 3 years for petroleum, gas exploration: Sharif - Business Standard",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL3d3dy5idXNpbmVzcy1zdGFuZGFyZC5jb20vd29ybGQtbmV3cy9wYWtpc3Rhbi10by1nZXQtNS1ibi1vdmVyLTMteWVhcnMtZm9yLXBldHJvbGV1bS1nYXMtZXhwbG9yYXRpb24tc2hhcmlmLTEyNDA3MDcwMDE0N18xLmh0bWzSAYsBaHR0cHM6Ly93d3cuYnVzaW5lc3Mtc3RhbmRhcmQuY29tL2FtcC93b3JsZC1uZXdzL3Bha2lzdGFuLXRvLWdldC01LWJuLW92ZXItMy15ZWFycy1mb3ItcGV0cm9sZXVtLWdhcy1leHBsb3JhdGlvbi1zaGFyaWYtMTI0MDcwNzAwMTQ3XzEuaHRtbA?oc=5",
+    "Published": "Sun, 07 Jul 2024 07:02:38 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Crude Oil Prices Continue to Hover Near 2-Year highs - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMiVWh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL2NydWRlLW9pbC1wcmljZXMtY29udGludWUtaG92ZXItMTY1OTAwMTg5Lmh0bWzSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 17:10:51 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Pakistan to get $5 Bln over 3 years for petroleum, gas exploration - IranOilGas Network",
+    "Link": "https://news.google.com/rss/articles/CBMiggFodHRwczovL3d3dy5pcmFub2lsZ2FzLmNvbS9uZXdzL2RldGFpbHMuYXNweD9pZD0yNjU4NiZ0aXRsZT1QYWtpc3Rhbit0bytnZXQrJTI0NStCbG4rb3ZlciszK3llYXJzK2ZvcitwZXRyb2xldW0lMkMrZ2FzK2V4cGxvcmF0aW9u0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 06:15:09 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Alaska, Oil Firms Challenge Petroleum Reserve Drilling Ban (1) - Bloomberg Law",
+    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vbmV3cy5ibG9vbWJlcmdsYXcuY29tL2Vudmlyb25tZW50LWFuZC1lbmVyZ3kvYWxhc2thLXN1ZXMtaW50ZXJpb3ItdG8tcmVvcGVuLW5hdGlvbmFsLXBldHJvbGV1bS1yZXNlcnZlLXRvLW9pbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 15:14:00 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Pakistan to get $5 bn over 3 years for petroleum, gas exploration: Sharif - Business Standard",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL3d3dy5idXNpbmVzcy1zdGFuZGFyZC5jb20vd29ybGQtbmV3cy9wYWtpc3Rhbi10by1nZXQtNS1ibi1vdmVyLTMteWVhcnMtZm9yLXBldHJvbGV1bS1nYXMtZXhwbG9yYXRpb24tc2hhcmlmLTEyNDA3MDcwMDE0N18xLmh0bWzSAYsBaHR0cHM6Ly93d3cuYnVzaW5lc3Mtc3RhbmRhcmQuY29tL2FtcC93b3JsZC1uZXdzL3Bha2lzdGFuLXRvLWdldC01LWJuLW92ZXItMy15ZWFycy1mb3ItcGV0cm9sZXVtLWdhcy1leHBsb3JhdGlvbi1zaGFyaWYtMTI0MDcwNzAwMTQ3XzEuaHRtbA?oc=5",
+    "Published": "Sun, 07 Jul 2024 07:02:38 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Winner chosen by TotalEnergies for Demark drilling campaign - Upstream Online",
+    "Link": "https://news.google.com/rss/articles/CBMihgFodHRwczovL3d3dy51cHN0cmVhbW9ubGluZS5jb20vdGFnL1JlZ2lvbnMvZXVyb3BlLy9leHBsb3JhdGlvbi93aW5uZXItY2hvc2VuLWJ5LXRvdGFsZW5lcmdpZXMtZm9yLWRlbWFyay1kcmlsbGluZy1jYW1wYWlnbi8yLTEtMTY3Mzk2M9IBAA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:38:45 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Alaska, Oil Firms Challenge Petroleum Reserve Drilling Ban (1) - Bloomberg Law",
+    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vbmV3cy5ibG9vbWJlcmdsYXcuY29tL2Vudmlyb25tZW50LWFuZC1lbmVyZ3kvYWxhc2thLXN1ZXMtaW50ZXJpb3ItdG8tcmVvcGVuLW5hdGlvbmFsLXBldHJvbGV1bS1yZXNlcnZlLXRvLW9pbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 15:14:00 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Taliban signs deal with Turkish firm for gas drilling in Afghanistan - Natural Gas World",
+    "Link": "https://news.google.com/rss/articles/CBMicGh0dHBzOi8vd3d3Lm5hdHVyYWxnYXN3b3JsZC5jb20vdGFsaWJhbi1zaWducy1kZWFsLXdpdGgtdHVya2lzaC1maXJtLWZvci1nYXMtd2VsbC1kcmlsbGluZy1pbi1hZmdoYW5pc3Rhbi0xMTIwMjfSAQA?oc=5",
+    "Published": "Mon, 08 Jul 2024 07:10:15 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Winner chosen by TotalEnergies for Demark drilling campaign - Upstream Online",
+    "Link": "https://news.google.com/rss/articles/CBMicmh0dHBzOi8vd3d3LnVwc3RyZWFtb25saW5lLmNvbS9leHBsb3JhdGlvbi93aW5uZXItY2hvc2VuLWJ5LXRvdGFsZW5lcmdpZXMtZm9yLWRlbWFyay1kcmlsbGluZy1jYW1wYWlnbi8yLTEtMTY3Mzk2M9IBAA?oc=5",
+    "Published": "Mon, 08 Jul 2024 06:50:21 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Alaska, Oil Firms Challenge Petroleum Reserve Drilling Ban (1) - Bloomberg Law",
+    "Link": "https://news.google.com/rss/articles/CBMidWh0dHBzOi8vbmV3cy5ibG9vbWJlcmdsYXcuY29tL2Vudmlyb25tZW50LWFuZC1lbmVyZ3kvYWxhc2thLXN1ZXMtaW50ZXJpb3ItdG8tcmVvcGVuLW5hdGlvbmFsLXBldHJvbGV1bS1yZXNlcnZlLXRvLW9pbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 15:14:00 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Crude oil prices edge up; but oversupply, strong dollar drag - Yahoo News UK",
+    "Link": "https://news.google.com/rss/articles/CBMicmh0dHBzOi8vdWsubmV3cy55YWhvby5jb20vZmluYW5jZS9uZXdzL2NydWRlLW9pbC1wcmljZXMtZWRnZS1vdmVyc3VwcGx5LXN0cm9uZy1kb2xsYXItZHJhZy0wNDUyMTEwMTgtLWZpbmFuY2UuaHRtbNIBAA?oc=5",
+    "Published": "Sun, 07 Jul 2024 08:59:47 GMT",
+    "Categories": [
+      "Production Updates",
+      "Supply and Demand"
+    ]
+  },
+  {
+    "Title": "Saudi Crude Oil Exports Slump to 10-Month Low - OilPrice.com",
+    "Link": "https://news.google.com/rss/articles/CBMiWGh0dHBzOi8vb2lscHJpY2UuY29tL0VuZXJneS9DcnVkZS1PaWwvU2F1ZGktQ3J1ZGUtT2lsLUV4cG9ydHMtU2x1bXAtdG8tMTAtTW9udGgtTG93Lmh0bWzSAVxodHRwczovL29pbHByaWNlLmNvbS9FbmVyZ3kvQ3J1ZGUtT2lsL1NhdWRpLUNydWRlLU9pbC1FeHBvcnRzLVNsdW1wLXRvLTEwLU1vbnRoLUxvdy5hbXAuaHRtbA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:00:00 GMT",
+    "Categories": [
+      "Trade and Export"
+    ]
+  },
+  {
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - MSN",
+    "Link": "https://news.google.com/rss/articles/CBMiiwFodHRwczovL3d3dy5tc24uY29tL2VuLWluL21vbmV5L21hcmtldHMvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hci1CQjFwQWdzbz9vY2lkPWZpbmFuY2UtdmVydGhwLWZlZWRz0gEA?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:40:44 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude Oil Prices Near April Highs - tastylive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnRhc3R5bGl2ZS5jb20vbmV3cy1pbnNpZ2h0cy9jcnVkZS1vaWwtcHJpY2VzLW5lYXItYXByaWwtaGlnaHPSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:25:34 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude oil prices at two-month highs. What is causing the surge? - The Economic Times",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL20uZWNvbm9taWN0aW1lcy5jb20vbWFya2V0cy9zdG9ja3MvbmV3cy9jcnVkZS1vaWwtcHJpY2VzLWF0LXR3by1tb250aC1oaWdocy13aGF0LWlzLWNhdXNpbmctdGhlLXN1cmdlL2FydGljbGVzaG93LzExMTU2Nzg5NS5jbXPSAYsBaHR0cHM6Ly9tLmVjb25vbWljdGltZXMuY29tL21hcmtldHMvc3RvY2tzL25ld3MvY3J1ZGUtb2lsLXByaWNlcy1hdC10d28tbW9udGgtaGlnaHMtd2hhdC1pcy1jYXVzaW5nLXRoZS1zdXJnZS9hbXBfYXJ0aWNsZXNob3cvMTExNTY3ODk1LmNtcw?oc=5",
+    "Published": "Mon, 08 Jul 2024 05:07:27 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Prices Near April Highs - tastylive",
+    "Link": "https://news.google.com/rss/articles/CBMiSWh0dHBzOi8vd3d3LnRhc3R5bGl2ZS5jb20vbmV3cy1pbnNpZ2h0cy9jcnVkZS1vaWwtcHJpY2VzLW5lYXItYXByaWwtaGlnaHPSAQA?oc=5",
+    "Published": "Fri, 05 Jul 2024 18:25:34 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Crude Oil Futures Overview - CME Group",
+    "Link": "https://news.google.com/rss/articles/CBMiSGh0dHBzOi8vd3d3LmNtZWdyb3VwLmNvbS9tYXJrZXRzL2VuZXJneS9jcnVkZS1vaWwvbGlnaHQtc3dlZXQtY3J1ZGUuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 20:44:45 GMT",
+    "Categories": [
+      "Stock Prices"
+    ]
+  },
+  {
+    "Title": "Gas prices down slightly as crude oil continues slow climb - delawarebusinessnow.com",
+    "Link": "https://news.google.com/rss/articles/CBMilQFodHRwczovL3d3dy5kZWxhd2FyZWJ1c2luZXNzbm93LmNvbS9uZXdzL2dhcy1wcmljZXMtZG93bi1zbGlnaHRseS1hcy1jcnVkZS1vaWwtY29udGludWVzLXNsb3ctY2xpbWIvYXJ0aWNsZV8wNDJlZDliNi0zYWRmLTExZWYtYTlkNS05YjVjZTU1YTNmZjIuaHRtbNIBAA?oc=5",
+    "Published": "Fri, 05 Jul 2024 14:58:00 GMT",
+    "Categories": []
+  },
+  {
+    "Title": "Pakistan to get $5 bn over 3 years for petroleum, gas exploration: Sharif - Business Standard",
+    "Link": "https://news.google.com/rss/articles/CBMihwFodHRwczovL3d3dy5idXNpbmVzcy1zdGFuZGFyZC5jb20vd29ybGQtbmV3cy9wYWtpc3Rhbi10by1nZXQtNS1ibi1vdmVyLTMteWVhcnMtZm9yLXBldHJvbGV1bS1nYXMtZXhwbG9yYXRpb24tc2hhcmlmLTEyNDA3MDcwMDE0N18xLmh0bWzSAYsBaHR0cHM6Ly93d3cuYnVzaW5lc3Mtc3RhbmRhcmQuY29tL2FtcC93b3JsZC1uZXdzL3Bha2lzdGFuLXRvLWdldC01LWJuLW92ZXItMy15ZWFycy1mb3ItcGV0cm9sZXVtLWdhcy1leHBsb3JhdGlvbi1zaGFyaWYtMTI0MDcwNzAwMTQ3XzEuaHRtbA?oc=5",
+    "Published": "Sun, 07 Jul 2024 07:02:38 GMT",
+    "Categories": [
+      "Exploration"
+    ]
+  },
+  {
+    "Title": "Spot market natural gas prices for Saturday, July 6 - Anadolu Agency | English",
+    "Link": "https://news.google.com/rss/articles/CBMiZGh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1zYXR1cmRheS1qdWx5LTYvNDIyNTnSAWpodHRwczovL3d3dy5hYS5jb20udHIvZW4vZW5lcmd5L25hdHVyYWwtZ2FzL3Nwb3QtbWFya2V0LW5hdHVyYWwtZ2FzLXByaWNlcy1mb3Itc2F0dXJkYXktanVseS02LzQyMjU5P2FtcD0x?oc=5",
+    "Published": "Sun, 07 Jul 2024 12:13:42 GMT",
+    "Categories": [
+      "Market Trends"
+    ]
+  },
+  {
+    "Title": "Spot market natural gas prices for Friday, July 5 - Anadolu Agency | English",
+    "Link": "https://news.google.com/rss/articles/CBMiYmh0dHBzOi8vd3d3LmFhLmNvbS50ci9lbi9lbmVyZ3kvbmF0dXJhbC1nYXMvc3BvdC1tYXJrZXQtbmF0dXJhbC1nYXMtcHJpY2VzLWZvci1mcmlkYXktanVseS01LzQyMjU10gFoaHR0cHM6Ly93d3cuYWEuY29tLnRyL2VuL2VuZXJneS9uYXR1cmFsLWdhcy9zcG90LW1hcmtldC1uYXR1cmFsLWdhcy1wcmljZXMtZm9yLWZyaWRheS1qdWx5LTUvNDIyNTU_YW1wPTE?oc=5",
+    "Published": "Sat, 06 Jul 2024 18:33:57 GMT",
     "Categories": [
       "Market Trends"
     ]

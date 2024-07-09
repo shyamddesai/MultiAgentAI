@@ -7,9 +7,12 @@ relevant_keywords = [
     "natural gas", "commodity prices", "oil futures", "gas futures",
     "exploration", "refining", "pipelines", "oilfield services",
     "petroleum", "downstream", "upstream", "midstream", "LNG",
-    "oil reserves", "drilling", "shale oil", "offshore drilling",
-    "oil exports", "oil imports", "OPEC", "oil refining capacity",
-    "oil production cuts", "oil consumption", "oil inventory"
+    "oil reserves", "drilling", "shale oil",
+    "oil exports", "oil imports", "OPEC",
+    "oil consumption", "oil inventory",
+    "Light Distillate", "Naphtha", "Gasoline", "LPG", "Biofuels",
+    "Middle Distillate", "Jet Fuel", "Gas Oil", "Diesel", "Condensate",
+    "Fuel Oil and Bunker"
 ]
 
 categories = {
@@ -20,7 +23,12 @@ categories = {
     "Supply and Demand": ["supply", "demand", "oil supply", "oil demand", "gas supply", "gas demand"],
     "Exploration": ["exploration", "drilling", "shale oil", "offshore drilling"],
     "Refining": ["refining", "oil refining capacity", "oil production cuts", "oil inventory"],
-    "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports"]
+    "Commodities": ["Light Distillate", "Naphtha", "Gasoline", "LPG", " Biofuels", "Middle Distillate",
+                    "Jet Fuel", "Gas Oil", " Diesel", "Condensate", "Fuel Oil and Bunker", "Brent", "WTI",
+                    "RBOB", "EBOB", "CBOB", "Singapore gasoline R92", "Europe Gasoil", "Gasoil", "Marine gasoil",
+                    "Far east index", "propane", "butane", "Mt Belv Propane", "Mt Belv Butane", "ULSD New york",
+                    "UlSD"],
+    "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports",]
 }
 
 # ------------------------------------------------------------------------------

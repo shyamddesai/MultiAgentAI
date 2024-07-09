@@ -3,7 +3,7 @@ import warnings
 from crewai import Crew, Process
 from crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool, filter_and_categorize_articles, topic,
                   news_gatherer, news_gathering_task, news_analyst, news_analyst_task)
-
+from MultiAgentAI.crew.config import relevant_keywords
 warnings.filterwarnings('ignore')
 
 # ------------------------------------------------------------------------------
@@ -17,8 +17,8 @@ crew = Crew(
 )
 
 # Execute the crew with the input topic
-keywords = SophisticatedKeywordGeneratorTool()._run(topic)
-result = RSSFeedScraperTool()._run(keywords)
+# keywords = SophisticatedKeywordGeneratorTool()._run(topic)
+result = RSSFeedScraperTool()._run(relevant_keywords)
 
 # Save the articles to JSON, and filter and categorize them
 all_articles_output = "./reports/news_report.json"

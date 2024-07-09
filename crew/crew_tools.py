@@ -9,8 +9,8 @@ from tavily import TavilyClient
 from pydantic import PrivateAttr
 from crewai_tools import BaseTool
 
-nltk.download('stopwords')
-nlp = spacy.load("en_core_web_sm")
+# nltk.download('stopwords')
+# nlp = spacy.load("en_core_web_sm")
 
 class SophisticatedKeywordGeneratorTool(BaseTool):
     name: str = "SophisticatedKeywordGeneratorTool"
@@ -18,13 +18,22 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
 
     def _run(self, topic: str) -> list:
         # Use spaCy to process the text
-        doc = nlp(topic)
+        # doc = nlp(topic)
 
         # Extract relevant named entities
-        entities = [ent.text for ent in doc.ents if ent.label_ in ["ORG", "GPE", "PRODUCT", "EVENT"] and ('oil' in ent.text.lower() or 'gas' in ent.text.lower())]
+        entities = [
+            "OPEC", "Oil Companies", "ADNOC", "Aramco", "SNPC", "Sonatrach",
+            "GEPetrol", "Gabon Oil", "National Iranian Oil Company",
+            "Iraq Petroleum", "Kuwait Oil Company", "PDVSA", "IEA", "APEC",
+            "Sinopec", "PetroChina", "GazProm", "QatarEnergy", "CNOOC",
+            "ExxonMobil", "Shell", "Marathon Petroleum", "Valero Energy",
+            "ConocoPhillips", "Canadian Natural Resources",
+            "TotalEnergies", "British Petroleum (or BP)", "Chevron",
+            "Equinor", "Eni", "Petrobras"
+        ]
 
         # Extract relevant noun chunks
-        noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS and ('oil' in chunk.text.lower() or 'gas' in chunk.text.lower())]
+        # noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS and ('oil' in chunk.text.lower() or 'gas' in chunk.text.lower())]
 
         # Use RAKE to extract keywords
         rake = Rake()
@@ -32,18 +41,24 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         rake_keywords = rake.get_ranked_phrases()
 
         # Combine all keywords
-        all_keywords = entities + noun_chunks + rake_keywords
+        all_keywords = entities + rake_keywords
 
         # Add domain-specific keywords
         specific_keywords = [
-            "oil prices", "gas prices", "oil and gas stock market", "oil company news",
-            "oil and gas supply and demand", "oil production rates", "gas production rates",
-            "energy market news", "oil trading news", "gas trading news", "crude oil prices",
-            "natural gas prices", "commodity prices", "oil futures", "gas futures",
-            "exploration", "refining", "pipelines", "oilfield services", "petroleum",
-            "downstream", "upstream", "midstream", "LNG", "oil reserves", "drilling",
-            "shale oil", "offshore drilling", "oil exports", "oil imports", "OPEC",
-            "oil refining capacity", "oil production cuts", "oil consumption", "oil inventory"
+            "oil prices", "gas prices", "oil stock market", "oil company",
+            "oil supply", "oil demand", "oil production", "gas production",
+            "energy market", "oil trading", "gas trading", "crude oil",
+            "natural gas", "commodity prices", "oil futures", "gas futures",
+            "exploration", "refining", "pipelines", "oilfield services",
+            "petroleum", "downstream", "upstream", "midstream", "LNG",
+            "oil reserves", "drilling", "shale oil",
+            "oil exports", "oil imports", "OPEC",
+            "oil consumption", "oil inventory",
+            "Light Distillate", "Naphtha", "Gasoline", "LPG", "Biofuels", "Middle Distillate",
+            "Jet Fuel", "Gas Oil", "Diesel", "Condensate", "Fuel Oil and Bunker", "Brent", "WTI",
+            "RBOB", "EBOB", "CBOB", "Singapore gasoline R92", "Europe Gasoil", "Gasoil", "Marine gasoil",
+            "Far east index", "propane", "butane", "Mt Belv Propane", "Mt Belv Butane", "ULSD New york",
+            "UlSD"
         ]
         all_keywords += specific_keywords
 
@@ -52,9 +67,9 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         keywords = [kw for kw in keywords if len(kw.split()) <= 3 and len(kw) > 2]
 
         # Refine keywords to avoid unrelated topics
-        refined_keywords = [kw for kw in keywords if 'stock' not in kw or 'oil' in kw or 'gas' in kw]
+        # refined_keywords = [kw for kw in keywords if 'stock' not in kw or 'oil' in kw or 'gas' in kw]
 
-        return refined_keywords
+        return keywords
     
 # ------------------------------------------------------------------------------
     
