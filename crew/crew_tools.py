@@ -80,12 +80,14 @@ class RSSFeedScraperTool(BaseTool):
                         "scrapes them to extract news articles. It returns a list of "
                         "articles with titles and links from the past week.")
 
-    def _run(self, refined_keywords: list) -> list:
+    def _run(self, keywords_list: list) -> list:
         articles = []
         one_week_ago = datetime.now() - timedelta(days=3)
-        for refined_keyword in refined_keywords:
-            rss_url = f"https://news.google.com/rss/search?q={quote_plus(refined_keyword)}+when:3d"
+
+        for keyword in keywords_list:
+            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:3d"
             feed = feedparser.parse(rss_url)
+            keyword_article_count = 0
             for entry in feed.entries:
                 published = datetime(*entry.published_parsed[:6])
                 if published >= one_week_ago:
@@ -93,8 +95,9 @@ class RSSFeedScraperTool(BaseTool):
                         "Title": entry.title,
                         "Link": entry.link,
                         "Published": entry.published,
-
                     })
+                    keyword_article_count += 1
+            print(f"Keyword '{keyword}' added {keyword_article_count} articles")
         return articles
 
 # ------------------------------------------------------------------------------

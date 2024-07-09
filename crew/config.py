@@ -18,16 +18,21 @@ relevant_keywords = [
 categories = {
     "Market Trends": ["market", "trend", "forecast"],
     "Production Updates": ["production", "output", "supply", "production rates"],
-    "Company News": ["company", "merger", "acquisition", "oil company"],
+    "Company News": ["company", "merger", "acquisition", "oil company","OPEC", "Oil Companies",
+                     "ADNOC", "Aramco", "SNPC", "Sonatrach", "GEPetrol", "Gabon Oil", "National Iranian Oil Company",
+                     "Iraq Petroleum", "Kuwait Oil Company", "PDVSA", "IEA", "APEC", "Sinopec", "PetroChina", "GazProm",
+                     "QatarEnergy", "CNOOC", "ExxonMobil", "Shell", "Marathon Petroleum", "Valero Energy",
+                     "ConocoPhillips", "Canadian Natural Resources", "TotalEnergies", "British Petroleum (or BP)",
+                     "Chevron", "Equinor", "Eni", "Petrobras"],
     "Stock Prices": ["stock prices", "oil stock market", "commodity prices", "oil futures", "gas futures"],
     "Supply and Demand": ["supply", "demand", "oil supply", "oil demand", "gas supply", "gas demand"],
     "Exploration": ["exploration", "drilling", "shale oil", "offshore drilling"],
     "Refining": ["refining", "oil refining capacity", "oil production cuts", "oil inventory"],
     "Commodities": ["Light Distillate", "Naphtha", "Gasoline", "LPG", " Biofuels", "Middle Distillate",
                     "Jet Fuel", "Gas Oil", " Diesel", "Condensate", "Fuel Oil and Bunker", "Brent", "WTI",
-                    "RBOB", "EBOB", "CBOB", "Singapore gasoline R92", "Europe Gasoil", "Gasoil", "Marine gasoil",
-                    "Far east index", "propane", "butane", "Mt Belv Propane", "Mt Belv Butane", "ULSD New york",
-                    "UlSD"],
+                    "RBOB", "EBOB", "CBOB", "Singapore gasoline R92","gasoline R92" "Europe Gasoil", "Gasoil",
+                    "Marine gasoil", "Far east index", "propane", "butane", "Mt Belv Propane", "Mt Belv Butane",
+                    "ULSD New york", "UlSD"],
     "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports",]
 }
 

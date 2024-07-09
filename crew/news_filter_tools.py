@@ -9,10 +9,11 @@ from MultiAgentAI.crew.config import relevant_keywords, categories
 def filter_and_categorize_articles(all_articles_output):
     # Load articles from JSON file
     with open(all_articles_output, 'r') as f:
-        articles = json.load(f)
+         articles = json.load(f)
 
     # Filter articles for redundancy, relevancy, and categorize them
-    filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3))
+    filtered_articles = asyncio.run(filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=2))
+    print("filtered articles : ", filtered_articles)
 
     filtered_output = "./reports/filtered_news_report.json"
     with open(filtered_output, 'w') as f:
@@ -40,7 +41,7 @@ def group_articles_by_category(articles):
     for article in articles:
         for category in article["Categories"]:
             categorized_articles[category].append(article)
-
+        print("categorizing ", article)
     return categorized_articles
 
 # ------------------------------------------------------------------------------
@@ -73,14 +74,12 @@ def is_similar(title1, title2, threshold=0.7):
 
 def score_relevancy(article, relevant_keywords):
     title = article["Title"].lower()
-    content = article.get("Content", "").lower()  # Assuming article content is also available
     score = 0
 
     for keyword in relevant_keywords:
         if keyword in title:
             score += 2  # Higher weight for keywords in title
-        if keyword in content:
-            score += 1
+
 
     return score
 
@@ -88,18 +87,17 @@ def score_relevancy(article, relevant_keywords):
 
 def categorize_article(article, categories):
     title = article["Title"].lower()
-    content = article.get("Content", "").lower()  # Assuming article content is also available
     article_categories = []
 
     for category, keywords in categories.items():
-        if any(keyword in title for keyword in keywords) or any(keyword in content for keyword in keywords):
+        if any(keyword in title for keyword in keywords):
             article_categories.append(category)
 
     return article_categories
 
 # ------------------------------------------------------------------------------
 
-async def filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=3):
+async def filter_articles_async(articles, relevant_keywords, categories, relevancy_threshold=2):
     unique_titles = set()
     filtered_articles = []
 
