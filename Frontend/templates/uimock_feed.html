@@ -7,89 +7,84 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_feed.css') }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
-
-        body {
-            font-family: 'SF Pro Text', sans-serif;
-        }
-
+        body { font-family: 'SF Pro Text', sans-serif; }
         .custom-nav {
-            background: rgba(255, 255, 255, 0.2); /* Increased transparency */
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Translucent border */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            backdrop-filter: blur(10px); /* Glass-like blur effect */
-            -webkit-backdrop-filter: blur(10px); /* Safari support */
-            border-radius: 30px; /* More rounded corners */
-            position: fixed; /* Fixed position */
-            top: 1rem; /* Distance from the top */
-            right: 1rem; /* Distance from the right */
-            z-index: 1000; /* Ensure it stays on top */
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 30px;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
         }
         .custom-nav a {
-            color: #000000;
+            color: #000;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem; /* Increased padding */
-            font-size: 1.25rem; /* Increased font size */
-            border-radius: 50%; /* Make hover effect round */
+            padding: 0.5rem 1rem;
+            font-size: 1.25rem;
+            border-radius: 50%;
         }
         .custom-nav a:hover {
             color: #FE2C55;
-            background-color: rgba(254, 44, 85, 0.2); /* Darker background */
-            box-shadow: 0 0 15px rgba(254, 44, 85, 0.5); /* Darker and more pronounced shadow */
-            transform: scale(1.1); /* Slightly enlarge the element */
+            background-color: rgba(254, 44, 85, 0.2);
+            box-shadow: 0 0 15px rgba(254, 44, 85, 0.5);
+            transform: scale(1.1);
         }
         .custom-nav .separator {
             width: 1px;
-            background-color: rgba(255, 255, 255, 0.3); /* Subtle line color */
+            background-color: rgba(255, 255, 255, 0.3);
             height: 100%;
-            margin: 0 0.5rem; /* Increased margin */
+            margin: 0 0.5rem;
         }
-
+        .custom-nav.hidden { display: none; }
         .slide-over {
             transform: translateX(100%);
-            background-color: #000000;
             transition: transform 0.3s ease-in-out;
-            top: 2rem; /* Adjusted to fit beneath the navbar */
-            height: calc(100%); /* Adjusted height */
+            top: 2rem;
+            height: calc(100% - 2rem);
+            width: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .slide-over.show {
-            transform: translateX(0);
+        .slide-over.show { transform: translateX(0); }
+        .main-content.shifted { transform: translateX(-50%); transition: transform 0.3s ease-in-out; }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #333;
+            transition: color 0.3s ease;
         }
-
-        .main-content.shifted {
-            transform: translateX(-300px);
-            transition: transform 0.3s ease-in-out;
-        }
+        .close-btn:hover { color: #FE2C55; }
     </style>
 </head>
 <body class="font-sans antialiased">
     <nav class="custom-nav text-white rounded-full w-auto">
         <div class="flex justify-around p-2">
-            <a href="/" class="flex flex-col items-center">
-                <i class="fas fa-home"></i>
-            </a>
-            <div class="separator"></div> <!-- Separator line -->
-            <a href="/market-prediction" class="flex flex-col items-center">
-                <i class="fas fa-chart-line"></i>
-            </a>
-            <div class="separator"></div> <!-- Separator line -->
-            <a href="/news-analysis" class="flex flex-col items-center">
-                <i class="fas fa-newspaper"></i>
-            </a>
-            <div class="separator"></div> <!-- Separator line -->
-            <a href="/uimock_flash0" class="flex flex-col items-center">
-                <i class="fas fa-cogs"></i>
-            </a>
+            <a href="/" class="flex flex-col items-center"><i class="fas fa-home"></i></a>
+            <div class="separator"></div>
+            <a href="/market-prediction" class="flex flex-col items-center"><i class="fas fa-chart-line"></i></a>
+            <div class="separator"></div>
+            <a href="/news-analysis" class="flex flex-col items-center"><i class="fas fa-newspaper"></i></a>
+            <div class="separator"></div>
+            <a href="/uimock_flash0" class="flex flex-col items-center"><i class="fas fa-cogs"></i></a>
         </div>
     </nav>
 
     <div class="layout">
         <div class="sidebar" id="sidebar">
             <h2 class="text-xl font-bold mb-4">App</h2>
-            <!-- Search Box -->
             <nav>
                 <a href="#header"><i class="fas fa-calendar-day"></i>Today</a>
                 <h3 class="text-lg font-semibold mt-6 mb-2">Filters</h3>
@@ -112,14 +107,12 @@
                 <h2 class="highlight">Company</h2>
                 <div class="grid grid-cols-1 gap-4">
                     <article id="first-card" class="news-card p-4" onclick="openSummarySlideOver()">
-                        <img src="https://via.placeholder.com/300" alt="Today Story 1" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
                         <div class="p-4">
                             <h2 class="article-title">Summary Report?</h2>
                             <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
                         </div>
                     </article>
                     <article class="news-card p-4" onclick="openSourcesSlideOver()">
-                        <img src="https://via.placeholder.com/300" alt="Today Story 2" class="w-full h-48 object-cover rounded-t-lg" loading="lazy">
                         <div class="p-4">
                             <h2 class="article-title">Sources?</h2>
                             <p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
@@ -136,127 +129,90 @@
             <div class="modal-body">
                 <h1 style="font-weight: bold" id="summary-slide-over-title"></h1>
                 <br>
-                <iframe id="pdf-frame" style="width:100%; height:500px;" frameborder="0"></iframe>
+                <iframe id="pdf-frame" style="width:100%; height:80vh;" frameborder="0"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- New slide-over for sources -->
     <div id="sources-slide-over" class="slide-over fixed top-0 right-0 w-1/3 h-full bg-white shadow-lg z-50">
         <div class="p-4">
             <button class="close-btn" onclick="closeSourcesSlideOver(event)">&times;</button>
             <div class="modal-body">
                 <h1 style="font-weight: bold">Sources Cited</h1>
                 <br>
-                <iframe id="sources-pdf-frame" style="width:100%; height:500px;" frameborder="0"></iframe>
+                <iframe id="sources-pdf-frame" style="width:100%; height:80vh;" frameborder="0"></iframe>
             </div>
         </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/uimock_feed.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script>
         const content = {{ content|tojson|safe }};
         const sources = {{ sources|tojson|safe }};
 
+        function closeAllSlideOvers() {
+            document.querySelectorAll('.slide-over').forEach(slideOver => slideOver.classList.remove('show'));
+            document.getElementById('main-content').classList.remove('shifted');
+            document.querySelector('.custom-nav').classList.remove('hidden');
+        }
+
         document.querySelectorAll('.news-card').forEach((card, index) => {
-            if (index === 0) {
-                card.addEventListener('click', function() {
-                    const modalTitle = document.getElementById('summary-slide-over-title');
-                    modalTitle.innerText = content["content title"];
+            card.addEventListener('click', () => {
+                closeAllSlideOvers();
+                document.querySelector('.custom-nav').classList.add('hidden');
 
-                    const { jsPDF } = window.jspdf;
-                    const doc = new jsPDF();
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                let y = 10;
+                doc.setFontSize(12);
 
-                    let y = 10;
-                    doc.setFontSize(12);
-
-                    content.summary_of_articles.forEach((article, index) => {
-                        doc.setFont("helvetica", "bold");
-                        doc.text(article.title, 10, y);
+                if (index === 0) {
+                    document.getElementById('summary-slide-over-title').innerText = content["content title"];
+                    content.summary_of_articles.forEach(article => {
+                        doc.setFont("helvetica", "bold").text(article.title, 10, y);
                         y += 10;
-                        doc.setFont("helvetica", "italic");
-                        doc.text(article.source, 10, y);
+                        doc.setFont("helvetica", "italic").text(article.source, 10, y);
                         y += 10;
-                        article.key_points.forEach(point => {
-                            doc.text(`- ${point}`, 10, y);
-                            y += 10;
-                        });
+                        article.key_points.forEach(point => doc.text(`- ${point}`, 10, y += 10));
                         y += 10;
                     });
-
-                    doc.setFont("helvetica", "bold");
-                    doc.text('Conclusion:', 10, y);
-                    y += 10;
-                    doc.setFont("helvetica", "italic");
-                    doc.text('Global Trade Patterns:', 10, y);
-                    y += 10;
-                    content.conclusion.global_trade_patterns.forEach(point => {
-                        doc.text(`- ${point}`, 10, y);
-                        y += 10;
-                    });
-                    y += 10;
-                    doc.setFont("helvetica", "italic");
-                    doc.text('Implications for ADNOC Global Trading:', 10, y);
-                    y += 10;
-                    content.conclusion.implications_for_adnoc_global_trading.forEach(point => {
-                        doc.text(`- ${point}`, 10, y);
-                        y += 10;
-                    });
-
-                    const pdfDataUri = doc.output('datauristring');
-                    document.getElementById('pdf-frame').src = pdfDataUri;
-
+                    doc.setFont("helvetica", "bold").text('Conclusion:', 10, y += 10);
+                    doc.setFont("helvetica", "italic").text('Global Trade Patterns:', 10, y += 10);
+                    content.conclusion.global_trade_patterns.forEach(point => doc.text(`- ${point}`, 10, y += 10));
+                    doc.text('Implications for ADNOC Global Trading:', 10, y += 10);
+                    content.conclusion.implications_for_adnoc_global_trading.forEach(point => doc.text(`- ${point}`, 10, y += 10));
+                    document.getElementById('pdf-frame').src = doc.output('datauristring');
                     document.getElementById('summary-slide-over').classList.add('show');
-                    document.getElementById('main-content').classList.add('shifted');
-                });
-            } else if (index === 1) {
-                card.addEventListener('click', function() {
-                    const { jsPDF } = window.jspdf;
-                    const doc = new jsPDF();
-
-                    let y = 10;
-                    doc.setFontSize(12);
-
+                } else if (index === 1) {
                     sources.sources_cited.forEach(source => {
-                        doc.setFont("helvetica", "bold");
-                        doc.text(source.title, 10, y);
+                        doc.setFont("helvetica", "bold").text(source.title, 10, y);
                         y += 10;
-                        doc.setFont("helvetica", "italic");
-                        doc.text(source.source, 10, y);
+                        doc.setFont("helvetica", "italic").text(source.source, 10, y);
                         y += 10;
-                        doc.text(source.url, 10, y);
-                        y += 10;
+                        doc.text(source.url, 10, y += 10);
                         y += 10;
                     });
-
-                    const pdfDataUri = doc.output('datauristring');
-                    document.getElementById('sources-pdf-frame').src = pdfDataUri;
-
+                    document.getElementById('sources-pdf-frame').src = doc.output('datauristring');
                     document.getElementById('sources-slide-over').classList.add('show');
-                    document.getElementById('main-content').classList.add('shifted');
-                });
-            } else {
-                card.style.pointerEvents = 'none';
-                card.style.opacity = '0.5';
-            }
+                }
+                document.getElementById('main-content').classList.add('shifted');
+            });
         });
 
         function closeSummarySlideOver(event) {
             document.getElementById('summary-slide-over').classList.remove('show');
             document.getElementById('main-content').classList.remove('shifted');
+            document.querySelector('.custom-nav').classList.remove('hidden');
         }
 
         function closeSourcesSlideOver(event) {
             document.getElementById('sources-slide-over').classList.remove('show');
             document.getElementById('main-content').classList.remove('shifted');
+            document.querySelector('.custom-nav').classList.remove('hidden');
         }
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeSummarySlideOver();
-                closeSourcesSlideOver();
-            }
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeAllSlideOvers();
         });
     </script>
 </body>

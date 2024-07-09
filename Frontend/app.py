@@ -5,6 +5,7 @@ from flask_caching import Cache
 app = Flask(__name__)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
+@cache.memoize(timeout=120)  # Cache for 5 minutes
 def load_json_data(file_path):
     try:
         with open(file_path, 'r') as file:
@@ -58,6 +59,21 @@ def process_selection():
         selected_avatars = request.form['selected_avatars']
         app.logger.info("Selected Avatars: %s", selected_avatars)
         return redirect(url_for('uimock_loading'))
+
+specific_keywords = [
+    "oil prices", "gas prices", "oil and gas stock market", "oil company news",
+    "oil and gas supply and demand", "oil production rates", "gas production rates",
+    "energy market news", "oil trading news", "gas trading news", "crude oil prices",
+    "natural gas prices", "commodity prices", "oil futures", "gas futures",
+    "exploration", "refining", "pipelines", "oilfield services", "petroleum",
+    "downstream", "upstream", "midstream", "LNG", "oil reserves", "drilling",
+    "shale oil", "offshore drilling", "oil exports", "oil imports", "OPEC",
+    "oil refining capacity", "oil production cuts", "oil consumption", "oil inventory"
+]
+
+@app.route('/suggest_keywords')
+def suggest_keywords():
+    return json.dumps(specific_keywords)
 
 if __name__ == '__main__':
     app.run(debug=True)
