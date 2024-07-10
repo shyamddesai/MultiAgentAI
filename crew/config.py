@@ -22,12 +22,3 @@ categories = {
     "Refining": ["refining", "oil refining capacity", "oil production cuts", "oil inventory"],
     "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports"]
 }
-
-# ------------------------------------------------------------------------------
-# Load API keys and initialize tools
-
-# tavily_api_key = os.getenv("TAVILY_API_KEY")
-# serper_api_key = os.getenv("SERPER_API_KEY")
-
-# tavily_tool = TavilyAPI(api_key=tavily_api_key)
-# serper_tool = SerperDevTool()

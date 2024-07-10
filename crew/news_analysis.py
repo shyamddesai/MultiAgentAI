@@ -1,5 +1,5 @@
-from crewai import Agent, Task
 import os
+from crewai import Agent, Task
 from utils import get_openai_api_key
 from dotenv import load_dotenv
 

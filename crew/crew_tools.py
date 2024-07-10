@@ -30,7 +30,7 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         rake = Rake()
         rake.extract_keywords_from_text(topic)
         rake_keywords = rake.get_ranked_phrases()
-
+            
         # Combine all keywords
         all_keywords = entities + noun_chunks + rake_keywords
 
@@ -78,7 +78,7 @@ class RSSFeedScraperTool(BaseTool):
                         "Title": entry.title,
                         "Link": entry.link,
                         "Published": entry.published,
-
+                        
                     })
         return articles
 

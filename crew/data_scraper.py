@@ -1,8 +1,8 @@
-from crewai import Agent, Task
-from crew import SophisticatedKeywordGeneratorTool, RSSFeedScraperTool
 import os
+from crewai import Agent, Task
 from utils import get_openai_api_key
 from dotenv import load_dotenv
+from .crew_tools import SophisticatedKeywordGeneratorTool, RSSFeedScraperTool
 
 load_dotenv()
 openai_api_key = get_openai_api_key()

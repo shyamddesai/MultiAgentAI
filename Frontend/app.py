@@ -1,4 +1,5 @@
 import json
+import os
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
@@ -17,13 +18,19 @@ async def market_prediction():
 
 @app.route('/news-analysis')
 async def news_analysis():
+    # Adjust the path to get the base directory of the root of the project
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    news_report_path = os.path.join(BASE_DIR, 'reports', 'news_report.json')
+    filtered_news_report_path = os.path.join(BASE_DIR, 'reports', 'filtered_news_report.json')
+
     try:
-        with open('./reports/news_report.json') as f:
+        with open(news_report_path) as f:
             news_data = json.load(f)
     except FileNotFoundError:
         news_data = []
     try:
-        with open('./reports/filtered_news_report.json') as f:
+        with open(filtered_news_report_path) as f:
             report_data = json.load(f)
     except FileNotFoundError:
         report_data = []
@@ -43,8 +50,14 @@ async def uimock_loading():
 
 @app.route('/uimock_feed')
 async def uimock_feed():
-    content = load_json_data('./Frontend/content.json') 
-    sources = load_json_data('./Frontend/sources.json')
+    # Adjust the path to get the root directory of the project
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    content_path = os.path.join(base_dir, 'Frontend', 'content.json')
+    sources_path = os.path.join(base_dir, 'Frontend', 'sources.json')
+    
+    content = load_json_data(content_path)
+    sources = load_json_data(sources_path)
+
     return render_template('uimock_feed.html', content=content, sources=sources)
 
 @app.route('/uimock_navbar')
