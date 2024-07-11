@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, send_from_directory, url_for
 from flask_caching import Cache
 
 app = Flask(__name__)
@@ -17,9 +17,17 @@ def load_json_data(file_path):
 def home():
     return render_template('index.html')
 
+@app.route('/pdf/<filename>')
+def pdf(filename):
+    return send_from_directory('pdfs', filename)
+
 @app.route('/feed')
 def feed():
     return render_template('feed.html')
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
 
 @app.route('/market-prediction')
 def market_prediction():

@@ -51,11 +51,11 @@
         </div>
         <div id="company" class="content-section">
             <h1 class="text-2xl font-bold mb-4">Company</h1>
-            <div class="news-card">
+            <div class="news-card" data-pdf="1.pdf" data-title="Company News 1">
                 <h2>News Title 1</h2>
                 <p>Summary of the news content goes here.</p>
             </div>
-            <div class="news-card">
+            <div class="news-card" data-pdf="2.pdf" data-title="Company News 2">
                 <h2>News Title 2</h2>
                 <p>Summary of the news content goes here.</p>
             </div>
@@ -137,8 +137,15 @@
                 <p>Summary of the news content goes here.</p>
             </div>
         </div>
+        <button class="slideover-close" id="slideover-close">&times;</button>
+        <div class="slideover" id="slideover">
+            <div class="slideover-content">
+                <h2 id="slideover-title"></h2>
+                <iframe id="pdf-frame" width="100%" height="100%"></iframe>
+            </div>
+        </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/feed.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/feed.js') }}"></script>
 </body>
 </html>
