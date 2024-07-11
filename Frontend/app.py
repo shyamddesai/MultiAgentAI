@@ -1,11 +1,16 @@
 import json
+import os
+import subprocess
+import logging
 from flask import Flask, render_template, request, redirect, send_from_directory, url_for
 from flask_caching import Cache
 
 app = Flask(__name__)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
-@cache.memoize(timeout=120)  # Cache for 5 minutes
+@cache.memoize(timeout=120)  # Cache for 2 minutes
 def load_json_data(file_path):
     try:
         with open(file_path, 'r') as file:
@@ -20,14 +25,6 @@ def home():
 @app.route('/pdf/<filename>')
 def pdf(filename):
     return send_from_directory('pdfs', filename)
-
-@app.route('/feed')
-def feed():
-    return render_template('feed.html')
-
-@app.route('/test')
-def test():
-    return render_template('test.html')
 
 @app.route('/market-prediction')
 def market_prediction():
@@ -53,13 +50,12 @@ def uimock_loading():
 
 @app.route('/uimock_feed')
 def uimock_feed():
-    content = load_json_data('content.json')
-    sources = load_json_data('sources.json')
-    return render_template('uimock_feed.html', content=content, sources=sources)
+    #content = load_json_data('content.json')
+    #sources = load_json_data('sources.json')
+    #return render_template('uimock_feed.html', content=content, sources=sources)
+    reportConversion('txt_to_json.py')
+    return render_template('feed.html')
 
-@app.route('/uimock_navbar')
-def uimock_navbar():
-    return render_template('uimock_navbar.html')
 
 @app.route('/process-selection', methods=['POST'])
 def process_selection():
@@ -86,6 +82,21 @@ specific_keywords = [
 @app.route('/suggest_keywords')
 def suggest_keywords():
     return json.dumps(specific_keywords)
+
+def reportConversion(file_path):
+    try:
+        completed_process = subprocess.run(['python', file_path], capture_output=True, text=True)
+        if completed_process.returncode == 0:
+            print("Execution successful.")
+            print("Output:")
+            print(completed_process.stdout)
+        else:
+            print(f"Error: Failed to execute '{file_path}'.")
+            print("Error output:")
+            print(completed_process.stderr)
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' does not exist.")
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

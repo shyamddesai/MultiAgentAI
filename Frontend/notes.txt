@@ -23,5 +23,7 @@ Display feed after ✅
 
 
 Highlight the sources in the pdf
-Slide Over Window
-Auto-Suggest keywords upon typing in the searchfield
+Match the navbar throughtout the app
+Replace js loading with turbo flask for dynamic updates
+Slide Over Window ✅
+Auto-Suggest keywords upon typing in the searchfield ✅
