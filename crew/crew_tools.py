@@ -100,3 +100,18 @@ class TavilyAPI(BaseTool):
         response = self._client.search(query=query, search_depth='basic', max_results=10)
         results = [{"Link": result["url"], "Title": result["title"]} for result in response["results"]]
         return results
+    
+
+
+class FileReadTool_(BaseTool):
+    name: str = "Read a file's content"
+    description: str = "A tool that can be used to read a file's content."
+
+    def __init__(self, file_path: str):
+        super().__init__()
+        self.file_path = file_path
+
+    def _run(self) -> str:
+        with open(self.file_path, 'r') as f:
+            content = f.read()
+        return content
