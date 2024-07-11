@@ -17,6 +17,10 @@ def load_json_data(file_path):
 def home():
     return render_template('index.html')
 
+@app.route('/feed')
+def feed():
+    return render_template('feed.html')
+
 @app.route('/market-prediction')
 def market_prediction():
     return "Market Prediction Page"
