@@ -1,7 +1,7 @@
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 from rake_nltk import Rake
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, quote
 import nltk
 import feedparser
 from datetime import datetime, timedelta
@@ -28,7 +28,7 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
             "Sinopec", "PetroChina", "GazProm", "QatarEnergy", "CNOOC",
             "ExxonMobil", "Shell", "Marathon Petroleum", "Valero Energy",
             "ConocoPhillips", "Canadian Natural Resources",
-            "TotalEnergies", "British Petroleum (or BP)", "Chevron",
+            "TotalEnergies", "British Petroleum", "BP",  "Chevron",
             "Equinor", "Eni", "Petrobras"
         ]
 
@@ -36,30 +36,40 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         # noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS and ('oil' in chunk.text.lower() or 'gas' in chunk.text.lower())]
 
         # Use RAKE to extract keywords
-        rake = Rake()
-        rake.extract_keywords_from_text(topic)
-        rake_keywords = rake.get_ranked_phrases()
+        # rake = Rake()
+        # rake.extract_keywords_from_text(topic)
+        # rake_keywords = rake.get_ranked_phrases()
 
         # Combine all keywords
-        all_keywords = entities + rake_keywords
+        all_keywords = entities
 
-        # Add domain-specific keywords
         specific_keywords = [
+            "OPEC", "Oil Companies", "ADNOC", "Aramco", "SNPC", "Sonatrach",
+            "GEPetrol", "Gabon Oil", "National Iranian Oil Company",
+            "Iraq Petroleum", "Kuwait Oil Company", "PDVSA", "IEA", "APEC",
+            "Sinopec", "PetroChina", "GazProm", "QatarEnergy", "CNOOC",
+            "ExxonMobil", "Shell", "Marathon Petroleum", "Valero Energy",
+            "ConocoPhillips", "Canadian Natural Resources",
+            "TotalEnergies", "British Petroleum", "BP",  "Chevron",
+            "Equinor", "Eni", "Petrobras"
             "oil prices", "gas prices", "oil stock market", "oil company",
             "oil supply", "oil demand", "oil production", "gas production",
             "energy market", "oil trading", "gas trading", "crude oil",
             "natural gas", "commodity prices", "oil futures", "gas futures",
-            "exploration", "refining", "pipelines", "oilfield services",
-            "petroleum", "downstream", "upstream", "midstream", "LNG",
-            "oil reserves", "drilling", "shale oil",
-            "oil exports", "oil imports", "OPEC",
-            "oil consumption", "oil inventory",
-            "Light Distillate", "Naphtha", "Gasoline", "LPG", "Biofuels", "Middle Distillate",
-            "Jet Fuel", "Gas Oil", "Diesel", "Condensate", "Fuel Oil and Bunker", "Brent", "WTI",
+            "oilfield services",
+            "petroleum",  "LNG",
+            "oil reserves", "shale oil", "oil exports", "oil imports", "OPEC",
+            "oil consumption", "oil inventory", "Light Distillate", "Naphtha",  "LPG", "Biofuels",
+            "Middle Distillate", "Jet Fuel", "Gas Oil",  "Condensate", "Fuel Oil and Bunker", "Brent", "WTI",
             "RBOB", "EBOB", "CBOB", "Singapore gasoline R92", "Europe Gasoil", "Gasoil", "Marine gasoil",
-            "Far east index", "propane", "butane", "Mt Belv Propane", "Mt Belv Butane", "ULSD New york",
-            "UlSD"
+            "Far east index",  "Mt Belv Propane", "Mt Belv Butane", "ULSD New york",
+            "UlSD", "Far east index propane", "Far east index butane", "gasoil", "europe gasoil", "asia gasoil",
+            "marine gasoil", "propane", "butane", "Diesel", "Gasoline", "downstream", "upstream", "midstream", "exploration", "refining",
+            "pipelines", "drilling", "trade", "market", "trend", "forecast"
+
+
         ]
+        # Add domain-specific keywords
         all_keywords += specific_keywords
 
         # Deduplicate and filter keywords
@@ -72,9 +82,8 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         return keywords
     
 # ------------------------------------------------------------------------------
-    
-class RSSFeedScraperTool(BaseTool):
 
+class RSSFeedScraperTool(BaseTool):
     name: str = "RSSFeedScraperTool"
     description: str = ("This tool dynamically generates RSS feed URLs from keywords and "
                         "scrapes them to extract news articles. It returns a list of "
@@ -82,10 +91,11 @@ class RSSFeedScraperTool(BaseTool):
 
     def _run(self, keywords_list: list) -> list:
         articles = []
-        one_week_ago = datetime.now() - timedelta(days=3)
+        date_range = 7
+        one_week_ago = datetime.now() - timedelta(days=date_range)
 
         for keyword in keywords_list:
-            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:3d"
+            rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:{date_range}d"
             feed = feedparser.parse(rss_url)
             keyword_article_count = 0
             for entry in feed.entries:

@@ -6,3 +6,6 @@ crew/__pycache__
 Frontend/venv
 Frontend/__pycache__
 __pycache__
+crew/reports
+crew/filtering_NewsAPI.py
+crew/secondaryTools.py
