@@ -1,10 +1,11 @@
-// Handle sidebar link navigation
+// Handle sidebar link navigation with smooth scrolling
 document.querySelectorAll('.sidebar-link').forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
         showSection(targetSection);
+        targetSection.scrollIntoView({ behavior: 'smooth' });  // Smooth scrolling
     });
 });
 
@@ -15,7 +16,7 @@ function showSection(targetSection) {
     targetSection.classList.add('active');
 }
 
-// Handle news card click to display PDF in slideover
+// Handle news card click to display PDF in slideover with smooth animation
 document.querySelectorAll('.news-card').forEach(card => {
     card.addEventListener('click', function() {
         const pdf = this.getAttribute('data-pdf');
@@ -27,7 +28,9 @@ document.querySelectorAll('.news-card').forEach(card => {
 
             slideover.style.top = `${cardTop}px`;
             slideover.style.height = `${contentSection.clientHeight - cardTop}px`;
-            slideover.style.display = 'flex';
+            slideover.classList.add('open');  // Add class for smooth animation
+            slideover.style.visibility = 'visible';
+            slideover.style.opacity = '1';
 
             document.getElementById('pdf-frame').src = `/pdf/${pdf}`;
             document.getElementById('slideover-title').textContent = title;
@@ -35,20 +38,20 @@ document.querySelectorAll('.news-card').forEach(card => {
     });
 });
 
-// Handle Escape key to close slideover
+// Handle Escape key to close slideover with smooth animation
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeSlideover();
     }
 });
 
-// Handle 'x' button click to close slideover
-document.getElementById('slideover-close').addEventListener('click', function() {
-    closeSlideover();
-});
-
 function closeSlideover() {
-    document.getElementById('slideover').style.display = 'none';
-    document.getElementById('pdf-frame').src = '';
-    document.getElementById('slideover-title').textContent = '';
+    const slideover = document.getElementById('slideover');
+    slideover.classList.remove('open');  // Remove class for smooth animation
+    slideover.style.opacity = '0';
+    setTimeout(() => {
+        slideover.style.visibility = 'hidden';
+        document.getElementById('pdf-frame').src = '';
+        document.getElementById('slideover-title').textContent = '';
+    }, 300);  // Match the duration of the CSS transition
 }

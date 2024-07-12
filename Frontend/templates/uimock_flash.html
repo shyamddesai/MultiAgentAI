@@ -179,9 +179,9 @@
 
             const avatar = document.createElement('div');
             avatar.className = 'avatar mx-auto selected'; // Default selected
-            avatar.setAttribute('data-value', newAvatarValue);
+            avatar.setAttribute('data-value', searchBox.value);
             avatar.setAttribute('onclick', 'toggleTick(this)');
-            avatar.innerHTML = '<i class="fas fa-user"></i>'; // Default icon for new avatars
+            avatar.innerHTML = '<i class="fas fa-filter"></i>'; // Default icon for new avatars
 
             const avatarLabel = document.createElement('div');
             avatarLabel.className = 'avatar-label';

@@ -11,6 +11,11 @@
     --light-blue-color: #dde4ec;
     --light-green-color:#e3ece4;
     --light-purple-color:#eae6f4;
+    --primary-color: #FE2C55;
+    --dark-gray-color: #8E8E93;
+    --light-gray-color: #CCCCCC;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
 }
 
 body {
@@ -61,12 +66,12 @@ body {
 }
 
 .sidebar {
-    background: rgba(234, 230, 244, 0.7); /* Light purple with more transparency */
+    background: rgb(231, 94, 121); /* Use primary color with increased transparency */
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Enhanced glassy effect */
     backdrop-filter: blur(20px) saturate(180%); /* Enhanced glassy effect */
-    -webkit-backdrop-filter: blur(20px) saturate(180%); /* Enhanced glassy effect for Safari */
-    border-radius: 15px; /* Rounded corners */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 0px 15px 15px 0px; /* Rounded corners */
     padding: 1rem;
     position: fixed; /* Pin to the left side */
     top: 0;
@@ -101,8 +106,7 @@ body {
     flex-grow: 1; /* Allow content to take up remaining space */
     border-radius: 15px; /* Rounded corners */
     height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    background: rgba(234, 230, 244, 0.7); /* Light purple with more transparency */
+    overflow-y: auto; /* Enable vertical scrolling */ /* Light purple with more transparency */
     backdrop-filter: blur(20px) saturate(180%); /* Enhanced glassy effect */
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -158,33 +162,45 @@ body {
 
 .slideover {
     position: absolute;
-    top: 1rem; /* Add padding to the top */
+    top: 0;
     right: 0;
-    width: 45%; /* Increased width */
-    height: calc(100% - 1rem); /* Adjust height to account for top padding */
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: flex-end;
-    z-index: 50;
-    border-radius: 20px; /* More rounded corners */
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;  /* Smooth animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    border-radius: 20px;
+}
+
+.slideover.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }
 
 .slideover-content {
     background: white;
     width: 100%;
     height: 100%;
-    padding: 1rem;
-    overflow: auto;
-    border-radius: 20px; /* More rounded corners */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;  /* Ensure content is scrollable if it overflows */
 }
 
 .slideover-close {
     position: absolute;
-    top: 2.5rem;
-    left: calc(54% + 0.1rem); /* Position outside the slideover */
-    background: transparent;
+    top: 10px;
+    right: 10px;
+    background: none;
     border: none;
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;  /* Enable smooth scrolling */
 }
