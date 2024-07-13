@@ -1,8 +1,10 @@
 import os
 import concurrent.futures
 from crewai import Agent, Task, Crew, Process
-from crewai_tools import FileReadTool
+from crewai_tools import FileReadTool, BaseTool
 import time
+
+
 file_read_tool = FileReadTool()
 
 directory_path = 'reports/categorized_news_reports/cleaned_exploration'
@@ -38,10 +40,19 @@ for i, file_chunk in enumerate(file_chunks):
     )
     agents.append(agent)
     tasks.append(task)
+parallel_results=[]
 
+class Readtool(BaseTool):
+    name : str="Readtool"
+    description : str="Use it to read results of reader agents!"
+    def _run(self)->list:
+        return parallel_results
+    
+readtool=Readtool()
 manager_agent = Agent(
     role='Manager',
     goal='Coordinate reading and summarizing tasks and merge the final report.',
+    tools=[readtool],
     verbose=True,
     memory=True,
     backstory="You are responsible for managing the task and merging summaries from other agents."
