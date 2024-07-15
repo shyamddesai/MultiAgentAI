@@ -1,7 +1,11 @@
 from crewai import Agent, Task
 import os
+
 from utils import get_openai_api_key
 from dotenv import load_dotenv
+from MultiAgentAI.crew.crew_tools import file_reader_tool
+
+
 
 load_dotenv()
 openai_api_key = get_openai_api_key()
@@ -10,23 +14,25 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 # ------------------------------------------------------------------------------
 
-writer = Agent(
-    role="Editor",
-    goal="Edit the analytical piece done by the Expert News Analyst "
-         "into a professional and well structured news summary.",
-    backstory="You are an experienced and well-trained editor who receives news analysis "
-              "from the Expert News Analyst. "
-              "Your goal is to review the analysis ensuring that the "
-              "final report is clear and engaging.",
+# ------------------------------------------------------------------------------
+# Define the writer agent
+writer_agent = Agent(
+    role='Report Writer',
+    goal='Generate a comprehensive report from provided content',
+    backstory="""You are a skilled Report Writer, known for your ability to transform raw content into polished, comprehensive reports.
+                 You excel at identifying key points and presenting them in a clear, organized manner.""",
     verbose=True,
-    memory=True
+    allow_delegation=True
+
 )
 
-editing_task = Task(
-    description=(
-        "Compile the analyzed information into a well-structured report. "
-        "Ensure that the report is clear, engaging, and free of errors."
-    ),
-    expected_output='A final report in markdown format that is well-structured and engaging.',
-    agent=writer
+# Define the task for the writer agent
+task = Task(
+    description="""Read the content of the provided file and generate a detailed report.
+                   The report should be structured in a paragraph form leaving no details behind.""",
+    expected_output="A report based on the file content in paragraph form",
+    tools=[file_reader_tool],
+    agent=writer_agent
 )
+
+

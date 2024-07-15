@@ -7,10 +7,15 @@ import feedparser
 from datetime import datetime, timedelta
 from tavily import TavilyClient
 from pydantic import PrivateAttr
-from crewai_tools import BaseTool
+from crewai_tools import BaseTool, FileReadTool
+import requests
+from requests.exceptions import RequestException, Timeout
+from typing import ClassVar, Dict
+
 
 # nltk.download('stopwords')
 # nlp = spacy.load("en_core_web_sm")
+
 
 class SophisticatedKeywordGeneratorTool(BaseTool):
     name: str = "SophisticatedKeywordGeneratorTool"
@@ -83,6 +88,7 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
     
 # ------------------------------------------------------------------------------
 
+
 class RSSFeedScraperTool(BaseTool):
     name: str = "RSSFeedScraperTool"
     description: str = ("This tool dynamically generates RSS feed URLs from keywords and "
@@ -111,6 +117,103 @@ class RSSFeedScraperTool(BaseTool):
         return articles
 
 # ------------------------------------------------------------------------------
+
+
+file_reader_tool = FileReadTool(file_path='C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md')
+
+from crewai_tools import BaseTool
+import requests
+from requests.exceptions import RequestException, Timeout
+from typing import ClassVar, Dict
+import datetime
+
+
+class MarketAnalysisTool(BaseTool):
+    name: str = "Market Analysis Tool"
+    description: str = "Analyzes market trends for a given commodity."
+
+    # Mapping of commodity names to Quandl database codes
+    commodity_symbol_mapping: ClassVar[Dict[str, str]] = {
+        "Brent": "CHRIS/ICE_B1",
+        "WTI": "CHRIS/CME_CL1",
+        "RBOB": "CHRIS/CME_RB1",
+        "EBOB": "NSE/EBOP",
+        "CBOB": "NSE/CBOP",
+        "Singapore gasoline R92": "SGX/FC03",
+        "Europe Gasoil": "CHRIS/ICE_GASO",
+        "Marine gasoil 0.5% Singapore": "SGX/MGO",
+        "Far east index propane": "EIA/PET_WCRSTUS1",
+        "Far east index butane": "EIA/PET_WRBSTUS1",
+        "Mt Belv Propane": "EIA/PET_RTPM_NUS_D",
+        "Mt Belv Butane": "EIA/PET_RTBU_NUS_D",
+        "ULSD New york": "EIA/PET_RMLS_NUS_D",
+        "asia gasoil": "SGX/FOIL",
+        "marine gasoil": "SGX/MGO",
+        "Gold": "LBMA/GOLD",
+        "Silver": "LBMA/SILVER"
+    }
+
+    def _run(self, commodity: str):
+        # Fetch the correct code for the commodity
+        code = self.commodity_symbol_mapping.get(commodity)
+        if not code:
+            return f"No code mapping found for {commodity}."
+
+        # Fetching market data from Quandl API
+        api_key = "ush97YpzsUyRTDZX8kWp"  # Replace with your Quandl API key
+        end_date = datetime.datetime.today().strftime('%Y-%m-%d')
+        start_date = (datetime.datetime.today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d')  # Last 30 days
+        api_endpoint = f"https://www.quandl.com/api/v3/datasets/{code}/data.json?api_key={api_key}"
+
+        try:
+            response = requests.get(api_endpoint, timeout=10)  # Set a timeout for the request
+            response.raise_for_status()  # Raise an error for bad status codes
+            market_data = response.json()
+            return self.analyze_market_data(commodity, market_data)
+        except Timeout:
+            return f"Request to Quandl API timed out for {commodity}."
+        except RequestException as e:
+            return f"An error occurred while fetching market data for {commodity}: {e}"
+
+    def analyze_market_data(self, commodity: str, market_data: Dict):
+        # Basic analysis example: Checking for bullish or bearish trend
+        data = market_data.get("dataset_data", {}).get("data", [])
+        if not data:
+            return "No data available for analysis."
+
+        latest_data = data[0]
+        price = latest_data[1]  # Assuming the price is the second element in the data array
+        prices = [entry[1] for entry in data]
+        moving_average = self.calculate_moving_average(prices)
+
+        if price > moving_average:
+            trend = "bullish"
+        else:
+            trend = "bearish"
+
+        # Dummy sentiment analysis (replace with actual sentiment analysis)
+        # sentiment_analysis = "positive" if price > moving_average else "negative"
+
+        analysis = (
+            f"Market Analysis for {commodity}:\n"
+            f"- Current Price: {price}\n"
+            f"- Moving Average: {moving_average}\n"
+            f"- Trend: {trend}\n"
+            # f"- Market Sentiment: {sentiment_analysis}\n"
+        )
+        return analysis
+
+    def calculate_moving_average(self, prices: list, window: int = 20) -> float:
+        if len(prices) < window:
+            return sum(prices) / len(prices)
+        return sum(prices[:window]) / window
+
+    def __call__(self, commodity: str) -> str:
+        return self._run(commodity)
+
+
+market_analysis_tool = MarketAnalysisTool()
+
 
 class TavilyAPI(BaseTool):
     name: str = "TavilyAPI"

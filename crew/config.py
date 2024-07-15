@@ -30,6 +30,7 @@ general_keywords = [
     "pipelines", "drilling", "trade", "market", "trend", "forecast"
 ]
 
+
 categories = {
     "Market Trends": ["market", "trend", "forecast"],
     "Production Updates": ["production", "output", "supply", "production rates"],
@@ -51,6 +52,7 @@ categories = {
                     "europe gasoil", "asia gasoil", "marine gasoil"],
     "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports",]
 }
+
 
 # ------------------------------------------------------------------------------
 # Load API keys and initialize tools

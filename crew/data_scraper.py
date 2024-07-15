@@ -1,5 +1,5 @@
 from crewai import Agent, Task
-from crew import SophisticatedKeywordGeneratorTool, RSSFeedScraperTool
+# from crew import SophisticatedKeywordGeneratorTool, RSSFeedScraperTool
 import os
 from utils import get_openai_api_key
 from dotenv import load_dotenv
@@ -16,7 +16,7 @@ news_gatherer = Agent(
     role="News Gatherer",
     goal="To collect and compile a comprehensive list of URLs and titles "
          "from various news sources and RSS feeds related to specified topics in the energy market.",
-    tools=[SophisticatedKeywordGeneratorTool(), RSSFeedScraperTool()],
+    tools=[],
     backstory="You are a dedicated and meticulous web crawler and aggregator, "
               "driven by a passion for information and data organization. "
               "Your skills in digital journalism and data scraping enable you "
