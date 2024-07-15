@@ -27,5 +27,5 @@ Match the navbar throughtout the app
 Replace js loading with turbo flask for dynamic updates
 Slide Over Window ✅
 Auto-Suggest keywords upon typing in the searchfield ✅
-Upon updating custom filter, add appropraite favicon on its own
-Add a title icon - derivative of name
+Upon updating custom filter, add favicon on its own for sidebar
+Fav icon?

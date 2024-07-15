@@ -55,3 +55,65 @@ function closeSlideover() {
         document.getElementById('slideover-title').textContent = '';
     }, 300);  // Match the duration of the CSS transition
 }
+
+// Make the page automatically scroll to the the news card that is animating
+document.addEventListener('DOMContentLoaded', function() {
+    const newsCards = document.querySelectorAll('.news-card-container .news-card');
+    const counters = document.querySelectorAll('.animated-number');
+    const trendText = document.querySelector('.trend-text');
+    const trendTarget = trendText.getAttribute('data-target');
+    const trendAlternates = ["Bearish", "Bullish"];
+    let trendIndex = 0;
+
+    function animateCounter(counter, callback) {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / 100;
+        let currentNumber = 0;
+
+        const updateCounter = setInterval(() => {
+            currentNumber += increment;
+            counter.innerText = Math.ceil(currentNumber);
+            if (currentNumber >= target) {
+                clearInterval(updateCounter);
+                counter.innerText = target;
+                if (callback) callback();
+            }
+        }, 30);
+    }
+
+    function animateTrend(callback) {
+        const trendInterval = setInterval(() => {
+            trendText.innerText = trendAlternates[trendIndex];
+            trendIndex = (trendIndex + 1) % trendAlternates.length;
+        }, 500);
+
+        setTimeout(() => {
+            clearInterval(trendInterval);
+            trendText.innerText = trendTarget;
+            if (callback) callback();
+        }, 5000); // Switch for 5 seconds
+    }
+
+    function showCard(index) {
+        if (index >= newsCards.length) return;
+        const card = newsCards[index];
+        card.classList.add('active', 'glowing-border');
+
+        // Scroll to the card
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        if (index < counters.length) {
+            animateCounter(counters[index], () => {
+                card.classList.remove('glowing-border');
+                showCard(index + 1);
+            });
+        } else {
+            animateTrend(() => {
+                card.classList.remove('glowing-border');
+                showCard(index + 1);
+            });
+        }
+    }
+
+    showCard(0);
+});

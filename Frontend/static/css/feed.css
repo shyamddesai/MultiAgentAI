@@ -77,8 +77,8 @@ body {
     top: 0;
     left: 0;
     height: 100vh; /* Extend to the end of the page */
-    width: auto; /* Adjust width to fit items */
-    min-width: 200px; /* Ensure minimum width for readability */
+    width: 180px; /* Reduced width */
+    min-width: 180px; /* Ensure minimum width for readability */
 }
 
 .sidebar a {
@@ -160,6 +160,19 @@ body {
     color: #4a5568;
 }
 
+.market-analysis-card {
+    height: 150px; /* Reduced height for market analysis cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    padding: 0.5rem; /* Adjust padding as needed */
+}
+
+.market-analysis-card .animated-number, .market-analysis-card .trend-text {
+    margin: 0; /* Remove all margins */
+    padding: 0; /* Remove all padding */
+}
+
 .slideover {
     position: absolute;
     top: 0;
@@ -203,4 +216,17 @@ body {
 
 html {
     scroll-behavior: smooth;  /* Enable smooth scrolling */
+}
+
+.animated-number, .trend-text {
+    font-size: 3rem; /* Make the numbers and trend text bigger */
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.glowing-border {
+    border: 2px solid #FE2C55; /* Adjust color and size as needed */
+    box-shadow: 0 0 10px #FE2C55; /* Adjust color and size as needed */
 }
