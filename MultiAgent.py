@@ -2,6 +2,7 @@
 import json
 import os
 from crewai import Crew, Process, Agent, Task
+from crewai_tools import BaseTool
 from langchain_openai import ChatOpenAI
 
 # from MultiAgentAI.crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool, filter_and_categorize_articles,
@@ -26,6 +27,21 @@ commodity_list = ["Brent", "WTI", "RBOB", "EBOB", "CBOB", "Singapore gasoline R9
 # Prompt user to select a commodity
 selected_commodity = input(f"Select a commodity from the list: {', '.join(commodity_list)}\n")
 
+
+class MyCustomTool1(BaseTool):
+    name: str = "Saver Tool"
+    description: str = "tool used to save output in a json file"
+
+    def _run(self, argument: str) -> str:
+        all_articles_output = "./reports/news_output2.json"
+        with open(all_articles_output, 'w') as f:
+             json.dump(argument, f, indent=2)
+        return argument
+
+
+save_into_json1 = MyCustomTool1()
+
+
 # Initialize the market analysis agent
 market_analysis_agent = Agent(
     role='Market Analyst',
@@ -40,18 +56,19 @@ market_analysis_agent = Agent(
 # Define the task for the market analysis agent
 analysis_task = Task(
     description=selected_commodity,
-    expected_output="Market analysis report for the selected commodity",
+    expected_output="Market analysis report for the selected commodity saved in a separate json file",
     output_file='market_report.json',
+    tool=(save_into_json1),
     agent=market_analysis_agent
 )
 
 # Initialize the crew with the task
 crew = Crew(
-    agents=[market_analysis_agent, sentiment_analysis_agent, writer_agent],
-    tasks=[analysis_task, sentiment_analysis_task, task],
+    agents=[writer_agent, market_analysis_agent, sentiment_analysis_agent],
+    tasks=[task, analysis_task, sentiment_analysis_task],
     manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.3),
     verbose=2,  # Set verbosity level for logging
-    process=Process.hierarchical  # Use parallel process for asynchronous execution
+    process=Process.sequential  # Use parallel process for asynchronous execution
 )
 
 # Kick off the crew to perform the task
