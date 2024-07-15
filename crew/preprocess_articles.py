@@ -1,7 +1,8 @@
 import os
-import requests
 import json
 import re
+import requests
+import time
 from bs4 import BeautifulSoup
 from html_sanitizer import Sanitizer
 from selenium import webdriver
@@ -49,7 +50,7 @@ def remove_headers_footers(soup):
     
     return soup
 
-def scrape_and_clean(url, timeout=10):
+def scrape_and_clean(url, retries=3, delay=5, timeout=20):
     try:
         response = requests.get(url, timeout=timeout)
         response.raise_for_status()
@@ -80,12 +81,20 @@ def scrape_and_clean(url, timeout=10):
         return text_content, before_length, after_length
     except requests.RequestException as e:
         print(f"Request error for {url}: {e}")
+        if retries > 0:
+            print(f"Retrying {url} in {delay} seconds... ({retries} retries left)")
+            time.sleep(delay)
+            return scrape_and_clean(url, retries - 1, delay, timeout)
         return scrape_and_clean_with_selenium(url, timeout)
     except Exception as e:
         print(f"Unexpected error for {url}: {e}")
+        if retries > 0:
+            print(f"Retrying {url} in {delay} seconds... ({retries} retries left)")
+            time.sleep(delay)
+            return scrape_and_clean(url, retries - 1, delay, timeout)
         return None, 0, 0
 
-def scrape_and_clean_with_selenium(url, timeout=30):
+def scrape_and_clean_with_selenium(url, timeout=45):
     try:
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
@@ -130,25 +139,28 @@ def scrape_and_clean_with_selenium(url, timeout=30):
         driver.quit()
         return None, 0, 0
 
+def process_article(article):
+    url = article['Link']
+    cleaned_content, before_length, after_length = scrape_and_clean(url)
+    if cleaned_content:
+        article['Content'] = cleaned_content
+        article['Relevancy Score'] = ''
+        article['Relevancy Reasoning'] = ''
+        reduction_percentage = ((before_length - after_length) / before_length) * 100
+        print(f"Successfully cleaned content for {url}")
+        print(f"Before: {before_length} characters, After: {after_length} characters, Reduced by: {before_length - after_length} characters ({reduction_percentage:.2f}%)")
+    else:
+        article['Content'] = None
+        article['Relevancy Score'] = ''
+        article['Relevancy Reasoning'] = ''
+        print(f"Failed to clean content for {url}")
+
 def process_articles(json_file):
     with open(json_file, 'r') as file:
         articles = json.load(file)
     
     for article in articles:
-        url = article['Link']
-        cleaned_content, before_length, after_length = scrape_and_clean(url)
-        if cleaned_content:
-            article['Content'] = cleaned_content
-            article['Relevancy Score'] = ''
-            article['Relevancy Reasoning'] = ''
-            reduction_percentage = ((before_length - after_length) / before_length) * 100
-            print(f"Successfully cleaned content for {url}")
-            print(f"Before: {before_length} characters, After: {after_length} characters, Reduced by: {before_length - after_length} characters ({reduction_percentage:.2f}%)")
-        else:
-            article['Content'] = None
-            article['Relevancy Score'] = ''
-            article['Relevancy Reasoning'] = ''
-            print(f"Failed to clean content for {url}")
+        process_article(article)
     
     # Ensure the directory exists
     output_dir = './reports/processed_articles'
@@ -171,6 +183,26 @@ def process_articles(json_file):
     else:
         if os.path.exists(failed_file):
             os.remove(failed_file)
+
+    # Split each article into separate JSON files for each category
+    split_articles(output_file)
+
+def split_articles(json_file):
+    category = os.path.splitext(os.path.basename(json_file))[0].replace('cleaned_', '').replace('_news_report', '')
+    with open(json_file, 'r') as file:
+        data = json.load(file)
+
+    output_dir = f'./reports/processed_articles/{category}/'
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir) 
+
+    for index, entry in enumerate(data):
+        content = entry.get('Content')
+        if content is not None:
+            with open(output_dir + f'content_{index}.json', 'w') as outfile:
+                json.dump(content, outfile, indent=4)
+        else:
+            print(f"Warning: No 'content' key found in entry {index}")
 
 def process_all_json_files(directory):
     for filename in os.listdir(directory):
