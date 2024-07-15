@@ -51,6 +51,7 @@ categories = {
                     "ULSD New york", "UlSD", "Far east index propane", "Far east index butane", "gasoil",
                     "europe gasoil", "asia gasoil", "marine gasoil"],
     "Trade and Export": ["trading", "export", "import", "oil exports", "oil imports",]
+
 }
 
 

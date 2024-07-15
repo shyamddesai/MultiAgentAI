@@ -1,4 +1,5 @@
 # import json
+import json
 import os
 from crewai import Crew, Process, Agent, Task
 from langchain_openai import ChatOpenAI
@@ -8,7 +9,7 @@ from langchain_openai import ChatOpenAI
 from MultiAgentAI.crew.config import relevant_keywords
 from MultiAgentAI.crew.crew_tools import market_analysis_tool
 from MultiAgentAI.crew.writer import (writer_agent, task)
-# from MultiAgentAI.crew.sentiment_analysis import (sentiment_analysis_agent, sentiment_analysis_task)
+from MultiAgentAI.crew.sentiment_analysis import (sentiment_analysis_agent, sentiment_analysis_task)
 from utils import get_openai_api_key
 
 openai_api_key = get_openai_api_key()
@@ -32,7 +33,7 @@ market_analysis_agent = Agent(
     backstory="""You are a seasoned Market Analyst with deep insights into commodity markets.
                  You can quickly identify whether the market is bullish or bearish.""",
     verbose=True,
-    allow_delegation=True,
+    allow_delegation=False,
     tools=[market_analysis_tool]
 )
 
@@ -40,16 +41,17 @@ market_analysis_agent = Agent(
 analysis_task = Task(
     description=selected_commodity,
     expected_output="Market analysis report for the selected commodity",
+    output_file='market_report.json',
     agent=market_analysis_agent
 )
 
 # Initialize the crew with the task
 crew = Crew(
-    agents=[market_analysis_agent],
-    tasks=[analysis_task],
-    manager_llm=ChatOpenAI(model="gpt-4", temperature=0.7),
+    agents=[market_analysis_agent, sentiment_analysis_agent, writer_agent],
+    tasks=[analysis_task, sentiment_analysis_task, task],
+    manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.3),
     verbose=2,  # Set verbosity level for logging
-    process=Process.sequential  # Use parallel process for asynchronous execution
+    process=Process.hierarchical  # Use parallel process for asynchronous execution
 )
 
 # Kick off the crew to perform the task
@@ -58,6 +60,10 @@ result = crew.kickoff()
 # Print the result
 print("######################")
 print(result)
+
+all_articles_output = "./reports/new_output.json"
+with open(all_articles_output, 'w') as f:
+     json.dump(result, f, indent=2)
 
 # Execute the crew with the input topic
 
