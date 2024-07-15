@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, WebDriverException
 from webdriver_manager.chrome import ChromeDriverManager
 
 # Configuration for HTML Sanitizer
@@ -48,9 +49,9 @@ def remove_headers_footers(soup):
     
     return soup
 
-def scrape_and_clean(url):
+def scrape_and_clean(url, timeout=10):
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=timeout)
         response.raise_for_status()
         html_content = response.text
         before_length = len(html_content)
@@ -79,12 +80,12 @@ def scrape_and_clean(url):
         return text_content, before_length, after_length
     except requests.RequestException as e:
         print(f"Request error for {url}: {e}")
-        return scrape_and_clean_with_selenium(url)
+        return scrape_and_clean_with_selenium(url, timeout)
     except Exception as e:
         print(f"Unexpected error for {url}: {e}")
         return None, 0, 0
 
-def scrape_and_clean_with_selenium(url):
+def scrape_and_clean_with_selenium(url, timeout=30):
     try:
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
@@ -92,9 +93,10 @@ def scrape_and_clean_with_selenium(url):
         options.add_argument('--disable-dev-shm-usage')
 
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+        driver.set_page_load_timeout(timeout)
         driver.get(url)
 
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
         html_content = driver.page_source
         before_length = len(html_content)
 
@@ -115,8 +117,17 @@ def scrape_and_clean_with_selenium(url):
         driver.quit()
         print(f"Successfully scraped content for {url} using Selenium")
         return text_content, before_length, after_length
+    except TimeoutException:
+        print(f"Selenium timeout error for {url}")
+        driver.quit()
+        return None, 0, 0
+    except WebDriverException as e:
+        print(f"Selenium WebDriver error for {url}: {e}")
+        driver.quit()
+        return None, 0, 0
     except Exception as e:
-        print(f"Selenium error for {url}: {e}")
+        print(f"Unexpected Selenium error for {url}: {e}")
+        driver.quit()
         return None, 0, 0
 
 def process_articles(json_file):
@@ -128,11 +139,15 @@ def process_articles(json_file):
         cleaned_content, before_length, after_length = scrape_and_clean(url)
         if cleaned_content:
             article['Content'] = cleaned_content
+            article['Relevancy Score'] = ''
+            article['Relevancy Reasoning'] = ''
             reduction_percentage = ((before_length - after_length) / before_length) * 100
             print(f"Successfully cleaned content for {url}")
             print(f"Before: {before_length} characters, After: {after_length} characters, Reduced by: {before_length - after_length} characters ({reduction_percentage:.2f}%)")
         else:
             article['Content'] = None
+            article['Relevancy Score'] = ''
+            article['Relevancy Reasoning'] = ''
             print(f"Failed to clean content for {url}")
     
     # Ensure the directory exists
@@ -144,6 +159,10 @@ def process_articles(json_file):
     output_file = os.path.join(output_dir, 'cleaned_' + os.path.basename(json_file))
     failed_file = os.path.join(output_dir, 'failed_' + os.path.basename(json_file))
 
+    # Save the updated articles to a new JSON file
+    with open(output_file, 'w') as file:
+        json.dump(articles, file, indent=2)
+
     # Save failed articles to a separate JSON file
     failed_articles = [a for a in articles if not a['Content']]
     if failed_articles:
@@ -152,12 +171,6 @@ def process_articles(json_file):
     else:
         if os.path.exists(failed_file):
             os.remove(failed_file)
-
-    # Save failed articles to a separate JSON file
-    with open(failed_file, 'w') as file:
-        json.dump([a for a in articles if not a['Content']], file, indent=2)
-
-# ------------------------------------------------------------------------------
 
 def process_all_json_files(directory):
     for filename in os.listdir(directory):
