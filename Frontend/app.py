@@ -1,3 +1,4 @@
+import os
 import subprocess
 import orjson
 from flask import Flask, render_template, request, redirect, send_from_directory, url_for, Response
@@ -95,8 +96,8 @@ def suggest_keywords():
 
 @app.route('/split-screen')
 def split_screen():
-    json_data_1 = load_json_data('content.json')
-    json_data_2 = load_json_data('sources.json')
+    json_data_1 = load_json_data(os.path.join(os.getcwd(), './Frontend/content.json'))
+    json_data_2 = load_json_data(os.path.join(os.getcwd(), './Frontend/sources.json'))
     
     # Extract necessary information
     json_data_1 = extract_content_info(json_data_1)
