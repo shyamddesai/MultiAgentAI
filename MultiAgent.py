@@ -17,6 +17,25 @@ openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
+# Read the selected keywords from the file in user_data directory
+keywords_file = os.path.join(os.getcwd(), 'Frontend', 'user_data', 'selected_keywords.txt')
+if os.path.exists(keywords_file):
+    with open(keywords_file, 'r') as f:
+        selected_keywords = f.read().splitlines()
+else:
+    selected_keywords = ["no keywords found"]  # Default value if the file doesn't exist
+print(f"Selected keywords: {selected_keywords}")
+
+
+# Read the selected words from the file
+commodities_file = os.path.join(os.getcwd(), 'Frontend', 'user_data', 'selected_commodities.txt')
+if os.path.exists(commodities_file):
+    with open(commodities_file, 'r') as f:
+        selected_commodities = f.read().splitlines()
+else:
+    selected_commodities = ["no commodities found"]  # Default value if the file doesn't exist
+print(f"Selected words: {selected_commodities}")
+
 # keywords = SophisticatedKeywordGeneratorTool()._run(topic)
 # # save the keywords
 # keywords_output = "./reports/keywords_list.json"

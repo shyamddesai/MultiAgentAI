@@ -71,13 +71,37 @@ def uimock_feed():
 @app.route('/process-selection', methods=['POST'])
 def process_selection():
     selected_words = request.form.get('selectedWords', '')
-    print(f"Selected words: {selected_words}")
+    print(f"Selected Commodities: {selected_words}")
+
+    # Create the user_data directory if it doesn't exist
+    user_data_dir = os.path.join(os.getcwd(), 'user_data')
+    os.makedirs(user_data_dir, exist_ok=True)
+
+    # Process the selected commodities to remove extra newlines and write to the file
+    selected_commodities_list = [word.strip() for word in selected_words.split(',') if word.strip()]
+    selected_commodities_file = os.path.join(user_data_dir, 'selected_commodities.txt')
+
+    with open(selected_commodities_file, 'w') as f:
+        f.write('\n'.join(selected_commodities_list))
+
     return redirect(url_for('feed'))
 
 @app.route('/process-keywords', methods=['POST'])
 def process_keywords():
     keywords = request.form.get('typed_lines', '')
     print(f"Entered keywords: {keywords}")
+
+    # Create the user_data directory if it doesn't exist
+    user_data_dir = os.path.join(os.getcwd(), 'user_data')
+    os.makedirs(user_data_dir, exist_ok=True)
+
+    # Process the keywords to remove extra newlines and write to the file
+    keywords_list = [keyword.strip() for keyword in keywords.split('\n') if keyword.strip()]
+    keywords_file = os.path.join(user_data_dir, 'selected_keywords.txt')
+    
+    with open(keywords_file, 'w') as f:
+        f.write('\n'.join(keywords_list))
+
     return redirect(url_for('uimock_flash'))
 
 @app.route('/feed')
