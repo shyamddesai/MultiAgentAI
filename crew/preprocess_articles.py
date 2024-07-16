@@ -35,6 +35,11 @@ def replace_unicode_characters(text):
         text = text.replace(unicode_char, replacement)
     return text
 
+def clean_text(text):
+    # Remove multiple spaces and tabs
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
 def remove_headers_footers(soup):
     # Remove common header/footer elements
     header_tags = ['header', 'nav', 'aside', 'footer']
@@ -45,7 +50,7 @@ def remove_headers_footers(soup):
             element.extract()
     
     for pattern in footer_patterns:
-        for element in soup.find_all(text=re.compile(pattern)):
+        for element in soup.find_all(string=re.compile(pattern)):
             element.extract()
     
     return soup
@@ -77,6 +82,9 @@ def scrape_and_clean(url, retries=3, delay=5, timeout=20):
 
         # Replace Unicode characters with ASCII equivalents
         text_content = replace_unicode_characters(text_content)
+        
+        # Trim excess spaces
+        text_content = clean_text(text_content)
         
         return text_content, before_length, after_length
     except requests.RequestException as e:
@@ -122,6 +130,7 @@ def scrape_and_clean_with_selenium(url, timeout=45):
         after_length = len(text_content)
         
         text_content = replace_unicode_characters(text_content)
+        text_content = clean_text(text_content)
         
         driver.quit()
         print(f"Successfully scraped content for {url} using Selenium")
