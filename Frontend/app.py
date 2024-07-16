@@ -73,6 +73,12 @@ def process_selection():
     print(f"Selected words: {selected_words}")
     return redirect(url_for('feed'))
 
+@app.route('/process-keywords', methods=['POST'])
+def process_keywords():
+    keywords = request.form.get('typed_lines', '')
+    print(f"Entered keywords: {keywords}")
+    return redirect(url_for('uimock_flash'))
+
 @app.route('/feed')
 def feed():
     return render_template('feed.html')
