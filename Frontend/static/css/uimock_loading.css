@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&family=SF+Pro+Text:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #FE2C55;
+    --dark-gray-color: #8E8E93;
+    --light-gray-color: #CCCCCC;
+    --black-color: #000000;
+}
+
+body {
+    font-family: 'SF Pro Text', sans-serif;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    position: relative;
+    padding-bottom: 80px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--light-gray-color);
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar::after {
+    content: '✔';
+    color: var(--dark-gray-color);
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    font-weight: 300; /* Thinner tick mark */
+}
+
+.avatar.selected::after {
+    display: block;
+}
+
+.add-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--light-gray-color);
+    color: var(--primary-color);
+    font-size: 3rem;
+}
+
+.button {
+    position: absolute;
+    bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: normal;
+    color: white;
+}
+
+.back-button {
+    left: 20px;
+    background-color: var(--light-gray-color);
+}
+
+.continue-button {
+    right: 20px;
+    background-color: var(--primary-color);
+}
+
+.continue-button:disabled {
+    background-color: var(--light-gray-color);
+    cursor: not-allowed;
+}
+
+.title {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: bold;
+    font-size: 34pt;
+    line-height: 21pt;
+}
+
+.headline {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: bold;
+    font-size: 21pt;
+    line-height: 26pt;
+}
+
+.subhead {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 600;
+    font-size: 12pt;
+    line-height: 16pt;
+}
+
+.body {
+    font-family: 'SF Pro Text', sans-serif;
+    font-weight: 400;
+    font-size: 16pt;
+    line-height: 21pt;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 100px); /* Adjust position to the side of the + sign */
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid var(--light-gray-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 10px; /* Space between the search box and the button */
+}
+
+.add-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: normal;
+    color: white;
+    background-color: var(--light-gray-color);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.add-button.active {
+    color: black;
+}
+
+.avatar-container {
+    text-align: center;
+}
+
+.avatar-label {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin: auto; /* Center the spinner */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

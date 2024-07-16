@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Screen JSON Viewer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            overflow: auto;
+        }
+        .left {
+            left: 0;
+            background-color: #f1f1f1;
+        }
+        .right {
+            right: 0;
+            background-color: #ffffff;
+        }
+        .json-container {
+            padding: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+        }
+        .highlight {
+            background-color: yellow;
+            transition: background-color 0.5s ease;
+        }
+        .source-item {
+            margin-bottom: 5px; /* Decrease white space between source items */
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background-color: #000;
+            color: #fff;
+            font-size: 14px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('feed') }}" class="back-button">&larr; Back to Feed</a>
+    <div class="split left">
+        <div class="json-container">
+            <h2>{{ json_data_1.content_title }}</h2>
+            <h3>Summary of Articles</h3>
+            {% for article in json_data_1.summary_of_articles %}
+                <h4>{{ article.title }}</h4>
+                <p><strong>Source:</strong> <a href="#" class="source-link" data-source-id="{{ loop.index }}">{{ article.source }}</a></p>
+                <ul>
+                    {% for point in article.key_points %}
+                        <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+            <h3>Conclusion</h3>
+            <h4>Global Trade Patterns</h4>
+            <ul>
+                {% for pattern in json_data_1.conclusion.global_trade_patterns %}
+                    <li>{{ pattern }}</li>
+                {% endfor %}
+            </ul>
+            <h4>Implications for ADNOC Global Trading</h4>
+            <ul>
+                {% for implication in json_data_1.conclusion.implications_for_adnoc_global_trading %}
+                    <li>{{ implication }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="split right">
+        <div class="json-container">
+            <h2>Sources Cited</h2>
+            <ul>
+                {% for source in json_data_2 %}
+                    <li id="source-{{ loop.index }}" class="source-item">
+                        <strong>{{ source.source }}</strong>: <a href="{{ source.url }}" target="_blank">{{ source.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sourceLinks = document.querySelectorAll('.source-link');
+            sourceLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const sourceId = this.getAttribute('data-source-id');
+                    const sourceElement = document.getElementById(`source-${sourceId}`);
+                    if (sourceElement) {
+                        sourceElement.classList.add('highlight');
+                        setTimeout(() => {
+                            sourceElement.classList.remove('highlight');
+                        }, 2000);
+                        sourceElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

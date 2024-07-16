@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="custom-nav text-white rounded-full w-auto">
+        <a href="/" class="flex flex-col items-center">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="separator"></div> <!-- Separator line -->
+        <a href="/market-prediction" class="flex flex-col items-center">
+            <i class="fas fa-chart-line"></i>
+        </a>
+        <div class="separator"></div> <!-- Separator line -->
+        <a href="/news-analysis" class="flex flex-col items-center">
+            <i class="fas fa-newspaper"></i>
+        </a>
+        <div class="separator"></div> <!-- Separator line -->
+        <a href="/news-analysis-keywords" class="flex flex-col items-center">
+            <i class="fas fa-cogs"></i>
+        </a>
+    </nav>
+
+    <div id="particles-js"></div>
+    <div class="hero-section">
+        <h1>Dashboard</h1>
+        <p style="font-size:1vw">Tech stack used: Backend: Flask, Frontend: HTML, CSS, JS, Bootstrap</p>
+    </div>
+
+    <div class="container features" id="features">
+        <div class="row">
+            <div class="col-md-4 feature">
+                <a href="/market-prediction">
+                    <img id="market-prediction-animation" src="{{ url_for('static', filename='images/market_prediction.png') }}" alt="Market Prediction Image">
+                    <h2>Market Prediction</h2>
+                    <p>Utilize cutting-edge AI to predict market trends and make informed decisions.</p>
+                </a>
+            </div>
+            <div class="col-md-4 feature">
+                <a href="/news-analysis">
+                    <img id="news-analysis-animation" src="{{ url_for('static', filename='images/news_analysis.png') }}" alt="News Analysis Image">
+                    <h2>News Analysis</h2>
+                    <p>Stay ahead with real-time news analysis and sentiment tracking to gauge market impacts.</p>
+                </a>
+            </div>
+            <div class="col-md-4 feature">
+                <a href="/news-analysis-keywords">
+                    <h2>UI Test</h2>
+                    <p>Testing for the UI Mockup.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
