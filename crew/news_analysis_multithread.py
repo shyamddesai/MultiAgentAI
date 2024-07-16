@@ -7,13 +7,13 @@ import time
 
 file_read_tool = FileReadTool()
 
-directory_path = 'reports/categorized_news_reports/cleaned_exploration'
+directory_path = 'reports/processed_articles/exploration'
 all_files = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
 
 def chunk_list(lst, n):
     return [lst[i::n] for i in range(n)]
 
-num_chunks = 4 
+num_chunks = 8
 file_chunks = chunk_list(all_files, num_chunks)
 
 agents = []
@@ -21,37 +21,39 @@ tasks = []
 
 for i, file_chunk in enumerate(file_chunks):
     agent = Agent(
-        role=f'Reader {i}',
+        role=f'Economic researcher {i}',
         goal=f'Read files in chunk {i}, extract insightful and relevant summaries for the oil and gas market, tailored for ADNOC Global Trading.',
         verbose=True,
         memory=True,
-        backstory="You work at ADNOC Global Trading as an expert analyst in the oil and gas energy market. "
+        backstory="You work at ADNOC Global Trading as an economic researcher in the oil and gas energy market. "
         "Your primary objective is to write analytical summaries based on all relevant documents, "
         "focusing on key insights for ADNOC Global Trading.",
         tools=[file_read_tool]
     )
     task = Task(
-        description=f"Read and summarize the following files: {file_chunk}. " 
-        "Focus on the 'CleanedContent' part of each file. "
-        "For each file, provide a one-line summary of the 'CleanedContent', highlighting the key insights relevant to ADNOC global trading.",
-        expected_output='A text file containing one-line summaries for each analyzed document.',
+        description=f"Read and give professional summarizations about the following files: {file_chunk}. "
+        "For each file, provide a summary highlighting the key insight relevant to ADNOC global trading or global oil and gas market. ",
+        expected_output='Plain texts. For each analyzed document, give its title and summary.',
         tools=[file_read_tool],
         agent=agent
     )
     agents.append(agent)
     tasks.append(task)
+
 parallel_results=[]
 
 class Readtool(BaseTool):
     name : str="Readtool"
-    description : str="Use it to read results of reader agents!"
+    description : str="Use it to read results of researcher agents!"
     def _run(self)->list:
         return parallel_results
     
 readtool=Readtool()
+
+
 manager_agent = Agent(
     role='Manager',
-    goal='Coordinate reading and summarizing tasks and merge the final report.',
+    goal='Use the given Readtool to coordinate reading and summarizing tasks and merge the final report.',
     tools=[readtool],
     verbose=True,
     memory=True,
@@ -60,10 +62,10 @@ manager_agent = Agent(
 
 manager_task = Task(
     description=(
-        "Coordinate the reading and summarizing tasks of other reader agents."
+        "Use given Readtool to coordinate the reading and summarizing tasks of other reader agents."
         " Collect their results and merge a final report."
     ),
-    expected_output='A compiled summary report of all files.',
+    expected_output='A markdown file containing all summaries of other agents. For each entry, contain the title and the summary.',
     output_file='./reports/news_report_analysis_parallel.md',
     agent=manager_agent
 )

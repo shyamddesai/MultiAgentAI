@@ -115,3 +115,15 @@ class FileReadTool_(BaseTool):
         with open(self.file_path, 'r') as f:
             content = f.read()
         return content
+    
+
+class ReadCachetool(BaseTool):
+    name : str="Readtool"
+    description : str="Use it to read results of economic researchers!"
+
+    def __init__(self, cache: list):
+        super().__init__()
+        self.cache = cache
+
+    def _run(self)->list:
+        return self.cache
