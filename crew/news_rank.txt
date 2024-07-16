@@ -1,4 +1,4 @@
-Expected a list, but got: <class 'str'>
+
 Data: Title": "[Updated] Drilling Engineering and Technical Services Market Size Analysis | Jereh Oilfield Services Group, ZPEC ... - economica.ma",
     "Link": "https://news.google.com/rss/articles/CBMikwFodHRwczovL2Vjb25vbWljYS5tYS9uZXdzL3VwZGF0ZWQtZHJpbGxpbmctZW5naW5lZXJpbmctYW5kLXRlY2huaWNhbC1zZXJ2aWNlcy1tYXJrZXQtc2l6ZS1hbmFseXNpcy1qZXJlaC1vaWxmaWVsZC1zZXJ2aWNlcy1ncm91cC16cGVjLXJ1dG9uZy8zNzAzNS_SAQA?oc=5",
     "Published": "Wed, 03 Jul 2024 16:02:37 GMT",

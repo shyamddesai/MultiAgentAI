@@ -14,8 +14,8 @@ os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 # Define file paths
-input_file_path = os.path.join(os.getcwd(), 'cleaned_market_trends_news_report.json')
-output_file_path = os.path.join(os.getcwd(), 'news_rank.json')
+input_file_path = os.path.join(os.getcwd(), 'cleaned_exploration_news_report.json')
+output_file_path = os.path.join(os.getcwd(), 'news_rank1.json')
 
 # Initialize FileReadTool
 read_file_tool = FileReadTool(file_path=input_file_path)
@@ -35,14 +35,15 @@ news_ranker = Agent(
     ),
     tools=[read_file_tool],
     verbose=True,
-    memory=True
+    memory=False
 )
 
 # Define the task for the News Ranker agent
 news_rank_task = Task(
     description=(
         "Rank the articles in a list and give them a score from 1 to 10. "
-        "10 being the highest relevancy to traders at ADNOC Global Trading. Be specific with reasoning for your ranking, and take into consideration "
+        "10 being the highest relevancy to traders at ADNOC Global Trading. Be specific with "
+        "reasoning for your ranking, and take into consideration "
         "what you know about ADNOC and the backstory. Be more meticulous with rankings. "
         "Read all the articles from JSON using the read_file tool."
     ),
