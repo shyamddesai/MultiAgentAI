@@ -12,26 +12,26 @@ def filter_and_categorize_articles(all_articles_output):
         articles = json.load(f)
 
     # Filter articles for redundancy, relevancy, and categorize them
-    filtered_articles = filter_articles(articles, relevant_keywords, categories, relevancy_threshold=2)
+    filtered_articles = filter_articles(articles, relevant_keywords, categories, relevancy_threshold=1.5)
     print("Filtered articles: ", filtered_articles)
 
     filtered_output = "./reports/filtered_news_report.json"
     with open(filtered_output, 'w') as f:
         json.dump(filtered_articles, f, indent=2)
 
-    # Group articles by category
-    grouped_articles = group_articles_by_category(filtered_articles)
-    print("articles are grouped")
-    # Save each category's articles to separate JSON files
-    category_output_dir = './reports/categorized_news_reports'
-    os.makedirs(category_output_dir, exist_ok=True)
-
-    for category, articles in grouped_articles.items():
-        category_file = os.path.join(category_output_dir, f'{category.replace(" ", "_").lower()}_news_report.json')
-        with open(category_file, 'w') as f:
-            json.dump(articles, f, indent=2)
-
-    print(f"All articles are filtered and categorized in '{category_output_dir}'")
+    # # Group articles by category
+    # grouped_articles = group_articles_by_category(filtered_articles)
+    # print("articles are grouped")
+    # # Save each category's articles to separate JSON files
+    # category_output_dir = './reports/categorized_news_reports'
+    # os.makedirs(category_output_dir, exist_ok=True)
+    #
+    # for category, articles in grouped_articles.items():
+    #     category_file = os.path.join(category_output_dir, f'{category.replace(" ", "_").lower()}_news_report.json')
+    #     with open(category_file, 'w') as f:
+    #         json.dump(articles, f, indent=2)
+    #
+    # print(f"All articles are filtered and categorized in '{category_output_dir}'")
 
 # ------------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ def group_articles_by_category(articles):
 
 # ------------------------------------------------------------------------------
 
-def is_similar(title1, title2, threshold=0.7):
+def is_similar(title1, title2, threshold=0.6):
     return SequenceMatcher(None, title1, title2).ratio() > threshold
 
 # ------------------------------------------------------------------------------
@@ -98,7 +98,7 @@ def categorize_article(article, categories):
 
 # ------------------------------------------------------------------------------
 
-def filter_articles(articles, relevant_keywords, categories, relevancy_threshold=2):
+def filter_articles(articles, relevant_keywords, categories, relevancy_threshold=1.5):
     unique_titles = set()
     unique_urls = set()
     filtered_articles = []

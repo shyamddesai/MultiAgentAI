@@ -29,23 +29,26 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 # keywords_output = "./reports/keywords_list.json"
 # with open(keywords_output, 'r') as f:
 #      keywords_list = json.load(f)
-#
+
 # result = RSSFeedScraperTool()._run(keywords_list)
-#
-#
+
+
 # # Save the articles to JSON, and filter and categorize them
 # all_articles_output = "./reports/news_report.json"
 # with open(all_articles_output, 'w') as f:
 #      json.dump(result, f, indent=2)
-# # ------------------------------------------------------------------------------
-#
-# article_output = "./reports/news_report.json"
-#
-# filter_and_categorize_articles(article_output)
+# ------------------------------------------------------------------------------
+
+article_output = "./reports/news_report.json"
+
+result = filter_and_categorize_articles(article_output)
+
+
 
 # preprocessing and zuotong sth sth
 
 # ranking -----------------------------------------------------------------------
+
 
 # Initialize the Crew
 crew_rank = Crew(
@@ -55,14 +58,14 @@ crew_rank = Crew(
     verbose=True
 )
 
-# Execute the rank Crew
-try:
-    result = crew_rank.kickoff()
-    with open(output_file_path_rank, 'w') as f:
-        json.dump(result, f, indent=2)
-    print(f"Results saved to {output_file_path_rank}")
-except Exception as e:
-    print(f"An error occurred: {e}")
+# # Execute the rank Crew
+# try:
+#     result = crew_rank.kickoff()
+#     with open(output_file_path_rank, 'w') as f:
+#         json.dump(result, f, indent=2)
+#     print(f"Results saved to {output_file_path_rank}")
+# except Exception as e:
+#     print(f"An error occurred: {e}")
 
 # sentiment ---------------------------------------------------------------------
 
