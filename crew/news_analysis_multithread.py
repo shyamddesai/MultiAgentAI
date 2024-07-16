@@ -3,18 +3,19 @@ import concurrent.futures
 from crewai import Agent, Task, Crew, Process
 from crewai_tools import FileReadTool, BaseTool
 import time
+import glob
+import json
 
 
 file_read_tool = FileReadTool()
 
-directory_path = 'reports/processed_articles/exploration'
+directory_path = 'reports/processed_articles/exploration/'
 all_files = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
 
 def chunk_list(lst, n):
     return [lst[i::n] for i in range(n)]
 
 num_chunks = 8
-num_managers = num_chunks//4
 file_chunks = chunk_list(all_files, num_chunks)
 
 agents = []
@@ -34,7 +35,10 @@ for i, file_chunk in enumerate(file_chunks):
     task = Task(
         description=f"Read and give professional summarizations about the following files: {file_chunk}. "
         "For each file, provide a summary highlighting the key insight relevant to ADNOC global trading or global oil and gas market. ",
-        expected_output='Plain texts. For each analyzed document, give its title and summary.',
+        expected_output='A json file. For each analyzed document, give its title and summary in the following format: '
+        '\{"Title":,"Summary":\}. Use "," to split different summaries and use square bracket to include all summaries. '
+        "Don't give anwser which is not required, for example, filepath of document, conclusion after summaries, word 'json' or character ''' at beginning. ",
+        output_file=directory_path+f'summary/result{i}.json',
         tools=[file_read_tool],
         agent=agent
     )
@@ -59,8 +63,33 @@ def kickoff_parallel(crew):
     return results
 
 parallel_results = kickoff_parallel(crew)
-print(len(parallel_results))
-print(parallel_results[0])
+
+
+
+def merge(path):
+    merged_data = []
+    full_path = os.path.join(path, 'summary', '*.json')
+    print(full_path)
+    files_to_delete = []
+
+    for filename in glob.glob(full_path):
+        print(filename)
+        with open(filename, 'r') as file:
+            data = json.load(file)
+            merged_data.extend(data)
+        files_to_delete.append(filename)
+
+    output_path = os.path.join(path, 'report.json')
+    with open(output_path, 'w') as file:
+        json.dump(merged_data, file, indent=4)
+
+    # for file in files_to_delete:
+    #     os.remove(file)
+
+    return output_path
+
+merge(directory_path)
+# parallel_results = [sum(parallel_results[i:i+4], []) for i in range(0, len(parallel_results), 4)]
 # result_chunks = chunk_list(parallel_results)
 
 # class Readtool(BaseTool):
