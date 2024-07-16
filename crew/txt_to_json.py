@@ -26,7 +26,7 @@ def txt_to_json(txt_file_path, json_file_path):
 
 
 # Specify the file paths
-txt_file_path = '../crew/news_rank.txt'
+txt_file_path = '../reports/news_rank_goldenModel.txt'
 json_file_path = '../crew/news_rank.json'
 
 # Convert TXT to JSON

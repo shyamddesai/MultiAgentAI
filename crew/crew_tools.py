@@ -11,6 +11,7 @@ from crewai_tools import BaseTool, FileReadTool
 import requests
 from requests.exceptions import RequestException, Timeout
 from typing import ClassVar, Dict
+import datetime
 
 
 # nltk.download('stopwords')
@@ -76,11 +77,11 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         ]
         # Add domain-specific keywords
         all_keywords += specific_keywords
-
+        print("keywords added")
         # Deduplicate and filter keywords
         keywords = list(set(all_keywords))
         keywords = [kw for kw in keywords if len(kw.split()) <= 3 and len(kw) > 2]
-
+        print("keywords filtered")
         # Refine keywords to avoid unrelated topics
         # refined_keywords = [kw for kw in keywords if 'stock' not in kw or 'oil' in kw or 'gas' in kw]
 
@@ -97,15 +98,15 @@ class RSSFeedScraperTool(BaseTool):
 
     def _run(self, keywords_list: list) -> list:
         articles = []
-        date_range = 7
-        one_week_ago = datetime.now() - timedelta(days=date_range)
+        date_range = 3
+        one_week_ago = datetime.datetime.now() - timedelta(days=date_range)
 
         for keyword in keywords_list:
             rss_url = f"https://news.google.com/rss/search?q={quote_plus(keyword)}+when:{date_range}d"
             feed = feedparser.parse(rss_url)
             keyword_article_count = 0
             for entry in feed.entries:
-                published = datetime(*entry.published_parsed[:6])
+                published = datetime.datetime(*entry.published_parsed[:6])
                 if published >= one_week_ago:
                     articles.append({
                         "Title": entry.title,
@@ -120,12 +121,6 @@ class RSSFeedScraperTool(BaseTool):
 
 
 file_reader_tool = FileReadTool(file_path='C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md')
-
-from crewai_tools import BaseTool
-import requests
-from requests.exceptions import RequestException, Timeout
-from typing import ClassVar, Dict
-import datetime
 
 
 class MarketAnalysisTool(BaseTool):

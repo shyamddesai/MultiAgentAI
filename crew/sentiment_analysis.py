@@ -1,7 +1,10 @@
+import os
 from crewai import Agent, Task
 from pydantic import BaseModel
 from crewai_tools import BaseTool
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from MultiAgentAI.crew.crew_tools import market_analysis_tool
+from MultiAgentAI.crew.config import relevant_keywords, commodity_list
 
 
 class SentimentAnalysisTool(BaseTool, BaseModel):
@@ -37,9 +40,11 @@ class SentimentAnalysisTool(BaseTool, BaseModel):
     def __call__(self):
         return self._run()
 
-# Initialize the sentiment analysis tool
-file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md'
-sentiment_analysis_tool = SentimentAnalysisTool(file_path=file_path)
+category = './reports/news_report_analysis_parallel'
+# Define file paths
+file_path_sentiment = os.path.join(os.getcwd(), f'{category}.md')
+
+sentiment_analysis_tool = SentimentAnalysisTool(file_path=file_path_sentiment)
 
 sentiment_analysis_agent = Agent(
     role='Sentiment Analyst',
@@ -57,3 +62,4 @@ sentiment_analysis_task = Task(
     expected_output="Sentiment score of the provided news articles",
     agent=sentiment_analysis_agent
 )
+

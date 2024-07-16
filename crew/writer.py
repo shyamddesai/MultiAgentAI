@@ -38,6 +38,8 @@ class SaverTool(BaseTool):
 # Initialize SaverTool
 save_into_json = SaverTool()
 
+output_file_path_report = os.path.join(os.getcwd(), '../reports/final_news_report.json')
+
 # Define the writer agent
 writer_agent = Agent(
     role='Report Writer',
@@ -49,11 +51,12 @@ writer_agent = Agent(
 )
 
 # Define the task for the writer agent
-task = Task(
+writer_task = Task(
     description="""Read the content and transform the information into a report.
                    The report should be structured in paragraph form, leaving no details behind. Save the report in a JSON file 
                    using save_into_json tool.""",
-    expected_output="A report saved in a separate JSON file",
+    expected_output="A report that is professionally written in a proper format",
+    output_file=output_file_path_report,
     tools=[file_reader_tool, save_into_json],
     agent=writer_agent,
     verbose=True

@@ -28,7 +28,7 @@ def json_to_txt(json_file_path, txt_file_path):
 
 # Specify the file paths
 json_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/crew/news_rank.json'
-txt_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/crew/news_rank.txt'
+txt_file_path = '/MultiAgentAI/reports/news_rank_goldenModel.txt'
 
 # Convert JSON to TXT
 json_to_txt(json_file_path, txt_file_path)

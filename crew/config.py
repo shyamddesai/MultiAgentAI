@@ -54,6 +54,12 @@ categories = {
 
 }
 
+# Define the list of commodities
+commodity_list = ["Brent", "WTI", "RBOB", "EBOB", "CBOB", "Singapore gasoline R92", "Europe Gasoil",
+                  "Marine gasoil 0.5% Singapore", "Far east index propane", "Far east index butane",
+                  "Mt Belv Propane", "Mt Belv Butane", "ULSD New york", "asia gasoil", "marine gasoil",
+                  "Gold", "Silver"]
+
 
 # ------------------------------------------------------------------------------
 # Load API keys and initialize tools

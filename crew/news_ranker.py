@@ -2,7 +2,7 @@ import os
 import json
 from dotenv import load_dotenv
 from crewai import Agent, Task, Process, Crew
-from crewai_tools import FileReadTool
+from crewai_tools import FileReadTool, BaseTool
 from utils import get_openai_api_key
 
 # Load environment variables
@@ -13,9 +13,25 @@ if not openai_api_key:
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
+category = './reports/processed_articles/cleaned_exploration_news_report'
 # Define file paths
-input_file_path = os.path.join(os.getcwd(), 'cleaned_exploration_news_report.json')
-output_file_path = os.path.join(os.getcwd(), 'news_rank1.json')
+input_file_path = os.path.join(os.getcwd(), f'{category}.json')
+output_file_path_rank = os.path.join(os.getcwd(), './reports/news_ranking.json')
+
+# class JsonSaverTool(BaseTool):
+#     name: str = "JsonSaverTool"
+#     description: str = "Tool used to save output in a JSON file"
+#
+#     def _run(self, data: dict) -> str:
+#         try:
+#             with open(output_file_path, 'w') as f:
+#                 json.dump(data, f, indent=2)
+#             return f"Successfully saved to {output_file_path}"
+#         except Exception as e:
+#             return f"Failed to save to {output_file_path}: {e}"
+#
+# # Initialize JsonSaverTool
+# json_saver_tool = JsonSaverTool()
 
 # Initialize FileReadTool
 read_file_tool = FileReadTool(file_path=input_file_path)
@@ -38,6 +54,8 @@ news_ranker = Agent(
     memory=False
 )
 
+
+
 # Define the task for the News Ranker agent
 news_rank_task = Task(
     description=(
@@ -48,27 +66,13 @@ news_rank_task = Task(
         "Read all the articles from JSON using the read_file tool."
     ),
     expected_output=(
-        'Updated json file and fill in relevancy score and reasoning. Include '
-        'the same Title, Link, Published, Categories, and Content from the read_file tool.'
+        'I only want too see in your final output an updated version of file that includes '
+        'relevancy score and reasoning. Include the same Title, Link, Published, '
+        'Categories, and Content from the file you read and gathered information.'
     ),
     agent=news_ranker,
-    output_file=output_file_path,
+    output_file=output_file_path_rank,
     verbose=True
 )
 
-# Initialize the Crew
-crew = Crew(
-    agents=[news_ranker],
-    tasks=[news_rank_task],
-    process=Process.sequential,
-    verbose=True
-)
 
-# Execute the Crew
-try:
-    result = crew.kickoff()
-    with open(output_file_path, 'w') as f:
-        json.dump(result, f, indent=2)
-    print(f"Results saved to {output_file_path}")
-except Exception as e:
-    print(f"An error occurred: {e}")
