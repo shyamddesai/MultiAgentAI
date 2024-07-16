@@ -121,7 +121,7 @@
             </button>
             <div id="suggestions" class="suggestions"></div>
         </div>
-        <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
+        <form action="{{ url_for('process_keywords') }}" method="POST" id="selectionForm">
             <input type="hidden" name="typed_lines" id="typedLines">
             <button type="submit" class="button continue-button text-white" id="continueButton" disabled>Continue</button>
         </form>
