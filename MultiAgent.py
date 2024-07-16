@@ -13,9 +13,15 @@ from MultiAgentAI.crew.writer import (writer_agent, task)
 from MultiAgentAI.crew.sentiment_analysis import (sentiment_analysis_agent, sentiment_analysis_task)
 from utils import get_openai_api_key
 
+
+input_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md'
+output_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_output1.json'
+
+
 openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
+
 
 
 # Define the list of commodities
@@ -42,45 +48,29 @@ class MyCustomTool1(BaseTool):
 save_into_json1 = MyCustomTool1()
 
 
-# Initialize the market analysis agent
-market_analysis_agent = Agent(
-    role='Market Analyst',
-    goal='Analyze market trends for a selected commodity',
-    backstory="""You are a seasoned Market Analyst with deep insights into commodity markets.
-                 You can quickly identify whether the market is bullish or bearish.""",
-    verbose=True,
-    allow_delegation=False,
-    tools=[market_analysis_tool]
-)
-
-# Define the task for the market analysis agent
-analysis_task = Task(
-    description=selected_commodity,
-    expected_output="Market analysis report for the selected commodity saved in a separate json file",
-    output_file='market_report.json',
-    tool=(save_into_json1),
-    agent=market_analysis_agent
-)
-
 # Initialize the crew with the task
 crew = Crew(
-    agents=[writer_agent, market_analysis_agent, sentiment_analysis_agent],
-    tasks=[task, analysis_task, sentiment_analysis_task],
+    agents=[writer_agent],
+    tasks=[task],
     manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.3),
     verbose=2,  # Set verbosity level for logging
-    process=Process.sequential  # Use parallel process for asynchronous execution
+    process=Process.sequential  # Use sequential process for execution
 )
 
 # Kick off the crew to perform the task
-result = crew.kickoff()
+try:
+    result = crew.kickoff()
+    print(f"Report saved to {output_file_path}")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
-# Print the result
-print("######################")
-print(result)
-
-all_articles_output = "./reports/new_output.json"
-with open(all_articles_output, 'w') as f:
-     json.dump(result, f, indent=2)
+# Additional error handling for saving results
+try:
+    with open(output_file_path, 'w') as f:
+        json.dump(result, f, indent=2)
+    print(f"Results saved to {output_file_path}")
+except Exception as e:
+    print(f"An error occurred while saving the results: {e}")
 
 # Execute the crew with the input topic
 
