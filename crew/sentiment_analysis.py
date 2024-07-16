@@ -7,10 +7,13 @@ from MultiAgentAI.crew.crew_tools import market_analysis_tool
 from MultiAgentAI.crew.config import relevant_keywords, commodity_list
 
 
+category = './reports/report_input_sentiment'
+
+
 class SentimentAnalysisTool(BaseTool, BaseModel):
     name: str = "Sentiment Analysis Tool"
     description: str = "Reads news articles from a file and performs sentiment analysis."
-    file_path: str
+    file_path: str = os.path.join(os.getcwd(), f'{category}.json')
 
     def _run(self):
         # Read the file
@@ -40,11 +43,12 @@ class SentimentAnalysisTool(BaseTool, BaseModel):
     def __call__(self):
         return self._run()
 
-category = './reports/news_report_analysis_parallel'
-# Define file paths
-file_path_sentiment = os.path.join(os.getcwd(), f'{category}.md')
 
-sentiment_analysis_tool = SentimentAnalysisTool(file_path=file_path_sentiment)
+
+# Define file paths
+file_path_sentiment = os.path.join(os.getcwd(), f'{category}.json')
+
+sentiment_analysis_tool = SentimentAnalysisTool()
 
 sentiment_analysis_agent = Agent(
     role='Sentiment Analyst',
@@ -58,8 +62,8 @@ sentiment_analysis_agent = Agent(
 
 # Define the sentiment analysis task
 sentiment_analysis_task = Task(
-    description="Sentiment analysis of each news article",
-    expected_output="Sentiment score of the provided news articles",
+    description="Use tool to find and score the Sentiment analysis of each news article",
+    expected_output="Sentiment score of each news articles with title and summary in json format",
     agent=sentiment_analysis_agent
 )
 
