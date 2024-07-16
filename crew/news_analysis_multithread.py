@@ -14,6 +14,7 @@ def chunk_list(lst, n):
     return [lst[i::n] for i in range(n)]
 
 num_chunks = 8
+num_managers = num_chunks//4
 file_chunks = chunk_list(all_files, num_chunks)
 
 agents = []
@@ -40,39 +41,12 @@ for i, file_chunk in enumerate(file_chunks):
     agents.append(agent)
     tasks.append(task)
 
-parallel_results=[]
-
-class Readtool(BaseTool):
-    name : str="Readtool"
-    description : str="Use it to read results of researcher agents!"
-    def _run(self)->list:
-        return parallel_results
-    
-readtool=Readtool()
-
-
-manager_agent = Agent(
-    role='Manager',
-    goal='Use the given Readtool to coordinate reading and summarizing tasks and merge the final report.',
-    tools=[readtool],
-    verbose=True,
-    memory=True,
-    backstory="You are responsible for managing the task and merging summaries from other agents."
+crew = Crew(
+    agents=agents,
+    tasks=tasks,
+    process=Process.sequential,
+    memory=True
 )
-
-manager_task = Task(
-    description=(
-        "Use given Readtool to coordinate the reading and summarizing tasks of other reader agents."
-        " Collect their results and merge a final report."
-    ),
-    expected_output='A markdown file containing all summaries of other agents. For each entry, contain the title and the summary.',
-    output_file='./reports/news_report_analysis_parallel.md',
-    agent=manager_agent
-)
-
-agents.append(manager_agent)
-tasks.append(manager_task)
-
 def execute_task(task):
     return task.execute()
 
@@ -84,17 +58,48 @@ def kickoff_parallel(crew):
             results.append(future.result())
     return results
 
-crew = Crew(
-    agents=agents,
-    tasks=tasks,
-    process=Process.sequential,
-    memory=True
-)
-
-
-start = time.time()
 parallel_results = kickoff_parallel(crew)
-final_result = manager_task.execute()
-end = time.time()
-print(final_result)
-print(end-start)
+print(len(parallel_results))
+print(parallel_results[0])
+# result_chunks = chunk_list(parallel_results)
+
+# class Readtool(BaseTool):
+#     name : str="Readtool"
+#     description : str="Use it to read results of researcher agents!"
+#     def _run(self, index)->list:
+#         return parallel_results[index]
+# readtool=Readtool()
+
+
+# managers = []
+# manager_tasks = []
+# for i, results_chunk in enumerate(parallel_results):
+#     manager_agent = Agent(
+#         role=f'Manager {i}',
+#         goal=f'Use the given Readtool, pass parameter {i} to it and get a list of summaries. Then organize them into the same formay and give the final report.',
+#         tools=[readtool],
+#         verbose=True,
+#         memory=True,
+#         backstory="You are responsible for reading and merging summaries from resources."
+#     )
+
+#     manager_task = Task(
+#         description=(
+#             "Use given Readtool to read and organize summaries. "
+#             " Give a merged final report."
+#         ),
+#         expected_output='A markdown file containing all summaries. For each entry, contain the title and the summary.'
+#         'Do not add other contexts, just give entries of summaries.'
+#         ' Each entry has the following format: ## Title: title, newline, ###Summary: newline, summary. ',
+#         # output_file='./reports/news_report_analysis_parallel.md',
+#         agent=manager_agent
+#     )
+#     managers.append(manager_agent)
+#     manager_tasks.append(manager_task)
+# manager_results = ''
+# for task in manager_tasks:
+#     result = task.execute()
+#     manager_results += result+' \n ----------------------------------------'
+
+# with open('./reports/news_report_analysis_parallel.md', 'w') as file:
+#     file.write(manager_results)
