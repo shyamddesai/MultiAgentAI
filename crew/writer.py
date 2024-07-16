@@ -27,6 +27,6 @@ editing_task = Task(
         "Compile the analyzed information into a well-structured report. "
         "Ensure that the report is clear, engaging, and free of errors."
     ),
-    expected_output='A final report in markdown format that is well-structured and engaging.',
+    expected_output='A final report in JSON format that is well-structured and engaging.',
     agent=writer
 )
