@@ -66,9 +66,7 @@ news_rank_task = Task(
         "Read all the articles from JSON using the read_file tool."
     ),
     expected_output=(
-        'I only want too see in your final output an updated version of file that includes '
-        'relevancy score and reasoning. Include the same Title, Link, Published, '
-        'Categories, and Content from the file you read and gathered information.'
+        'relevancy score and reasoning for each articles with keeping Title, Link, Published in json format.'
     ),
     agent=news_ranker,
     output_file=output_file_path_rank,

@@ -55,14 +55,14 @@ crew_rank = Crew(
     verbose=True
 )
 
-# # Execute the rank Crew
-# try:
-#     result = crew_rank.kickoff()
-#     with open(output_file_path_rank, 'w') as f:
-#         json.dump(result, f, indent=2)
-#     print(f"Results saved to {output_file_path_rank}")
-# except Exception as e:
-#     print(f"An error occurred: {e}")
+# Execute the rank Crew
+try:
+    result = crew_rank.kickoff()
+    with open(output_file_path_rank, 'w') as f:
+        json.dump(result, f, indent=2)
+    print(f"Results saved to {output_file_path_rank}")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 # sentiment ---------------------------------------------------------------------
 
@@ -119,19 +119,19 @@ crew_market = Crew(
 )
 
 # Kick off the market crew to perform the task
-try:
-    result = crew_market.kickoff()
-    print(f"Report saved to {output_file_path_market}")
-except Exception as e:
-    print(f"An error occurred: {e}")
-
-# Additional error handling for saving results
-try:
-    with open(output_file_path_market, 'w') as f:
-        json.dump(result, f, indent=2)
-    print(f"Results saved to {output_file_path_market}")
-except Exception as e:
-    print(f"An error occurred while saving the results: {e}")
+# try:
+#     result = crew_market.kickoff()
+#     print(f"Report saved to {output_file_path_market}")
+# except Exception as e:
+#     print(f"An error occurred: {e}")
+#
+# # Additional error handling for saving results
+# try:
+#     with open(output_file_path_market, 'w') as f:
+#         json.dump(result, f, indent=2)
+#     print(f"Results saved to {output_file_path_market}")
+# except Exception as e:
+#     print(f"An error occurred while saving the results: {e}")
 
 #Writer Agent ###############################################
 
