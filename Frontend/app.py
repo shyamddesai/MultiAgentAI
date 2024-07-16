@@ -1,79 +1,120 @@
-import json
-import os
-from flask import Flask, render_template, request, redirect, url_for
+import subprocess
+import orjson
+from flask import Flask, render_template, request, redirect, send_from_directory, url_for, Response
+from flask_caching import Cache
+from celery import Celery
 
 app = Flask(__name__)
+app.config.update(
+    TEMPLATES_AUTO_RELOAD=True,
+    CELERY_BROKER_URL='redis://localhost:6379/0',
+    CELERY_RESULT_BACKEND='redis://localhost:6379/0'
+)
+cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'], result_backend=app.config['CELERY_RESULT_BACKEND'])
 
 def load_json_data(file_path):
-    with open(file_path, 'r') as file:
-        return json.load(file)
+    try:
+        with open(file_path, 'r') as file:
+            return orjson.loads(file.read())
+    except (FileNotFoundError, orjson.JSONDecodeError) as e:
+        app.logger.error(f"Error loading JSON from {file_path}: {e}")
+        return []
+
+def extract_content_info(json_data):
+    return {
+        "content_title": json_data.get("content title"),
+        "summary_of_articles": json_data.get("summary_of_articles"),
+        "conclusion": json_data.get("conclusion")
+    }
+
+def extract_sources_info(json_data):
+    return json_data.get("sources_cited", [])
+
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.route('/')
-async def home():
+def home():
     return render_template('index.html')
 
+@app.route('/pdf/<filename>')
+def pdf(filename):
+    return send_from_directory('pdfs', filename)
+
 @app.route('/market-prediction')
-async def market_prediction():
+def market_prediction():
     return "Market Prediction Page"
 
-@app.route('/news-analysis')
-async def news_analysis():
-    # Adjust the path to get the base directory of the root of the project
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-    news_report_path = os.path.join(BASE_DIR, 'reports', 'news_report.json')
-    filtered_news_report_path = os.path.join(BASE_DIR, 'reports', 'filtered_news_report.json')
-
-    try:
-        with open(news_report_path) as f:
-            news_data = json.load(f)
-    except FileNotFoundError:
-        news_data = []
-    try:
-        with open(filtered_news_report_path) as f:
-            report_data = json.load(f)
-    except FileNotFoundError:
-        report_data = []
-    return render_template('news_analysis.html', news_data=news_data, report_data=report_data)
-
-@app.route('/uimock_flash0')
-async def uimock_flash0():
+@app.route('/news-analysis-keywords')
+def uimock_flash0():
     return render_template('uimock_flash0.html')
 
-@app.route('/uimock_flash')
-async def uimock_flash():
+@app.route('/news-analysis-category')
+def uimock_flash():
     return render_template('uimock_flash.html')
 
-@app.route('/uimock_loading')
-async def uimock_loading():
+@app.route('/news-analysis-loading')
+@cache.cached(timeout=120)
+def uimock_loading():
     return render_template('uimock_loading.html')
 
-@app.route('/uimock_feed')
-async def uimock_feed():
-    # Adjust the path to get the root directory of the project
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    content_path = os.path.join(base_dir, 'Frontend', 'content.json')
-    sources_path = os.path.join(base_dir, 'Frontend', 'sources.json')
-    
-    content = load_json_data(content_path)
-    sources = load_json_data(sources_path)
-
-    return render_template('uimock_feed.html', content=content, sources=sources)
-
-@app.route('/uimock_navbar')
-async def uimock_navbar():
-    return render_template('uimock_navbar.html')
+@app.route('/news-analysis')
+def uimock_feed():
+    return render_template('feed.html')
 
 @app.route('/process-selection', methods=['POST'])
-async def process_selection():
-    if 'typed_lines' in request.form:
-        typed_lines = request.form['typed_lines']
-        print("Typed Lines: " + typed_lines)
-        return redirect(url_for('uimock_flash'))
-    elif 'selected_avatars' in request.form:
-        selected_avatars = request.form['selected_avatars']
-        print("Selected Avatars: " + selected_avatars)
-        return redirect(url_for('uimock_loading'))
+def process_selection():
+    selected_words = request.form.get('selectedWords', '')
+    print(f"Selected words: {selected_words}")
+    return redirect(url_for('feed'))
+
+@app.route('/process-keywords', methods=['POST'])
+def process_keywords():
+    keywords = request.form.get('typed_lines', '')
+    print(f"Entered keywords: {keywords}")
+    return redirect(url_for('uimock_flash'))
+
+@app.route('/feed')
+def feed():
+    return render_template('feed.html')
+
+specific_keywords = [
+    "oil prices", "gas prices", "oil and gas stock market", "company news", "supply and demand", "production rates", "market news", "trading news",
+    "commodity prices", "futures", "exploration", "refining", "pipelines", "oilfield services", "petroleum", "downstream", "upstream", "midstream",
+    "LNG", "reserves", "drilling", "shale oil", "offshore drilling", "exports", "imports", "OPEC", "refining capacity", "production cuts", "consumption", "inventory"
+]
+
+@app.route('/suggest_keywords')
+def suggest_keywords():
+    return Response(orjson.dumps(specific_keywords), mimetype='application/json')
+
+@app.route('/split-screen')
+def split_screen():
+    json_data_1 = load_json_data('content.json')
+    json_data_2 = load_json_data('sources.json')
+    
+    # Extract necessary information
+    json_data_1 = extract_content_info(json_data_1)
+    json_data_2 = extract_sources_info(json_data_2)
+    
+    return render_template('split_screen.html', json_data_1=json_data_1, json_data_2=json_data_2)
+
+def reportConversion(file_path):
+    try:
+        completed_process = subprocess.run(['python', file_path], capture_output=True, text=True)
+        if completed_process.returncode == 0:
+            app.logger.info("Execution successful. Output: %s", completed_process.stdout)
+        else:
+            app.logger.error(f"Error executing '{file_path}': {completed_process.stderr}")
+    except FileNotFoundError:
+        app.logger.error(f"Error: The file '{file_path}' does not exist.")
+    except Exception as e:
+        app.logger.error(f"Unexpected error: {e}")
 
 @app.errorhandler(404)
 def not_found(e):

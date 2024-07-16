@@ -1,8 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
 body {
     background: #0d0d0d;
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
+}
+
+.custom-nav {
+    background: rgba(255, 255, 255, 0.2); /* Increased transparency */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Translucent border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    backdrop-filter: blur(10px); /* Glass-like blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 30px; /* More rounded corners */
+    position: fixed; /* Fixed position */
+    top: 1rem; /* Distance from the top */
+    right: 1rem; /* Distance from the right */
+    z-index: 1000; /* Ensure it stays on top */
+    display: flex; /* Ensure the navbar is horizontal */
+    align-items: center; /* Center items vertically */
+}
+.custom-nav a {
+    color: #000000;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem; /* Increased padding */
+    font-size: 1.25rem; /* Increased font size */
+    border-radius: 50%; /* Make hover effect round */
+}
+.custom-nav a:hover {
+    color: #FE2C55;
+    background-color: rgba(254, 44, 85, 0.2); /* Darker background */
+    box-shadow: 0 0 15px rgba(254, 44, 85, 0.5); /* Darker and more pronounced shadow */
+    transform: scale(1.1); /* Slightly enlarge the element */
+}
+.custom-nav .separator {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.3); /* Subtle line color */
+    height: 100%;
+    margin: 0 0.5rem; /* Increased margin */
 }
 
 .hero-section {

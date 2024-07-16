@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
+
+:root {
+    --primary-text-color: #313944;
+    --primary-blue-color: #007aff;
+    --primary-green-color: #4dd964;
+    --primary-purple-color: #673eb4;
+    --dark-blue-color: #334252;
+    --dark-green-color: #29402c;
+    --dark-purple-color: #3b334e;
+    --light-blue-color: #dde4ec;
+    --light-green-color:#e3ece4;
+    --light-purple-color:#eae6f4;
+    --primary-color: #FE2C55;
+    --dark-gray-color: #8E8E93;
+    --light-gray-color: #CCCCCC;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+}
+
+body {
+    font-family: 'SF Pro Text', sans-serif;
+    display: flex; /* Use flexbox for layout */
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.custom-nav {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px; /* Rounded corners */
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+.custom-nav a {
+    color: #000;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: 50%; /* Rounded corners */
+}
+
+.custom-nav a:hover {
+    color: #FE2C55;
+    background-color: rgba(254, 44, 85, 0.2);
+    box-shadow: 0 0 15px rgba(254, 44, 85, 0.5);
+    transform: scale(1.1);
+}
+
+.custom-nav .separator {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 100%;
+    margin: 0 0.5rem;
+}
+
+.custom-nav.hidden {
+    display: none;
+}
+
+.sidebar {
+    background: rgb(231, 94, 121); /* Use primary color with increased transparency */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Enhanced glassy effect */
+    backdrop-filter: blur(20px) saturate(180%); /* Enhanced glassy effect */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 0px 15px 15px 0px; /* Rounded corners */
+    padding: 1rem;
+    position: fixed; /* Pin to the left side */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Extend to the end of the page */
+    width: 180px; /* Reduced width */
+    min-width: 180px; /* Ensure minimum width for readability */
+}
+
+.sidebar a {
+    color: var(--primary-text-color); /* Use primary text color */
+    padding: 0.5rem 0;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-radius 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.sidebar a i {
+    margin-right: 0.5rem; /* Add space between icon and text */
+}
+
+.sidebar a:hover {
+    background-color: var(--light-blue-color); /* Light blue on hover */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.content {
+    margin-left: 220px; /* Space for the sidebar */
+    padding: 1rem;
+    flex-grow: 1; /* Allow content to take up remaining space */
+    border-radius: 15px; /* Rounded corners */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */ /* Light purple with more transparency */
+    backdrop-filter: blur(20px) saturate(180%); /* Enhanced glassy effect */
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section {
+    display: none; /* Hide all content sections by default */
+    opacity: 0; /* Start with hidden opacity */
+    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+    border-radius: 15px; /* Rounded corners */
+    height: 100%; /* Full height of the content area */
+}
+
+.content-section.active {
+    display: block; /* Show the active content section */
+    opacity: 1; /* Fully visible */
+    animation: fadeIn 0.5s ease-in-out; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Slight upward movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Final position */
+    }
+}
+
+.news-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-top: 2rem; /* Increase margin-top to render lower */
+    margin-bottom: 1rem;
+    max-width: 600px; /* Set maximum width */
+    width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+.news-card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.news-card p {
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+.market-analysis-card {
+    height: 150px; /* Reduced height for market analysis cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    padding: 0.5rem; /* Adjust padding as needed */
+}
+
+.market-analysis-card .animated-number, .market-analysis-card .trend-text {
+    margin: 0; /* Remove all margins */
+    padding: 0; /* Remove all padding */
+}
+
+.slideover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;  /* Smooth animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    border-radius: 20px;
+}
+
+.slideover.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.slideover-content {
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;  /* Ensure content is scrollable if it overflows */
+}
+
+.slideover-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;  /* Enable smooth scrolling */
+}
+
+.animated-number, .trend-text {
+    font-size: 3rem; /* Make the numbers and trend text bigger */
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.glowing-border {
+    border: 2px solid #FE2C55; /* Adjust color and size as needed */
+    box-shadow: 0 0 10px #FE2C55; /* Adjust color and size as needed */
+}
