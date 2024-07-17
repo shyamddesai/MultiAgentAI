@@ -236,3 +236,4 @@ def process_all_json_files(directory):
             process_articles(file_path)
 
 process_all_json_files('./reports/categorized_news_reports')
+# split_articles('reports/processed_articles/cleaned_market_trends_news_report.json')

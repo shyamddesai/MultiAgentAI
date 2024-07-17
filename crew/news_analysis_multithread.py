@@ -23,7 +23,7 @@ def kickoff_parallel(crew):
     return results
 
 
-def summerize(category: str, num_chunks: int):
+def summerize(category, num_chunks):
 
     directory_path = f'reports/processed_articles/{category}'
     all_files = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
@@ -50,7 +50,7 @@ def summerize(category: str, num_chunks: int):
             expected_output='A json file. For each analyzed document, give its title and source and keypoints in the following format: '
             '\{"title":, "source":, "keypoints":[]\}. Use "," to split different summaries and use square bracket to include all summaries. '
             "Don't give anwser which is not required, for example, filepath of document, conclusion after summaries, word 'json' or character ''' at beginning. ",
-            output_file=directory_path+f'summary/result{i}.json',
+            # output_file=directory_path+f'summary/result{i}.json',
             tools=[file_read_tool],
             agent=agent
         )
@@ -68,9 +68,15 @@ def summerize(category: str, num_chunks: int):
     parallel_results = [json.loads(result) for result in parallel_results]
     parallel_results = [entry for results in parallel_results for entry in results]
 
-    output_path = os.path.join(directory_path, 'summary', 'report.json')
+    output_path = os.path.join(directory_path, 'summary', f'{category}_report.json')
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w') as file:
         json.dump(parallel_results, file, indent=4)
+
+
+summerize(category='market_trends', num_chunks=8)
+
+
 
 
 # def merge(path):
