@@ -1,17 +1,34 @@
 import json
 import os
+import sys
 from crewai import Crew, Process, Agent, Task
 from crewai_tools import BaseTool
 from langchain_openai import ChatOpenAI
 
-from MultiAgentAI.crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool, filter_and_categorize_articles,
-                                topic, news_gatherer, news_gathering_task)
-from MultiAgentAI.crew.config import relevant_keywords, commodity_list
-from MultiAgentAI.crew.crew_tools import market_analysis_tool
+# Determine the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Check if the .venv folder is in the current directory
+if os.path.exists(os.path.join(current_dir, '.venv')):
+    project_root = current_dir
+else:
+    project_root = os.path.dirname(current_dir)
+
+# Add the parent directory of MultiAgentAI to the PYTHONPATH
+sys.path.append(os.path.dirname(project_root))
+
+# Print to check the PYTHONPATH
+# print(f"Project root: {project_root}")
+# print(f"PYTHONPATH: {sys.path}")
+
+from MultiAgentAI.crew.news_filter_tools import filter_and_categorize_articles
+from MultiAgentAI.crew.config import topic, relevant_keywords, commodity_list
+from MultiAgentAI.crew.crew_tools import market_analysis_tool, SophisticatedKeywordGeneratorTool, RSSFeedScraperTool
 from MultiAgentAI.crew.writer import (writer_agent, writer_task)
 from MultiAgentAI.crew.sentiment_analysis import (sentiment_analysis_agent, sentiment_analysis_task)
-from utils import get_openai_api_key
 from MultiAgentAI.crew.news_ranker import news_ranker, news_rank_task, output_file_path_rank
+from MultiAgentAI.crew.preprocess_articles import process_all_json_files, process_articles
+from utils import get_openai_api_key
 
 openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
@@ -59,9 +76,10 @@ print(f"Selected words: {selected_commodities}")
 # ------------------------------------------------------------------------------
 
 article_output = "./reports/news_report.json"
+# filtered_articles = filter_and_categorize_articles(article_output)
+# process_articles(filtered_articles) # Scrape the articles and cleanse the HTML content
 
-result = filter_and_categorize_articles(article_output)
-
+process_articles("./reports/filtered_news_report.json")
 
 
 # preprocessing and zuotong sth sth

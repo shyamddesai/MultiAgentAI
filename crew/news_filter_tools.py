@@ -33,6 +33,8 @@ def filter_and_categorize_articles(all_articles_output):
     #
     # print(f"All articles are filtered and categorized in '{category_output_dir}'")
 
+    return filtered_articles # Comment out if you want to group articles by category
+
 # ------------------------------------------------------------------------------
 
 def group_articles_by_category(articles):

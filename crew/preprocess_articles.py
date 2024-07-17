@@ -23,6 +23,27 @@ sanitizer = Sanitizer({
     'keep_nested_blockquote': True,
 })
 
+# WebDriver Pool Manager
+class WebDriverPool:
+    def __init__(self):
+        self.driver = None
+    
+    def __enter__(self):
+        if not self.driver:
+            options = webdriver.ChromeOptions()
+            options.add_argument('--headless')
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-dev-shm-usage')
+            self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+        return self.driver
+    
+    def __exit__(self, exc_type, exc_value, traceback):
+        if self.driver:
+            self.driver.quit()
+            self.driver = None
+
+webdriver_pool = WebDriverPool()
+
 # Replace unicode characters for better readability and to reduce character count
 def replace_unicode_characters(text):
     unicode_replacements = {
@@ -55,7 +76,7 @@ def remove_headers_footers(soup):
     
     return soup
 
-def scrape_and_clean(url, retries=3, delay=5, timeout=20):
+def scrape_and_clean(url, retries=1, delay=5, timeout=10):
     try:
         response = requests.get(url, timeout=timeout)
         response.raise_for_status()
@@ -104,50 +125,41 @@ def scrape_and_clean(url, retries=3, delay=5, timeout=20):
 
 def scrape_and_clean_with_selenium(url, timeout=45):
     try:
-        options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
+        with webdriver_pool as driver:
+            driver.set_page_load_timeout(timeout)
+            driver.get(url)
 
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-        driver.set_page_load_timeout(timeout)
-        driver.get(url)
+            WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
+            html_content = driver.page_source
+            before_length = len(html_content)
 
-        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.TAG_NAME, 'body')))
-        html_content = driver.page_source
-        before_length = len(html_content)
-
-        soup = BeautifulSoup(html_content, 'html.parser')
-        for script in soup(["script", "style"]):
-            script.extract()
-        
-        soup = remove_headers_footers(soup)
-        
-        cleaned_html = sanitizer.sanitize(str(soup))
-        
-        soup_cleaned = BeautifulSoup(cleaned_html, 'html.parser')
-        text_content = soup_cleaned.get_text(separator='\n')
-        after_length = len(text_content)
-        
-        text_content = replace_unicode_characters(text_content)
-        text_content = clean_text(text_content)
-        
-        driver.quit()
-        print(f"Successfully scraped content for {url} using Selenium")
-        return text_content, before_length, after_length
+            soup = BeautifulSoup(html_content, 'html.parser')
+            for script in soup(["script", "style"]):
+                script.extract()
+            
+            soup = remove_headers_footers(soup)
+            
+            cleaned_html = sanitizer.sanitize(str(soup))
+            
+            soup_cleaned = BeautifulSoup(cleaned_html, 'html.parser')
+            text_content = soup_cleaned.get_text(separator='\n')
+            after_length = len(text_content)
+            
+            text_content = replace_unicode_characters(text_content)
+            text_content = clean_text(text_content)
+            
+            print(f"Successfully scraped content for {url} using Selenium")
+            return text_content, before_length, after_length
     except TimeoutException:
         print(f"Selenium timeout error for {url}")
-        driver.quit()
         return None, 0, 0
     except WebDriverException as e:
         print(f"Selenium WebDriver error for {url}: {e}")
-        driver.quit()
         return None, 0, 0
     except Exception as e:
         print(f"Unexpected Selenium error for {url}: {e}")
-        driver.quit()
         return None, 0, 0
-
+    
 def process_article(article):
     url = article['Link']
     cleaned_content, before_length, after_length = scrape_and_clean(url)
@@ -220,4 +232,6 @@ def process_all_json_files(directory):
             print(f"\n\nProcessing file: {file_path}")
             process_articles(file_path)
 
-process_all_json_files('./reports/categorized_news_reports')
+# process_all_json_files('./reports/categorized_news_reports')
+process_articles('./reports/filtered_news_report.json')
+# process_articles('./reports/categorized_news_reports/commodities_news_report.json')
