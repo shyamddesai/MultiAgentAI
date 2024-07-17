@@ -1,32 +1,65 @@
-import os
+import json
+
 from crewai import Agent, Task
+import os
+
+from crewai_tools.tools.file_read_tool.file_read_tool import FileReadTool
 from utils import get_openai_api_key
 from dotenv import load_dotenv
+from MultiAgentAI.crew.crew_tools import file_reader_tool
+from crewai_tools import BaseTool
 
+# -----------------------------------------------------------------------------
+# Define file paths
+input_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md'
+output_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_output1.json'
+
+# Load environment variables
 load_dotenv()
 openai_api_key = get_openai_api_key()
+if not openai_api_key:
+    raise ValueError("OpenAI API key not found. Please set it in the environment variables.")
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
-# ------------------------------------------------------------------------------
 
-writer = Agent(
-    role="Editor",
-    goal="Edit the analytical piece done by the Expert News Analyst "
-         "into a professional and well structured news summary.",
-    backstory="You are an experienced and well-trained editor who receives news analysis "
-              "from the Expert News Analyst. "
-              "Your goal is to review the analysis ensuring that the "
-              "final report is clear and engaging.",
+# Initialize FileReadTool
+file_reader_tool = FileReadTool(file_path=input_file_path)
+
+class SaverTool(BaseTool):
+    name: str = "Saver Tool"
+    description: str = "Tool used to save output in a JSON file"
+
+    def _run(self, argument: str) -> str:
+        with open(output_file_path, 'w') as f:
+            json.dump(argument, f, indent=2)
+        return argument
+
+# Initialize SaverTool
+save_into_json = SaverTool()
+
+output_file_path_report = os.path.join(os.getcwd(), '../reports/final_news_report.json')
+
+# Define the writer agent
+writer_agent = Agent(
+    role='Report Writer',
+    goal='Generate a comprehensive report from provided content using the read file tool',
+    backstory="""You are a skilled Report Writer, known for your ability to transform raw content into polished, comprehensive reports.
+                 You excel at identifying key points and presenting them in a clear, organized manner.""",
     verbose=True,
-    memory=True
+    allow_delegation=False
 )
 
-editing_task = Task(
-    description=(
-        "Compile the analyzed information into a well-structured report. "
-        "Ensure that the report is clear, engaging, and free of errors."
-    ),
-    expected_output='A final report in JSON format that is well-structured and engaging.',
-    agent=writer
+# Define the task for the writer agent
+writer_task = Task(
+    description="""Read the content and transform the information into a report.
+                   The report should be structured in paragraph form, leaving no details behind. Save the report in a JSON file 
+                   using save_into_json tool.""",
+    expected_output="A report that is professionally written in a proper format",
+    output_file=output_file_path_report,
+    tools=[file_reader_tool, save_into_json],
+    agent=writer_agent,
+    verbose=True
 )
+
+
