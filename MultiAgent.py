@@ -12,10 +12,20 @@ from MultiAgentAI.crew.writer import (writer_agent, writer_task)
 from MultiAgentAI.crew.sentiment_analysis import (sentiment_analysis_agent, sentiment_analysis_task)
 from utils import get_openai_api_key
 from MultiAgentAI.crew.news_ranker import news_ranker, news_rank_task, output_file_path_rank
+from MultiAgentAI.crew.cherry_picking import filter_articles_by_keywords_in_title_or_content
 
 openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
+
+# Filter the articles
+# filtered_articles = filter_articles_by_keywords_in_title_or_content()
+#
+# # Save the filtered articles to a new JSON file
+# filtered_file_path = os.path.join(os.getcwd(), './reports/FINAL_Filter_by_keywords.json')
+# with open(filtered_file_path, 'w') as filtered_file:
+#     json.dump(filtered_articles, filtered_file, indent=4)
+
 
 # keywords = SophisticatedKeywordGeneratorTool()._run(topic)
 # # save the keywords
@@ -41,7 +51,7 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 article_output = "./reports/news_report.json"
 
-result = filter_and_categorize_articles(article_output)
+# result = filter_and_categorize_articles(article_output)
 
 
 
@@ -79,14 +89,14 @@ crew_sentiment = Crew(
     verbose=True
 )
 
-# # Execute the sentiment Crew
-# try:
-#     result = crew_sentiment.kickoff()
-#     with open(output_file_path_sentiment, 'w') as f:
-#         json.dump(result, f, indent=2)
-#     print(f"Results saved to {output_file_path_sentiment}")
-# except Exception as e:
-#     print(f"An error occurred: {e}")
+# Execute the sentiment Crew
+try:
+    result = crew_sentiment.kickoff()
+    with open(output_file_path_sentiment, 'w') as f:
+        json.dump(result, f, indent=2)
+    print(f"Results saved to {output_file_path_sentiment}")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 # Market Analysis #########################################
 
@@ -136,7 +146,9 @@ crew_market = Crew(
 # except Exception as e:
 #     print(f"An error occurred while saving the results: {e}")
 
-#Writer Agent ###############################################
+
+# Writer Agent ###############################################
+
 
 input_file_path_report = os.path.join(os.getcwd(), '../reports/news_report_analysis_parallel.md')
 output_file_path_report = os.path.join(os.getcwd(), '../reports/final_news_report.json')

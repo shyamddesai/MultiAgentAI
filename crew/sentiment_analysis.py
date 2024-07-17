@@ -7,7 +7,7 @@ from MultiAgentAI.crew.crew_tools import market_analysis_tool
 from MultiAgentAI.crew.config import relevant_keywords, commodity_list
 
 
-category = './reports/report_input_sentiment'
+category = './reports/processed_articles/cleaned_market_trends_news_report'
 
 
 class SentimentAnalysisTool(BaseTool, BaseModel):
@@ -63,7 +63,7 @@ sentiment_analysis_agent = Agent(
 # Define the sentiment analysis task
 sentiment_analysis_task = Task(
     description="Use tool to find and score the Sentiment analysis of each news article",
-    expected_output="Sentiment score of each news articles with title and summary in json format",
+    expected_output="Sentiment score of each news articles with title and link in json format",
     agent=sentiment_analysis_agent
 )
 

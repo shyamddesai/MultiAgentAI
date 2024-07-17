@@ -13,7 +13,7 @@ if not openai_api_key:
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
-category = './reports/processed_articles/cleaned_exploration_news_report'
+category = './reports/processed_articles/cleaned_market_trends_news_report'
 # Define file paths
 input_file_path = os.path.join(os.getcwd(), f'{category}.json')
 output_file_path_rank = os.path.join(os.getcwd(), './reports/news_ranking.json')
