@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
+    <title>NewsBridge</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}">
@@ -44,21 +44,16 @@
     </nav>
 
     <div class="sidebar" id="sidebar">
-        <h2 class="text-xl font-bold mb-4">App</h2>
+        <h2 class="text-xl font-bold mb-4">ADNOC NewsBridge</h2>
         <nav>
-            <a href="#today" class="sidebar-link"><i class="fas fa-calendar-day"></i>S</a>
-            <h3 class="text-lg font-semibold mt-6 mb-2">Filters</h3>
-            {% for category in selected_avatars %}
-                <a href="#{{ category | lower | replace(' ', '') }}" class="sidebar-link">
-                    <i class="fas {{ icon_mapping.get(category, 'fa-question-circle') }}"></i>{{ category }}
-                </a>
-            {% endfor %}
+            <h3 class="text-lg font-semibold mt-6 mb-2">Sentiment Analysis</h3>
+            <a href="#today" class="sidebar-link"><i class="fas fa-newspaper"></i>Analysis Report</a>
             <h3 class="text-lg font-semibold mt-6 mb-2">Market Analysis</h3>
-            <a href="#marketanalysis" class="sidebar-link"><i class="fas fa-chart-bar"></i>Brent</a>
-            <a href="#marketanalysis1" class="sidebar-link"><i class="fas fa-chart-bar"></i>Two</a>
-            <a href="#marketanalysis2" class="sidebar-link"><i class="fas fa-chart-bar"></i>Three</a>
-            <a href="#marketanalysis3" class="sidebar-link"><i class="fas fa-chart-bar"></i>Four</a>
-            <a href="#marketanalysis4" class="sidebar-link"><i class="fas fa-chart-bar"></i>Five</a>
+            <a href="#marketanalysis" class="sidebar-link"><i class="fas fa-chart-line"></i>Brent</a>
+            <a href="#marketanalysis1" class="sidebar-link"><i class="fas fa-chart-bar"></i>WTI</a>
+            <a href="#marketanalysis2" class="sidebar-link"><i class="fas fa-chart-line"></i>RBOB</a>
+            <a href="#marketanalysis3" class="sidebar-link"><i class="fas fa-chart-bar"></i>EBOB</a>
+            <a href="#marketanalysis4" class="sidebar-link"><i class="fas fa-chart-bar"></i>CBOB</a>
         </nav>
     </div>
 
@@ -105,7 +100,7 @@
             </div>
         </div>
         <div id="marketanalysis1" class="content-section">
-            <h1 class="text-2xl font-bold mb-4">Market Analysis - Two</h1>
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - WTI</h1>
             <div class="news-card-container">
                 <div class="news-card market-analysis-card">
                     <h2>Current Price</h2>
@@ -122,7 +117,7 @@
             </div>
         </div>
         <div id="marketanalysis2" class="content-section">
-            <h1 class="text-2xl font-bold mb-4">Market Analysis - Three</h1>
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - RBOB</h1>
             <div class="news-card-container">
                 <div class="news-card market-analysis-card">
                     <h2>Current Price</h2>
@@ -139,7 +134,7 @@
             </div>
         </div>
         <div id="marketanalysis3" class="content-section">
-            <h1 class="text-2xl font-bold mb-4">Market Analysis - Four</h1>
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - EBOB</h1>
             <div class="news-card-container">
                 <div class="news-card market-analysis-card">
                     <h2>Current Price</h2>
@@ -156,7 +151,7 @@
             </div>
         </div>
         <div id="marketanalysis4" class="content-section">
-            <h1 class="text-2xl font-bold mb-4">Market Analysis - Five</h1>
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - CBOB</h1>
             <div class="news-card-container">
                 <div class="news-card market-analysis-card">
                     <h2>Current Price</h2>
@@ -164,7 +159,7 @@
                 </div>
                 <div class="news-card market-analysis-card">
                     <h2>Moving Average</h2>
-                    <span class="animated-number" data-target="71.128">0</span>
+                    <span class="animated-number" data-target="718">0</span>
                 </div>
                 <div class="news-card market-analysis-card">
                     <h2>Trend</h2>
