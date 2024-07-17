@@ -9,7 +9,7 @@ import json
 
 file_read_tool = FileReadTool()
 
-directory_path = 'reports/processed_articles/exploration/'
+directory_path = 'reports/processed_articles/market_trends/'
 all_files = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
 
 def chunk_list(lst, n):
@@ -68,7 +68,7 @@ parallel_results = kickoff_parallel(crew)
 
 def merge(path):
     merged_data = []
-    full_path = os.path.join(path, 'summary', '*.json')
+    full_path = os.path.join(path, 'summary', 'result*.json')
     print(full_path)
     files_to_delete = []
 
@@ -79,7 +79,7 @@ def merge(path):
             merged_data.extend(data)
         files_to_delete.append(filename)
 
-    output_path = os.path.join(path, 'report.json')
+    output_path = os.path.join(path, 'summary', 'report.json')
     with open(output_path, 'w') as file:
         json.dump(merged_data, file, indent=4)
 

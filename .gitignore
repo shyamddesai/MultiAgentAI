@@ -7,3 +7,5 @@ Frontend/venv
 Frontend/__pycache__
 __pycache__
 .DS_Store
+reports/processed_articles/.DS_Store
+reports/processed_articles/.DS_Store
