@@ -208,8 +208,12 @@ def split_articles(json_file):
     for index, entry in enumerate(data):
         content = entry.get('Content')
         if content is not None:
+            title = entry.get('Title')
+            output = {}
+            output['Title'] = title
+            output['Content'] = content
             with open(output_dir + f'content_{index}.json', 'w') as outfile:
-                json.dump(content, outfile, indent=4)
+                json.dump(output, outfile, indent=4)
         else:
             print(f"Warning: No 'content' key found in entry {index}")
 
