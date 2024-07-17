@@ -196,6 +196,15 @@ def process_articles(json_file):
     # Split each article into separate JSON files for each category
     split_articles(output_file)
 
+def split_title(s):
+    idx = s.rfind('-')
+
+    if idx != -1:
+        return s[:idx], s[idx+1:]
+    else:
+        return s, ''
+
+
 def split_articles(json_file):
     category = os.path.splitext(os.path.basename(json_file))[0].replace('cleaned_', '').replace('_news_report', '')
     with open(json_file, 'r') as file:
@@ -208,9 +217,11 @@ def split_articles(json_file):
     for index, entry in enumerate(data):
         content = entry.get('Content')
         if content is not None:
-            title = entry.get('Title')
+            old_title = entry.get('Title')
+            title, source = split_title(old_title)
             output = {}
-            output['Title'] = title
+            output['title'] = title
+            output['source'] = source
             output['Content'] = content
             with open(output_dir + f'content_{index}.json', 'w') as outfile:
                 json.dump(output, outfile, indent=4)
