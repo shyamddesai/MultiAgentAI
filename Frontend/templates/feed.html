@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
+    <title>NewsBridge</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}">
@@ -44,27 +44,28 @@
     </nav>
 
     <div class="sidebar" id="sidebar">
-        <h2 class="text-xl font-bold mb-4">App</h2>
+        <h2 class="text-xl font-bold mb-4">ADNOC NewsBridge</h2>
         <nav>
-            <a href="#today" class="sidebar-link"><i class="fas fa-calendar-day"></i>Today</a>
-            <h3 class="text-lg font-semibold mt-6 mb-2">Filters</h3>
-            {% for category in selected_avatars %}
-                <a href="#{{ category | lower | replace(' ', '') }}" class="sidebar-link">
-                    <i class="fas {{ icon_mapping.get(category, 'fa-question-circle') }}"></i>{{ category }}
-                </a>
-            {% endfor %}
-            <h3 class="text-lg font-semibold mt-6 mb-2">New</h3>
-            <a href="#marketanalysis" class="sidebar-link"><i class="fas fa-chart-bar"></i>Market Analysis</a>
+            <h3 class="text-lg font-semibold mt-6 mb-2">Report Summary</h3>
+            <a href="#today" class="sidebar-link"><i class="fas fa-newspaper"></i>Analysis Report</a>
+            <h3 class="text-lg font-semibold mt-6 mb-2">Market Analysis</h3>
+            <a href="#marketanalysis" class="sidebar-link"><i class="fas fa-chart-line"></i>Brent</a>
+            <a href="#marketanalysis1" class="sidebar-link"><i class="fas fa-chart-bar"></i>WTI</a>
+            <a href="#marketanalysis2" class="sidebar-link"><i class="fas fa-chart-line"></i>RBOB</a>
+            <a href="#marketanalysis3" class="sidebar-link"><i class="fas fa-chart-bar"></i>Gasoil Low Sulphur</a>
         </nav>
     </div>
 
     <div class="content">
         <div id="today" class="content-section active">
-            <h1 class="text-2xl font-bold mb-4">Today</h1>
+            <h1 class="text-2xl font-bold mb-4">Analysis Report</h1>
             <div class="news-card">
-                <a href="{{ url_for('split_screen') }}"></a>
-                <h2>Summary Report & Sources</h2>
-                <p>Summary of the news content goes here.</p>
+                <a href="{{ url_for('split_screen2') }}"></a>
+                <h2>Report - {{current_date}}</h2>
+                <h4> Keywords Passed: </h4>
+                {% for keyword in keywords %}
+                    <p>{{ keyword }}</p>
+                {% endfor %}
             </div>
         </div>
         {% for category in selected_avatars %}
@@ -81,15 +82,83 @@
             </div>
         {% endfor %}
         <div id="marketanalysis" class="content-section">
-            <h1 class="text-2xl font-bold mb-4">Market Analysis</h1>
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - Brent (EMA10)</h1>
             <div class="news-card-container">
                 <div class="news-card market-analysis-card">
                     <h2>Current Price</h2>
-                    <span class="animated-number" data-target="67">0</span>
+                    <span class="animated-number" data-target="85.50">0</span>
                 </div>
                 <div class="news-card market-analysis-card">
                     <h2>Moving Average</h2>
-                    <span class="animated-number" data-target="100">0</span>
+                    <span class="animated-number" data-target="85.25">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Trend</h2>
+                    <span class="trend-text" data-target="Bullish">Bullish</span>
+                </div>
+            </div>
+        </div>
+        <div id="marketanalysis1" class="content-section">
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - WTI (EMA10)</h1>
+            <div class="news-card-container">
+                <div class="news-card market-analysis-card">
+                    <h2>Current Price</h2>
+                    <span class="animated-number" data-target="83.00">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Moving Average</h2>
+                    <span class="animated-number" data-target="82.8">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Trend</h2>
+                    <span class="trend-text" data-target="Bullish">Bullish</span>
+                </div>
+            </div>
+        </div>
+        <div id="marketanalysis2" class="content-section">
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - RBOB (EMA10)</h1>
+            <div class="news-card-container">
+                <div class="news-card market-analysis-card">
+                    <h2>Current Price</h2>
+                    <span class="animated-number" data-target="2.48">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Moving Average</h2>
+                    <span class="animated-number" data-target="2.49">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Trend</h2>
+                    <span class="trend-text" data-target="Bearish">Bearish</span>
+                </div>
+            </div>
+        </div>
+        <div id="marketanalysis3" class="content-section">
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - Gasoil Low Sulphur (MA20)</h1>
+            <div class="news-card-container">
+                <div class="news-card market-analysis-card">
+                    <h2>Current Price</h2>
+                    <span class="animated-number" data-target="769.75">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Moving Average</h2>
+                    <span class="animated-number" data-target="783.85">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Trend</h2>
+                    <span class="trend-text" data-target="Bearish">Bearish</span>
+                </div>
+            </div>
+        </div>
+        <div id="marketanalysis4" class="content-section">
+            <h1 class="text-2xl font-bold mb-4">Market Analysis - CBOB</h1>
+            <div class="news-card-container">
+                <div class="news-card market-analysis-card">
+                    <h2>Current Price</h2>
+                    <span class="animated-number" data-target="72.78">0</span>
+                </div>
+                <div class="news-card market-analysis-card">
+                    <h2>Moving Average</h2>
+                    <span class="animated-number" data-target="718">0</span>
                 </div>
                 <div class="news-card market-analysis-card">
                     <h2>Trend</h2>
@@ -98,15 +167,6 @@
             </div>
         </div>
     </div>
-
-    <div class="slideover" id="slideover">
-        <button class="slideover-close" onclick="closeSlideover()">X</button>
-        <div class="slideover-content">
-            <h2 id="slideover-title"></h2>
-            <iframe id="pdf-frame" width="100%" height="100%"></iframe>
-        </div>
-    </div>
-
     <script src="{{ url_for('static', filename='js/feed.js') }}"></script>
 </body>
 </html>

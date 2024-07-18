@@ -77,7 +77,7 @@ body {
     top: 0;
     left: 0;
     height: 100vh; /* Extend to the end of the page */
-    width: 180px; /* Reduced width */
+    width: 200px; /* Reduced width */
     min-width: 180px; /* Ensure minimum width for readability */
 }
 
@@ -98,6 +98,10 @@ body {
 .sidebar a:hover {
     background-color: var(--light-blue-color); /* Light blue on hover */
     border-radius: 10px; /* Rounded corners */
+}
+
+.sidebar h2 {
+    text-align: center;
 }
 
 .content {

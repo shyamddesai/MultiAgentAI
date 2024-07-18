@@ -129,7 +129,7 @@
     </nav>
 
     <div class="card p-6 rounded-lg shadow-lg text-center">
-        <h1 class="title mb-4">Customize your feed</h1>
+        <h1 class="title mb-4">Enter Commodities</h1>
         <p class="body mb-6">Select from the pre-existing categories to build your feed</p>
         <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
             <div class="bubble-container" id="bubbleContainer">
@@ -141,7 +141,7 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const words = ["Brent", "WTI", "RBOB", "EBOB", "CBOB", "Singapore gasoline R92", "Europe Gasoil", "Marine gasoil 0.5% Singapore", "Far east index propane", "Far east index butane","Mt Belv Propane", "Mt Belv Butane", "ULSD New york", "asia gasoil", "marine gasoil"];
+            const words = ["Brent", "WTI", "RBOB", "Gasoil Low Sulphur", "CBOB", "Europe Gasoil"];
             const bubbleContainer = document.getElementById('bubbleContainer');
             const selectionForm = document.getElementById('selectionForm');
             const selectedWordsInput = document.getElementById('selectedWords');

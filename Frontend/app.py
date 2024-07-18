@@ -1,9 +1,9 @@
-import os
 import subprocess
 import orjson
-from flask import Flask, render_template, request, redirect, send_from_directory, url_for, Response
+from flask import Flask, render_template, request, redirect, send_from_directory, url_for, Response, session
 from flask_caching import Cache
 from celery import Celery
+from datetime import datetime
 
 app = Flask(__name__)
 app.config.update(
@@ -13,6 +13,7 @@ app.config.update(
 )
 cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'], result_backend=app.config['CELERY_RESULT_BACKEND'])
+app.secret_key = 'your_secret_key'  # Needed for session management
 
 def load_json_data(file_path):
     try:
@@ -43,6 +44,10 @@ def add_header(response):
 def home():
     return render_template('index.html')
 
+@app.route('/home')
+def index():
+    return render_template('index1.html')
+
 @app.route('/pdf/<filename>')
 def pdf(filename):
     return send_from_directory('pdfs', filename)
@@ -60,7 +65,6 @@ def uimock_flash():
     return render_template('uimock_flash.html')
 
 @app.route('/news-analysis-loading')
-@cache.cached(timeout=120)
 def uimock_loading():
     return render_template('uimock_loading.html')
 
@@ -71,47 +75,28 @@ def uimock_feed():
 @app.route('/process-selection', methods=['POST'])
 def process_selection():
     selected_words = request.form.get('selectedWords', '')
-    print(f"Selected Commodities: {selected_words}")
-
-    # Create the user_data directory if it doesn't exist
-    user_data_dir = os.path.join(os.getcwd(), 'user_data')
-    os.makedirs(user_data_dir, exist_ok=True)
-
-    # Process the selected commodities to remove extra newlines and write to the file
-    selected_commodities_list = [word.strip() for word in selected_words.split(',') if word.strip()]
-    selected_commodities_file = os.path.join(user_data_dir, 'selected_commodities.txt')
-
-    with open(selected_commodities_file, 'w') as f:
-        f.write('\n'.join(selected_commodities_list))
-
+    print(f"Selected words: {selected_words}")
     return redirect(url_for('feed'))
 
-@app.route('/process-keywords', methods=['POST'])
+@app.route('/process_keywords', methods=['POST'])
 def process_keywords():
     keywords = request.form.get('typed_lines', '')
-    print(f"Entered keywords: {keywords}")
-
-    # Create the user_data directory if it doesn't exist
-    user_data_dir = os.path.join(os.getcwd(), 'user_data')
-    os.makedirs(user_data_dir, exist_ok=True)
-
-    # Process the keywords to remove extra newlines and write to the file
-    keywords_list = [keyword.strip() for keyword in keywords.split('\n') if keyword.strip()]
-    keywords_file = os.path.join(user_data_dir, 'selected_keywords.txt')
-    
-    with open(keywords_file, 'w') as f:
-        f.write('\n'.join(keywords_list))
-
+    session['keywords'] = keywords.split('\n')
     return redirect(url_for('uimock_flash'))
 
 @app.route('/feed')
 def feed():
-    return render_template('feed.html')
+    current_date = datetime.now().strftime("%d/%m/%y")
+    keywords = session.get('keywords', [])
+    return render_template('feed.html', keywords=keywords, current_date=current_date)
 
 specific_keywords = [
-    "oil prices", "gas prices", "oil and gas stock market", "company news", "supply and demand", "production rates", "market news", "trading news",
-    "commodity prices", "futures", "exploration", "refining", "pipelines", "oilfield services", "petroleum", "downstream", "upstream", "midstream",
-    "LNG", "reserves", "drilling", "shale oil", "offshore drilling", "exports", "imports", "OPEC", "refining capacity", "production cuts", "consumption", "inventory"
+    "Natural Gas", "Oil Prices", "Gas Prices", "Oil and Gas Stock Market", "Oilfield Services", "Petroleum", "Downstream", "Upstream", "Midstream",
+    "LNG", "Reserves", "Drilling", "Shale Oil", "Offshore Drilling", "Exports", "Imports", "OPEC", "Refining Capacity", "Production Cuts", "Consumption", "Inventory",
+    "Crude Oil", "Asia", "Russia", "China", "India", "USA", "Middle East", "Africa", "Europe", "Latin America", "Canada", "Australia",
+    "Naphtha", "Gasoline", "Diesel", "Jet Fuel", "Kerosene", "LPG", "Ethane", "Propane", "Butane", "Petrochemicals", "Plastics", "Fertilizers", "Solvents",
+    "ADNOC", "ExxonMobil", "Shell", "BP", "Chevron", "Total", "Saudi Aramco", "Gazprom", "Rosneft", "PetroChina", "Sinopec", "ONGC", "Petrobras",
+    
 ]
 
 @app.route('/suggest_keywords')
@@ -120,14 +105,31 @@ def suggest_keywords():
 
 @app.route('/split-screen')
 def split_screen():
-    json_data_1 = load_json_data(os.path.join(os.getcwd(), './content.json'))
-    json_data_2 = load_json_data(os.path.join(os.getcwd(), './sources.json'))
+    json_data_1 = load_json_data('content.json')
+    json_data_2 = load_json_data('sources.json')
     
     # Extract necessary information
     json_data_1 = extract_content_info(json_data_1)
     json_data_2 = extract_sources_info(json_data_2)
     
     return render_template('split_screen.html', json_data_1=json_data_1, json_data_2=json_data_2)
+
+@app.route('/split-screen1')
+def split_screen1():
+    content_data = load_json_data('content.json')
+    news_data = load_json_data('news_ranking.json')
+    
+    return render_template('split_screen1.html', content_data=content_data, news_data=news_data)
+
+@app.route('/split-screen2')
+def split_screen2():
+    with open('report.json') as report_file:
+        report_data = orjson.loads(report_file.read())
+    
+    with open('news_ranking.json') as sources_file:
+        sources_data = orjson.loads(sources_file.read())
+    
+    return render_template('split_screen2.html', report_data=report_data, sources_data=sources_data)
 
 def reportConversion(file_path):
     try:
@@ -140,11 +142,6 @@ def reportConversion(file_path):
         app.logger.error(f"Error: The file '{file_path}' does not exist.")
     except Exception as e:
         app.logger.error(f"Unexpected error: {e}")
-
-@app.errorhandler(404)
-def not_found(e):
-    return render_template("404.html"), 404
-
 
 if __name__ == '__main__':
     app.run(debug=True)
