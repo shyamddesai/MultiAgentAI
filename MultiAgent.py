@@ -19,12 +19,12 @@ os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 # Filter the articles
-# filtered_articles = filter_articles_by_keywords_in_title_or_content()
-#
-# # Save the filtered articles to a new JSON file
-# filtered_file_path = os.path.join(os.getcwd(), './reports/FINAL_Filter_by_keywords.json')
-# with open(filtered_file_path, 'w') as filtered_file:
-#     json.dump(filtered_articles, filtered_file, indent=4)
+filtered_articles1 = filter_articles_by_keywords_in_title_or_content()
+
+# Save the filtered articles to a new JSON file
+filtered_file_path = os.path.join(os.getcwd(), './reports/FINAL_Filter_by_keywords.json')
+with open(filtered_file_path, 'w') as filtered_file:
+    json.dump(filtered_articles1, filtered_file, indent=4)
 
 
 # keywords = SophisticatedKeywordGeneratorTool()._run(topic)
@@ -89,14 +89,14 @@ crew_sentiment = Crew(
     verbose=True
 )
 
-# Execute the sentiment Crew
-try:
-    result = crew_sentiment.kickoff()
-    with open(output_file_path_sentiment, 'w') as f:
-        json.dump(result, f, indent=2)
-    print(f"Results saved to {output_file_path_sentiment}")
-except Exception as e:
-    print(f"An error occurred: {e}")
+# # Execute the sentiment Crew
+# try:
+#     result = crew_sentiment.kickoff()
+#     with open(output_file_path_sentiment, 'w') as f:
+#         json.dump(result, f, indent=2)
+#     print(f"Results saved to {output_file_path_sentiment}")
+# except Exception as e:
+#     print(f"An error occurred: {e}")
 
 # Market Analysis #########################################
 
