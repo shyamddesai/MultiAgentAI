@@ -91,9 +91,12 @@ def feed():
     return render_template('feed.html', keywords=keywords, current_date=current_date)
 
 specific_keywords = [
-    "oil prices", "gas prices", "oil and gas stock market", "company news", "supply and demand", "production rates", "market news", "trading news",
-    "commodity prices", "futures", "exploration", "refining", "pipelines", "oilfield services", "petroleum", "downstream", "upstream", "midstream",
-    "LNG", "reserves", "drilling", "shale oil", "offshore drilling", "exports", "imports", "OPEC", "refining capacity", "production cuts", "consumption", "inventory"
+    "Natural Gas", "Oil Prices", "Gas Prices", "Oil and Gas Stock Market", "Oilfield Services", "Petroleum", "Downstream", "Upstream", "Midstream",
+    "LNG", "Reserves", "Drilling", "Shale Oil", "Offshore Drilling", "Exports", "Imports", "OPEC", "Refining Capacity", "Production Cuts", "Consumption", "Inventory",
+    "Crude Oil", "Asia", "Russia", "China", "India", "USA", "Middle East", "Africa", "Europe", "Latin America", "Canada", "Australia",
+    "Naphtha", "Gasoline", "Diesel", "Jet Fuel", "Kerosene", "LPG", "Ethane", "Propane", "Butane", "Petrochemicals", "Plastics", "Fertilizers", "Solvents",
+    "ADNOC", "ExxonMobil", "Shell", "BP", "Chevron", "Total", "Saudi Aramco", "Gazprom", "Rosneft", "PetroChina", "Sinopec", "ONGC", "Petrobras",
+    
 ]
 
 @app.route('/suggest_keywords')
