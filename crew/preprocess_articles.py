@@ -220,4 +220,5 @@ def process_all_json_files(directory):
             print(f"\n\nProcessing file: {file_path}")
             process_articles(file_path)
 
-process_all_json_files('./reports/categorized_news_reports')
+process_articles('C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/categorized_news_reports/company_news_news_report.json')
+# process_all_json_files('./reports/categorized_news_reports')
