@@ -1,18 +1,11 @@
-import subprocess
-import orjson
-from flask import Flask, render_template, request, redirect, send_from_directory, url_for, Response, session
-from flask_caching import Cache
-from celery import Celery
+from flask import Flask, render_template, request, redirect, session, url_for, Response
 from datetime import datetime
+import orjson
 
 app = Flask(__name__)
 app.config.update(
     TEMPLATES_AUTO_RELOAD=True,
-    CELERY_BROKER_URL='redis://localhost:6379/0',
-    CELERY_RESULT_BACKEND='redis://localhost:6379/0'
 )
-cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
-celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'], result_backend=app.config['CELERY_RESULT_BACKEND'])
 app.secret_key = 'your_secret_key'  # Needed for session management
 
 def load_json_data(file_path):
@@ -47,10 +40,6 @@ def home():
 @app.route('/home')
 def index():
     return render_template('index1.html')
-
-@app.route('/pdf/<filename>')
-def pdf(filename):
-    return send_from_directory('pdfs', filename)
 
 @app.route('/market-prediction')
 def market_prediction():
@@ -91,12 +80,9 @@ def feed():
     return render_template('feed.html', keywords=keywords, current_date=current_date)
 
 specific_keywords = [
-    "Natural Gas", "Oil Prices", "Gas Prices", "Oil and Gas Stock Market", "Oilfield Services", "Petroleum", "Downstream", "Upstream", "Midstream",
-    "LNG", "Reserves", "Drilling", "Shale Oil", "Offshore Drilling", "Exports", "Imports", "OPEC", "Refining Capacity", "Production Cuts", "Consumption", "Inventory",
-    "Crude Oil", "Asia", "Russia", "China", "India", "USA", "Middle East", "Africa", "Europe", "Latin America", "Canada", "Australia",
-    "Naphtha", "Gasoline", "Diesel", "Jet Fuel", "Kerosene", "LPG", "Ethane", "Propane", "Butane", "Petrochemicals", "Plastics", "Fertilizers", "Solvents",
-    "ADNOC", "ExxonMobil", "Shell", "BP", "Chevron", "Total", "Saudi Aramco", "Gazprom", "Rosneft", "PetroChina", "Sinopec", "ONGC", "Petrobras",
-    
+    "oil prices", "gas prices", "oil and gas stock market", "company news", "supply and demand", "production rates", "market news", "trading news",
+    "commodity prices", "futures", "exploration", "refining", "pipelines", "oilfield services", "petroleum", "downstream", "upstream", "midstream",
+    "LNG", "reserves", "drilling", "shale oil", "offshore drilling", "exports", "imports", "OPEC", "refining capacity", "production cuts", "consumption", "inventory"
 ]
 
 @app.route('/suggest_keywords')
@@ -130,18 +116,6 @@ def split_screen2():
         sources_data = orjson.loads(sources_file.read())
     
     return render_template('split_screen2.html', report_data=report_data, sources_data=sources_data)
-
-def reportConversion(file_path):
-    try:
-        completed_process = subprocess.run(['python', file_path], capture_output=True, text=True)
-        if completed_process.returncode == 0:
-            app.logger.info("Execution successful. Output: %s", completed_process.stdout)
-        else:
-            app.logger.error(f"Error executing '{file_path}': {completed_process.stderr}")
-    except FileNotFoundError:
-        app.logger.error(f"Error: The file '{file_path}' does not exist.")
-    except Exception as e:
-        app.logger.error(f"Unexpected error: {e}")
 
 if __name__ == '__main__':
     app.run(debug=True)
