@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_flash.css') }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
-
+        body, .custom-nav {
+            font-family: 'SF Pro Text', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
         .custom-nav {
             background: rgba(255, 255, 255, 0.2); /* Increased transparency */
             border: 1px solid rgba(255, 255, 255, 0.3); /* Translucent border */
@@ -22,10 +27,19 @@
             right: 1rem; /* Distance from the right */
             z-index: 1000; /* Ensure it stays on top */
         }
+        .custom-nav img{
+            height: 50px;
+            width: auto;
+            border-radius: 20%;
+        }
+        .custom-nav h3{
+            font-weight: bold;
+            font-size: 2.0rem;
+        }
         .custom-nav a {
             color: #000000;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem; /* Increased padding */
+            padding: 0.2rem 0.2rem; /* Increased padding */
             font-size: 1.25rem; /* Increased font size */
             border-radius: 50%; /* Make hover effect round */
         }
@@ -42,16 +56,60 @@
             margin: 0 0.5rem; /* Increased margin */
         }
         .card {
-            max-width: 600px;
-            margin: 50px auto;
+            width: 600px; /* Set a fixed width for both cards */
+            margin: 45px 0; /* Margin to separate the cards */
             padding: 20px;
             border: 1px solid #ddd;
-            border-radius: 10px;
+            border-radius: 20px; /* Softer edges */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1); /* Parallax shadow effect */
+            background-color: 0xff3f81; /* White background for cards */
+            position: relative; /* For positioning the question mark */
+        }
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align cards to the left */
+            padding: 20px;
+            padding-left: 100px; /* Add padding to the left */
+            position: absolute;
+            left: 0; /* Align to the left of the page */
+        }
+        .card:hover .hint {
+            display: block;
+        }
+        .hint {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .hint-message {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .hint:hover + .hint-message {
+            display: block;
         }
         .bubble-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column; /* Arrange bubbles vertically */
             gap: 10px;
             padding: 10px;
             border: 1px solid #ddd;
@@ -91,19 +149,53 @@
             color: transparent;
             transition: color 0.3s, transform 0.3s;
         }
-        .continue-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            float: right; /* Move the button to the right */
+        .primary-color {
+            background-color: #007bff; /* Primary color for the add button */
         }
-        .continue-button:hover {
-            background-color: #333;
+        .suggestions {
+            position: absolute;
+            top: 100%; /* Position below the search input */
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: #f1f1f1;
+        }
+        .next-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+            opacity: 0.5; /* Start with translucent */
+        }
+        .next-button.enabled {
+            opacity: 1; /* Fully opaque when enabled */
+        }
+        .next-button:hover:enabled {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .next-button:disabled {
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -111,35 +203,134 @@
     <nav class="custom-nav text-white rounded-full w-auto">
         <div class="flex justify-around p-2">
             <a href="/" class="flex flex-col items-center">
-                <i class="fas fa-home"></i>
+                <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo">
             </a>
-            <div class="separator"></div> <!-- Separator line -->
             <a href="/market-prediction" class="flex flex-col items-center">
-                <i class="fas fa-chart-line"></i>
-            </a>
-            <div class="separator"></div> <!-- Separator line -->
-            <a href="/news-analysis" class="flex flex-col items-center">
-                <i class="fas fa-newspaper"></i>
-            </a>
-            <div class="separator"></div> <!-- Separator line -->
-            <a href="/uimock_flash0" class="flex flex-col items-center">
-                <i class="fas fa-cogs"></i>
+                <h3>NewsBridge</h3>
             </a>
         </div>
     </nav>
 
-    <div class="card p-6 rounded-lg shadow-lg text-center">
-        <h1 class="title mb-4">Customize your feed</h1>
-        <p class="body mb-6">Select from the pre-existing categories to build your feed</p>
-        <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
-            <div class="bubble-container" id="bubbleContainer">
-                <!-- Bubbles will be added here by JavaScript -->
+    <div class="card-container">
+        <div class="card p-6 rounded-lg shadow-lg text-center relative">
+            <h1 class="title mb-4">Keywords</h1>
+            <div id="keywordsContainer" class="w-full p-2 border border-gray-300 rounded mb-4 h-32 overflow-y-auto"></div>
+            <div class="flex items-center mb-4 relative">
+                <input type="text" id="searchInput" class="flex-grow p-2 border border-gray-300 rounded-l" placeholder="Search..." oninput="showSuggestions()">
+                <button class="ml-2 p-2 primary-color text-white rounded-full w-10 h-10 flex items-center justify-center" onclick="addKeyword()">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div id="suggestions" class="suggestions"></div>
             </div>
-            <input type="hidden" name="selectedWords" id="selectedWords">
-            <button type="submit" class="continue-button" id="continueButton">Continue</button>
-        </form>
+            <form action="{{ url_for('process_keywords') }}" method="POST" id="selectionForm">
+                <input type="hidden" name="typed_lines" id="typedLines">
+            </form>
+            <div class="hint">?</div>
+            <div class="hint-message">Press '+' to add a keyword. Hover over keyword to delete</div>
+        </div>
+        <div class="card p-6 rounded-lg shadow-lg text-center">
+            <h1 class="title mb-4">Categories</h1>
+            <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
+                <div class="bubble-container" id="bubbleContainer">
+                    <!-- Bubbles will be added here by JavaScript -->
+                </div>
+                <input type="hidden" name="selectedWords" id="selectedWords">
+            </form>
+            <div class="hint">?</div>
+            <div class="hint-message">Hover over the categories to delete</div>
+        </div>
     </div>
+
+    <button class="next-button" id="nextButton">Next</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script src="{{ url_for('static', filename='js/uimock_flash.js') }}"></script>
     <script>
+        VANTA.GLOBE({
+            el: "body",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x007bff,
+            shininess: 50.00,
+            waveHeight: 20.00,
+            waveSpeed: 1.00,
+            zoom: 0.85
+        });
+
+        async function fetchKeywords() {
+            const response = await fetch('/suggest_keywords');
+            return response.json();
+        }
+
+        async function showSuggestions() {
+            const searchInput = document.getElementById('searchInput');
+            const suggestionsContainer = document.getElementById('suggestions');
+            const keywords = await fetchKeywords();
+            const query = searchInput.value.toLowerCase();
+
+            suggestionsContainer.innerHTML = '';
+            if (query) {
+                const filteredKeywords = keywords.filter(keyword => keyword.toLowerCase().includes(query));
+                filteredKeywords.forEach(keyword => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.className = 'suggestion-item';
+                    suggestionItem.textContent = keyword;
+                    suggestionItem.onclick = () => {
+                        searchInput.value = keyword;
+                        suggestionsContainer.innerHTML = '';
+                    };
+                    suggestionsContainer.appendChild(suggestionItem);
+                });
+            }
+        }
+
+        function addKeyword() {
+            const searchInput = document.getElementById('searchInput');
+            const keywordsContainer = document.getElementById('keywordsContainer');
+            const keyword = searchInput.value.trim();
+
+            if (keyword) {
+                const keywordDiv = document.createElement('div');
+                keywordDiv.className = 'keyword-item p-2 mb-2 bg-gray-100 rounded cursor-pointer';
+                keywordDiv.textContent = keyword;
+                keywordDiv.addEventListener('mouseover', () => {
+                    keywordDiv.classList.add('strikeout');
+                });
+                keywordDiv.addEventListener('mouseout', () => {
+                    keywordDiv.classList.remove('strikeout');
+                });
+                keywordDiv.addEventListener('click', () => {
+                    keywordsContainer.removeChild(keywordDiv);
+                    toggleNextButton();
+                });
+                keywordsContainer.appendChild(keywordDiv);
+                searchInput.value = '';
+                toggleNextButton();
+            }
+        }
+
+        function toggleNextButton() {
+            const keywordsContainer = document.getElementById('keywordsContainer');
+            const nextButton = document.getElementById('nextButton');
+            const typedLines = document.getElementById('typedLines');
+            const keywords = Array.from(keywordsContainer.children).map(child => child.textContent).join('\n');
+            typedLines.value = keywords;
+            if (keywordsContainer.children.length === 0) {
+                nextButton.classList.remove('enabled');
+                nextButton.disabled = true;
+            } else {
+                nextButton.classList.add('enabled');
+                nextButton.disabled = false;
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const words = ["Brent", "WTI", "RBOB", "EBOB", "CBOB", "Europe Gasoil"];
             const bubbleContainer = document.getElementById('bubbleContainer');
@@ -173,6 +364,24 @@
                 const remainingBubbles = bubbleContainer.querySelectorAll('.bubble');
                 const selectedWords = Array.from(remainingBubbles).map(bubble => bubble.textContent);
                 selectedWordsInput.value = selectedWords.join(',');
+            });
+
+            // Add event listener for the Next button
+            document.getElementById('nextButton').addEventListener('click', async function() {
+                const keywords = document.getElementById('typedLines').value;
+                const selectedWords = Array.from(document.getElementById('bubbleContainer').children).map(bubble => bubble.textContent).join(',');
+
+                // Send data to the backend
+                await fetch('/process_next', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ keywords, selectedWords })
+                });
+
+                // Redirect to the news-analysis page
+                window.location.href = '/news-analysis';
             });
         });
     </script>
