@@ -1,15 +1,14 @@
 import json
 import os
 
-
 def filter_articles_by_keywords_in_title_or_content():
     # Path to the original JSON file
-    input_file_path = '../reports/processed_articles/cleaned_exploration_news_report.json'
+    input_file_path = './reports/temp/temp_filtered_news_report.json'
 
     # Check if the input file exists
     if not os.path.exists(input_file_path):
         print(f"File not found: {input_file_path}")
-        return {}
+        return []
 
     print(f"Loading file: {input_file_path}")
 
@@ -23,33 +22,49 @@ def filter_articles_by_keywords_in_title_or_content():
     # Keywords to filter by
     keywords = ["WTI", "crude oil", "usa", "forecast"]
 
-    # Dictionary to hold filtered articles categorized by keyword
-    categorized_articles = {keyword: [] for keyword in keywords}
+    # List to hold filtered articles
+    filtered_articles = []
 
     for article in articles:
-        title = article.get('Title', '').lower()
-        content = article.get('Content', '').lower()
-        for keyword in keywords:
-             if keyword.lower() in title or keyword.lower() in content:
-            # if keyword.lower() in content:
-                categorized_articles[keyword].append(article)
-                break  # Assumes each article should be categorized under only one keyword
+        title = article.get('Title', '')
+        content = article.get('Content', '')
 
-    # Print the number of filtered articles for each keyword
-    for keyword, articles in categorized_articles.items():
-        print(f"Number of articles for keyword '{keyword}': {len(articles)}")
+        if title:
+            title = title.lower()
+        else:
+            title = ''
 
-    return categorized_articles
+        if content:
+            content = content.lower()
+        else:
+            content = ''
 
+        if any(keyword.lower() in title or keyword.lower() in content for keyword in keywords):
+            filtered_articles.append(article)
 
-# Filter the articles
-categorized_articles = filter_articles_by_keywords_in_title_or_content()
+    # Print the number of filtered articles
+    print(f"Number of filtered articles: {len(filtered_articles)}")
 
-# Save the filtered articles to a new JSON file
-filtered_file_path = os.path.join(os.getcwd(), '../reports/FINAL_Filter_by_keywords.json')
-print(f"Saving filtered articles to: {filtered_file_path}")
+    return filtered_articles
 
-with open(filtered_file_path, 'w') as filtered_file:
-    json.dump(categorized_articles, filtered_file, indent=2)
+def CherryPicking():
+    # Filter the articles
+    filtered_articles = filter_articles_by_keywords_in_title_or_content()
 
-print("Filtered articles saved successfully.")
+    # Check if any articles were filtered
+    if filtered_articles:
+        # Ensure the directory exists
+        output_dir = os.path.join(os.getcwd(), './reports')
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+
+        # Save the filtered articles to a new JSON file
+        filtered_file_path = os.path.join(output_dir, 'FINAL_Filter_by_keywords.json')
+        print(f"Saving filtered articles to: {filtered_file_path}")
+
+        with open(filtered_file_path, 'w') as filtered_file:
+            json.dump(filtered_articles, filtered_file, indent=2)
+
+        print("Filtered articles saved successfully.")
+    else:
+        print("No articles matched the keywords.")

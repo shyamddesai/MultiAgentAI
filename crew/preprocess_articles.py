@@ -197,11 +197,10 @@ def process_articles(json_file):
     split_articles(output_file)
 
 def split_articles(json_file):
-    category = os.path.splitext(os.path.basename(json_file))[0].replace('cleaned_', '').replace('_news_report', '')
     with open(json_file, 'r') as file:
         data = json.load(file)
 
-    output_dir = f'./reports/processed_articles/{category}/'
+    output_dir = f'./reports/processed_articles'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir) 
 
@@ -220,5 +219,5 @@ def process_all_json_files(directory):
             print(f"\n\nProcessing file: {file_path}")
             process_articles(file_path)
 
-process_articles('C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/categorized_news_reports/company_news_news_report.json')
+# process_articles('C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/categorized_news_reports/company_news_news_report.json')
 # process_all_json_files('./reports/categorized_news_reports')
