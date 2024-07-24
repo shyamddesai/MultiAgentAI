@@ -1,8 +1,21 @@
 import json
 import os
+import sys
 from crewai import Crew, Process, Agent, Task
 from crewai_tools import BaseTool
 from langchain_openai import ChatOpenAI
+
+# Determine the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Check if the .venv folder is in the current directory
+if os.path.exists(os.path.join(current_dir, '.venv')):
+    project_root = current_dir
+else:
+    project_root = os.path.dirname(current_dir)
+
+# Add the parent directory of MultiAgentAI to the PYTHONPATH
+sys.path.append(os.path.dirname(project_root))
 
 from MultiAgentAI.crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool, filter_and_categorize_articles,
                                topic, news_gatherer, news_gathering_task)
@@ -112,6 +125,8 @@ selected_commodity = input(f"Select a commodity from the list: {', '.join(commod
 
 output_file_path_market = os.path.join(os.getcwd(), f'./Data/marketAnalysis/{selected_commodity}/market.json')
 
+directory_path = f'./Data/marketAnalysis/{selected_commodity}'
+
 market_analysis_agent = Agent(
     role='Market Analyst',
     goal=f'Analyze market trends for {selected_commodity}',
@@ -124,13 +139,12 @@ market_analysis_agent = Agent(
 
 market_analysis_task = Task(
     description=selected_commodity,
-    expected_output='Market analysis report for selected_commodity in the following json format:'
-                    '\{"Market Analysis for":, "Current Price":, "Moving Average":, "Trend": \}'
-                    'only json format will be accepted as final output. use square bracket to include all the details.'
-                    "Don't give anwser which is not required, for example, filepath of document, conclusion after summaries,"
-                    "word 'json' or character ''' and any quotation marks and backslashes at beginning.",
+    expected_output='A JSON file containing the market analysis for the selected commodity.' 
+                    'Take the exact output of the market analysis tool and provide the currrent price, moving average, and trend only.'
+                    'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks to define the atrributes, commas to split attributes, does not contain the word json, no double quotation marks at the beginning, and no unnecessary backslashes.'
+                    'Here is an example of the expected JSON output: [{"commodity": WTI, "currentPrice": 100, "movingAverage": 90, "trend": ["Bearish"]}]',
+    output_file=directory_path+f'/market.json',
     agent=market_analysis_agent,
-
 )
 
 # Initialize the Crew
@@ -149,12 +163,12 @@ result = crew_market.kickoff()
 # print(f"An error occurred: {e}")
 
 # Additional error handling for saving results
-try:
-    with open(output_file_path_market, 'w') as f:
-        json.dump(result, f, indent=2)
-    print(f"Results saved to {output_file_path_market}")
-except Exception as e:
-    print(f"An error occurred while saving the results: {e}")
+# try:
+#     with open(output_file_path_market, 'w') as f:
+#         json.dump(result, f, indent=2)
+#     print(f"Results saved to {output_file_path_market}")
+# except Exception as e:
+#     print(f"An error occurred while saving the results: {e}")
 
 # Writer Agent ###############################################
 

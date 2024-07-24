@@ -39,7 +39,7 @@ for i, file_chunk in enumerate(file_chunks):
         "Keep the origin title and source",
         expected_output='A json file. For each analyzed document, give its title and source and keypoints in the following format: '
         '\{"title":, "source":, "keypoints":[]\}. Use "," to split different summaries and use square bracket to include all summaries. '
-        "Don't give anwser which is not required, for example, filepath of document, conclusion after summaries, word 'json' or character ''' at beginning. ",
+        "Don't give answer which is not required, for example, filepath of document, conclusion after summaries, word 'json' or character ''' at beginning. ",
         output_file=directory_path+f'/summary/result{i}.json',
         tools=[file_read_tool],
         agent=agent
