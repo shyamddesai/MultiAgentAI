@@ -5,10 +5,11 @@ from crewai_tools import BaseTool
 from langchain_openai import ChatOpenAI
 
 from MultiAgentAI.crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool, filter_and_categorize_articles,
-                                topic, news_gatherer, news_gathering_task)
+                               topic, news_gatherer, news_gathering_task)
 from MultiAgentAI.crew.config import relevant_keywords, commodity_list
 from MultiAgentAI.crew.crew_tools import market_analysis_tool
 from MultiAgentAI.crew.news_analysis_multithread import zuotong
+from MultiAgentAI.crew.postprocess_articles import process_json_file
 from MultiAgentAI.crew.preprocess_articles import split_articles
 from MultiAgentAI.crew.writer import (writer_agent, writer_task)
 from MultiAgentAI.crew.sentiment_analysis import (sentiment_analysis_agent, sentiment_analysis_task)
@@ -20,10 +21,11 @@ openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
+# CherryPicking()
 
-CherryPicking()
+# process_json_file('./reports/FINAL_Filter_by_keywords.json', './reports/FINAL_Filter_by_keywords.json')
 
-split_articles('./reports/FINAL_Filter_by_keywords.json')
+# split_articles('./reports/FINAL_Filter_by_keywords.json')
 
 # keywords = SophisticatedKeywordGeneratorTool()._run(topic)
 # # save the keywords
@@ -52,11 +54,10 @@ split_articles('./reports/FINAL_Filter_by_keywords.json')
 # filter_and_categorize_articles(article_output)
 
 
-
 # preprocessing and zuotong sth sth
 
-#zuotong function
-zuotong()
+# zuotong function
+# zuotong()
 # ranking -----------------------------------------------------------------------
 
 # Initialize the Crew
@@ -77,9 +78,11 @@ crew_rank = Crew(
 # except Exception as e:
 #     print(f"An error occurred: {e}")
 
+##IMPORTANT fix format code here
+
 # sentiment ---------------------------------------------------------------------
 
-output_file_path_sentiment = os.path.join(os.getcwd(), './reports/sentiment_analysis.json')
+output_file_path_sentiment = os.path.join(os.getcwd(), './Data/reports/sources/sources_sentiment.json')
 
 # Initialize the Crew
 crew_sentiment = Crew(
@@ -98,17 +101,20 @@ crew_sentiment = Crew(
 # except Exception as e:
 #     print(f"An error occurred: {e}")
 
+##IMPORTANT fix format code here
+
+
 # Market Analysis #########################################
 
-output_file_path_market = os.path.join(os.getcwd(), './reports/market_analysis.json')
 
 # Prompt user to select a commodity
 selected_commodity = input(f"Select a commodity from the list: {', '.join(commodity_list)}\n")
 
+output_file_path_market = os.path.join(os.getcwd(), f'./Data/marketAnalysis/{selected_commodity}/market.json')
 
 market_analysis_agent = Agent(
     role='Market Analyst',
-    goal='Analyze market trends for a selected commodity',
+    goal=f'Analyze market trends for {selected_commodity}',
     backstory="""You are a seasoned Market Analyst with deep insights into commodity markets.
                  You can quickly identify whether the market is bullish or bearish.""",
     verbose=True,
@@ -118,7 +124,11 @@ market_analysis_agent = Agent(
 
 market_analysis_task = Task(
     description=selected_commodity,
-    expected_output="Market analysis report for the selected commodity",
+    expected_output='Market analysis report for selected_commodity in the following json format:'
+                    '\{"Market Analysis for":, "Current Price":, "Moving Average":, "Trend": \}'
+                    'only json format will be accepted as final output. use square bracket to include all the details.'
+                    "Don't give anwser which is not required, for example, filepath of document, conclusion after summaries,"
+                    "word 'json' or character ''' and any quotation marks and backslashes at beginning.",
     agent=market_analysis_agent,
 
 )
@@ -133,24 +143,23 @@ crew_market = Crew(
 
 # Kick off the market crew to perform the task
 # try:
-#     result = crew_market.kickoff()
-#     print(f"Report saved to {output_file_path_market}")
+result = crew_market.kickoff()
+# print(f"Report saved to {output_file_path_market}")
 # except Exception as e:
-#     print(f"An error occurred: {e}")
-#
-# # Additional error handling for saving results
-# try:
-#     with open(output_file_path_market, 'w') as f:
-#         json.dump(result, f, indent=2)
-#     print(f"Results saved to {output_file_path_market}")
-# except Exception as e:
-#     print(f"An error occurred while saving the results: {e}")
+# print(f"An error occurred: {e}")
 
-#Writer Agent ###############################################
+# Additional error handling for saving results
+try:
+    with open(output_file_path_market, 'w') as f:
+        json.dump(result, f, indent=2)
+    print(f"Results saved to {output_file_path_market}")
+except Exception as e:
+    print(f"An error occurred while saving the results: {e}")
+
+# Writer Agent ###############################################
 
 input_file_path_report = os.path.join(os.getcwd(), '../reports/news_report_analysis_parallel.md')
 output_file_path_report = os.path.join(os.getcwd(), '../reports/final_news_report.json')
-
 
 # Initialize the crew with the task
 crew = Crew(

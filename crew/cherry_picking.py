@@ -20,7 +20,7 @@ def filter_articles_by_keywords_in_title_or_content():
     print(f"Number of articles loaded: {len(articles)}")
 
     # Keywords to filter by
-    keywords = ["WTI", "crude oil", "usa", "forecast"]
+    keywords = ["WTI", "crude oil"]
 
     # List to hold filtered articles
     filtered_articles = []

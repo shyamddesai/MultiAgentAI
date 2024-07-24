@@ -200,7 +200,7 @@ def split_articles(json_file):
     with open(json_file, 'r') as file:
         data = json.load(file)
 
-    output_dir = f'./reports/processed_articles'
+    output_dir = f'./reports/processed_articles/'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir) 
 
@@ -209,8 +209,10 @@ def split_articles(json_file):
         if content is not None:
             with open(output_dir + f'content_{index}.json', 'w') as outfile:
                 json.dump(content, outfile, indent=4)
+                print("lol")
         else:
             print(f"Warning: No 'content' key found in entry {index}")
+
 
 def process_all_json_files(directory):
     for filename in os.listdir(directory):

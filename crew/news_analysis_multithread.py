@@ -11,8 +11,10 @@ file_read_tool = FileReadTool()
 directory_path = f'./reports/processed_articles'
 all_files = [os.path.join(directory_path, f) for f in os.listdir(directory_path) if os.path.isfile(os.path.join(directory_path, f))]
 
+
 def chunk_list(lst, n):
     return [lst[i::n] for i in range(n)]
+
 
 num_chunks = 8
 file_chunks = chunk_list(all_files, num_chunks)
@@ -38,7 +40,7 @@ for i, file_chunk in enumerate(file_chunks):
         expected_output='A json file. For each analyzed document, give its title and source and keypoints in the following format: '
         '\{"title":, "source":, "keypoints":[]\}. Use "," to split different summaries and use square bracket to include all summaries. '
         "Don't give anwser which is not required, for example, filepath of document, conclusion after summaries, word 'json' or character ''' at beginning. ",
-        output_file=directory_path+f'summary/result{i}.json',
+        output_file=directory_path+f'/summary/result{i}.json',
         tools=[file_read_tool],
         agent=agent
     )

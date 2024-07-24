@@ -7,13 +7,10 @@ from MultiAgentAI.crew.crew_tools import market_analysis_tool
 from MultiAgentAI.crew.config import relevant_keywords, commodity_list
 
 
-category = './reports/processed_articles/cleaned_market_trends_news_report'
-
-
 class SentimentAnalysisTool(BaseTool, BaseModel):
     name: str = "Sentiment Analysis Tool"
     description: str = "Reads news articles from a file and performs sentiment analysis."
-    file_path: str = os.path.join(os.getcwd(), f'{category}.json')
+    file_path: str = os.path.join(os.getcwd(), './reports/FINAL_Filter_by_keywords.json')
 
     def _run(self):
         # Read the file
@@ -43,10 +40,6 @@ class SentimentAnalysisTool(BaseTool, BaseModel):
     def __call__(self):
         return self._run()
 
-
-
-# Define file paths
-file_path_sentiment = os.path.join(os.getcwd(), f'{category}.json')
 
 sentiment_analysis_tool = SentimentAnalysisTool()
 
