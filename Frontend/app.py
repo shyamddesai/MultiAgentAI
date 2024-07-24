@@ -1,13 +1,15 @@
-from quart import Quart, render_template, request, redirect, session, url_for, Response
+from quart import Quart, render_template, request, redirect, session, url_for, Response, jsonify
 from datetime import datetime
 import orjson
 import aiofiles
+import os
+import json
 
 app = Quart(__name__)
 app.config.update(
     TEMPLATES_AUTO_RELOAD=True,
 )
-app.secret_key = 'your_secret_key'  # Needed for session management
+app.secret_key = 'supersecretkey'  # Needed for session management
 
 async def load_json_data(file_path):
     try:
@@ -40,7 +42,9 @@ async def home():
 
 @app.route('/news-analysis')
 async def uimock_feed():
-    return await render_template('feed.html')
+    selected_categories = session.get('selected_categories', [])
+    current_date = datetime.now().strftime("%d %B")
+    return await render_template('feed.html', selected_categories=selected_categories, current_date=current_date)
 
 @app.route('/process-selection', methods=['POST'])
 async def process_selection():
@@ -56,9 +60,29 @@ async def process_keywords():
 
 @app.route('/feed')
 async def feed():
-    current_date = datetime.now().strftime("%d/%m/%y")
+    current_date = datetime.now().strftime("%d %B")
     keywords = session.get('keywords', [])
-    return await render_template('feed.html', keywords=keywords, current_date=current_date)
+    market_analysis_dir = 'data/marketAnalysis'
+    market_data = []
+
+    for filename in os.listdir(market_analysis_dir):
+        if filename.endswith('.json'):
+            file_path = os.path.join(market_analysis_dir, filename)
+            with open(file_path, 'r') as file:
+                try:
+                    data = json.load(file)
+                    market_data.append({
+                        "filename": os.path.splitext(filename)[0],
+                        "data": data.get('Data', {})
+                    })
+                except json.JSONDecodeError:
+                    market_data.append({
+                        "filename": os.path.splitext(filename)[0],
+                        "data": {"Current Price": "N/A", "Moving Average": "N/A", "Trend": "N/A"}
+                    })
+                    
+    print(market_data)
+    return await render_template('feed.html', keywords=keywords, current_date=current_date, market_data=market_data)
 
 specific_keywords = [
     "oil prices", "gas prices", "oil and gas stock market", "company news", "supply and demand", "production rates", "market news", "trading news",
@@ -70,39 +94,35 @@ specific_keywords = [
 async def suggest_keywords():
     return Response(orjson.dumps(specific_keywords), mimetype='application/json')
 
-@app.route('/split-screen')
-async def split_screen():
-    json_data_1 = await load_json_data('content.json')
-    json_data_2 = await load_json_data('sources.json')
-    
-    # Extract necessary information
-    json_data_1 = extract_content_info(json_data_1)
-    json_data_2 = extract_sources_info(json_data_2)
-    
-    return await render_template('split_screen.html', json_data_1=json_data_1, json_data_2=json_data_2)
-
 
 @app.route('/split-screen2')
 async def split_screen2():
-    async with aiofiles.open('report.json') as report_file:
+    async with aiofiles.open('data/report/report/report.json') as report_file:
         report_data = orjson.loads(await report_file.read())
     
-    async with aiofiles.open('news_ranking.json') as sources_file:
+    async with aiofiles.open('data/report/sources/sources_ranked.json') as sources_file:
         sources_data = orjson.loads(await sources_file.read())
     
     return await render_template('split_screen2.html', report_data=report_data, sources_data=sources_data)
 
 @app.route('/process_next', methods=['POST'])
 async def process_next():
-    keywords = await request.json.get('keywords')
-    selected_words = await request.json.get('selectedWords')
-
-    # Process the keywords and selected words here
+    data = await request.json
+    keywords = data.get('keywords', '')
+    selected_words = data.get('selectedWords', '')
+    
+    # Print to terminal
     print(f"Keywords: {keywords}")
-    print(f"Selected words: {selected_words}")
-
-    # Redirect to the news-analysis page
-    return redirect(url_for('uimock_feed'))
+    print(f"Selected Words: {selected_words}")
+    
+    # Write to input.txt
+    async with aiofiles.open('data/userInput/input.txt', 'w') as file:
+        await file.write(f"Keywords:\n{keywords}\n\nSelected Words:\n{selected_words}\n")
+    
+    # Store selected categories in session
+    session['selected_categories'] = selected_words.split(',')
+    
+    return jsonify({"status": "success"})
 
 if __name__ == '__main__':
     app.run(debug=True)
