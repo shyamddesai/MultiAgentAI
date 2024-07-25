@@ -59,7 +59,7 @@ sentiment_analysis_agent = Agent(
 sentiment_analysis_task = Task(
     description="Use tool to find and score the Sentiment analysis of each news article",
     expected_output="Sentiment score of each news articles with title and link in json format."
-                    'Here is an example of the expected JSON output: [{"Title":, "Link":, "Sentiment":,',
+                    'Here is an example of the expected JSON output: [{"Title":, "Link":, "Sentiment":}]',
     agent=sentiment_analysis_agent,
     output_file=output_file_path_sentiment,
 )

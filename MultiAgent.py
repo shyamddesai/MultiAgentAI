@@ -155,7 +155,6 @@ crew_sentiment = Crew(
 
 # Prompt user to select a commodity
 selected_commodity = input(f"Select a commodity from the list: {', '.join(commodity_list)}\n")
-
 output_file_path_market = os.path.join(os.getcwd(), f'./Data/marketAnalysis/{selected_commodity}/market.json')
 
 directory_path = f'./Data/marketAnalysis/{selected_commodity}'
@@ -205,29 +204,15 @@ crew_market = Crew(
 
 # Writer Agent ###############################################
 
-input_file_path_report = os.path.join(os.getcwd(), '../reports/news_report_analysis_parallel.md')
-output_file_path_report = os.path.join(os.getcwd(), '../reports/final_news_report.json')
 
 # Initialize the crew with the task
-crew = Crew(
+highlight_crew = Crew(
     agents=[writer_agent],
     tasks=[writer_task],
-    manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.3),
+    manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.1),
     verbose=2,  # Set verbosity level for logging
     process=Process.sequential  # Use sequential process for execution
 )
 
 # Kick off the writing crew to perform the task
-# try:
-#     result = crew.kickoff()
-#     print(f"Report saved to {output_file_path_report}")
-# except Exception as e:
-#     print(f"An error occurred: {e}")
-#
-# # Additional error handling for saving results
-# try:
-#     with open(output_file_path_report, 'w') as f:
-#         json.dump(result, f, indent=2)
-#     print(f"Results saved to {output_file_path_report}")
-# except Exception as e:
-#     print(f"An error occurred while saving the results: {e}")
+result = highlight_crew.kickoff()
