@@ -41,7 +41,10 @@ writer_agent = Agent(
 writer_task = Task(
     description="""Read and summarize the keypoints of each article into one paragraph called Highlights""",
     expected_output=" One paragraph that grabs all the highlights of the articles"
-                    'Here is an example of the expected JSON output: [{"Highlights":}]',
+                    'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks '
+                    'to define the atrributes, commas to split attributes, does not contain the word json, no double '
+                    'quotation marks at the beginning, and no unnecessary backslashes.Here is an example of the '
+                    'expected JSON output: [{"Highlights":}]',
     output_file=output_file_path,
     tools=[file_reader_tool],
     agent=writer_agent,

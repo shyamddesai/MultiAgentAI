@@ -140,7 +140,7 @@ crew_sentiment = Crew(
 
 # # Execute the sentiment Crew
 # try:
-# result = crew_sentiment.kickoff()
+result = crew_sentiment.kickoff()
 #     with open(output_file_path_sentiment, 'w') as f:
 #         json.dump(result, f, indent=2)
 #     print(f"Results saved to {output_file_path_sentiment}")
@@ -215,4 +215,4 @@ highlight_crew = Crew(
 )
 
 # Kick off the writing crew to perform the task
-result = highlight_crew.kickoff()
+# result = highlight_crew.kickoff()
