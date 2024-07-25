@@ -11,7 +11,7 @@ from crewai_tools import BaseTool
 
 # -----------------------------------------------------------------------------
 # Define file paths
-input_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md'
+input_file_path = '/MultiAgentAI/Files I do not think we need/news_report_analysis_parallel.md'
 output_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_output1.json'
 
 # Load environment variables

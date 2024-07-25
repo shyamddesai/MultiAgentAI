@@ -1,6 +1,8 @@
 import os
 import json
 import re
+import shutil
+
 import requests
 import time
 from bs4 import BeautifulSoup
@@ -196,13 +198,19 @@ def process_articles(json_file):
     # Split each article into separate JSON files for each category
     split_articles(output_file)
 
+
 def split_articles(json_file):
     with open(json_file, 'r') as file:
         data = json.load(file)
 
     output_dir = f'./reports/processed_articles/'
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir) 
+
+    # Delete existing contents of the output directory
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
+
+    # Recreate the output directory
+    os.makedirs(output_dir)
 
     for index, entry in enumerate(data):
         content = entry.get('Content')

@@ -1,5 +1,5 @@
 Keywords:
-test
+WTI,Brent
 
 Selected Words:
 Brent,WTI,RBOB,EBOB,CBOB,Europe Gasoil
