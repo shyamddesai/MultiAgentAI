@@ -1,23 +1,20 @@
-import os
-import subprocess
+from quart import Quart, render_template, request, redirect, session, url_for, Response, jsonify
+from datetime import datetime
 import orjson
-from flask import Flask, render_template, request, redirect, send_from_directory, url_for, Response
-from flask_caching import Cache
-from celery import Celery
+import aiofiles
+import os
+import json
 
-app = Flask(__name__)
+app = Quart(__name__)
 app.config.update(
     TEMPLATES_AUTO_RELOAD=True,
-    CELERY_BROKER_URL='redis://localhost:6379/0',
-    CELERY_RESULT_BACKEND='redis://localhost:6379/0'
 )
-cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
-celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'], result_backend=app.config['CELERY_RESULT_BACKEND'])
+app.secret_key = 'supersecretkey'  # Needed for session management
 
-def load_json_data(file_path):
+async def load_json_data(file_path):
     try:
-        with open(file_path, 'r') as file:
-            return orjson.loads(file.read())
+        async with aiofiles.open(file_path, 'r') as file:
+            return orjson.loads(await file.read())
     except (FileNotFoundError, orjson.JSONDecodeError) as e:
         app.logger.error(f"Error loading JSON from {file_path}: {e}")
         return []
@@ -33,56 +30,59 @@ def extract_sources_info(json_data):
     return json_data.get("sources_cited", [])
 
 @app.after_request
-def add_header(response):
+async def add_header(response):
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
     return response
 
 @app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/pdf/<filename>')
-def pdf(filename):
-    return send_from_directory('pdfs', filename)
-
-@app.route('/market-prediction')
-def market_prediction():
-    return "Market Prediction Page"
-
-@app.route('/news-analysis-keywords')
-def uimock_flash0():
-    return render_template('uimock_flash0.html')
-
-@app.route('/news-analysis-category')
-def uimock_flash():
-    return render_template('uimock_flash.html')
-
-@app.route('/news-analysis-loading')
-@cache.cached(timeout=120)
-def uimock_loading():
-    return render_template('uimock_loading.html')
+async def home():
+    return await render_template('uimock_flash.html')
 
 @app.route('/news-analysis')
-def uimock_feed():
-    return render_template('feed.html')
+async def uimock_feed():
+    selected_categories = session.get('selected_categories', [])
+    current_date = datetime.now().strftime("%d %B")
+    return await render_template('feed.html', selected_categories=selected_categories, current_date=current_date)
 
 @app.route('/process-selection', methods=['POST'])
-def process_selection():
-    selected_words = request.form.get('selectedWords', '')
+async def process_selection():
+    selected_words = (await request.form).get('selectedWords', '')
     print(f"Selected words: {selected_words}")
     return redirect(url_for('feed'))
 
-@app.route('/process-keywords', methods=['POST'])
-def process_keywords():
-    keywords = request.form.get('typed_lines', '')
-    print(f"Entered keywords: {keywords}")
+@app.route('/process_keywords', methods=['POST'])
+async def process_keywords():
+    keywords = (await request.form).get('typed_lines', '')
+    session['keywords'] = keywords.split('\n')
     return redirect(url_for('uimock_flash'))
 
 @app.route('/feed')
-def feed():
-    return render_template('feed.html')
+async def feed():
+    current_date = datetime.now().strftime("%d %B")
+    keywords = session.get('keywords', [])
+    market_analysis_dir = 'data/marketAnalysis'
+    market_data = []
+
+    for filename in os.listdir(market_analysis_dir):
+        if filename.endswith('.json'):
+            file_path = os.path.join(market_analysis_dir, filename)
+            with open(file_path, 'r') as file:
+                try:
+                    data = json.load(file)
+                    market_data.append({
+                        "filename": os.path.splitext(filename)[0],
+                        "data": data.get('Data', {})
+                    })
+                except json.JSONDecodeError:
+                    market_data.append({
+                        "filename": os.path.splitext(filename)[0],
+                        "data": {"Current Price": "N/A", "Moving Average": "N/A", "Trend": "N/A"}
+                    })
+                    
+    print(market_data)
+    return await render_template('feed.html', keywords=keywords, current_date=current_date, market_data=market_data)
 
 specific_keywords = [
     "oil prices", "gas prices", "oil and gas stock market", "company news", "supply and demand", "production rates", "market news", "trading news",
@@ -91,36 +91,38 @@ specific_keywords = [
 ]
 
 @app.route('/suggest_keywords')
-def suggest_keywords():
+async def suggest_keywords():
     return Response(orjson.dumps(specific_keywords), mimetype='application/json')
 
-@app.route('/split-screen')
-def split_screen():
-    json_data_1 = load_json_data(os.path.join(os.getcwd(), './content.json'))
-    json_data_2 = load_json_data(os.path.join(os.getcwd(), './sources.json'))
+
+@app.route('/split-screen2')
+async def split_screen2():
+    async with aiofiles.open('data/report/report/report.json') as report_file:
+        report_data = orjson.loads(await report_file.read())
     
-    # Extract necessary information
-    json_data_1 = extract_content_info(json_data_1)
-    json_data_2 = extract_sources_info(json_data_2)
+    async with aiofiles.open('data/report/sources/sources_ranked.json') as sources_file:
+        sources_data = orjson.loads(await sources_file.read())
     
-    return render_template('split_screen.html', json_data_1=json_data_1, json_data_2=json_data_2)
+    return await render_template('split_screen2.html', report_data=report_data, sources_data=sources_data)
 
-def reportConversion(file_path):
-    try:
-        completed_process = subprocess.run(['python', file_path], capture_output=True, text=True)
-        if completed_process.returncode == 0:
-            app.logger.info("Execution successful. Output: %s", completed_process.stdout)
-        else:
-            app.logger.error(f"Error executing '{file_path}': {completed_process.stderr}")
-    except FileNotFoundError:
-        app.logger.error(f"Error: The file '{file_path}' does not exist.")
-    except Exception as e:
-        app.logger.error(f"Unexpected error: {e}")
-
-@app.errorhandler(404)
-def not_found(e):
-    return render_template("404.html"), 404
-
+@app.route('/process_next', methods=['POST'])
+async def process_next():
+    data = await request.json
+    keywords = data.get('keywords', '')
+    selected_words = data.get('selectedWords', '')
+    
+    # Print to terminal
+    print(f"Keywords: {keywords}")
+    print(f"Selected Words: {selected_words}")
+    
+    # Write to input.txt
+    async with aiofiles.open('data/userInput/input.txt', 'w') as file:
+        await file.write(f"Keywords:\n{keywords}\n\nSelected Words:\n{selected_words}\n")
+    
+    # Store selected categories in session
+    session['selected_categories'] = selected_words.split(',')
+    
+    return jsonify({"status": "success"})
 
 if __name__ == '__main__':
     app.run(debug=True)
