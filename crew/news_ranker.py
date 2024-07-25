@@ -13,10 +13,10 @@ if not openai_api_key:
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
-category = './reports/processed_articles/cleaned_exploration_news_report'
+category = './reports/FINAL_Filter_by_keywords.json'
 # Define file paths
-input_file_path = os.path.join(os.getcwd(), f'{category}.json')
-output_file_path_rank = os.path.join(os.getcwd(), './reports/news_ranking.json')
+input_file_path = os.path.join(os.getcwd(), './reports/FINAL_Filter_by_keywords.json')
+output_file_path_rank = os.path.join(os.getcwd(), './Data/reports/sources/sources_ranked.json')
 
 # class JsonSaverTool(BaseTool):
 #     name: str = "JsonSaverTool"

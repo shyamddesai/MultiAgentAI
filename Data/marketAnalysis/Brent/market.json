@@ -1,10 +1,1 @@
-[
-    {
-        "currentPrice": "112",
-        "movingAverage": "67",
-        "trend": [
-            "Bullish"
-        ]
-    }
-]
-
+[{"commodity": "Brent", "currentPrice": 74.67, "movingAverage": 73.2085, "trend": ["bullish"]}]

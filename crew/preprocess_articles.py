@@ -197,11 +197,10 @@ def process_articles(json_file):
     split_articles(output_file)
 
 def split_articles(json_file):
-    category = os.path.splitext(os.path.basename(json_file))[0].replace('cleaned_', '').replace('_news_report', '')
     with open(json_file, 'r') as file:
         data = json.load(file)
 
-    output_dir = f'./reports/processed_articles/{category}/'
+    output_dir = f'./reports/processed_articles/'
     if not os.path.exists(output_dir):
         os.makedirs(output_dir) 
 
@@ -210,8 +209,10 @@ def split_articles(json_file):
         if content is not None:
             with open(output_dir + f'content_{index}.json', 'w') as outfile:
                 json.dump(content, outfile, indent=4)
+                print("lol")
         else:
             print(f"Warning: No 'content' key found in entry {index}")
+
 
 def process_all_json_files(directory):
     for filename in os.listdir(directory):
@@ -220,4 +221,5 @@ def process_all_json_files(directory):
             print(f"\n\nProcessing file: {file_path}")
             process_articles(file_path)
 
-process_all_json_files('./reports/categorized_news_reports')
+# process_articles('C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/categorized_news_reports/company_news_news_report.json')
+# process_all_json_files('./reports/categorized_news_reports')
