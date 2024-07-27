@@ -154,43 +154,49 @@ crew_sentiment = Crew(
 
 
 # Prompt user to select a commodity
-selected_commodity = input(f"Select a commodity from the list: {', '.join(commodity_list)}\n")
+# selected_commodity = input(f"Select a commodity from the list: {', '.join(commodity_list)}\n")
 
-output_file_path_market = os.path.join(os.getcwd(), f'./Data/marketAnalysis/{selected_commodity}/market.json')
+def marketAnalysis(selected_commodity):
+    # output_file_path_market = os.path.join(os.getcwd(), f'./Data/marketAnalysis/{selected_commodity}/market.json')
 
-directory_path = f'./Data/marketAnalysis/{selected_commodity}'
+    directory_path = f'./Data/marketAnalysis/{selected_commodity}'
 
-market_analysis_agent = Agent(
-    role='Market Analyst',
-    goal=f'Analyze market trends for {selected_commodity}',
-    backstory="""You are a seasoned Market Analyst with deep insights into commodity markets.
-                 You can quickly identify whether the market is bullish or bearish.""",
-    verbose=True,
-    allow_delegation=False,
-    tools=[market_analysis_tool]
-)
+    market_analysis_agent = Agent(
+        role='Market Analyst',
+        goal=f'Analyze market trends for {selected_commodity}',
+        backstory="""You are a seasoned Market Analyst with deep insights into commodity markets.
+                    You can quickly identify whether the market is bullish or bearish.""",
+        verbose=True,
+        allow_delegation=False,
+        tools=[market_analysis_tool]
+    )
 
-market_analysis_task = Task(
-    description=selected_commodity,
-    expected_output='A JSON file containing the market analysis for the selected commodity.' 
-                    'Take the exact output of the market analysis tool and provide the currrent price, moving average, and trend only.'
-                    'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks to define the atrributes, commas to split attributes, does not contain the word json, no double quotation marks at the beginning, and no unnecessary backslashes.'
-                    'Here is an example of the expected JSON output: [{"commodity": WTI, "currentPrice": 100, "movingAverage": 90, "trend": ["Bearish"]}]',
-    output_file=directory_path+f'/market.json',
-    agent=market_analysis_agent,
-)
+    market_analysis_task = Task(
+        description=selected_commodity,
+        expected_output='A JSON file containing the market analysis for the selected commodity.' 
+                        'Take the exact output of the market analysis tool and provide the currrent price, moving average, and trend only.'
+                        'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks to define the atrributes, commas to split attributes, does not contain the word json, no double quotation marks at the beginning, and no unnecessary backslashes.'
+                        'Here is an example of the expected JSON output: [{"commodity": WTI, "currentPrice": 100, "movingAverage": 90, "trend": ["Bearish"]}]',
+        output_file=directory_path+f'/market.json',
+        agent=market_analysis_agent,
+    )
 
-# Initialize the Crew
-crew_market = Crew(
-    agents=[market_analysis_agent],
-    tasks=[market_analysis_task],
-    process=Process.sequential,
-    verbose=True
-)
+    # Initialize the Crew
+    crew_market = Crew(
+        agents=[market_analysis_agent],
+        tasks=[market_analysis_task],
+        process=Process.sequential,
+        verbose=True
+    )
+
+    crew_market.kickoff()
 
 # Kick off the market crew to perform the task
 # try:
-# result = crew_market.kickoff()
+
+for selected_commodity in selected_commodities:
+    marketAnalysis(selected_commodity)
+
     # print(f"Report saved to {output_file_path_market}")
 # except Exception as e:
 # print(f"An error occurred: {e}")
