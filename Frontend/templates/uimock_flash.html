@@ -205,7 +205,7 @@
             <a href="/" class="flex flex-col items-center">
                 <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo">
             </a>
-            <a href="/market-prediction" class="flex flex-col items-center">
+            <a href="/" class="flex flex-col items-center">
                 <h3>NewsBridge</h3>
             </a>
         </div>
@@ -222,7 +222,7 @@
                 </button>
                 <div id="suggestions" class="suggestions"></div>
             </div>
-            <form action="{{ url_for('process_keywords') }}" method="POST" id="selectionForm">
+            <form action="#" method="POST" id="selectionForm">
                 <input type="hidden" name="typed_lines" id="typedLines">
             </form>
             <div class="hint">?</div>
@@ -230,7 +230,7 @@
         </div>
         <div class="card p-6 rounded-lg shadow-lg text-center">
             <h1 class="title mb-4">Categories</h1>
-            <form action="{{ url_for('process_selection') }}" method="POST" id="selectionForm">
+            <form action="#" method="POST" id="selectionForm">
                 <div class="bubble-container" id="bubbleContainer">
                     <!-- Bubbles will be added here by JavaScript -->
                 </div>
@@ -332,7 +332,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const words = ["Brent", "WTI", "RBOB", "EBOB", "CBOB", "Europe Gasoil"];
+            const words = ["Brent", "WTI"];
             const bubbleContainer = document.getElementById('bubbleContainer');
             const selectionForm = document.getElementById('selectionForm');
             const selectedWordsInput = document.getElementById('selectedWords');
