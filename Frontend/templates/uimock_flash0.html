@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keywords</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/uimock_flash.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
+
+        body {
+            font-family: 'SF Pro Text', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensure particles are behind other content */
+        }
+
+        .custom-nav {
+            background: rgba(255, 255, 255, 0.2); /* Increased transparency */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Translucent border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            backdrop-filter: blur(10px); /* Glass-like blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border-radius: 30px; /* More rounded corners */
+            position: fixed; /* Fixed position */
+            top: 1rem; /* Distance from the top */
+            right: 1rem; /* Distance from the right */
+            z-index: 1000; /* Ensure it stays on top */
+        }
+        .custom-nav a {
+            color: #000000;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem; /* Increased padding */
+            font-size: 1.25rem; /* Increased font size */
+            border-radius: 50%; /* Make hover effect round */
+        }
+        .custom-nav a:hover {
+            color: #FE2C55;
+            background-color: rgba(254, 44, 85, 0.2); /* Darker background */
+            box-shadow: 0 0 15px rgba(254, 44, 85, 0.5); /* Darker and more pronounced shadow */
+            transform: scale(1.1); /* Slightly enlarge the element */
+        }
+        .custom-nav .separator {
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.3); /* Subtle line color */
+            height: 100%;
+            margin: 0 0.5rem; /* Increased margin */
+        }
+
+        .primary-color {
+            background-color: #FE2C55; /* Primary color */
+        }
+        .dark-gray-color {
+            background-color: #8E8E93; /* Dark gray color */
+        }
+        .strikeout {
+            text-decoration: line-through;
+            transition: text-decoration 0.3s ease;
+        }
+        .button:disabled {
+            background-color: #d1d5db; /* Gray color for disabled state */
+            cursor: not-allowed;
+        }
+        .button:enabled {
+            background-color: #FE2C55; /* Primary color for enabled state */
+            cursor: pointer;
+        }
+
+        .suggestions {
+            border: none; /* Remove border */
+            max-height: 150px; /* Adjust max-height */
+            overflow-y: auto;
+            position: absolute;
+            width: 100%; /* Match width to input field */
+            z-index: 1000;
+            background: white; /* Solid background */
+            margin-top: 0.5rem; /* Space between input and suggestions */
+            font-size: 1rem; /* Default font size */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border-radius: 4px; /* Rounded corners */
+            left: 0; /* Position to the left of the input field */
+        }
+        .suggestion-item {
+            padding: 0.5rem; /* Default padding */
+            cursor: pointer;
+            font-size: 1rem; /* Default font size */
+        }
+        .suggestion-item:hover {
+            background-color: #f0f0f0; /* Light gray hover background */
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div> <!-- Particles container -->
+
+    <nav class="custom-nav text-white rounded-full w-auto">
+        <div class="flex justify-around p-2">
+            <a href="/" class="flex flex-col items-center">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="separator"></div> <!-- Separator line -->
+            <a href="/market-prediction" class="flex flex-col items-center">
+                <i class="fas fa-chart-line"></i>
+            </a>
+            <div class="separator"></div> <!-- Separator line -->
+            <a href="/news-analysis" class="flex flex-col items-center">
+                <i class="fas fa-newspaper"></i>
+            </a>
+            <div class="separator"></div> <!-- Separator line -->
+            <a href="/uimock_flash0" class="flex flex-col items-center">
+                <i class="fas fa-cogs"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="card p-6 rounded-lg shadow-lg text-center relative">
+        <h1 class="title mb-4">Enter Keywords</h1>
+        <p class="body mb-6">Type keywords one per line</p>
+        <div id="keywordsContainer" class="w-full p-2 border border-gray-300 rounded mb-4 h-32 overflow-y-auto"></div>
+        <div class="flex items-center mb-4 relative">
+            <input type="text" id="searchInput" class="flex-grow p-2 border border-gray-300 rounded-l" placeholder="Search..." oninput="showSuggestions()">
+            <button class="ml-2 p-2 primary-color text-white rounded-full w-10 h-10 flex items-center justify-center" onclick="addKeyword()">
+                <i class="fas fa-plus"></i>
+            </button>
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+        <form action="{{ url_for('process_keywords') }}" method="POST" id="selectionForm">
+            <input type="hidden" name="typed_lines" id="typedLines">
+            <button type="submit" class="button continue-button text-white" id="continueButton" disabled>Continue</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="{{ url_for('static', filename='js/uimock_flash.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js library -->
+    <script>
+        async function fetchKeywords() {
+            const response = await fetch('/suggest_keywords');
+            return response.json();
+        }
+
+        async function showSuggestions() {
+            const searchInput = document.getElementById('searchInput');
+            const suggestionsContainer = document.getElementById('suggestions');
+            const keywords = await fetchKeywords();
+            const query = searchInput.value.toLowerCase();
+
+            suggestionsContainer.innerHTML = '';
+            if (query) {
+                const filteredKeywords = keywords.filter(keyword => keyword.toLowerCase().includes(query));
+                filteredKeywords.forEach(keyword => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.className = 'suggestion-item';
+                    suggestionItem.textContent = keyword;
+                    suggestionItem.onclick = () => {
+                        searchInput.value = keyword;
+                        suggestionsContainer.innerHTML = '';
+                    };
+                    suggestionsContainer.appendChild(suggestionItem);
+                });
+            }
+        }
+
+        function addKeyword() {
+            const searchInput = document.getElementById('searchInput');
+            const keywordsContainer = document.getElementById('keywordsContainer');
+            const keyword = searchInput.value.trim();
+
+            if (keyword) {
+                const keywordDiv = document.createElement('div');
+                keywordDiv.className = 'keyword-item p-2 mb-2 bg-gray-100 rounded cursor-pointer';
+                keywordDiv.textContent = keyword;
+                keywordDiv.addEventListener('mouseover', () => {
+                    keywordDiv.classList.add('strikeout');
+                });
+                keywordDiv.addEventListener('mouseout', () => {
+                    keywordDiv.classList.remove('strikeout');
+                });
+                keywordDiv.addEventListener('click', () => {
+                    keywordsContainer.removeChild(keywordDiv);
+                    toggleContinueButton();
+                });
+                keywordsContainer.appendChild(keywordDiv);
+                searchInput.value = '';
+                toggleContinueButton();
+            }
+        }
+
+        function toggleContinueButton() {
+            const keywordsContainer = document.getElementById('keywordsContainer');
+            const continueButton = document.getElementById('continueButton');
+            const typedLines = document.getElementById('typedLines');
+            const keywords = Array.from(keywordsContainer.children).map(child => child.textContent).join('\n');
+            typedLines.value = keywords;
+            continueButton.disabled = keywordsContainer.children.length === 0;
+        }
+
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
