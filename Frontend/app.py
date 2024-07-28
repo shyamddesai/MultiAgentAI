@@ -21,6 +21,13 @@ async def add_header(response):
 async def home():
     return await render_template('uimock_flash.html')
 
+@app.route('/static_page')
+async def static_page():
+    return await render_template('static_page.html')
+
+@app.route('/loading')
+async def loading():
+    return redirect(url_for('feed'))
 
 @app.route('/feed')
 async def feed():
@@ -29,21 +36,26 @@ async def feed():
     market_analysis_dir = 'data/marketAnalysis'
     market_data = []
 
-    for filename in os.listdir(market_analysis_dir):
-        if filename.endswith('.json'):
-            file_path = os.path.join(market_analysis_dir, filename)
-            with open(file_path, 'r') as file:
-                try:
-                    data = json.load(file)
-                    market_data.append({
-                        "filename": os.path.splitext(filename)[0],
-                        "data": data.get('Data', {})
-                    })
-                except json.JSONDecodeError:
-                    market_data.append({
-                        "filename": os.path.splitext(filename)[0],
-                        "data": {"Current Price": "N/A", "Moving Average": "N/A", "Trend": "N/A"}
-                    })
+    for subdir in os.listdir(market_analysis_dir):
+        subdir_path = os.path.join(market_analysis_dir, subdir)
+        if os.path.isdir(subdir_path):
+            report_path = os.path.join(subdir_path, 'report.json')
+            if os.path.exists(report_path):
+                async with aiofiles.open(report_path, 'r') as file:
+                    try:
+                        data = json.loads(await file.read())
+                        if isinstance(data, list) and len(data) > 0:
+                            # Convert trend list to a string
+                            data[0]['trend'] = ', '.join(data[0]['trend']) if 'trend' in data[0] else 'N/A'
+                            market_data.append({
+                                "filename": subdir,
+                                "data": data[0]  # Assuming we want the first object in the array
+                            })
+                    except json.JSONDecodeError:
+                        market_data.append({
+                            "filename": subdir,
+                            "data": {"commodity": "N/A", "currentPrice": "N/A", "movingAverage": "N/A", "trend": "N/A"}
+                        })
                     
     print(market_data)
     return await render_template('feed.html', keywords=keywords, current_date=current_date, market_data=market_data)
