@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing DVD Logo</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            overflow: hidden;
+        }
+
+        .dvd-logo {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('/static/images/dvd_logo.png') no-repeat center center;
+            background-size: contain;
+            animation: bounce 3s linear infinite;
+        }
+
+        @keyframes bounce {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(100vw - 100px), 0); }
+            50% { transform: translate(calc(100vw - 100px), calc(100vh - 100px)); }
+            75% { transform: translate(0, calc(100vh - 100px)); }
+            100% { transform: translate(0, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="dvd-logo"></div>
+    <script>
+        // Redirect to the feed page after 5 minutes (300000 milliseconds)
+        setTimeout(function() {
+            window.location.href = "/loading";
+        }, 3000);
+    </script>
+</body>
+</html>

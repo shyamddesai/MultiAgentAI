@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Screen JSON Viewer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
+        body, p, ul, li, h4, .left, .right { font-family: 'SF Pro Text', sans-serif; }
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'SF Pro Text', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        .split {
+            height: 100%;
+            position: fixed;
+            overflow: auto;
+        }
+        .left {
+            width: 75%;
+            left: 0;
+            background-color: #000000;
+            color: #ffffff;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            padding: 45px;
+        }
+        .right {
+            width: 25%;
+            right: 0;
+            background-color: #c7c4c3;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            padding: 25px;
+        }
+        .json-container {
+            padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'SF Pro Text', sans-serif;
+            border: dotted;
+        }
+        .highlight {
+            background-color: yellow;
+            transition: background-color 0.5s ease;
+        }
+        .source-link {
+            color: #000000;
+            text-transform: uppercase;
+            padding: 0%;
+            text-decoration: underline;
+            background-color: #ffffff;
+        }
+        .json-container ul{
+            padding: 0%;
+        }
+        .source-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            margin-left: 0;
+            display: flex;
+            flex-direction: column;
+            list-style-type: disc;
+        }
+        .right .source-item {
+            list-style-type: disc;
+        }
+        .source-item strong {
+            font-size: 14px;
+        }
+        .source-item span {
+            font-size: 12px;
+        }
+        .source-item a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 14px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .relevancy-score {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            text-align: left;
+        }
+        .relevancy-reasoning {
+            visibility: hidden;
+            width: 250px;
+            background-color: #f9f9f9;
+            color: #000;
+            text-align: left;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -125px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        .relevancy-score:hover .relevancy-reasoning {
+            visibility: visible;
+        }
+        /* Reduce space between points on the report side */
+        .left .json-container ul li {
+            margin-bottom: 5px;
+            padding-left: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            line-height: 0.5em;
+        }
+        li {
+            margin: 0;
+            padding: 0;
+            line-height: 1em;
+        }
+        p {
+            line-height: 1em;
+        }
+        span, a, strong {
+            padding: 0;
+        }
+        .sentiment-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .sentiment-positive {
+            background-color: green;
+        }
+        .sentiment-neutral {
+            background-color: yellow;
+        }
+        .sentiment-negative {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('feed') }}" class="back-button">&larr; Back to Feed</a>
+    <div class="split left" id="left-content">
+        <div class="json-container">
+            <h3>Highlights</h3>
+            {% for highlights in highlights_data %}
+            <ul>
+                <li>{{ highlights['Highlight Paragraph'] }}</li>
+            </ul>
+            {% endfor %}
+            {% for article in report_data %}
+                <h4><a href="#" class="source-link" data-title="{{ article['title'] }}">{{ article['title'] }}</a></h4>
+                <ul>
+                    {% for point in article['keypoints'] %}
+                        <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="split right" id="right-content">
+        <div class="json-container">
+            <h2> Sources</h2>
+            <ul>
+                {% for article in sources_data %}
+                    <li id="source-{{ loop.index }}" class="source-item">
+                        <a href="{{ article['Link'] }}" target="_blank">{{ article['Title'] }} <span class="sentiment-dot sentiment-{{ article['Sentiment'] }}"></span></a><br>
+                        <span><strong>Published:</strong> {{ article['Published'] }}</span><br>
+                        <span class="relevancy-score">
+                            <span class="relevancy-reasoning">{{ article['Relevancy reasoning'] }}</span>
+                            <strong>Relevancy Score:</strong> {{ article['Relevancy Score'] }}
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sourceLinks = document.querySelectorAll('.source-link');
+            const sources = document.querySelectorAll('.source-item');
+
+            sourceLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const title = this.getAttribute('data-title').split(' ').slice(0, 5).join(' ').toLowerCase();
+
+                    sources.forEach(source => {
+                        const sourceTitle = source.querySelector('a').textContent.split(' ').slice(0, 5).join(' ').toLowerCase();
+                        if (sourceTitle === title) {
+                            source.classList.add('highlight');
+                            setTimeout(() => {
+                                source.classList.remove('highlight');
+                            }, 2000);
+                            source.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Screen JSON Viewer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .split {
+            height: 100%;
+            position: fixed;
+            overflow: auto;
+        }
+        .left {
+            width: 70%; /* Adjusted width to 60% */
+            left: 0;
+            background-color: #f1f1f1;
+        }
+        .right {
+            width: 30%; /* Adjusted width to 40% */
+            right: 0;
+            background-color: #ffffff;
+        }
+        .json-container {
+            padding: 10px; /* Reduced padding */
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+        }
+        .highlight {
+            background-color: yellow;
+            transition: background-color 0.5s ease;
+        }
+        .source-item {
+            margin-bottom: 15px; /* Increase space between source items */
+            padding-left: 20px; /* Add padding for bullet points */
+            margin-left: 0; /* Remove margin */
+            display: flex;
+            flex-direction: column;
+            list-style-type: disc; /* Add bullet points */
+        }
+        .right .source-item {
+            list-style-type: disc; /* Ensure bullet points are shown */
+        }
+        .source-item strong {
+            font-size: 14px; /* Reduced font size */
+        }
+        .source-item span {
+            font-size: 12px; /* Reduced font size */
+        }
+        .source-item a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .source-item a:hover {
+            text-decoration: underline;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background-color: #000;
+            color: #fff;
+            font-size: 14px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #333;
+        }
+        .relevancy-score {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .relevancy-reasoning {
+            visibility: hidden;
+            width: 250px; /* Reduced width */
+            background-color: #f9f9f9;
+            color: #000;
+            text-align: left;
+            border-radius: 6px;
+            padding: 5px; /* Reduced padding */
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the text */
+            left: 50%;
+            margin-left: -125px; /* Adjusted to match reduced width */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        .relevancy-score:hover .relevancy-reasoning {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('feed') }}" class="back-button">&larr; Back to Feed</a>
+    <div class="split left" id="left-content">
+        <div class="json-container">
+            <h2>{{ content_data['content title'] }}</h2>
+            <h3>Summary of Articles</h3>
+            {% for article in content_data['summary_of_articles'] %}
+                <h4>{{ article['title'] }}</h4>
+                <p><strong>Source:</strong> {{ article['source'] }}</p>
+                <ul>
+                    {% for point in article['key_points'] %}
+                        <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+                <hr>
+            {% endfor %}
+            <h3>Conclusion</h3>
+            <h4>Global Trade Patterns</h4>
+            <ul>
+                {% for point in content_data['conclusion']['global_trade_patterns'] %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+            <h4>Implications for ADNOC Global Trading</h4>
+            <ul>
+                {% for point in content_data['conclusion']['implications_for_adnoc_global_trading'] %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="split right" id="right-content">
+        <div class="json-container">
+            <h2>   Sources Cited</h2>
+            <ul>
+                {% for article in news_data %}
+                    <li id="source-{{ loop.index }}" class="source-item">
+                        <strong><a href="{{ article['Link'] }}" target="_blank">{{ article['Title'] }}</a></strong><br>
+                        <span><strong>Published:</strong> {{ article['Published'] }}</span><br>
+                        <span class="relevancy-score">
+                            <strong>Relevancy Score:</strong> {{ article['Relevancy Score'] }}
+                            <span class="relevancy-reasoning">{{ article['Relevancy Reasoning'] }}</span>
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sourceLinks = document.querySelectorAll('.source-link');
+            sourceLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const sourceId = this.getAttribute('data-source-id');
+                    const sourceElement = document.getElementById(`source-${sourceId}`);
+                    if (sourceElement) {
+                        sourceElement.classList.add('highlight');
+                        setTimeout(() => {
+                            sourceElement.classList.remove('highlight');
+                        }, 2000);
+                        sourceElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
