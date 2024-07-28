@@ -41,7 +41,7 @@ async def feed():
         if os.path.isdir(subdir_path):
             report_path = os.path.join(subdir_path, 'report.json')
             if os.path.exists(report_path):
-                async with aiofiles.open(report_path, 'r') as file:
+                async with aiofiles.open(report_path, 'r', encoding='utf-8') as file:
                     try:
                         data = json.loads(await file.read())
                         if isinstance(data, list) and len(data) > 0:
@@ -73,13 +73,13 @@ async def suggest_keywords():
 
 @app.route('/split-screen2')
 async def split_screen2():
-    async with aiofiles.open('data/reports/reports/highlights.json') as highlights_file:
+    async with aiofiles.open('data/reports/reports/highlights.json', 'r', encoding='utf-8') as highlights_file:
         highlights_data = orjson.loads(await highlights_file.read())
         
-    async with aiofiles.open('data/reports/reports/report.json') as report_file:
+    async with aiofiles.open('data/reports/reports/report.json', 'r', encoding='utf-8') as report_file:
         report_data = orjson.loads(await report_file.read())
         
-    async with aiofiles.open('data/reports/sources/sources_sentiment.json') as sources_file:
+    async with aiofiles.open('data/reports/sources/sources_sentiment.json', 'r', encoding='utf-8') as sources_file:
         sources_data = orjson.loads(await sources_file.read())
     return await render_template('split_screen2.html', highlights_data=highlights_data, report_data=report_data, sources_data=sources_data)
 
