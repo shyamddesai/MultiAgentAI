@@ -55,7 +55,6 @@ news_ranker = Agent(
 )
 
 
-
 # Define the task for the News Ranker agent
 news_rank_task = Task(
     description=(
@@ -68,8 +67,12 @@ news_rank_task = Task(
     ),
     expected_output=(
         'relevancy score and reasoning for each articles with keeping Title, Link, Published in json format.'
-        'dont include unnecessary words or character like "json" or "'". Here is an example of the "
-        'expected JSON output: [{"Title":, "Link":, "Published":, "Relevancy Score":, "Relevancy Reasoning":}].'
+        'do not include unnecessary words or character like "json" or "'"."
+        "Ensure the output is accurate to the JSON format i.e. use square bracket, double "
+        "quotation marks to define the atrributes, commas to split attributes, does not contain the word "
+        "json, no double quotation marks at the beginning, and no unnecessary backslashes."
+        "Here is an example of the "
+        'expected JSON output: [{"Title":, "Link":, "Published":, "Relevancy Score":, "Relevancy reasoning":}].'
     ),
     agent=news_ranker,
     output_file=output_file_path_rank,

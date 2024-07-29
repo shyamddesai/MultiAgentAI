@@ -1,273 +1,307 @@
 [
     {
-        "title": "ICE Low Sulphur Gasoil markets hit series of OI records",
-        "source": "FX News Group",
+        "title": "US natural gas prices fall",
+        "source": "Business Recorder",
         "keypoints": [
-            "ICE Low Sulphur Gasoil markets achieved open interest records through June 2024.",
-            "Open interest reached 1.2 million across futures and options, equivalent to 120 million metric tons.",
-            "Year-over-year growth: futures and options open interest up over 40%, trading volumes up 30%.",
-            "ICE Gasoil options hit record open interest of 234,570 contracts.",
-            "In Q2 2024, 287,421 Gasoil options traded, contributing to a record 16.2 million oil options contracts at ICE.",
-            "ICE Gasoil is physically deliverable, with an average of over 100,000 tons entering the delivery process monthly in 2024.",
-            "ICE\u2019s global crude and refined product complex includes significant benchmarks like Brent crude and ICE Murban.",
-            "The global oil complex open interest at ICE is up over 20%, totaling 14 million contracts."
-        ]
-    },
-    {
-        "title": "NNPC Ltd Declares State of Emergency on Crude Oil Production",
-        "source": "NNPC Ltd",
-        "keypoints": [
-            "NNPC Ltd declared a state of emergency to boost Nigeria's crude oil production and reserves.",
-            "Aims to produce 2 million barrels of crude oil per day without new rigs.",
-            "Focus on overcoming delays in procurement processes and other production obstacles.",
-            "Plans to replace old crude oil pipelines and introduce a rig-sharing program to retain rigs in-country.",
-            "NNPC Ltd is investing in midstream gas infrastructure to boost domestic gas production and supply.",
-            "The company is also advancing in the Compressed Natural Gas (CNG) sector, commissioning new CNG stations.",
-            "Calls for industry collaboration to reduce production costs and boost output.",
-            "Emphasized commitment to critical infrastructure projects like the OB3 and Ajaokuta-Kaduna-Kano gas pipelines."
-        ]
-    },
-    {
-        "title": "EIA reports surge in Iraqi oil exports to the US",
-        "source": "Shafaq News",
-        "keypoints": [
-            "Iraqi oil exports to the US increased to an average of 217,000 barrels per day (bpd) last week.",
-            "This marks an increase of 22,000 bpd from the previous week's average of 195,000 bpd.",
-            "The US crude oil imports from nine key countries reached 5.635 million bpd, up by 235,000 bpd from the previous week.",
-            "Canada led US oil imports with 3.889 million bpd, followed by Mexico and Saudi Arabia.",
-            "EIA data indicates significant contributions from other countries like Colombia, Brazil, Nigeria, Ecuador, and Libya."
-        ]
-    },
-    {
-        "title": "Oil Price Update - Oil Prices Hold Firm as Chinese Demand Concerns Rise",
-        "source": "MarketPulse",
-        "keypoints": [
-            "Oil prices remain stable despite a turbulent weekend and a strong US dollar.",
-            "Chinese economic data, including disappointing GDP growth and declining refinery output, raises concerns about oil demand.",
-            "Technical analysis suggests potential for a triple bottom pattern in oil prices, with key support and resistance levels identified.",
-            "Chinese GDP growth slowed to 0.7% quarter-on-quarter in Q2, down from 1.6% in Q1, below market expectations.",
-            "Chinese refinery output declined for the third consecutive month due to planned maintenance and weak fuel demand.",
-            "Crude oil imports for June dropped 11% while H1 imports were down 2.3% YoY.",
-            "The Chinese share of global oil demand growth is declining to 40% this year from last year's 70%.",
-            "US and Europe are in the middle of the peak driving season, leading to high demand for petroleum and other oil-related products.",
-            "Geopolitics remains a concern and could impact oil prices."
-        ]
-    },
-    {
-        "title": "India's crude oil imports from Russia at 12-month high in June",
-        "source": "The Hindu BusinessLine",
-        "keypoints": [
-            "India's crude oil imports from Russia rose to 1.97 million barrels per day in June 2024, the highest since July 2023.",
-            "Imports from Russia were up by 15% month-on-month and 2% year-on-year.",
-            "Public refiners such as IOCL, BPCL, and HPCL imported 1.10 mbpd crude oil, a 12-month high.",
-            "Private refiners Reliance Industries and Rosneft-backed Nayara Energy imported a record 871,200 barrels per day from Russia in June 2024.",
-            "India's crude imports have remained robust at 4.62 mbpd in June.",
-            "Imports from traditional suppliers in West Asia, such as Iraq and Saudi Arabia, declined.",
-            "Crude oil shipments from the US continued to rise for the second consecutive month in June 2024."
-        ]
-    },
-    {
-        "title": "Dangote refinery begins gasoil exports to West African countries, as imports from Europe decline",
-        "source": "Nairametrics",
-        "keypoints": [
-            "Dangote refinery in Nigeria is increasing gasoil exports to West Africa, reducing reliance on European imports.",
-            "The refinery's output of gasoil reached nearly 100,000 barrels per day in May, doubling April's levels.",
-            "European gasoil exports to West Africa hit a four-year low in May, while Russian exports to the region also declined.",
-            "The Petroleum Industry Bill in Nigeria mandates a sulphur content of 50 ppm, but the local market temporarily allowed higher sulphur content.",
-            "The refinery aims to supply West and Central African countries once fully operational, potentially reducing $17 billion in oil imports."
-        ]
-    },
-    {
-        "title": "Oil prices surge amid political uncertainty, geopolitical tensions",
-        "source": "MENAFN",
-        "keypoints": [
-            "Oil prices saw a modest increase due to geopolitical uncertainty in the U.S. and Middle East, despite pressures from a stronger dollar and subdued Chinese demand.",
-            "Brent crude futures increased to USD85.18 per barrel, while West Texas Intermediate crude rose to USD82.41 per barrel.",
-            "The attempted assassination of U.S. presidential candidate Donald Trump added to market uncertainty.",
-            "Ongoing geopolitical risks in the Middle East and continuing supply cuts by OPEC+ supported oil prices.",
-            "China's economic slowdown and reduced crude oil imports have exerted downward pressure on oil prices."
-        ]
-    },
-    {
-        "title": "Global Oil Prices Inched Down amid China's Slowing Economy",
-        "source": "Tempo.co",
-        "keypoints": [
-            "Global oil prices fell due to concerns over declining demand from China amid its economic slowdown.",
-            "Brent crude fell to US$84.76 per barrel, and West Texas Intermediate (WTI) crude dropped to US$81.78 per barrel.",
-            "China's economy grew at a slower-than-expected rate of 4.7 percent in Q2 2024.",
-            "China's oil refinery output fell 3.7 percent in June due to planned maintenance and poor refining margins.",
-            "Fed Chair Jerome Powell's comments about U.S. inflation suggested potential for lower interest rates, which could increase oil demand."
-        ]
-    },
-    {
-        "title": "Adnoc expands Zakum offshore drilling fleet, output boost from 2026",
-        "source": "Quantum Commodity Intelligence",
-        "keypoints": [
-            "Adnoc is set to boost production from the giant offshore Zakum field with further ramp-up from 2026.",
-            "The expansion includes awarding a $412m drilling contract for Upper Zakum.",
-            "Adnoc Logistics and Services has been awarded its first major contract for a new Lower Zakum island.",
-            "Adnoc is increasing the volumes of medium sour Upper Zakum crude to its Ruwais refining complex."
-        ]
-    },
-    {
-        "title": "Quick Resolution Of IOCs Divestment Will Boost Crude Oil Production, Independent Producers Tells FG",
-        "source": "The Whistler Newspaper",
-        "keypoints": [
-            "The IPPG chairman calls for expedited resolution of IOC divestments to unlock crude oil production up to 2.5 million barrels per day.",
-            "Approval of IOC divestment is seen as a way to restore global investor confidence in Nigeria.",
-            "Despite Nigeria's large hydrocarbon resources, current production is significantly below capacity.",
-            "Advocates for deepwater development to unlock incremental production of 700,000 barrels per day.",
-            "Emphasizes the need for domestic refining and petrochemical capacity to transform Nigeria into a net exporter."
-        ]
-    },
-    {
-        "title": "OPEC: Global crude oil demand will rise to 116m bpd in 2045",
-        "source": "TV360 Nigeria",
-        "keypoints": [
-            "OPEC projects global oil demand to reach 116 million barrels per day by 2045.",
-            "World economy expected to grow from $138 trillion in 2023 to $270 trillion in 2045.",
-            "Total oil-related investment requirements between 2024 and 2045 estimated at $14 trillion.",
-            "OPEC emphasizes the need for significant investment to maintain supply security and avoid volatility.",
-            "675 million people currently lack access to basic energy forms; 2.3 billion without access to clean cooking fuels."
-        ]
-    },
-    {
-        "title": "Dangote Refinery to source crude oil from other African countries after imports from US, Brazil",
-        "source": "Nairametrics",
-        "keypoints": [
-            "Dangote Refinery plans to source crude oil from African countries like Angola, Senegal, and Libya.",
-            "Recent imports from the US and Brazil are expected to supply the refinery in the coming months.",
-            "Local refineries in Nigeria face challenges in securing crude due to preferences for export by IOCs.",
-            "Dangote Refinery aims to start production of petrol by mid-July and significantly reduce Nigeria's dependency on imported petroleum products.",
-            "Regulatory bodies insist IOCs meet local demand before exporting."
-        ]
-    },
-    {
-        "title": "Oil futures: Crude prices extend losses on economic, demand concerns",
-        "source": "Quantum Commodity Intelligence",
-        "keypoints": [
-            "Crude oil futures are declining due to concerns over broader economic growth, despite prospects for a US rate cut in September.",
-            "Federal Reserve Chair Jerome Powell indicated rate cuts could happen before inflation hits 2%, which could drive economic growth and oil consumption.",
-            "Chinese GDP figures were disappointing, and crude oil throughput in China is decreasing due to thin margins.",
-            "Weak economic data from China negatively impacts crude oil market sentiment.",
-            "Concerns are rising that US oil demand peaked during the 4th of July holiday.",
-            "Ongoing geopolitical tensions, including attacks on regional shipping by Houthi militants, are being closely monitored.",
-            "The North Sea physical market is retreating, with Forties crude trading lower."
-        ]
-    },
-    {
-        "title": "Dangote Refinery: Crude oil supply options",
-        "source": "Blueprint Newspapers Limited",
-        "keypoints": [
-            "International oil companies (IOCs) operating in Nigeria have resisted establishing refineries, citing government-controlled pump prices as a deterrent.",
-            "Dangote Refinery, funded by international development banks, disproved the IOCs' claims and started operations in January 2024.",
-            "IOCs are reportedly sabotaging Dangote Refinery by refusing to sell crude oil or selling it at inflated prices.",
-            "As a result, Dangote Refinery imports crude oil from the USA despite Nigeria being a major crude oil producer.",
-            "The Nigerian Midstream and Downstream Petroleum Regulatory Authority (NMDPRA) allows independent marketers to import diesel, exacerbating high energy costs and inflation.",
-            "The Nigerian National Petroleum Company Limited (NNPCL) is criticized for not supplying crude oil to Dangote Refinery, which could alleviate Nigeria's energy cost crisis.",
-            "NNPCL's refusal to supply crude oil is linked to its interests in maintaining the petrol subsidy scandal.",
-            "There is potential for NNPCL to reroute crude oil exports to Dangote Refinery, benefiting Nigeria's economy and reducing reliance on foreign refiners."
-        ]
-    },
-    {
-        "title": "Spain May Crude Oil Imports Rise 23.5% Y/Y To 5.9 Mln Tonnes",
-        "source": "Reuters",
-        "keypoints": [
-            "Spain's crude oil imports in May increased by 23.5% year-on-year to 5.9 million tonnes.",
-            "The increase in crude oil imports is indicative of rising demand or adjustments in supply chains."
-        ]
-    },
-    {
-        "title": "New North Hamada Pipeline Boosts Libyan Oil Production",
-        "source": "Energy Capital & Power",
-        "keypoints": [
-            "A new pipeline from the North Hamada oil field in Libya has commenced operations.",
-            "The pipeline, developed by Nafusa Oil Operations, transports oil to the Mellitah oil port.",
-            "Production from the North Hamada field is expected to reach 8,000 barrels per day by mid-July and 10,000 barrels per day by next August.",
-            "The Libyan National Oil Corporation (NOC) aims to achieve a production rate of 2 million barrels per day by 2030."
+            "US natural gas futures held near a seven-week low due to market anticipation of a federal report showing smaller-than-usual storage builds for the eighth consecutive week.",
+            "Despite a bullish heat wave and increased gas usage for power generation, higher gas output in July and oversupply in storage have kept prices low.",
+            "Recent declines in front-month contracts led to an unusual premium for September futures over August.",
+            "Next-day gas prices at the Waha hub in West Texas dropped significantly due to pipeline constraints.",
+            "Gas output in the Lower 48 US states rose to an average of 101.8 billion cubic feet per day in July."
         ]
     },
     {
         "title": "NNPC Declares State of Emergency on Crude Oil Production",
         "source": "News Diary Online",
         "keypoints": [
-            "NNPC Ltd has declared a state of emergency on crude oil production in Nigeria to increase output and grow reserves.",
-            "The declaration was made by the Group Chief Executive Officer, Mr. Mele Kyari, at the Nigeria Oil & Gas Conference and Exhibition.",
-            "Nigeria has the potential to produce two million barrels of crude oil per day without new rigs, but delays and other challenges have impeded production.",
-            "NNPC Ltd plans to replace old crude oil pipelines and introduce a rig sharing program to improve production efficiency.",
-            "NNPC Ltd is committed to investing in critical midstream gas infrastructure and boosting domestic gas production for power generation and industrial development."
+            "NNPC Ltd. declared a state of emergency on Nigeria's crude oil production, aiming to increase output and grow reserves.",
+            "A detailed asset analysis revealed Nigeria could produce two million barrels of crude oil per day without new rigs, but timely action is required.",
+            "NNPC Ltd. plans to replace old pipelines and introduce a rig-sharing program to boost production efficiency.",
+            "The company is committed to investing in critical midstream gas infrastructure to enhance domestic gas production and supply.",
+            "NNPC Ltd. has also invested in Compressed Natural Gas (CNG) stations as part of the Presidential CNG drive."
         ]
     },
     {
-        "title": "Crude oil falls after weak Chinese growth",
-        "source": "London Business News | Londonlovesbusiness.com",
+        "title": "Williams project clears legal hurdle for Louisiana natural gas pipeline crossings",
+        "source": "10/12 Industry Report",
         "keypoints": [
-            "Crude oil prices fell slightly due to weak Chinese economic data.",
-            "West Texas Intermediate (WTI) dropped from $81.20 to $80.45 per barrel, while Brent crude declined to $83.80 per barrel.",
-            "China's year-on-year growth in the second quarter was 4.7%, lower than the forecasted 5.1%.",
-            "China's crude oil imports fell by 2.3% in the first half of the year, indicating weaker economic activity.",
-            "Despite weak Chinese demand, geopolitical factors have maintained stability in crude oil prices."
+            "A Louisiana court ruled in favor of Williams in its dispute with Energy Transfer LP, allowing the construction of the Louisiana Energy Gateway (LEG) pipeline crossings.",
+            "The LEG system is designed to supply LNG export terminals, crucial for the natural gas market.",
+            "Energy Transfer had attempted to block the construction, citing land use rights, but the court sided with Williams and its partners.",
+            "The ruling removes a significant obstacle for the LEG pipeline in northwestern Louisiana, facilitating natural gas transportation from the Haynesville Shale."
         ]
     },
     {
-        "title": "China's oil imports from Africa plunge amid shift to suppliers in Gulf, Asia and Russia - report",
-        "source": "The North Africa Post",
+        "title": "Selling Continues for Natural Gas Futures; California Cash Down Sharply Despite Heat",
+        "source": "Natural Gas Intelligence",
         "keypoints": [
-            "Major African oil suppliers are struggling with declining production and exports to China.",
-            "China's oil imports from Africa dropped from more than a third to about one-tenth by 2022.",
-            "Between 2019 and 2023, China's oil imports from Malaysia, the UAE, Kazakhstan, and Kuwait increased dramatically.",
-            "Angola, once China's No. 2 source of crude oil, has fallen to the eighth place.",
-            "Declines in China's oil imports from countries like South Sudan, Sudan, and Nigeria are due to geopolitical considerations, lack of investment, and domestic political problems.",
-            "China is increasingly turning to the more predictable production infrastructure of the Gulf countries, Russia, and other Asian countries."
+            "August natural gas futures declined for the sixth straight session due to cooler weather forecasts and weaker cash prices.",
+            "Natural gas futures dropped to $2.439/MMBtu.",
+            "Weaker cash prices were noted particularly at the SoCal Border and PG&E citygate.",
+            "Factors influencing prices include the U.S. Department of Energy lifting the LNG permit pause and ongoing impacts from former Hurricane Beryl."
+        ]
+    },
+    {
+        "title": "Egypt's gas production at 5.7 bln cubic feet per day, petroleum ministry spokesperson says",
+        "source": "Reuters",
+        "keypoints": [
+            "Egypt's gas production is currently at 5.7 billion cubic feet per day.",
+            "21 LNG cargos are scheduled to arrive in Egypt during the summer to meet heavy demand.",
+            "The first gas shipment of the summer has arrived and is being discharged.",
+            "Egypt's need to import natural gas and mazut fuel oil is driven by rising electricity demand and consecutive heatwaves.",
+            "The country plans to import around $1.18 billion worth of natural gas and mazut fuel oil to combat power cuts."
+        ]
+    },
+    {
+        "title": "July Bidweek Natural Gas Prices Rally as Summer Demand Expectations Escalate",
+        "source": "Natural Gas Intelligence",
+        "keypoints": [
+            "July bidweek natural gas prices increased due to strong early summer heat forecasts.",
+            "NGI's July Bidweek National Avg. rose 40.0 cents to $2.215/MMBtu.",
+            "Hot weather conditions across the Lower 48, particularly in the southern and southwestern regions, drove the price surge.",
+            "California and Southwest hubs saw significant price increases due to high demand and pipeline constraints.",
+            "Natural gas production remained high at around 100 Bcf/d, putting downward pressure on futures prices.",
+            "Rising LNG demand, particularly from new facilities along the Gulf Coast, could offset oversupply concerns."
+        ]
+    },
+    {
+        "title": "Natural Gas Futures Drift Lower After Light EIA Storage Print; Cash Weaker - MidDay Market Snapshot",
+        "source": "NGI",
+        "keypoints": [
+            "August natural gas futures were down 2.2 cents to $2.413/MMBtu.",
+            "U.S. Energy Information Administration (EIA) reports a seasonally light build of 32 Bcf for the week ending June 28.",
+            "Freeport LNG Development LP planned to restart at a reduced rate due to damage from Hurricane Beryl.",
+            "Prompt-month natural gas futures ended a three-day losing streak due to short sellers taking chips off the table.",
+            "August natural gas futures were trading lower after the latest weekly storage injection landed above historical levels.",
+            "Natural gas futures were narrowing losses amid extreme heat in the Western region of the U.S.",
+            "Natural gas futures flipped negative following a reduced forecast for Lower 48 heat.",
+            "Indications showed that the Gulf Coast avoided prolonged LNG terminal outages due to the weakened Beryl."
+        ]
+    },
+    {
+        "title": "Mexico Natural Gas Production Sees Uptick in May, But Still Off Year-Ago Levels",
+        "source": "NGI",
+        "keypoints": [
+            "Mexico's natural gas production increased to 3.85 Bcf/d in May from 3.76 Bcf/d in April.",
+            "Production was down 11% year/year.",
+            "Pemex produced 95% of total gas output in May.",
+            "Top gas-producing fields were Quesqui, Ixachi, Akal, Maloob, and Onel.",
+            "Associated gas tied to oil production averaged 1.99 Bcf/d.",
+            "The International Energy Agency forecasts a major decline in oil supply from Mexico between 2024 and 2030.",
+            "President-elect Claudia Sheinbaum intends to continue the energy policies of her predecessor.",
+            "Gas imports from the U.S. accounted for 72% of Mexico's total gas supply through June 19.",
+            "Mexico\u2019s overall gas demand down by 120 MMcf/d year/year.",
+            "Pemex reported a third straight sequential decline in dry gas production to 1.8 Bcf/d in May.",
+            "Mexico's IPGN monthly natural gas price index averaged $1.922/MMBtu in May 2024."
+        ]
+    },
+    {
+        "title": "Natural Gas Futures Crash Below Technical Support into Oversold Territory",
+        "source": "NGI",
+        "keypoints": [
+            "August natural gas futures settled at $2.478/MMBtu, down 21% from a six-month high.",
+            "EBW Analytics Group analyst indicated a lack of bullish market appetite.",
+            "Natural gas futures stumbled amid steady production levels and lighter mid-July demand expectations.",
+            "Energy executives forecast $3 Henry Hub price by early 2025.",
+            "Natural gas futures were knocked down due to Freeport LNG outage and moderated heat forecasts.",
+            "Short-covering noted as natural gas prices climbed during a session.",
+            "Natural gas forward prices faltered due to strong production and hefty supplies.",
+            "Natural gas futures seesawed as traders weighed severe heat against surpluses and slow recovery from Beryl."
+        ]
+    },
+    {
+        "title": "Bedford gas leak after drilling company hits natural gas pocket",
+        "source": "BBC",
+        "keypoints": [
+            "A drilling company caused a gas leak in Bedford after hitting a natural gas pocket.",
+            "Bedfordshire Fire and Rescue have been at the scene, with road closures expected until Thursday.",
+            "Nicholls Boreholes and Ground Source were drilling a borehole for a heat pump when they encountered the gas pocket.",
+            "The borehole was temporarily capped to control the gas flow.",
+            "Bedfordshire Police assisted with road closures and put a cordon in place."
+        ]
+    },
+    {
+        "title": "Natural Gas Futures Extend Losses as Forecasts Suggest Demand Risks While Production Rises",
+        "source": "Natural Gas Intelligence",
+        "keypoints": [
+            "Higher production and lower demand outlooks have caused losses for August Nymex natural gas futures.",
+            "Weather forecasts suggest a reduction in heat for later in July, further impacting demand.",
+            "The formation of the earliest Category 5 hurricane on record has stoked storm fears, influencing market sentiment.",
+            "Natural gas futures have experienced volatility due to steady production levels and fluctuating demand expectations.",
+            "Energy executives are forecasting a $3 Henry Hub price by early 2025, indicating a more bullish outlook.",
+            "Short-covering has led to temporary price rallies amidst overall bearish trends.",
+            "Strong production and hefty supplies in storage have overshadowed cooling demand, affecting forward prices.",
+            "The Freeport LNG outage has contributed to market uncertainty, impacting natural gas futures."
+        ]
+    },
+    {
+        "title": "Russian pipeline gas exports to EU up 24% y/y in Jan-June, gas group says",
+        "source": "Reuters",
+        "keypoints": [
+            "Russian natural gas exports via pipelines to the European Union have increased by 24% in the first half of the year compared to the same period in 2023.",
+            "The Gas Exporting Countries Forum (GECF) reports higher pipeline gas imports by the EU from Russia and Azerbaijan in each month of 2024.",
+            "Russian pipeline gas exports had previously plummeted to post-Soviet lows due to strained relations with the West over the Ukraine conflict.",
+            "Gazprom's average daily natural gas supplies to Europe jumped by almost 23% in June from a year earlier.",
+            "The current gas transit deal between Russia and Ukraine expires after December 31, with uncertainty surrounding its renewal.",
+            "Russia has signaled willingness to continue with the transit, but Ukraine has stated it would not renew the agreement."
+        ]
+    },
+    {
+        "title": "Natural Gas Futures Bearish By 18% In The Last 21 Sessions",
+        "source": "Via News",
+        "keypoints": [
+            "Natural gas futures have been bearish, down by 18.78% over the last 21 sessions.",
+            "The recent volume for natural gas was significantly below its average volume, indicating reduced trading activity.",
+            "Natural gas has experienced volatility, with a negative trend in the last week and month, and a positive trend in the last quarter.",
+            "China's reduced LNG imports due to price increases have impacted natural gas demand.",
+            "A US judge's ruling to lift the ban on new export licenses for LNG has added to market uncertainty.",
+            "Natural gas is considered overbought according to the stochastic oscillator, indicating potential for further price declines."
+        ]
+    },
+    {
+        "title": "Aethon completes acquisition of Tellurian upstream and midstream assets",
+        "source": "World Pipelines",
+        "keypoints": [
+            "Aethon Energy Management has successfully acquired Tellurian's integrated upstream assets, expanding its footprint in the Haynesville Shale.",
+            "Aethon's assets now include approximately 375,000 net acres with a gathering and treating capacity of over 3 billion cubic feet per day.",
+            "Aethon has signed a Heads of Agreement for 2 metric tons per annum of LNG from the Driftwood LNG project.",
+            "The acquisition aims to enhance Aethon's strategic footprint and generate compelling returns while supporting community operations.",
+            "Tellurian views the transaction as a significant step in securing their balance sheet and progressing the Driftwood LNG project.",
+            "The partnership between Aethon and Tellurian is crucial for securing buyers for Driftwood's remaining capacity and advancing its development.",
+            "The agreement highlights the role of US LNG as a global transition fuel and its importance in providing energy security."
+        ]
+    },
+    {
+        "title": "Waha Hub focus of area natural gas industry",
+        "source": "Odessa American",
+        "keypoints": [
+            "The Waha Hub is crucial for the Permian Basin's natural gas industry, connecting production to domestic and international destinations.",
+            "Gas prices at the Waha Hub have experienced significant volatility, sometimes going negative due to low demand and infrastructure issues.",
+            "Recent improvements in U.S. natural gas storage and production cuts have started to stabilize the market.",
+            "The need for additional pipeline infrastructure is critical to handle high production levels and prevent price depression."
         ]
     },
     {
         "title": "Rystad Energy: Bullish market fundamentals are the main contributing factor to higher global oil prices",
         "source": "World Pipelines",
         "keypoints": [
-            "Strong market fundamentals are pushing oil prices higher, with four consecutive weeks of increases.",
-            "Lower crude exports from OPEC and Russia, combined with ramped-up refinery runs, are contributing to a tighter market.",
-            "Expectations of interest rate cuts by the US Federal Reserve and high geopolitical risk premiums are adding to the upward pressure on oil prices.",
-            "Rystad Energy has lowered its forecast for US oil production from August 2024 onwards due to a downturn in Permian oil output.",
-            "OPEC+ crude exports declined in June compared to May, with steady exports from the Middle East and declining exports from Russia.",
-            "The tightening crude market and the surge in Brent prices over the past three weeks are explained by lower crude exports and increased global refinery runs.",
-            "US inflation figures are pivotal for the Federal Reserve's upcoming rate-setting decision, with markets anticipating rate cuts potentially starting in September."
+            "Strong market fundamentals are driving higher oil prices, with lower crude exports from OPEC and Russia contributing to a tighter market.",
+            "Expectations of interest rate cuts by the U.S. Federal Reserve and geopolitical risks are adding to the upward price pressure.",
+            "Adjustments in U.S. oil production forecasts, particularly in the Permian Basin, are expected to support Brent prices and narrow the WTI-Brent spread.",
+            "OPEC+ compliance with production cuts and lower crude exports are tightening the market, leading to a surge in Brent prices."
         ]
     },
     {
-        "title": "OPEC crude oil production remains steady for third month due to Iraq, UAE non-compliance",
-        "source": "Shafaq News",
+        "title": "NNPCL declares state of emergency on crude oil production",
+        "source": "Champion Newspapers LTD",
         "keypoints": [
-            "OPEC's crude oil production held steady for the third consecutive month due to Iraq and the UAE's non-compliance with agreed-upon cuts.",
-            "OPEC produced an average of 26.98 million barrels per day in June, a decrease of 80,000 barrels per day from the previous month.",
-            "Iraq and the UAE did not fully comply with the production cuts agreed upon at the beginning of the year.",
-            "Iraq reduced its output by 30,000 barrels per day to 4.25 million barrels per day in June, but its production still exceeded the quota by approximately 250,000 barrels per day.",
-            "Efforts to enhance compliance with production cuts have shown limited results, and full enforcement may be necessary to push crude oil prices higher."
+            "NNPC Ltd has declared a state of emergency to address challenges in Nigeria's crude oil production, aiming to produce two million barrels per day.",
+            "The company plans to replace old crude oil pipelines and introduce a rig sharing program to boost production.",
+            "Delays in concluding divestment transactions by international oil companies (IOCs) are costly to Nigeria's petroleum industry.",
+            "OPEC forecasts a 23% rise in energy demand by 2045, driven by economic growth and urbanization, emphasizing the need for increased investment in oil and gas."
         ]
     },
     {
-        "title": "India's crude oil imports from Russia touch 13-month high",
-        "source": "DH Latest News",
+        "title": "Katy Daily Natural Gas Price Snapshot",
+        "source": "Katy Daily",
         "keypoints": [
-            "India's crude oil imports from Russia reached a 13-month high in June, with 2.13 million barrels per day.",
-            "Imports of Urals crude oil reached an all-time high of 1.6 million barrels per day.",
-            "India's imports of Russian grades from the Far East, such as ESPO or Sokol, have resumed but in lower quantities compared to 2023.",
-            "The share of US crude in India\u2019s oil imports increased by 75% sequentially to 371,000 barrels per day.",
-            "Import volumes from Iraq and Saudi Arabia declined by 24% and 25% respectively in June.",
-            "June imports from Saudi Arabia were at the lowest monthly figure since January 2014.",
-            "Reliance Industries and Indian Oil Corp were the largest buyers of Russian crude oil among Indian refiners in June."
+            "Daily natural gas prices are provided for various hubs and regions, indicating fluctuations and trends in the market.",
+            "Price changes are observed across different locations, with some hubs experiencing significant decreases.",
+            "The data highlights the impact of regional demand and infrastructure on natural gas prices.",
+            "The report also provides insights into future market conditions based on current price trends and external factors like weather and maintenance activities."
         ]
     },
     {
-        "title": "Dangote Refinery to Import First Shipment of Brazilian Crude Oil",
-        "source": "Naija247news",
+        "title": "ADCC natural gas pipeline in Texas enters commercial service",
+        "source": "Daily Energy Insider",
         "keypoints": [
-            "Nigeria's Dangote refinery is set to receive its first shipment of Brazilian crude oil, marking a historic purchase for Nigeria.",
-            "The refinery will import a one-million-barrel cargo of Brazil's Tupi crude, scheduled for delivery in the latter half of next month.",
-            "The Dangote refinery aims to reduce Nigeria's reliance on imported fuel by refining crude locally, enhancing energy security, reducing import dependency, and lowering fuel prices.",
-            "Sourcing crude oil from diverse global suppliers is key to the refinery's success and Nigeria's broader energy strategy.",
-            "The Nigerian Upstream Petroleum Regulatory Commission reached an agreement with oil producers to supply crude oil to domestic refineries at market prices, ensuring a stable supply.",
-            "The Dangote refinery stands at the forefront of Nigeria's efforts to build its refining capabilities and transform its energy infrastructure."
+            "The ADCC Pipeline in Texas, a 40-mile natural gas pipeline, started commercial service on July 1, 2024.",
+            "It transports natural gas from Whistler Pipeline's Agua Dulce Header to Cheniere's Corpus Christi Liquefaction facility.",
+            "It provides approximately 1.7 billion cubic feet per day (Bcf/d) of natural gas transportation capacity.",
+            "Enhances access to Permian and Eagle Ford gas volumes and supports U.S. LNG exports to global markets.",
+            "The pipeline is a joint venture: 70% owned by Whistler Pipeline LLC and 30% by a subsidiary of Cheniere Energy."
+        ]
+    },
+    {
+        "title": "US natural gas prices ease",
+        "source": "Business Recorder",
+        "keypoints": [
+            "US natural gas futures dropped about 1% to a six-week low due to rising output and lower demand forecasts.",
+            "The decrease in natural gas prices was influenced by less demand for liquefied natural gas (LNG) feedgas.",
+            "A federal judge blocked the Biden administration from pausing the approval of applications to export LNG, affecting the climate agenda.",
+            "In Texas, the Electric Reliability Council of Texas (ERCOT) reported that peak demand approached record levels due to a heat wave.",
+            "Next-day gas prices at the Waha hub in West Texas fell significantly, even turning negative due to pipeline constraints trapping gas in the Permian Shale.",
+            "This is the third instance within six days of Waha prices falling into negative territory during the current heat wave."
+        ]
+    },
+    {
+        "title": "Natural Gas Futures Seesaw After Uninspiring EIA Print, Signs of Easing Demand",
+        "source": "Daily Gas Price Index",
+        "keypoints": [
+            "August Nymex natural gas futures attempted to break a six-day losing streak but settled slightly negative.",
+            "The U.S. Energy Information Administration (EIA) storage print failed to inspire the market.",
+            "Natural gas futures stumbled amid steady production levels and expectations for lighter mid-July demand.",
+            "Energy executives in the Rockies and Midcontinent forecast a more bullish outlook on natural gas prices by early 2025.",
+            "The Freeport LNG outage and moderated heat forecasts contributed to the slump in natural gas futures.",
+            "Strong production, hefty supplies in storage, and a demand-thwarting hurricane also influenced the natural gas forward prices."
+        ]
+    },
+    {
+        "title": "Adnoc Gas awards $550mn EPC contracts for UAE gas pipe project",
+        "source": "Not available",
+        "keypoints": [
+            "ADNOC Gas awarded $550 million in EPC contracts for a gas pipeline project in the UAE.",
+            "The project is part of ADNOC's ongoing efforts to enhance its gas infrastructure and production capabilities."
+        ]
+    },
+    {
+        "title": "[Updated] Drilling Engineering and Technical Services Market Size Analysis | Jereh Oilfield Services Group, ZPEC, Rutong",
+        "source": "Economica",
+        "keypoints": [
+            "The report provides comprehensive industry insights and market trends from 2024 to 2031.",
+            "It includes five forces analysis to understand competitive dynamics, including the bargaining power of consumers and suppliers.",
+            "Key players mentioned include Jereh Oilfield Services Group, ZPEC, Rutong, Sinopec, CNOOC, Anton Oilfield Services Group, Schlumberger, Haliburton, Baker Hughes, and others.",
+            "The report covers market segmentation by type (offshore and onshore drilling) and application (oil, natural gas, and others).",
+            "Provides SWOT analysis, investment feasibility assessment, and investment return analysis.",
+            "Highlights the importance of technological advancements, strategic partnerships, and R&D investments by key players."
+        ]
+    },
+    {
+        "title": "US natgas prices ease to 6-week low on rising output, lower LNG feedgas",
+        "source": "Reuters",
+        "keypoints": [
+            "U.S. natural gas futures eased about 1% due to rising output and lower LNG feedgas.",
+            "Front-month gas futures for August delivery fell to $2.454 per million British thermal units, marking the lowest since May 15.",
+            "A federal judge blocked the Biden administration's pause on LNG export application approvals.",
+            "Texas's ERCOT reported near-record peak demand due to a heat wave.",
+            "Spot market prices at the Waha hub in West Texas fell into negative territory due to pipeline constraints.",
+            "Hurricane Beryl is expected to impact Jamaica, Mexico's Yucatan Peninsula, and the Gulf of Mexico, potentially affecting oil production.",
+            "Gas output in the Lower 48 U.S. states rose to 101.5 billion cubic feet per day in July.",
+            "Gas flows to the seven big U.S. LNG export plants fell to 12.2 bcfd in July."
+        ]
+    },
+    {
+        "title": "August Natural Gas Futures Slightly Higher on Modest EIA Storage Print",
+        "source": "Natural Gas Intelligence",
+        "keypoints": [
+            "The U.S. Energy Information Administration (EIA) reported a 32 Bcf build of natural gas in storage for the week ended June 28.",
+            "August futures contract was up 2.0 cents at $2.455/MMBtu before the EIA data release.",
+            "The prompt month ticked lower to $2.452 when the EIA data was released.",
+            "Early estimates ranged from builds of 13 Bcf to 76 Bcf, with an average increase of 41 Bcf.",
+            "The five-year average build was 69 Bcf for the week, with a year ago being 76 Bcf.",
+            "Natural gas futures saw mixed reactions due to steady production levels and lighter mid-July demand expectations."
+        ]
+    },
+    {
+        "title": "Aethon Completes Acquisition of Tellurian Upstream and Midstream Assets",
+        "source": "Business Wire",
+        "keypoints": [
+            "Aethon Energy Management LLC announced the successful acquisition of Tellurian's integrated upstream and midstream assets.",
+            "Aethon's Haynesville Shale assets now include approximately 375,000 net acres with a capacity of over 3 Bcf/d.",
+            "Aethon signed a Heads of Agreement for 2 mtpa of LNG from the Driftwood LNG project.",
+            "The acquisition aims to enhance Aethon's strategic footprint and support net zero natural gas provision.",
+            "The partnership with Tellurian is crucial for securing Driftwood's remaining capacity and advancing its development.",
+            "The transaction is seen as a significant step in securing Tellurian's balance sheet and progressing the Driftwood project."
         ]
     }
 ]

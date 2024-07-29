@@ -63,7 +63,7 @@ async def feed():
 specific_keywords = [
     "Oil Prices", "Gas Prices", "Oil and Gas Stock Market", "Exploration", "Refining", "Pipelines", "Oilfield Services", "Petroleum", "Downstream", "Upstream", "Midstream",
     "LNG", "Reserves", "Drilling", "Shale oil", "Offshore Drilling", "Exports", "Imports", "OPEC", "Refining Capacity", "Production Cuts", "Consumption", "Inventory",
-    "Crude Oil", "Natural Gas", "Petrol", "Diesel", "Jet Fuel" "Gasoline"
+    "Crude Oil", "Natural Gas", "Petrol", "Diesel", "Jet Fuel", "Gasoline"
 ]
 
 @app.route('/suggest_keywords')
