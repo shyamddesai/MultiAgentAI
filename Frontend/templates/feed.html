@@ -148,10 +148,10 @@
             {% for item in market_data %}
             <div class="page">
                 <div class="news-card">
-                    <h2>{{ item.filename }}</h2>
-                    <h3>Current Price: {{ item.data['Current Price'] }}</h3>
-                    <h3>Moving Average: {{ item.data['Moving Average'] }}</h3>
-                    <h3>Trend: {{ item.data['Trend'] }}</h3>
+                    <h2>{{ item.data['commodity'] }}</h2>
+                    <h3>Current Price: {{ item.data['currentPrice'] }}</h3>
+                    <h3>Moving Average: {{ item.data['movingAverage'] }}</h3>
+                    <h3>Trend: {{ item.data['trend'] }}</h3>
                 </div>
             </div>
             {% endfor %}
