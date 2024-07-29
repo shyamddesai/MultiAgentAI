@@ -33,13 +33,13 @@ async def loading():
 async def feed():
     current_date = datetime.now().strftime("%d %B")
     keywords = session.get('keywords', [])
-    market_analysis_dir = 'data/marketAnalysis'
+    market_analysis_dir = os.path.join(os.getcwd(), 'Data/marketAnalysis')
     market_data = []
 
     for subdir in os.listdir(market_analysis_dir):
         subdir_path = os.path.join(market_analysis_dir, subdir)
         if os.path.isdir(subdir_path):
-            report_path = os.path.join(subdir_path, 'report.json')
+            report_path = os.path.join(subdir_path, 'market.json')
             if os.path.exists(report_path):
                 async with aiofiles.open(report_path, 'r', encoding='utf-8') as file:
                     try:
@@ -61,9 +61,9 @@ async def feed():
     return await render_template('feed.html', keywords=keywords, current_date=current_date, market_data=market_data)
 
 specific_keywords = [
-    "oil prices", "gas prices", "oil and gas stock market", "company news", "supply and demand", "production rates", "market news", "trading news",
-    "commodity prices", "futures", "exploration", "refining", "pipelines", "oilfield services", "petroleum", "downstream", "upstream", "midstream",
-    "LNG", "reserves", "drilling", "shale oil", "offshore drilling", "exports", "imports", "OPEC", "refining capacity", "production cuts", "consumption", "inventory"
+    "Oil Prices", "Gas Prices", "Oil and Gas Stock Market", "Exploration", "Refining", "Pipelines", "Oilfield Services", "Petroleum", "Downstream", "Upstream", "Midstream",
+    "LNG", "Reserves", "Drilling", "Shale oil", "Offshore Drilling", "Exports", "Imports", "OPEC", "Refining Capacity", "Production Cuts", "Consumption", "Inventory",
+    "Crude Oil", "Natural Gas", "Petrol", "Diesel", "Jet Fuel" "Gasoline"
 ]
 
 @app.route('/suggest_keywords')
@@ -73,15 +73,17 @@ async def suggest_keywords():
 
 @app.route('/split-screen2')
 async def split_screen2():
-    async with aiofiles.open('data/reports/reports/highlights.json', 'r', encoding='utf-8') as highlights_file:
+    cwd = os.getcwd()
+    async with aiofiles.open(os.path.join(cwd, 'Data/reports/reports/highlights.json'), 'r', encoding='utf-8') as highlights_file:
         highlights_data = orjson.loads(await highlights_file.read())
         
-    async with aiofiles.open('data/reports/reports/report.json', 'r', encoding='utf-8') as report_file:
+    async with aiofiles.open(os.path.join(cwd, 'Data/reports/reports/report.json'), 'r', encoding='utf-8') as report_file:
         report_data = orjson.loads(await report_file.read())
         
-    async with aiofiles.open('data/reports/sources/sources_sentiment.json', 'r', encoding='utf-8') as sources_file:
+    async with aiofiles.open(os.path.join(cwd, 'Data/reports/sources/sources_sentiment.json'), 'r', encoding='utf-8') as sources_file:
         sources_data = orjson.loads(await sources_file.read())
     return await render_template('split_screen2.html', highlights_data=highlights_data, report_data=report_data, sources_data=sources_data)
+
 
 @app.route('/process_next', methods=['POST'])
 async def process_next():
@@ -92,10 +94,11 @@ async def process_next():
     print(f"Keywords: {keywords}")
     print(f"Selected Words: {selected_words}")
     
-    async with aiofiles.open('data/userInput/selected_keywords.txt', 'w') as file:
+    cwd = os.getcwd()
+    async with aiofiles.open(os.path.join(cwd, 'Frontend/data/userInput/selected_keywords.txt'), 'w') as file:
         await file.write(f"{keywords}\n\n")
         
-    async with aiofiles.open('data/userInput/selected_commodities.txt', 'w') as file:
+    async with aiofiles.open(os.path.join(cwd, 'Frontend/data/userInput/selected_commodities.txt'), 'w') as file:
         await file.write('\n'.join(selected_words.split(',')) + '\n')
     
     session['selected_categories'] = selected_words.split(',')
