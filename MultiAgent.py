@@ -34,28 +34,42 @@ openai_api_key = get_openai_api_key()
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
-# Read the selected keywords from the file in user_data directory
-keywords_file = os.path.join(os.getcwd(), 'Frontend', 'user_data', 'selected_keywords.txt')
-if os.path.exists(keywords_file):
-    with open(keywords_file, 'r') as f:
-        selected_keywords = f.read().splitlines()
-else:
-    selected_keywords = ["no keywords found"]  # Default value if the file doesn't exist
-print(f"Selected keywords: {selected_keywords}")
+
+def userInputKeywords():
+    # # Read the selected keywords from the file in user_data directory
+    keywords_file = os.path.join(os.getcwd(), 'Frontend', 'data', 'userInput', 'selected_keywords.txt')
+    if os.path.exists(keywords_file):
+        with open(keywords_file, 'r') as f:
+            selected_keywords = f.read().splitlines()
+            print(f"Selected keywords: {selected_keywords}")
+            return selected_keywords
+    else:
+        selected_keywords = ["no keywords found"]  # Default value if the file doesn't exist
+        return 1
 
 
-# Read the selected words from the file
-commodities_file = os.path.join(os.getcwd(), 'Frontend', 'user_data', 'selected_commodities.txt')
-if os.path.exists(commodities_file):
-    with open(commodities_file, 'r') as f:
-        selected_commodities = f.read().splitlines()
-else:
-    selected_commodities = ["no commodities found"]  # Default value if the file doesn't exist
-print(f"Selected words: {selected_commodities}")
+def userInputCommodities():
+    # Read the selected words from the file
+    commodities_file = os.path.join(os.getcwd(), 'Frontend', 'data', 'userInput', 'selected_commodities.txt')
+    if os.path.exists(commodities_file):
+        with open(commodities_file, 'r') as f:
+            selected_commodities = f.read().splitlines()
+            print(f"Selected words: {selected_commodities}")
+            return selected_commodities
+    else:
+        selected_commodities = ["no commodities found"]  # Default value if the file doesn't exist
+        return 1
 
-# CherryPicking()
+
+selected_keywords = userInputKeywords()
+selected_commodities = userInputCommodities()
+
 
 # process_json_file('./reports/FINAL_Filter_by_keywords.json', './reports/FINAL_Filter_by_keywords.json')
+
+
+# CherryPicking(selected_keywords)
+
 
 # split_articles('./reports/FINAL_Filter_by_keywords.json')
 
@@ -101,9 +115,9 @@ crew_rank = Crew(
     verbose=True
 )
 
-# # Execute the rank Crew
+# Execute the rank Crew
 # try:
-#     result = crew_rank.kickoff()
+# result = crew_rank.kickoff()
 #     with open(output_file_path_rank, 'w') as f:
 #         json.dump(result, f, indent=2)
 #     print(f"Results saved to {output_file_path_rank}")
@@ -114,7 +128,7 @@ crew_rank = Crew(
 
 # sentiment ---------------------------------------------------------------------
 
-output_file_path_sentiment = os.path.join(os.getcwd(), './Data/reports/sources/sources_sentiment.json')
+
 
 # Initialize the Crew
 crew_sentiment = Crew(
@@ -126,7 +140,7 @@ crew_sentiment = Crew(
 
 # # Execute the sentiment Crew
 # try:
-#     result = crew_sentiment.kickoff()
+result = crew_sentiment.kickoff()
 #     with open(output_file_path_sentiment, 'w') as f:
 #         json.dump(result, f, indent=2)
 #     print(f"Results saved to {output_file_path_sentiment}")
@@ -140,44 +154,50 @@ crew_sentiment = Crew(
 
 
 # Prompt user to select a commodity
-selected_commodity = input(f"Select a commodity from the list: {', '.join(commodity_list)}\n")
+# selected_commodity = input(f"Select a commodity from the list: {', '.join(commodity_list)}\n")
 
-output_file_path_market = os.path.join(os.getcwd(), f'./Data/marketAnalysis/{selected_commodity}/market.json')
+def marketAnalysis(selected_commodity):
+    # output_file_path_market = os.path.join(os.getcwd(), f'./Data/marketAnalysis/{selected_commodity}/market.json')
 
-directory_path = f'./Data/marketAnalysis/{selected_commodity}'
+    directory_path = f'./Data/marketAnalysis/{selected_commodity}'
 
-market_analysis_agent = Agent(
-    role='Market Analyst',
-    goal=f'Analyze market trends for {selected_commodity}',
-    backstory="""You are a seasoned Market Analyst with deep insights into commodity markets.
-                 You can quickly identify whether the market is bullish or bearish.""",
-    verbose=True,
-    allow_delegation=False,
-    tools=[market_analysis_tool]
-)
+    market_analysis_agent = Agent(
+        role='Market Analyst',
+        goal=f'Analyze market trends for {selected_commodity}',
+        backstory="""You are a seasoned Market Analyst with deep insights into commodity markets.
+                    You can quickly identify whether the market is bullish or bearish.""",
+        verbose=True,
+        allow_delegation=False,
+        tools=[market_analysis_tool]
+    )
 
-market_analysis_task = Task(
-    description=selected_commodity,
-    expected_output='A JSON file containing the market analysis for the selected commodity.' 
-                    'Take the exact output of the market analysis tool and provide the currrent price, moving average, and trend only.'
-                    'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks to define the atrributes, commas to split attributes, does not contain the word json, no double quotation marks at the beginning, and no unnecessary backslashes.'
-                    'Here is an example of the expected JSON output: [{"commodity": WTI, "currentPrice": 100, "movingAverage": 90, "trend": ["Bearish"]}]',
-    output_file=directory_path+f'/market.json',
-    agent=market_analysis_agent,
-)
+    market_analysis_task = Task(
+        description=selected_commodity,
+        expected_output='A JSON file containing the market analysis for the selected commodity.' 
+                        'Take the exact output of the market analysis tool and provide the currrent price, moving average, and trend only.'
+                        'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks to define the atrributes, commas to split attributes, does not contain the word json, no double quotation marks at the beginning, and no unnecessary backslashes.'
+                        'Here is an example of the expected JSON output: [{"commodity": WTI, "currentPrice": 100, "movingAverage": 90, "trend": ["Bearish"]}]',
+        output_file=directory_path+f'/market.json',
+        agent=market_analysis_agent,
+    )
 
-# Initialize the Crew
-crew_market = Crew(
-    agents=[market_analysis_agent],
-    tasks=[market_analysis_task],
-    process=Process.sequential,
-    verbose=True
-)
+    # Initialize the Crew
+    crew_market = Crew(
+        agents=[market_analysis_agent],
+        tasks=[market_analysis_task],
+        process=Process.sequential,
+        verbose=True
+    )
+
+    crew_market.kickoff()
 
 # Kick off the market crew to perform the task
 # try:
-result = crew_market.kickoff()
-# print(f"Report saved to {output_file_path_market}")
+
+for selected_commodity in selected_commodities:
+    marketAnalysis(selected_commodity)
+
+    # print(f"Report saved to {output_file_path_market}")
 # except Exception as e:
 # print(f"An error occurred: {e}")
 
@@ -191,29 +211,15 @@ result = crew_market.kickoff()
 
 # Writer Agent ###############################################
 
-input_file_path_report = os.path.join(os.getcwd(), '../reports/news_report_analysis_parallel.md')
-output_file_path_report = os.path.join(os.getcwd(), '../reports/final_news_report.json')
 
 # Initialize the crew with the task
-crew = Crew(
+highlight_crew = Crew(
     agents=[writer_agent],
     tasks=[writer_task],
-    manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.3),
+    manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.1),
     verbose=2,  # Set verbosity level for logging
     process=Process.sequential  # Use sequential process for execution
 )
 
 # Kick off the writing crew to perform the task
-# try:
-#     result = crew.kickoff()
-#     print(f"Report saved to {output_file_path_report}")
-# except Exception as e:
-#     print(f"An error occurred: {e}")
-#
-# # Additional error handling for saving results
-# try:
-#     with open(output_file_path_report, 'w') as f:
-#         json.dump(result, f, indent=2)
-#     print(f"Results saved to {output_file_path_report}")
-# except Exception as e:
-#     print(f"An error occurred while saving the results: {e}")
+# result = highlight_crew.kickoff()

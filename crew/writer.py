@@ -6,13 +6,12 @@ import os
 from crewai_tools.tools.file_read_tool.file_read_tool import FileReadTool
 from utils import get_openai_api_key
 from dotenv import load_dotenv
-from MultiAgentAI.crew.crew_tools import file_reader_tool
 from crewai_tools import BaseTool
 
 # -----------------------------------------------------------------------------
 # Define file paths
-input_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md'
-output_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_output1.json'
+input_file_path = './Data/reports/reports/report.json'
+output_file_path = './Data/reports/reports/highlights.json'
 
 # Load environment variables
 load_dotenv()
@@ -26,38 +25,28 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 # Initialize FileReadTool
 file_reader_tool = FileReadTool(file_path=input_file_path)
 
-class SaverTool(BaseTool):
-    name: str = "Saver Tool"
-    description: str = "Tool used to save output in a JSON file"
-
-    def _run(self, argument: str) -> str:
-        with open(output_file_path, 'w') as f:
-            json.dump(argument, f, indent=2)
-        return argument
-
-# Initialize SaverTool
-save_into_json = SaverTool()
-
-output_file_path_report = os.path.join(os.getcwd(), '../reports/final_news_report.json')
 
 # Define the writer agent
 writer_agent = Agent(
-    role='Report Writer',
-    goal='Generate a comprehensive report from provided content using the read file tool',
-    backstory="""You are a skilled Report Writer, known for your ability to transform raw content into polished, comprehensive reports.
-                 You excel at identifying key points and presenting them in a clear, organized manner.""",
+    role='Summary Writer',
+    goal='Generate a comprehensive summary from provided content using the read file tool',
+    backstory="""You are a skilled Summary Writer, known for your ability to transform content into polished,
+                comprehensive summarized paragraphs. You excel at identifying key points and presenting them in a clear
+                , organized paragraph.""",
     verbose=True,
     allow_delegation=False
 )
 
 # Define the task for the writer agent
 writer_task = Task(
-    description="""Read the content and transform the information into a report.
-                   The report should be structured in paragraph form, leaving no details behind. Save the report in a JSON file 
-                   using save_into_json tool.""",
-    expected_output="A report that is professionally written in a proper format",
-    output_file=output_file_path_report,
-    tools=[file_reader_tool, save_into_json],
+    description="""Read and summarize the keypoints of each article into one paragraph called Highlights""",
+    expected_output=" One paragraph that grabs all the highlights of the articles"
+                    'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks '
+                    'to define the atrributes, commas to split attributes, does not contain the word json, no double '
+                    'quotation marks at the beginning, and no unnecessary backslashes.Here is an example of the '
+                    'expected JSON output: [{"Highlights":}]',
+    output_file=output_file_path,
+    tools=[file_reader_tool],
     agent=writer_agent,
     verbose=True
 )

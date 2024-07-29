@@ -63,10 +63,13 @@ news_rank_task = Task(
         "10 being the highest relevancy to traders at ADNOC Global Trading. Be specific with "
         "reasoning for your ranking, and take into consideration "
         "what you know about ADNOC and the backstory. Be more meticulous with rankings. "
-        "Read all the articles from JSON using the read_file tool."
+        "Read all the articles from JSON using the read_file tool. And make sure you give results"
+        "for all the articles not just a part of the batch."
     ),
     expected_output=(
         'relevancy score and reasoning for each articles with keeping Title, Link, Published in json format.'
+        'dont include unnecessary words or character like "json" or "'". Here is an example of the "
+        'expected JSON output: [{"Title":, "Link":, "Published":, "Relevancy Score":, "Relevancy Reasoning":}].'
     ),
     agent=news_ranker,
     output_file=output_file_path_rank,

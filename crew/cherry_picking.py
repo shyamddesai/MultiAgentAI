@@ -1,7 +1,8 @@
 import json
 import os
 
-def filter_articles_by_keywords_in_title_or_content():
+
+def filter_articles_by_keywords_in_title_or_content(selected_keywords):
     # Path to the original JSON file
     input_file_path = './reports/temp/temp_filtered_news_report.json'
 
@@ -18,9 +19,6 @@ def filter_articles_by_keywords_in_title_or_content():
 
     # Print the number of articles loaded
     print(f"Number of articles loaded: {len(articles)}")
-
-    # Keywords to filter by
-    keywords = ["WTI", "crude oil"]
 
     # List to hold filtered articles
     filtered_articles = []
@@ -39,7 +37,7 @@ def filter_articles_by_keywords_in_title_or_content():
         else:
             content = ''
 
-        if any(keyword.lower() in title or keyword.lower() in content for keyword in keywords):
+        if any(keyword.lower() in title or keyword.lower() in content for keyword in selected_keywords):
             filtered_articles.append(article)
 
     # Print the number of filtered articles
@@ -47,9 +45,10 @@ def filter_articles_by_keywords_in_title_or_content():
 
     return filtered_articles
 
-def CherryPicking():
+
+def CherryPicking(selected_keywords):
     # Filter the articles
-    filtered_articles = filter_articles_by_keywords_in_title_or_content()
+    filtered_articles = filter_articles_by_keywords_in_title_or_content(selected_keywords)
 
     # Check if any articles were filtered
     if filtered_articles:
@@ -68,3 +67,4 @@ def CherryPicking():
         print("Filtered articles saved successfully.")
     else:
         print("No articles matched the keywords.")
+        return 1
