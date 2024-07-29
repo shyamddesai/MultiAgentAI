@@ -65,39 +65,16 @@ selected_keywords = userInputKeywords()
 selected_commodities = userInputCommodities()
 
 
-# process_json_file('./reports/FINAL_Filter_by_keywords.json', './reports/FINAL_Filter_by_keywords.json')
+
 
 
 # CherryPicking(selected_keywords)
 
+# process_json_file('./reports/FINAL_Filter_by_keywords.json', './reports/FINAL_Filter_by_keywords.json')
+
 
 # split_articles('./reports/FINAL_Filter_by_keywords.json')
 
-# keywords = SophisticatedKeywordGeneratorTool()._run(topic)
-# # save the keywords
-# keywords_output = "./reports/keywords_list.json"
-# with open(keywords_output, 'w') as f:
-#      json.dump(keywords, f, indent=2)
-#      print("keywords saved in json file")
-#
-# # ------------------------------------------------------------------------------
-#
-# keywords_output = "./reports/keywords_list.json"
-# with open(keywords_output, 'r') as f:
-#      keywords_list = json.load(f)
-#
-# result = RSSFeedScraperTool()._run(keywords_list)
-#
-#
-# # Save the articles to JSON, and filter and categorize them
-# all_articles_output = "./reports/news_report.json"
-# with open(all_articles_output, 'w') as f:
-#      json.dump(result, f, indent=2)
-# # ------------------------------------------------------------------------------
-#
-# article_output = "./reports/news_report.json"
-#
-# filter_and_categorize_articles(article_output)
 
 
 # preprocessing and zuotong sth sth
@@ -140,7 +117,7 @@ crew_sentiment = Crew(
 
 # # Execute the sentiment Crew
 # try:
-result = crew_sentiment.kickoff()
+# result = crew_sentiment.kickoff()
 #     with open(output_file_path_sentiment, 'w') as f:
 #         json.dump(result, f, indent=2)
 #     print(f"Results saved to {output_file_path_sentiment}")
@@ -194,8 +171,8 @@ def marketAnalysis(selected_commodity):
 # Kick off the market crew to perform the task
 # try:
 
-for selected_commodity in selected_commodities:
-    marketAnalysis(selected_commodity)
+# for selected_commodity in selected_commodities:
+#     marketAnalysis(selected_commodity)
 
     # print(f"Report saved to {output_file_path_market}")
 # except Exception as e:
@@ -222,4 +199,33 @@ highlight_crew = Crew(
 )
 
 # Kick off the writing crew to perform the task
-# result = highlight_crew.kickoff()
+result = highlight_crew.kickoff()
+
+print("done")
+
+
+# keywords = SophisticatedKeywordGeneratorTool()._run(topic)
+# # save the keywords
+# keywords_output = "./reports/keywords_list.json"
+# with open(keywords_output, 'w') as f:
+#      json.dump(keywords, f, indent=2)
+#      print("keywords saved in json file")
+#
+# # ------------------------------------------------------------------------------
+#
+# keywords_output = "./reports/keywords_list.json"
+# with open(keywords_output, 'r') as f:
+#      keywords_list = json.load(f)
+#
+# result = RSSFeedScraperTool()._run(keywords_list)
+#
+#
+# # Save the articles to JSON, and filter and categorize them
+# all_articles_output = "./reports/news_report.json"
+# with open(all_articles_output, 'w') as f:
+#      json.dump(result, f, indent=2)
+# # ------------------------------------------------------------------------------
+#
+# article_output = "./reports/news_report.json"
+#
+# filter_and_categorize_articles(article_output)

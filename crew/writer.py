@@ -44,7 +44,7 @@ writer_task = Task(
                     'Ensure the output is accurate to the JSON format i.e. use square bracket, double quotation marks '
                     'to define the atrributes, commas to split attributes, does not contain the word json, no double '
                     'quotation marks at the beginning, and no unnecessary backslashes.Here is an example of the '
-                    'expected JSON output: [{"Highlights":}]',
+                    'expected JSON output: [{"Highlight Paragraph":}]',
     output_file=output_file_path,
     tools=[file_reader_tool],
     agent=writer_agent,
