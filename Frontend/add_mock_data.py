@@ -3,7 +3,7 @@ import json
 import random
 
 # Directory containing the JSON files
-market_analysis_dir = 'data/marketAnalysis'
+market_analysis_dir = 'data/sample_marketAnalysis'
 
 # Function to generate mock data
 def generate_mock_data():

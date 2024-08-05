@@ -6,14 +6,14 @@ from langchain_openai import ChatOpenAI
 # Determine the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Check if the .venv folder is in the current directory
-if os.path.exists(os.path.join(current_dir, '.venv')):
+# Check if the project directory name is as expected for the imports to work correctly
+if 'MultiAgentAI' in current_dir:
     project_root = current_dir
 else:
     project_root = os.path.dirname(current_dir)
 
-# Add the parent directory of MultiAgentAI to the PYTHONPATH
-sys.path.append(os.path.dirname(project_root))
+# Add the project root directory to the PYTHONPATH
+sys.path.append(project_root)
 
 from MultiAgentAI.crew import (SophisticatedKeywordGeneratorTool, RSSFeedScraperTool, filter_and_categorize_articles,
                                topic, news_gatherer, news_gathering_task)

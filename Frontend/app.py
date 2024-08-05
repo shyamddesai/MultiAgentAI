@@ -10,6 +10,10 @@ app.config.update(
     TEMPLATES_AUTO_RELOAD=True,
 )
 app.secret_key = 'supersecretkey'  # Needed for session management
+
+# Determine the root directory of the project dynamically
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 @app.after_request
 async def add_header(response):
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
@@ -33,7 +37,7 @@ async def loading():
 async def feed():
     current_date = datetime.now().strftime("%d %B")
     keywords = session.get('keywords', [])
-    market_analysis_dir = os.path.join(os.getcwd(), 'Data/marketAnalysis')
+    market_analysis_dir = os.path.join(project_root, 'Data/marketAnalysis')
     market_data = []
 
     for subdir in os.listdir(market_analysis_dir):
@@ -73,17 +77,16 @@ async def suggest_keywords():
 
 @app.route('/split-screen2')
 async def split_screen2():
-    cwd = os.getcwd()
-    async with aiofiles.open(os.path.join(cwd, 'Data/reports/reports/highlights.json'), 'r', encoding='utf-8') as highlights_file:
+    async with aiofiles.open(os.path.join(project_root, 'Data/reports/reports/highlights.json'), 'r', encoding='utf-8') as highlights_file:
         highlights_data = orjson.loads(await highlights_file.read())
         
-    async with aiofiles.open(os.path.join(cwd, 'Data/reports/reports/report.json'), 'r', encoding='utf-8') as report_file:
+    async with aiofiles.open(os.path.join(project_root, 'Data/reports/reports/report.json'), 'r', encoding='utf-8') as report_file:
         report_data = orjson.loads(await report_file.read())
         
-    async with aiofiles.open(os.path.join(cwd, 'Data/reports/sources/sources_sentiment.json'), 'r', encoding='utf-8') as sources_file:
+    async with aiofiles.open(os.path.join(project_root, 'Data/reports/sources/sources_sentiment.json'), 'r', encoding='utf-8') as sources_file:
         sources_data = orjson.loads(await sources_file.read())
+    
     return await render_template('split_screen2.html', highlights_data=highlights_data, report_data=report_data, sources_data=sources_data)
-
 
 @app.route('/process_next', methods=['POST'])
 async def process_next():
@@ -94,11 +97,10 @@ async def process_next():
     print(f"Keywords: {keywords}")
     print(f"Selected Words: {selected_words}")
     
-    cwd = os.getcwd()
-    async with aiofiles.open(os.path.join(cwd, 'Frontend/data/userInput/selected_keywords.txt'), 'w') as file:
+    async with aiofiles.open(os.path.join(project_root, 'Frontend/data/userInput/selected_keywords.txt'), 'w') as file:
         await file.write(f"{keywords}\n\n")
         
-    async with aiofiles.open(os.path.join(cwd, 'Frontend/data/userInput/selected_commodities.txt'), 'w') as file:
+    async with aiofiles.open(os.path.join(project_root, 'Frontend/data/userInput/selected_commodities.txt'), 'w') as file:
         await file.write('\n'.join(selected_words.split(',')) + '\n')
     
     session['selected_categories'] = selected_words.split(',')
