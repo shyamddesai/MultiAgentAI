@@ -12,7 +12,6 @@ python-dotenv==1.0.1
 quart==0.19.6
 Requests==2.32.3
 selenium==4.23.1
-tavily_python==0.3.3
 utils==1.0.2
 vaderSentiment==3.3.2
 webdriver_manager==4.0.2

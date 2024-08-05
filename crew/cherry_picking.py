@@ -44,8 +44,7 @@ def filter_articles_by_keywords_in_title_or_content(selected_keywords):
 
     return filtered_articles
 
-
-def CherryPicking(selected_keywords):
+def cherry_picking(selected_keywords):
     # Filter the articles
     filtered_articles = filter_articles_by_keywords_in_title_or_content(selected_keywords)
 

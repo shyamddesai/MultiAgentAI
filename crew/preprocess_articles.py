@@ -2,7 +2,6 @@ import os
 import json
 import re
 import shutil
-
 import requests
 import time
 from bs4 import BeautifulSoup
@@ -56,6 +55,8 @@ def remove_headers_footers(soup):
             element.extract()
     
     return soup
+
+# ------------------------------------------------------------------------------
 
 def scrape_and_clean(url, retries=3, delay=5, timeout=20):
     try:
@@ -149,6 +150,8 @@ def scrape_and_clean_with_selenium(url, timeout=45):
         print(f"Unexpected Selenium error for {url}: {e}")
         driver.quit()
         return None, 0, 0
+    
+# ------------------------------------------------------------------------------
 
 def process_article(article):
     url = article['Link']
@@ -206,7 +209,6 @@ def split_title(s):
     else:
         return s, ''
 
-
 def split_articles(json_file):
     with open(json_file, 'r') as file:
         data = json.load(file)
@@ -234,7 +236,6 @@ def split_articles(json_file):
         else:
             print(f"Warning: No 'content' key found in entry {index}")
 
-
 def process_all_json_files(directory):
     for filename in os.listdir(directory):
         if filename.endswith('.json'):
@@ -242,4 +243,6 @@ def process_all_json_files(directory):
             print(f"\n\nProcessing file: {file_path}")
             process_articles(file_path)
 
-process_all_json_files('./reports/categorized_news_reports')
+# ------------------------------------------------------------------------------
+
+# process_articles('./reports/news_report.json')

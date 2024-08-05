@@ -1,10 +1,10 @@
+import json
 import os
 from dotenv import load_dotenv
-from crewai import Agent, Task
+from crewai import Agent, Crew, Process, Task
 from crewai_tools import FileReadTool
 from utils import get_openai_api_key
 
-# Load environment variables
 load_dotenv()
 openai_api_key = get_openai_api_key()
 if not openai_api_key:
@@ -12,30 +12,13 @@ if not openai_api_key:
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
-category = './reports/FINAL_Filter_by_keywords.json'
 # Define file paths
 input_file_path = os.path.join(os.getcwd(), './reports/FINAL_Filter_by_keywords.json')
 output_file_path_rank = os.path.join(os.getcwd(), './Data/reports/sources/sources_ranked.json')
 
-# class JsonSaverTool(BaseTool):
-#     name: str = "JsonSaverTool"
-#     description: str = "Tool used to save output in a JSON file"
-#
-#     def _run(self, data: dict) -> str:
-#         try:
-#             with open(output_file_path, 'w') as f:
-#                 json.dump(data, f, indent=2)
-#             return f"Successfully saved to {output_file_path}"
-#         except Exception as e:
-#             return f"Failed to save to {output_file_path}: {e}"
-#
-# # Initialize JsonSaverTool
-# json_saver_tool = JsonSaverTool()
-
 # Initialize FileReadTool
 read_file_tool = FileReadTool(file_path=input_file_path)
 
-# Define the News Ranker agent
 news_ranker = Agent(
     role="News Ranker",
     goal="Rank news articles based on relevancy to ADNOC Global Trading from JSON file including list of articles and their URL.",
@@ -53,8 +36,6 @@ news_ranker = Agent(
     memory=False
 )
 
-
-# Define the task for the News Ranker agent
 news_rank_task = Task(
     description=(
         "Rank the articles in a list and give them a score from 1 to 10. "
@@ -78,4 +59,20 @@ news_rank_task = Task(
     verbose=True
 )
 
+crew_rank = Crew(
+    agents=[news_ranker],
+    tasks=[news_rank_task],
+    process=Process.sequential,
+    verbose=True
+)
 
+# -----------------------------------------------------------------------------
+
+def execute_news_ranker():
+    try:
+        result = crew_rank.kickoff()
+        with open(output_file_path_rank, 'w') as f:
+            json.dump(result, f, indent=2)
+        print(f"Results saved to {output_file_path_rank}")
+    except Exception as e:
+        print(f"An error occurred: {e}")

@@ -1,8 +1,7 @@
 import json
 from collections import defaultdict
 from difflib import SequenceMatcher
-from MultiAgentAI.crew.config import relevant_keywords, categories, general_keywords
-
+from crew.config import relevant_keywords, categories, general_keywords
 
 def filter_and_categorize_articles(all_articles_output):
     # Load articles from JSON file

@@ -1,13 +1,15 @@
-from urllib.parse import quote_plus
-import feedparser
-from datetime import datetime, timedelta
-from tavily import TavilyClient
-from pydantic import PrivateAttr
-from crewai_tools import BaseTool, FileReadTool
+import os
 import requests
+import datetime
+import feedparser
+from urllib.parse import quote_plus
+from datetime import datetime, timedelta
+from crewai_tools import BaseTool
 from requests.exceptions import RequestException, Timeout
 from typing import ClassVar, Dict
-import datetime
+from pydantic import BaseModel
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from .config import entities, specific_keywords
 
 # nltk.download('stopwords')
 # nlp = spacy.load("en_core_web_sm")
@@ -20,18 +22,6 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         # Use spaCy to process the text
         # doc = nlp(topic)
 
-        # Extract relevant named entities
-        entities = [
-            "OPEC", "Oil Companies", "ADNOC", "Aramco", "SNPC", "Sonatrach",
-            "GEPetrol", "Gabon Oil", "National Iranian Oil Company",
-            "Iraq Petroleum", "Kuwait Oil Company", "PDVSA", "IEA", "APEC",
-            "Sinopec", "PetroChina", "GazProm", "QatarEnergy", "CNOOC",
-            "ExxonMobil", "Shell", "Marathon Petroleum", "Valero Energy",
-            "ConocoPhillips", "Canadian Natural Resources",
-            "TotalEnergies", "British Petroleum", "BP",  "Chevron",
-            "Equinor", "Eni", "Petrobras"
-        ]
-
         # Extract relevant noun chunks
         # noun_chunks = [chunk.text for chunk in doc.noun_chunks if chunk.text.lower() not in STOP_WORDS and ('oil' in chunk.text.lower() or 'gas' in chunk.text.lower())]
 
@@ -43,51 +33,15 @@ class SophisticatedKeywordGeneratorTool(BaseTool):
         # Combine all keywords
         all_keywords = entities
 
-        specific_keywords = [
-            "OPEC", "Oil Companies", "ADNOC", "Aramco", "SNPC", "Sonatrach",
-                    "GEPetrol", "Gabon Oil", "National Iranian Oil Company",
-                    "Iraq Petroleum", "Kuwait Oil Company", "PDVSA", "IEA", "APEC",
-                    "Sinopec", "PetroChina", "GazProm", "QatarEnergy", "CNOOC",
-                    "ExxonMobil", "Shell", "Marathon Petroleum", "Valero Energy",
-                    "ConocoPhillips", "Canadian Natural Resources", "TotalEnergies",
-                    "British Petroleum", "BP", "Chevron", "Equinor", "Eni", "Petrobras",
-                    "oil prices", "gas prices", "oil stock market", "oil company",
-                    "oil supply", "oil demand", "oil production", "gas production",
-                    "energy market", "oil trading", "gas trading", "crude oil",
-                    "natural gas", "commodity prices", "oil futures", "gas futures",
-                    "oilfield services", "petroleum", "LNG", "oil reserves", "shale oil",
-                    "oil exports", "oil imports", "oil consumption", "oil inventory",
-                    "Light Distillate", "Naphtha", "LPG", "Biofuels", "Middle Distillate",
-                    "Jet Fuel", "Gas Oil", "Condensate", "Fuel Oil and Bunker", "Brent",
-                    "WTI", "RBOB", "RBOB Gas", "EBOB", "CBOB", "Singapore gasoline R92",
-                    "Europe Gasoil", "Gasoil", "Marine gasoil", "Far east index",
-                    "Mt Belvieu Propane", "Mont Belvieu Propane", "Mt Belvieu Butane",
-                    "Mont Belvieu Butane", "Normal Butane", "ULSD New York", "Far east index propane",
-                    "Far east index butane", "gasoil", "europe gasoil", "asia gasoil",
-                    "marine gasoil", "AFEI", "Natural Gasoline", "energy trading",
-                    "market integration", "supply chain optimization", "hedging strategies",
-                    "risk management", "derivatives trading", "financial instruments",
-                    "market analysis", "price volatility", "global supply chains",
-                    "trade compliance", "regulatory frameworks", "futures contracts",
-                    "spot markets", "forward contracts", "trade finance", "commodity exchanges",
-                    "strategic partnerships", "joint ventures", "market expansion",
-                    "value chain""propane", "butane", "Diesel", "Gasoline", "downstream", "upstream",
-                    "midstream", "exploration", "refining", "pipelines", "drilling",
-                    "trade", "market", "trend", "forecast", "logistics", "storage",
-                    "distribution", "shipping", "transportation", "energy sector",
-                    "sustainability", "carbon footprint", "renewable energy",
-                    "technological innovation", "digital transformation", "market dynamics",
-                    "industry trends", "investment strategies", "economic impact"
-
-
-        ]
         # Add domain-specific keywords
         all_keywords += specific_keywords
-        print("keywords added")
+        print("Keywords added!")
+
         # Deduplicate and filter keywords
         keywords = list(set(specific_keywords))
         keywords = [kw for kw in keywords if len(kw.split()) <= 3 and len(kw) > 2]
-        print("keywords filtered")
+        print("Keywords filtered!")
+
         # Refine keywords to avoid unrelated topics
         # refined_keywords = [kw for kw in keywords if 'stock' not in kw or 'oil' in kw or 'gas' in kw]
 
@@ -124,7 +78,40 @@ class RSSFeedScraperTool(BaseTool):
 
 # ------------------------------------------------------------------------------
 
-file_reader_tool = FileReadTool(file_path='/MultiAgentAI/Files I do not think we need/news_report_analysis_parallel.md')
+class SentimentAnalysisTool(BaseTool, BaseModel):
+    name: str = "Sentiment Analysis Tool"
+    description: str = "Reads news articles from a file and performs sentiment analysis."
+    file_path: str = os.path.join(os.getcwd(), './Data/reports/sources/sources_ranked.json')
+
+    def _run(self):
+        # Read the file
+        with open(self.file_path, 'r') as file:
+            news_articles = file.read()
+
+        # Split the file content into individual articles
+        articles = news_articles.split('\n\n')  # Assuming each article is separated by two newlines
+
+        # Perform sentiment analysis on each article
+        results = []
+        for article in articles:
+            sentiment_score = self.perform_sentiment_analysis(article)
+            sentiment = "positive" if sentiment_score > 0 else "negative"
+            results.append({
+                "article": article,
+                "sentiment": sentiment
+            })
+
+        return results
+
+    def perform_sentiment_analysis(self, article: str) -> float:
+        analyzer = SentimentIntensityAnalyzer()
+        sentiment_score = analyzer.polarity_scores(article)["compound"]
+        return sentiment_score
+
+    def __call__(self):
+        return self._run()
+    
+# ------------------------------------------------------------------------------
 
 class MarketAnalysisTool(BaseTool):
     name: str = "Market Analysis Tool"
@@ -137,16 +124,16 @@ class MarketAnalysisTool(BaseTool):
         "RBOB": "CHRIS/CME_RB1",
         "EBOB": "NSE/EBOP",
         "CBOB": "NSE/CBOP",
-        "Singapore gasoline R92": "SGX/FC03",
+        "Singapore Gasoline R92": "SGX/FC03",
         "Europe Gasoil": "CHRIS/ICE_GASO",
-        "Marine gasoil 0.5% Singapore": "SGX/MGO",
-        "Far east index propane": "EIA/PET_WCRSTUS1",
-        "Far east index butane": "EIA/PET_WRBSTUS1",
+        "Marine Gasoil 0.5% Singapore": "SGX/MGO",
+        "Far East Index Propane": "EIA/PET_WCRSTUS1",
+        "Far East Index Butane": "EIA/PET_WRBSTUS1",
         "Mt Belv Propane": "EIA/PET_RTPM_NUS_D",
         "Mt Belv Butane": "EIA/PET_RTBU_NUS_D",
-        "ULSD New york": "EIA/PET_RMLS_NUS_D",
-        "asia gasoil": "SGX/FOIL",
-        "marine gasoil": "SGX/MGO",
+        "ULSD New York": "EIA/PET_RMLS_NUS_D",
+        "Asia Gasoil": "SGX/FOIL",
+        "Marine Gasoil": "SGX/MGO",
         "Gold": "LBMA/GOLD",
         "Silver": "LBMA/SILVER"
     }
@@ -158,7 +145,7 @@ class MarketAnalysisTool(BaseTool):
             return f"No code mapping found for {commodity}."
 
         # Fetching market data from Quandl API
-        api_key = "ush97YpzsUyRTDZX8kWp"  # Replace with your Quandl API key
+        api_key = "ush97YpzsUyRTDZX8kWp"  # Quandl API key
         end_date = datetime.datetime.today().strftime('%Y-%m-%d')
         start_date = (datetime.datetime.today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d')  # Last 30 days
         api_endpoint = f"https://www.quandl.com/api/v3/datasets/{code}/data.json?api_key={api_key}"
@@ -174,7 +161,6 @@ class MarketAnalysisTool(BaseTool):
             return f"An error occurred while fetching market data for {commodity}: {e}"
 
     def analyze_market_data(self, commodity: str, market_data: Dict):
-        # Basic analysis example: Checking for bullish or bearish trend
         data = market_data.get("dataset_data", {}).get("data", [])
         if not data:
             return "No data available for analysis."
@@ -211,22 +197,22 @@ class MarketAnalysisTool(BaseTool):
     
 market_analysis_tool = MarketAnalysisTool()
 
-class TavilyAPI(BaseTool):
-    name: str = "TavilyAPI"
-    description: str = ("The best search engine to use. If you want to search for anything, USE IT! "
-                        "Make sure your queries are very specific or else you will "
-                        "get websites that have the same content and that will waste your time.")
+# class TavilyAPI(BaseTool):
+#     name: str = "TavilyAPI"
+#     description: str = ("The best search engine to use. If you want to search for anything, USE IT! "
+#                         "Make sure your queries are very specific or else you will "
+#                         "get websites that have the same content and that will waste your time.")
 
-    _client: TavilyClient = PrivateAttr()
+#     _client: TavilyClient = PrivateAttr()
 
-    def __init__(self, api_key: str):
-        super().__init__()
-        self._client = TavilyClient(api_key=api_key)
+#     def __init__(self, api_key: str):
+#         super().__init__()
+#         self._client = TavilyClient(api_key=api_key)
 
-    def _run(self, query: str) -> list:
-        response = self._client.search(query=query, search_depth='basic', max_results=10)
-        results = [{"Link": result["url"], "Title": result["title"]} for result in response["results"]]
-        return results
+#     def _run(self, query: str) -> list:
+#         response = self._client.search(query=query, search_depth='basic', max_results=10)
+#         results = [{"Link": result["url"], "Title": result["title"]} for result in response["results"]]
+#         return results
 
 class FileReadTool_(BaseTool):
     name: str = "Read a file's content"

@@ -1,4 +1,8 @@
 import json
+import os
+
+# Get the current directory of the file
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 def json_to_txt(json_file_path, txt_file_path):
     # Read the JSON file
@@ -26,8 +30,8 @@ def json_to_txt(json_file_path, txt_file_path):
 
 
 # Specify the file paths
-json_file_path = 'C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/crew/news_rank.json'
-txt_file_path = '/MultiAgentAI/reports/news_rank_goldenModel.txt'
+json_file_path = os.path.join(current_dir, '..', 'reports', 'news_rank.json')
+txt_file_path = os.path.join(current_dir, '..', 'reports', 'news_rank_golden_model.txt')
 
 # Convert JSON to TXT
 json_to_txt(json_file_path, txt_file_path)

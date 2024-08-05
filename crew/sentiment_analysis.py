@@ -1,46 +1,9 @@
+import json
 import os
-from crewai import Agent, Task
-from pydantic import BaseModel
-from crewai_tools import BaseTool
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from crewai import Agent, Crew, Process, Task
+from .crew_tools import SentimentAnalysisTool
 
-output_file_path_sentiment = os.path.join(os.getcwd(), './Data/reports/sources/sources_sentiment.json')
-
-class SentimentAnalysisTool(BaseTool, BaseModel):
-    name: str = "Sentiment Analysis Tool"
-    description: str = "Reads news articles from a file and performs sentiment analysis."
-    file_path: str = os.path.join(os.getcwd(), './Data/reports/sources/sources_ranked.json')
-
-    def _run(self):
-        # Read the file
-        with open(self.file_path, 'r') as file:
-            news_articles = file.read()
-
-        # Split the file content into individual articles
-        articles = news_articles.split('\n\n')  # Assuming each article is separated by two newlines
-
-        # Perform sentiment analysis on each article
-        results = []
-        for article in articles:
-            sentiment_score = self.perform_sentiment_analysis(article)
-            sentiment = "positive" if sentiment_score > 0 else "negative"
-            results.append({
-                "article": article,
-                "sentiment": sentiment
-            })
-
-        return results
-
-    def perform_sentiment_analysis(self, article: str) -> float:
-        analyzer = SentimentIntensityAnalyzer()
-        sentiment_score = analyzer.polarity_scores(article)["compound"]
-        return sentiment_score
-
-    def __call__(self):
-        return self._run()
-
-
-sentiment_analysis_tool = SentimentAnalysisTool()
+sentiment_analysis_output = os.path.join(os.getcwd(), './Data/reports/sources/sources_sentiment.json')
 
 sentiment_analysis_agent = Agent(
     role='Sentiment Analyst',
@@ -49,10 +12,9 @@ sentiment_analysis_agent = Agent(
                  You use advanced natural language processing techniques to determine the sentiment score.""",
     verbose=True,
     allow_delegation=False,
-    tools=[sentiment_analysis_tool]
+    tools=[SentimentAnalysisTool()]
 )
 
-# Define the sentiment analysis task
 sentiment_analysis_task = Task(
     description="Use tool to find and score the Sentiment analysis of each news article",
     expected_output="Sentiment score of each news articles with title and link in json format."
@@ -62,6 +24,23 @@ sentiment_analysis_task = Task(
                     'Here is an example of the expected JSON output: [{"Title":, "Link":, "Published":, "Relevancy Score":, '
                     '"Relevancy reasoning":, "Sentiment":}]',
     agent=sentiment_analysis_agent,
-    output_file=output_file_path_sentiment,
+    output_file=sentiment_analysis_output,
 )
 
+crew_sentiment = Crew(
+    agents=[sentiment_analysis_agent],
+    tasks=[sentiment_analysis_task],
+    process=Process.sequential,
+    verbose=True
+)
+
+# -----------------------------------------------------------------------------
+
+def execute_sentiment_analysis():
+    try:
+        result = crew_sentiment.kickoff()
+        with open(sentiment_analysis_output, 'w') as f:
+            json.dump(result, f, indent=2)
+        print(f"Results saved to {sentiment_analysis_output}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
