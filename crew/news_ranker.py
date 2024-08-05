@@ -13,10 +13,10 @@ if not openai_api_key:
 os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
-category = './reports/processed_articles/cleaned_exploration_news_report'
+category = './reports/FINAL_Filter_by_keywords.json'
 # Define file paths
-input_file_path = os.path.join(os.getcwd(), f'{category}.json')
-output_file_path_rank = os.path.join(os.getcwd(), './reports/news_ranking.json')
+input_file_path = os.path.join(os.getcwd(), './reports/FINAL_Filter_by_keywords.json')
+output_file_path_rank = os.path.join(os.getcwd(), './Data/reports/sources/sources_ranked.json')
 
 # class JsonSaverTool(BaseTool):
 #     name: str = "JsonSaverTool"
@@ -55,7 +55,6 @@ news_ranker = Agent(
 )
 
 
-
 # Define the task for the News Ranker agent
 news_rank_task = Task(
     description=(
@@ -63,10 +62,17 @@ news_rank_task = Task(
         "10 being the highest relevancy to traders at ADNOC Global Trading. Be specific with "
         "reasoning for your ranking, and take into consideration "
         "what you know about ADNOC and the backstory. Be more meticulous with rankings. "
-        "Read all the articles from JSON using the read_file tool."
+        "Read all the articles from JSON using the read_file tool. And make sure you give results"
+        "for all the articles not just a part of the batch."
     ),
     expected_output=(
         'relevancy score and reasoning for each articles with keeping Title, Link, Published in json format.'
+        'do not include unnecessary words or character like "json" or "'"."
+        "Ensure the output is accurate to the JSON format i.e. use square bracket, double "
+        "quotation marks to define the atrributes, commas to split attributes, does not contain the word "
+        "json, no double quotation marks at the beginning, and no unnecessary backslashes."
+        "Here is an example of the "
+        'expected JSON output: [{"Title":, "Link":, "Published":, "Relevancy Score":, "Relevancy reasoning":}].'
     ),
     agent=news_ranker,
     output_file=output_file_path_rank,

@@ -128,7 +128,7 @@ class RSSFeedScraperTool(BaseTool):
 
 # ------------------------------------------------------------------------------
 
-file_reader_tool = FileReadTool(file_path='C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/news_report_analysis_parallel.md')
+file_reader_tool = FileReadTool(file_path='/MultiAgentAI/Files I do not think we need/news_report_analysis_parallel.md')
 
 class MarketAnalysisTool(BaseTool):
     name: str = "Market Analysis Tool"
@@ -196,13 +196,13 @@ class MarketAnalysisTool(BaseTool):
         # Dummy sentiment analysis (replace with actual sentiment analysis)
         # sentiment_analysis = "positive" if price > moving_average else "negative"
 
-        analysis = (
-            f"Market Analysis for {commodity}:\n"
-            f"- Current Price: {price}\n"
-            f"- Moving Average: {moving_average}\n"
-            f"- Trend: {trend}\n"
-            # f"- Market Sentiment: {sentiment_analysis}\n"
-        )
+        analysis = {
+            "commodity": commodity,
+            "currentPrice": price,
+            "movingAverage": moving_average,
+            "trend": [ trend ]
+        }
+
         return analysis
 
     def calculate_moving_average(self, prices: list, window: int = 20) -> float:

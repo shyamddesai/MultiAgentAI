@@ -1,6 +1,8 @@
 import os
 import json
 import re
+import shutil
+
 import requests
 import time
 from bs4 import BeautifulSoup
@@ -206,13 +208,17 @@ def split_title(s):
 
 
 def split_articles(json_file):
-    category = os.path.splitext(os.path.basename(json_file))[0].replace('cleaned_', '').replace('_news_report', '')
     with open(json_file, 'r') as file:
         data = json.load(file)
 
-    output_dir = f'./reports/processed_articles/{category}/'
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir) 
+    output_dir = f'./reports/processed_articles/'
+
+    # Delete existing contents of the output directory
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
+
+    # Recreate the output directory
+    os.makedirs(output_dir)
 
     for index, entry in enumerate(data):
         content = entry.get('Content')
@@ -228,6 +234,7 @@ def split_articles(json_file):
         else:
             print(f"Warning: No 'content' key found in entry {index}")
 
+
 def process_all_json_files(directory):
     for filename in os.listdir(directory):
         if filename.endswith('.json'):
@@ -236,4 +243,3 @@ def process_all_json_files(directory):
             process_articles(file_path)
 
 process_all_json_files('./reports/categorized_news_reports')
-# split_articles('reports/processed_articles/cleaned_market_trends_news_report.json')
