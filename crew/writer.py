@@ -1,12 +1,8 @@
-import json
-
 from crewai import Agent, Task
 import os
-
 from crewai_tools.tools.file_read_tool.file_read_tool import FileReadTool
 from utils import get_openai_api_key
 from dotenv import load_dotenv
-from crewai_tools import BaseTool
 
 # -----------------------------------------------------------------------------
 # Define file paths

@@ -1,8 +1,4 @@
-import spacy
-from spacy.lang.en.stop_words import STOP_WORDS
-from rake_nltk import Rake
-from urllib.parse import quote_plus, quote
-import nltk
+from urllib.parse import quote_plus
 import feedparser
 from datetime import datetime, timedelta
 from tavily import TavilyClient

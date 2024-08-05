@@ -1,7 +1,6 @@
 import json
 import os
 
-
 def filter_articles_by_keywords_in_title_or_content(selected_keywords):
     # Path to the original JSON file
     input_file_path = './reports/temp/temp_filtered_news_report.json'

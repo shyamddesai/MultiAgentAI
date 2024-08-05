@@ -3,9 +3,6 @@ from crewai import Agent, Task
 from pydantic import BaseModel
 from crewai_tools import BaseTool
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from MultiAgentAI.crew.crew_tools import market_analysis_tool
-from MultiAgentAI.crew.config import relevant_keywords, commodity_list
-
 
 output_file_path_sentiment = os.path.join(os.getcwd(), './Data/reports/sources/sources_sentiment.json')
 

@@ -1,8 +1,7 @@
 import os
-import json
 from dotenv import load_dotenv
-from crewai import Agent, Task, Process, Crew
-from crewai_tools import FileReadTool, BaseTool
+from crewai import Agent, Task
+from crewai_tools import FileReadTool
 from utils import get_openai_api_key
 
 # Load environment variables

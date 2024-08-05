@@ -1,8 +1,6 @@
-import json
 import os
 import sys
 from crewai import Crew, Process, Agent, Task
-from crewai_tools import BaseTool
 from langchain_openai import ChatOpenAI
 
 # Determine the current directory
@@ -72,7 +70,7 @@ def marketAnalysis(selected_commodity):
 
 def userInputKeywords():
     # # Read the selected keywords from the file in user_data directory
-    keywords_file = os.path.join(os.getcwd(), 'Frontend', 'data', 'userInput', 'selected_keywords.txt')
+    keywords_file = os.path.join(os.getcwd(), 'Frontend', 'data', 'user_input', 'selected_keywords.txt')
     if os.path.exists(keywords_file):
         with open(keywords_file, 'r') as f:
             selected_keywords = f.read().splitlines()

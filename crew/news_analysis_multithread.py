@@ -1,10 +1,9 @@
 import os
 import concurrent.futures
 from crewai import Agent, Task, Crew, Process
-from crewai_tools import FileReadTool, BaseTool
-import time
-import glob
+from crewai_tools import FileReadTool
 import json
+
 os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 file_read_tool = FileReadTool()
 
