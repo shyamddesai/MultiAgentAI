@@ -198,6 +198,14 @@ def process_articles(json_file):
     # Split each article into separate JSON files for each category
     split_articles(output_file)
 
+def split_title(s):
+    idx = s.rfind('-')
+
+    if idx != -1:
+        return s[:idx], s[idx+1:]
+    else:
+        return s, ''
+
 
 def split_articles(json_file):
     with open(json_file, 'r') as file:
@@ -215,9 +223,14 @@ def split_articles(json_file):
     for index, entry in enumerate(data):
         content = entry.get('Content')
         if content is not None:
+            old_title = entry.get('Title')
+            title, source = split_title(old_title)
+            output = {}
+            output['title'] = title
+            output['source'] = source
+            output['Content'] = content
             with open(output_dir + f'content_{index}.json', 'w') as outfile:
-                json.dump(content, outfile, indent=4)
-                print("lol")
+                json.dump(output, outfile, indent=4)
         else:
             print(f"Warning: No 'content' key found in entry {index}")
 
@@ -229,5 +242,4 @@ def process_all_json_files(directory):
             print(f"\n\nProcessing file: {file_path}")
             process_articles(file_path)
 
-# process_articles('C:/Users/Laith/PycharmProjects/ProjectMultiAgent/MultiAgentAI/reports/categorized_news_reports/company_news_news_report.json')
-# process_all_json_files('./reports/categorized_news_reports')
+process_all_json_files('./reports/categorized_news_reports')
