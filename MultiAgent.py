@@ -40,6 +40,7 @@ def process_before_agents():
 
     execute_market_analysis(user_input_commodities())
 
+
 ######################################### Cherry Picking #########################################
 
 process_before_agents()
@@ -51,12 +52,11 @@ zuotong()
 ######################################### Ranking Agent #########################################
 
 execute_news_ranker()
-##IMPORTANT fix format code here
 
 ######################################### Sentiment Analysis #########################################
 
 execute_sentiment_analysis()
-##IMPORTANT fix format code here
+
 
 ######################################### Highlights Writer #########################################
 

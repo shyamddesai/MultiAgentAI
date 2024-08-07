@@ -69,10 +69,4 @@ crew_rank = Crew(
 # -----------------------------------------------------------------------------
 
 def execute_news_ranker():
-    try:
-        result = crew_rank.kickoff()
-        with open(output_file_path_rank, 'w') as f:
-            json.dump(result, f, indent=2)
-        print(f"Results saved to {output_file_path_rank}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    crew_rank.kickoff()

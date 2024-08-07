@@ -34,13 +34,8 @@ crew_sentiment = Crew(
     verbose=True
 )
 
+
 # -----------------------------------------------------------------------------
 
 def execute_sentiment_analysis():
-    try:
-        result = crew_sentiment.kickoff()
-        with open(sentiment_analysis_output, 'w') as f:
-            json.dump(result, f, indent=2)
-        print(f"Results saved to {sentiment_analysis_output}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    result = crew_sentiment.kickoff()

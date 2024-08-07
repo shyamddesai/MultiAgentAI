@@ -49,8 +49,8 @@ highlight_crew = Crew(
     agents=[writer_agent],
     tasks=[writer_task],
     manager_llm=ChatOpenAI(model="gpt-4o", temperature=0.1),
-    verbose=2, # Set verbosity level for logging
-    process=Process.sequential # Use sequential process for execution
+    verbose=2,  # Set verbosity level for logging
+    process=Process.sequential  # Use sequential process for execution
 )
 
 # -----------------------------------------------------------------------------
