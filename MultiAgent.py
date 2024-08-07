@@ -30,20 +30,20 @@ os.environ["OPENAI_MODEL_NAME"] = 'gpt-4o'
 
 # -----------------------------------------------------------------------------
 
-def process_before_agents():
-    cherry_picking(user_input_keywords())
-
-    process_json_file('./reports/FINAL_Filter_by_keywords.json', './reports/FINAL_Filter_by_keywords.json')
-    print("Files cleaned!")
-
-    split_articles('./reports/FINAL_Filter_by_keywords.json')
-
-    execute_market_analysis(user_input_commodities())
+# def process_before_agents():
+#     cherry_picking(user_input_keywords())
+#
+#     process_json_file('./reports/FINAL_Filter_by_keywords.json', './reports/FINAL_Filter_by_keywords.json')
+#     print("Files cleaned!")
+#
+#     split_articles('./reports/FINAL_Filter_by_keywords.json')
+#
+#     execute_market_analysis(user_input_commodities())
 
 
 ######################################### Cherry Picking #########################################
 
-process_before_agents()
+# process_before_agents()
 
 ######################################### Zuotong #########################################
 
